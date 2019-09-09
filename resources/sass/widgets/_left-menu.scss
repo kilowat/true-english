@@ -1,0 +1,30 @@
+.collection-word-menu{
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li{
+      a{
+        box-sizing: border-box;
+        display: inline-block;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-bottom: 1px solid #acafff;
+        text-decoration: none;
+        color: rgba(0,0,0, 0.87);
+        &.selected, &:hover{
+          color: #fff;
+          background: #ff4081;
+        }
+      }
+      &:last-child{
+        a{
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.mdl-card-square{
+  height: 220px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .mdl-card__title{
+
+  }
+  .mdl-card__title-text{
+    align-self:start;
+  }
+}
+.component-card-list{
+  .mdl-card-square{
+    text-decoration: none;
+  }
+  .mdl-card__title{
+    padding: 0;
+    background-size: cover;
+  }
+  .mdl-card__title-text{
+    text-align: center;
+    justify-content: center;
+    background-color: rgba(63, 81, 181, 0.9);
+    color: #fff;
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+  }
+  .mdl-card__actions{
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-size: 13px;
+    color: #7d7d7d;
+  }
+}
