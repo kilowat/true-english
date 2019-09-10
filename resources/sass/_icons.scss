@@ -1,0 +1,73 @@
+.icon{
+  display: inline-block;
+}
+.ic-play{
+  background-image: url('/images/videoplay.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+}
+.ic-youglish{
+  background-image: url('/images/logo_youglish.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 48px;
+}
+.ico-word-hunt{
+  background-color: yellowgreen;
+  color: #fff;
+  border-radius: 100%;
+  height: 24px;
+  width: 24px;
+  text-align: center;
+  font-style: normal;
+  position: relative;
+  &:before{
+    position: absolute;
+    content: "W";
+    color: #fff;
+    left: 23%;
+    top: 13%;
+  }
+}
+.ico-meriam{
+  color: #fff;
+  border-radius: 100%;
+  height: 24px;
+  width: 24px;
+  text-align: center;
+  font-style: normal;
+  position: relative;
+  border: 1px solid darkblue;
+  box-sizing: border-box;
+  &:before{
+    position: absolute;
+    content: "M";
+    color: darkblue;
+    left: 20%;
+    top: 8%;
+  }
+}
+.ico-reverso{
+  background-image: url('/images/reverso.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  border-radius: 100%;
+  border: 1px solid #5e62ff;
+  box-sizing: border-box;
+}
+.ic-svg{
+  width: 24px;
+  height: 24px;
+}
+.ic-search{
+  width: 28px;
+  height: 28px;
+}

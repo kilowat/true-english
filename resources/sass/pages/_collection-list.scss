@@ -1,6 +1,11 @@
 .component-card-list__sort-panel{
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 18px;
+  align-items: center;
+  label{
+    margin-right: 4px;
+  }
 }
 .component-card-list__sort-item{
   display: flex;
@@ -10,4 +15,5 @@
 .component-card-list__sort-buttons {
   margin-left: 4px;
   display: inline-block;
+  cursor: pointer;
 }

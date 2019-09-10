@@ -17,7 +17,7 @@ html, body {
   min-height: 48px;
 }
 .container{
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
   padding-left: 16px;
   padding-right: 16px;
@@ -98,4 +98,20 @@ html, body {
 .mdl-grid{
   margin-left: -16px;
   margin-right: -16px;
+}
+.table{
+  display: table;
+  width: 100%;
+}
+.table-row{
+  display: table-row;
+  &:nth-child(odd){
+    .table-cell{
+      background-color: #f2f2f2;
+    }
+  }
+}
+.table-cell{
+  display: table-cell;
+  padding: 6px;
 }

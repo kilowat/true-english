@@ -1,0 +1,17 @@
+.text-input{
+  height: 32px;
+  border: 1px solid #ccc;
+  width: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
+  &:focus{
+    box-shadow: 0px 0px 2px 1px rgba(135, 170, 249, 0.4);
+  }
+}
+.search-button{
+  background-color: transparent;
+  cursor: pointer;
+  box-shadow: none;
+  border: none;
+}
