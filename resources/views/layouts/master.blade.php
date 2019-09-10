@@ -23,13 +23,13 @@
                     </div>
                 </div>
             </header>
-            <main class="mdl-layout__content container">
-                @yield("sidebar")
-                <div class="content @yield("sidebar-class")">
-                    @yield("section_name")
-                    @yield("content")
+            <main>
+                <div class="container @yield("sidebar-class")">
+                    @yield("sidebar")
+                    <div class="content">
+                        @yield("content")
+                    </div>
                 </div>
-
             </main>
             <footer class="mdl-mega-footer">
                 <div class="mdl-mega-footer--middle-section container">

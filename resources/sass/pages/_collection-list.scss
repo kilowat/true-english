@@ -1,0 +1,13 @@
+.component-card-list__sort-panel{
+  display: flex;
+  flex-wrap: wrap;
+}
+.component-card-list__sort-item{
+  display: flex;
+  justify-items: center;
+  margin-right: 16px;
+}
+.component-card-list__sort-buttons {
+  margin-left: 4px;
+  display: inline-block;
+}

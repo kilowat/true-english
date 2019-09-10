@@ -21,6 +21,13 @@ html, body {
   margin: auto;
   padding-left: 16px;
   padding-right: 16px;
+  &.with-sidebar{
+    display: flex;
+    width: 100%;
+    .content{
+      width:calc(100% - 240px);
+    }
+  }
 }
 .navigation-row{
   height: 50px;
@@ -36,6 +43,9 @@ html, body {
   li{
     display: flex;
     width: 12.5%;
+    &:first-child a{
+      margin-left: 0;
+    }
     a{
       background-color: #5e62ff;
       margin-left: 5px;
@@ -72,7 +82,20 @@ html, body {
 }
 .content{
   margin-top: 28px;
+  margin-bottom: 50px;
 }
 .mdl-mega-footer--bottom-section{
   padding-bottom: 12px;
+}
+.section-name{
+  margin-top: 0;
+  font-size: 22px;
+  text-align: center;
+}
+.grid-wrapper{
+
+}
+.mdl-grid{
+  margin-left: -16px;
+  margin-right: -16px;
 }

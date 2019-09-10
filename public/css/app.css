@@ -11138,6 +11138,15 @@ body {
   padding-right: 16px;
 }
 
+.container.with-sidebar {
+  display: flex;
+  width: 100%;
+}
+
+.container.with-sidebar .content {
+  width: calc(100% - 240px);
+}
+
 .navigation-row {
   height: 50px;
   background-color: #3f51b5;
@@ -11154,6 +11163,10 @@ body {
 .navigation-row ul li {
   display: flex;
   width: 12.5%;
+}
+
+.navigation-row ul li:first-child a {
+  margin-left: 0;
 }
 
 .navigation-row ul li a {
@@ -11195,10 +11208,22 @@ body {
 
 .content {
   margin-top: 28px;
+  margin-bottom: 50px;
 }
 
 .mdl-mega-footer--bottom-section {
   padding-bottom: 12px;
+}
+
+.section-name {
+  margin-top: 0;
+  font-size: 22px;
+  text-align: center;
+}
+
+.mdl-grid {
+  margin-left: -16px;
+  margin-right: -16px;
 }
 
 .mdl-card-square {
@@ -11292,5 +11317,21 @@ body {
 
 .ads-block img {
   max-width: 100%;
+}
+
+.component-card-list__sort-panel {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.component-card-list__sort-item {
+  display: flex;
+  justify-items: center;
+  margin-right: 16px;
+}
+
+.component-card-list__sort-buttons {
+  margin-left: 4px;
+  display: inline-block;
 }
 

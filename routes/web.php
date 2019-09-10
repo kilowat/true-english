@@ -13,4 +13,5 @@
 
 Route::get('word-collections', 'WordCollectionController@list')->name('word-collection.list');
 Route::get('word-collections/id/{id}', 'WordCollectionController@detail')->name('word-collection.detail');
+Route::get('word-collections/section/{id}', 'WordCollectionController@section')->name('word-collection.section');
 Route::get('/', 'PageController@home')->name('page.home');
