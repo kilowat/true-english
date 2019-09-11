@@ -2,6 +2,7 @@
 
 namespace App\Widgets;
 
+use App\Models\WordSection;
 use Arrilot\Widgets\AbstractWidget;
 
 class CollectionWordMenu extends AbstractWidget
@@ -19,10 +20,10 @@ class CollectionWordMenu extends AbstractWidget
      */
     public function run()
     {
-        //
+        $menu_item = WordSection::withDepth()->having('depth', '=', 0)->get();
 
         return view('widgets.collection_word_menu', [
-            'config' => $this->config,
+            'items' => $menu_item,
         ]);
     }
 }

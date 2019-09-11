@@ -11441,6 +11441,18 @@ html, body {
   cursor: pointer;
 }
 
+.collection-detail__descr {
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.collection-detail__pic {
+  margin-right: 14px;
+}
+
 .collection-detail__cell.word-name {
   font-weight: 600;
 }

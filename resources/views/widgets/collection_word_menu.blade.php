@@ -1,22 +1,7 @@
 <div class="collection-word-menu">
     <ul>
-        <li>
-            <a href="" title="" class="selected">Пункт 1</a>
-        </li>
-        <li>
-            <a href="" title="">Пункт 1</a>
-        </li>
-        <li>
-            <a href="" title="">Пункт 1</a>
-        </li>
-        <li>
-            <a href="" title="">Пункт 1</a>
-        </li>
-        <li>
-            <a href="" title="">Пункт 1</a>
-        </li>
-        <li>
-            <a href="" title="">Пункт 1</a>
-        </li>
+        @foreach ($items as $item)
+            <li><a href="{{ $item->link }}">{{ $item->name }}</a></li>
+        @endforeach
     </ul>
 </div>

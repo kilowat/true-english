@@ -19,4 +19,5 @@ class WordCollectionController extends Controller
     public function section($id){
         return view('pages.word_collection_section');
     }
+
 }

@@ -17,6 +17,34 @@
     <section class="collection-detail">
         <h1 class="mdl-typography--title section-name">Детальное название</h1>
 
+        <div class="collection-detail__descr">
+            <div class="collection-detail__pic">
+                <img src="/images/ted.jpg" alt="" height="120">
+            </div>
+            <div class="collection-detail__property-list">
+                <div class="collection-detail__property-item">
+                    <span class="collection-detail__name">Кол-во слов:</span>
+                    <span class="collection-detail__value">2000</span>
+                </div>
+                <div class="collection-detail__property-item">
+                    <span class="collection-detail__name">Excel таблица:</span>
+                    <span class="collection-detail__value">Icon</span>
+                </div>
+                <div class="collection-detail__property-item">
+                    <span class="collection-detail__name">Ссылка на ролик:</span>
+                    <span class="collection-detail__value">Link</span>
+                </div>
+                <div class="collection-detail__property-item">
+                    <span class="collection-detail__name">Ссылка на на книгу:</span>
+                    <span class="collection-detail__value">Link</span>
+                </div>
+                <div class="collection-detail__property-item">
+                    <a href="" title="Посмотреть" class="button-see-video">Посмотреть</a>
+                </div>
+            </div>
+        </div>
+
+
         <div class="component-card-list__sort-panel">
             <div class="component-card-list__sort-item">
                 <label>Шрифт:</label>
@@ -352,61 +380,4 @@
             </div>
         </div>
     </section>
-
-
-
-    <!-- 1. The widget will replace this <div> tag. -->
-    <div id="widget-1"></div>
-
-
-    <script>
-        // 2. This code loads the widget API code asynchronously.
-        var tag = document.createElement('script');
-
-        tag.src = "https://youglish.com/public/emb/widget.js";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        // 3. This function creates a widget after the API code downloads.
-        var widget;
-        function onYouglishAPIReady(){
-            widget = new YG.Widget("widget-1", {
-                width: 640,
-                components: 88,
-                events: {
-                    'onSearchDone': onSearchDone,
-                    'onVideoChange': onVideoChange,
-                    'onCaptionConsumed': onCaptionConsumed
-                }
-            });
-            // 4. process the query
-            widget.search("courage","US");
-        }
-
-
-        var views = 0, curTrack = 0, totalTracks = 0;
-
-        // 5. The API will call this method when the search is done
-        function onSearchDone(event){
-            if (event.totalResult === 0)   alert("No result found");
-            else totalTracks = event.totalResult;
-        }
-
-        // 6. The API will call this method when switching to a new video.
-        function onVideoChange(event){
-            curTrack = event.trackNumber;
-            views = 0;
-        }
-
-        // 7. The API will call this method when a caption is consumed.
-        function onCaptionConsumed(event){
-            return ;
-            if (++views < 3)
-                widget.replay();
-            else
-            if (curTrack < totalTracks)
-                widget.next();
-        }
-    </script>
-
 @endsection
