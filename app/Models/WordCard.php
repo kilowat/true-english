@@ -11,4 +11,18 @@ class WordCard extends Model
             ."/".$current_section_code
             ."/".$code.".html";
     }
+
+    public function words(){
+        return $this->belongsToMany(
+            'App\Models\Word',
+            'word_cards_words',
+            'word_id',
+            'card_id',
+            'id',
+            'id');
+    }
 }
+/*
+ *     public function belongsToMany($related, $table = null, $foreignPivotKey = null, $relatedPivotKey = null,
+                                  $parentKey = null, $relatedKey = null, $relation = null)
+ */

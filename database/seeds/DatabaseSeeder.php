@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             WordSectionsTableSeeder::class,
             WordCardsTableSeeder::class,
+            WordsTableSeeder::class,
+            WordCardsWordsTableSeeder::class,
         ]);
     }
 }

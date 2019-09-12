@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Word;
 use App\Models\WordCard;
 use App\Models\WordSection;
 use Illuminate\Http\Request;
 
 class WordCollectionController extends FrontController
 {
-    private $paginateCount = 12;
+    private $elementPaginateCount = 12;
+    private $wordPaginateCount = 10;
 
     public function list()
     {
@@ -17,9 +19,16 @@ class WordCollectionController extends FrontController
         return view("pages.word_collection_list", ['sections' => $sections]);
     }
 
-    public function detail($parent_section_code, $current_section_code ,$element_code)
+    public function detail($parent_section_code, $current_section_code, $element_code, Word $words)
     {
-        return view("pages.word_collection_detail");
+        $card = WordCard::where('code', '=', $element_code)->first();
+
+        $word_list = $words->whereHas('cards', function($query) use($card){
+            $query->where('card_id', '=', $card->id);
+        })->paginate($this->wordPaginateCount);
+
+
+        return view("pages.word_collection_detail", ['word_list' => $word_list]);
     }
 
     public function section($section_code, $parent_section = null){
@@ -28,7 +37,7 @@ class WordCollectionController extends FrontController
         $this->checkNeedShow404($current_section);
 
         $sections = WordSection::where('parent_id', '=', $current_section->id)
-            ->paginate($this->paginateCount);
+            ->paginate($this->elementPaginateCount);
 
         $data =  [
             "sections" => $sections,

@@ -11,6 +11,14 @@ class WordsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        for($i = 0; $i < 100; $i++){
+            DB::table('words')->insert(
+                [
+                    'name' => 'absolutely'.$i,
+                    'transcription' => '|ˈæbsəluːtli|',
+                    'translate' => 'абсолютно, совершенно, конечно, полностью, точно, безусловно, просто, совсем, крайне, обязательно, категорически, вообще, несомненно, определенно, никак',
+                ]
+            );
+        }
     }
 }
