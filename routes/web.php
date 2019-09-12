@@ -12,6 +12,8 @@
 */
 
 Route::get('word-collections', 'WordCollectionController@list')->name('word-collection.list');
-Route::get('word-collections/id/{id}', 'WordCollectionController@detail')->name('word-collection.detail');
-Route::get('word-collections/section/{id}', 'WordCollectionController@section')->name('word-collection.section');
+Route::get('word-collections/{parent_section_code}/{current_section_code}/{element_code}.html', 'WordCollectionController@detail')->name('word-collection.detail');
+Route::get('word-collections/{parent_code}/{section_code}', 'WordCollectionController@elements')->name('word-collection.elements');
+Route::get('word-collections/{section_code}', 'WordCollectionController@section')->name('word-collection.section');
+
 Route::get('/', 'PageController@home')->name('page.home');

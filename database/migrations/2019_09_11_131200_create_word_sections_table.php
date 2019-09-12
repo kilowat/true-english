@@ -17,13 +17,12 @@ class CreateWordSectionsTable extends Migration
         Schema::create('word_sections', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 45);
+            $table->string('code', 100)->unique();
             $table->string('text', 1000)->nullable();
             $table->string('picture', 100)->nullable();
             $table->string('title', 255)->nullable();
             $table->string('description', 255)->nullable();
-            $table->boolean('actived')->default(true);
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
+            $table->timestamps();
             $table->integer("sort")->default(100);
             NestedSet::columns($table);
         });

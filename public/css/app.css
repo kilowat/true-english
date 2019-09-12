@@ -11234,6 +11234,19 @@ html, body {
   padding: 6px;
 }
 
+.nav-pagen {
+  text-align: center;
+}
+.nav-pagen .pagination {
+  list-style: none;
+  margin-right: 0;
+  padding: 0;
+}
+.nav-pagen .pagination li {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .text-input {
   height: 32px;
   border: 1px solid #ccc;

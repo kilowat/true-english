@@ -24,98 +24,19 @@
         </div>
 
         <div class="mdl-grid">
+            @foreach($sections as $section)
                 <div class="mdl-cell mdl-cell--4-col">
-                    <a class="mdl-card-square mdl-shadow--2dp" href="/word-collections/section/1" title="#">
-                        <div class="mdl-card__title mdl-card--expand" style="background-image:url('/images/ted.jpg')">
-                            <div class="mdl-card__title-text">Раздел 2</div>
+                    <a class="mdl-card-square mdl-shadow--2dp" href="{{ $section->link }}" title="{{ $section->name }}">
+                        <div class="mdl-card__title mdl-card--expand" style="background-image:url('{{ $section->previewPicture }}')">
+                            <div class="mdl-card__title-text">{{ $section->name }}</div>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
                             <div class="mdl-card__word-count">Сборников: <b>4000</b></div>
                         </div>
                     </a>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col">
-                    <a class="mdl-card-square mdl-shadow--2dp" href="#" title="#">
-                        <div class="mdl-card__title mdl-card--expand" style="background-image:url('/images/ted.jpg')">
-                            <div class="mdl-card__title-text">Раздел 3</div>
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <div class="mdl-card__word-count">Сборников: <b>4000</b></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mdl-cell mdl-cell--4-col">
-                    <a class="mdl-card-square mdl-shadow--2dp" href="#" title="#">
-                        <div class="mdl-card__title mdl-card--expand" style="background-image:url('/images/ted.jpg')">
-                            <div class="mdl-card__title-text">Раздел 4</div>
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <div class="mdl-card__word-count">Сборников: <b>4000</b></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mdl-cell mdl-cell--4-col">
-                    <a class="mdl-card-square mdl-shadow--2dp" href="#" title="#">
-                        <div class="mdl-card__title mdl-card--expand" style="background-image:url('/images/ted.jpg')">
-                            <div class="mdl-card__title-text">Раздел 5</div>
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <div class="mdl-card__word-count">Сборников: <b>4000</b></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mdl-cell mdl-cell--4-col">
-                    <a class="mdl-card-square mdl-shadow--2dp" href="#" title="#">
-                        <div class="mdl-card__title mdl-card--expand" style="background-image:url('/images/ted.jpg')">
-                            <div class="mdl-card__title-text">Раздел 6</div>
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <div class="mdl-card__word-count">Сборников: <b>4000</b></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mdl-cell mdl-cell--4-col">
-                    <a class="mdl-card-square mdl-shadow--2dp" href="#" title="#">
-                        <div class="mdl-card__title mdl-card--expand" style="background-image:url('/images/ted.jpg')">
-                            <div class="mdl-card__title-text">Раздел 7</div>
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <div class="mdl-card__word-count">Сборников: <b>4000</b></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mdl-cell mdl-cell--4-col">
-                    <a class="mdl-card-square mdl-shadow--2dp" href="#" title="#">
-                        <div class="mdl-card__title mdl-card--expand" style="background-image:url('/images/ted.jpg')">
-                            <div class="mdl-card__title-text">Раздел 8</div>
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <div class="mdl-card__word-count">Сборников: <b>4000</b></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mdl-cell mdl-cell--4-col">
-                    <a class="mdl-card-square mdl-shadow--2dp" href="#" title="#">
-                        <div class="mdl-card__title mdl-card--expand" style="background-image:url('/images/ted.jpg')">
-                            <div class="mdl-card__title-text">Раздел 9</div>
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <div class="mdl-card__word-count">Сборников: <b>4000</b></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mdl-cell mdl-cell--4-col">
-                    <a class="mdl-card-square mdl-shadow--2dp" href="#" title="#">
-                        <div class="mdl-card__title mdl-card--expand" style="background-image:url('/images/ted.jpg')">
-                            <div class="mdl-card__title-text">Раздел 10</div>
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <div class="mdl-card__word-count">Сборников: <b>4000</b></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
+            @endforeach
+        </div>
     </section>
 
 @endsection
