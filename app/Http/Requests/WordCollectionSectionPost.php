@@ -13,7 +13,7 @@ class WordCollectionSectionPost extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class WordCollectionSectionPost extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+            'name' => 'required',
+            'code' => 'required|unique:word_sections',
         ];
     }
 }

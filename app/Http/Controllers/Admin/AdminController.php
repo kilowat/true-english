@@ -12,7 +12,7 @@ class AdminController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __construct(){
-        $this->middleware(['admin.auth','admin']);
+        //$this->middleware(['admin.auth','admin']);
     }
 
     public function login(){

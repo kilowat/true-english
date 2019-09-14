@@ -18,7 +18,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table id="example2" class="table table-bordered table-hover">
+                    <table id="section-table" class="table table-bordered table-hover">
                         <thead>
                         <tr>
                             <th>id</th>
@@ -37,7 +37,7 @@
                         <tr>
                             <td>{{ $section->id }}</td>
                             <td>{{ str_repeat("- ", $section->depth) }}{{ $section->name }}</td>
-                            <td>Win 95+</td>
+                            <td><img src="{{ $section->previewPicture }}" style="max-width: 80px" alt=""></td>
                             <td>
                                 <span>Кол-во: {{ count($section->children) }}</span>
                             </td>
@@ -75,4 +75,18 @@
         <!-- /.col -->
     </div>
     <!-- /.row -->
+@stop
+@section('js')
+    <script>
+        $(function () {
+            $('#section-table').DataTable({
+                'paging'      : false,
+                'lengthChange': false,
+                'searching'   : false,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : true
+            })
+        })
+    </script>
 @stop

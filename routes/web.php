@@ -23,7 +23,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
     Route::get('word-collection-sections', 'AdminWordCollectionController@index')->name('admin.word-collection-sections.index');
     Route::get('word-collection-sections/add', 'AdminWordCollectionController@addSection')->name('admin.word-collection-sections.addSection');
-    Route::post('word-collection-sections/add', 'AdminWordCollectionController@store')->name('admin.word-collection-sections.store');
+    Route::post('word-collection-sections', 'AdminWordCollectionController@store')->name('admin.word-collection-sections.store');
 
     Route::get('admin/login', 'AdminAuthController@login')->name('admin.login');
 

@@ -14,7 +14,8 @@
         "jeroennoten/laravel-adminlte": "^1.27",
         "kalnoy/nestedset": "^5.0",
         "laravel/framework": "5.8.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "qcod/laravel-imageup": "^1.0"
     },
     "require-dev": {
         "appzcoder/crud-generator": "^3.0",
