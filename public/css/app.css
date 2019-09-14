@@ -54,7 +54,7 @@
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -136,7 +136,7 @@
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -157,7 +157,7 @@
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -256,7 +256,7 @@
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -338,7 +338,7 @@
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -359,7 +359,7 @@
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -682,7 +682,7 @@ main {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -764,7 +764,7 @@ main {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -785,7 +785,7 @@ main {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -1265,7 +1265,7 @@ ul, ol {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -1347,7 +1347,7 @@ ul, ol {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -1368,7 +1368,7 @@ ul, ol {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -3113,7 +3113,7 @@ ul, ol {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -3195,7 +3195,7 @@ ul, ol {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -3216,7 +3216,7 @@ ul, ol {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -3298,7 +3298,7 @@ ul, ol {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -3380,7 +3380,7 @@ ul, ol {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -3401,7 +3401,7 @@ ul, ol {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -3478,7 +3478,7 @@ ul, ol {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -3560,7 +3560,7 @@ ul, ol {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -3581,7 +3581,7 @@ ul, ol {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -3683,7 +3683,7 @@ ul, ol {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -3765,7 +3765,7 @@ ul, ol {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -3786,7 +3786,7 @@ ul, ol {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -4057,7 +4057,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -4139,7 +4139,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -4160,7 +4160,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -4307,7 +4307,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -4389,7 +4389,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -4410,7 +4410,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -4610,7 +4610,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -4692,7 +4692,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -4713,7 +4713,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -4852,7 +4852,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -4934,7 +4934,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -4955,7 +4955,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -5122,7 +5122,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -5204,7 +5204,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -5225,7 +5225,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -5339,7 +5339,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -5421,7 +5421,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -5442,7 +5442,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -5753,7 +5753,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -5835,7 +5835,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -5856,7 +5856,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -5974,7 +5974,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -6056,7 +6056,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -6077,7 +6077,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -6215,7 +6215,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -6297,7 +6297,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -6318,7 +6318,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -6514,7 +6514,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -6596,7 +6596,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -6617,7 +6617,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -6838,7 +6838,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -6920,7 +6920,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -6941,7 +6941,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -7120,7 +7120,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -7202,7 +7202,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -7223,7 +7223,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -7772,7 +7772,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -7854,7 +7854,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -7875,7 +7875,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -8060,7 +8060,7 @@ input.mdl-button[type="submit"] {
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -8142,7 +8142,7 @@ input.mdl-button[type="submit"] {
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -8163,7 +8163,7 @@ input.mdl-button[type="submit"] {
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -8441,7 +8441,7 @@ align-self: center;
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -8523,7 +8523,7 @@ align-self: center;
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -8544,7 +8544,7 @@ align-self: center;
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -8695,7 +8695,7 @@ align-self: center; }
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -8777,7 +8777,7 @@ align-self: center; }
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -8798,7 +8798,7 @@ align-self: center; }
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -9160,7 +9160,7 @@ align-self: center; }
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -9242,7 +9242,7 @@ align-self: center; }
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -9263,7 +9263,7 @@ align-self: center; }
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -9475,7 +9475,7 @@ align-self: center; }
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -9557,7 +9557,7 @@ align-self: center; }
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -9578,7 +9578,7 @@ align-self: center; }
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -9723,7 +9723,7 @@ align-self: center; }
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -9805,7 +9805,7 @@ align-self: center; }
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -9826,7 +9826,7 @@ align-self: center; }
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -10047,7 +10047,7 @@ align-self: center; }
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -10129,7 +10129,7 @@ align-self: center; }
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -10150,7 +10150,7 @@ align-self: center; }
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -10264,7 +10264,7 @@ align-self: center; }
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -10346,7 +10346,7 @@ align-self: center; }
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -10367,7 +10367,7 @@ align-self: center; }
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**
@@ -10477,7 +10477,7 @@ align-self: center; }
  * -----Footer
  * -----Column
  * -----Checkbox
- * -----Card
+ * -----CardPost
  * -----Button
  * -----Animation
  * -----Progress
@@ -10559,7 +10559,7 @@ align-self: center; }
 /* ==========  Switches  ========== */
 /* ==========  Spinner  ========== */
 /* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
+/* ==========  CardPost  ========== */
 /* ==========  Sliders ========== */
 /* ========== Progress ========== */
 /* ==========  List ========== */
@@ -10580,7 +10580,7 @@ align-self: center; }
 /*mini-footer*/
 /* CHECKBOX */
 /* CARD */
-/* Card dimensions */
+/* CardPost dimensions */
 /* Cover image */
 /* BUTTON */
 /**

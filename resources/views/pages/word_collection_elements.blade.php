@@ -43,7 +43,7 @@
             @foreach($elements as $item)
                 <div class="mdl-cell mdl-cell--4-col">
                     <a class="mdl-card-square mdl-shadow--2dp" href="{{ \App\Models\WordCard::makeUrlToDetail($parent_section_code, $section->code, $item->code)}}" title="">
-                        <div class="mdl-card__title mdl-card--expand" >
+                        <div class="mdl-card__title mdl-card--expand" style="background-image:url('{{ $item->previewPicture }}')">
                             <div class="mdl-card__title-text">{{ $item->name }}</div>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">

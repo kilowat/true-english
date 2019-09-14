@@ -31,18 +31,6 @@ class AdminWordCollectionController extends AdminController
     }
 
     public function store(WordCollectionSectionPost $request){
-        /*
-        $attribute = [
-            'name' => $request->name,
-            'code' => $request->code,
-            'text' => $request->text,
-            'picture' =>$request->picture,
-            'title' => $request->title,
-            'description' => $request->description,
-            'active' => $request->active,
-            'sort' => $request->sort,
-        ];
-        */
         if($request->parent_id){
             $parent = WordSection::find($request->parent_id);
             WordSection::create($request->all(), $parent);

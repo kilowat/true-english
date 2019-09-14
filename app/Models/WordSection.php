@@ -37,7 +37,6 @@ class WordSection extends Model
         }else{
             return '/images/default_pic.jpg';
         }
-
     }
 
     public function setActiveAttribute($value)

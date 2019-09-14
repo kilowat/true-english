@@ -21,9 +21,21 @@ Route::get('/', 'PageController@home')->name('page.home');
 Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/', 'AdminPageController@index')->name('admin.index');
 
+    /*******word-collection******/
     Route::get('word-collection-sections', 'AdminWordCollectionController@index')->name('admin.word-collection-sections.index');
     Route::get('word-collection-sections/add', 'AdminWordCollectionController@addSection')->name('admin.word-collection-sections.addSection');
     Route::post('word-collection-sections', 'AdminWordCollectionController@store')->name('admin.word-collection-sections.store');
+    /***************************/
+
+    /*******card******/
+    Route::get('cards', 'AdminCardController@index')->name('admin.card.index');
+    Route::post('cards', 'AdminCardController@store')->name('admin.card.store');
+    Route::get('cards/add', 'AdminCardController@add')->name('admin.card.add');
+    /***************************/
+
+    /*******word********/
+    Route::get('words', 'AdminWordController@index')->name('admin.word.index');
+    /******************/
 
     Route::get('admin/login', 'AdminAuthController@login')->name('admin.login');
 

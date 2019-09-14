@@ -14,7 +14,7 @@ class WordCollectionController extends Controller
 
     public function list()
     {
-        $sections = WordSection::withDepth()->having('depth', '=', 0)->get();
+        $sections = WordSection::where('parent_id', '=', null)->get();
 
         return view("pages.word_collection_list", ['sections' => $sections]);
     }

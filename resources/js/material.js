@@ -3627,7 +3627,7 @@ componentHandler.register({
  * limitations under the License.
  */
 /**
-   * Class constructor for Data Table Card MDL component.
+   * Class constructor for Data Table CardPost MDL component.
    * Implements MDL component design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *

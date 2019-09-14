@@ -130,13 +130,18 @@ return [
     'menu' => [
         ['header' => 'Сборники слов'],
         [
-            'text'        => 'Разделы',
-            'url'         => 'admin/word-collection-sections',
+            'text' => 'Разделы',
+            'url'  => 'admin/word-collection-sections',
             'icon' => 'fas fa-fw fa-file',
         ],
         [
-            'text'        => 'Элементы',
-            'url'         => 'admin/word-collections',
+            'text' => 'Карточки',
+            'url'  => 'admin/cards',
+            'icon' => 'fa fa-th-list',
+        ],
+        [
+            'text' => 'Слова',
+            'url' => 'admin/words',
             'icon' => 'fa fa-th-list',
         ],
         ['header' => 'account_settings'],
