@@ -17,3 +17,17 @@ Route::get('word-collections/{parent_code}/{section_code}', 'WordCollectionContr
 Route::get('word-collections/{section_code}', 'WordCollectionController@section')->name('word-collection.section');
 
 Route::get('/', 'PageController@home')->name('page.home');
+
+Route::prefix('admin')->namespace('Admin')->group(function () {
+    Route::get('/', 'AdminPageController@index')->name('admin.index');
+
+    Route::get('word-collection-sections', 'AdminWordCollectionController@index')->name('admin.word-collection-sections.index');
+    Route::get('word-collection-sections/add', 'AdminWordCollectionController@addSection')->name('admin.word-collection-sections.addSection');
+    Route::post('word-collection-sections/add', 'AdminWordCollectionController@store')->name('admin.word-collection-sections.store');
+
+    Route::get('admin/login', 'AdminAuthController@login')->name('admin.login');
+
+});
+
+Auth::routes();
+

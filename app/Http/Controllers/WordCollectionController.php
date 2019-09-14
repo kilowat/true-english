@@ -7,7 +7,7 @@ use App\Models\WordCard;
 use App\Models\WordSection;
 use Illuminate\Http\Request;
 
-class WordCollectionController extends FrontController
+class WordCollectionController extends Controller
 {
     private $elementPaginateCount = 12;
     private $wordPaginateCount = 10;
@@ -23,12 +23,13 @@ class WordCollectionController extends FrontController
     {
         $card = WordCard::where('code', '=', $element_code)->first();
 
+        $this->checkNeedShow404($card);
+
         $word_list = $words->whereHas('cards', function($query) use($card){
             $query->where('card_id', '=', $card->id);
         })->paginate($this->wordPaginateCount);
 
-
-        return view("pages.word_collection_detail", ['word_list' => $word_list]);
+        return view("pages.word_collection_detail", ['word_list' => $word_list, 'card' => $card]);
     }
 
     public function section($section_code, $parent_section = null){

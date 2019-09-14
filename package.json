@@ -23,5 +23,9 @@
         "svg-spritemap-webpack-plugin": "^3.4.0",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "laravel-vue-datatable": "^0.3.7",
+        "vuejs-datatable": "^1.7.0"
     }
 }

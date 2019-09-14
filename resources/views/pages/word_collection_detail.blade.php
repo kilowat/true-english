@@ -1,4 +1,3 @@
-
 @extends('layouts.master')
 
 @section('title', 'Page Title')
@@ -15,7 +14,7 @@
 
 @section('content')
     <section class="collection-detail">
-        <h1 class="mdl-typography--title section-name">Детальное название</h1>
+        <h1 class="mdl-typography--title section-name">{{ $card->name }}</h1>
 
         <div class="collection-detail__descr">
             <div class="collection-detail__pic">
@@ -24,18 +23,14 @@
             <div class="collection-detail__property-list">
                 <div class="collection-detail__property-item">
                     <span class="collection-detail__name">Кол-во слов:</span>
-                    <span class="collection-detail__value">2000</span>
+                    <span class="collection-detail__value">{{ $word_list->total() }}</span>
                 </div>
                 <div class="collection-detail__property-item">
                     <span class="collection-detail__name">Excel таблица:</span>
                     <span class="collection-detail__value">Icon</span>
                 </div>
                 <div class="collection-detail__property-item">
-                    <span class="collection-detail__name">Ссылка на ролик:</span>
-                    <span class="collection-detail__value">Link</span>
-                </div>
-                <div class="collection-detail__property-item">
-                    <span class="collection-detail__name">Ссылка на на книгу:</span>
+                    <span class="collection-detail__name">Источник:</span>
                     <span class="collection-detail__value">Link</span>
                 </div>
                 <div class="collection-detail__property-item">
@@ -55,7 +50,7 @@
                 </select>
             </div>
             <div class="component-card-list__sort-item">
-                <span>Индекс:</span>
+                <span>Частота:</span>
                 <div class="component-card-list__sort-buttons">
                     <button>asc</button>
                     <button>desc</button>
@@ -81,10 +76,14 @@
         </div>
 
         <div class="collection-detail__list table">
+            <?$count = ($word_list->currentPage() * $word_list->perPage()) - $word_list->perPage() + 1; //dd($word_list)?>
             @foreach($word_list as $word)
                 <div class="collection-detail__item table-row">
                 <div class="collection-detail__cell table-cell word-number">
-                    1
+                    {{ $count }}
+                </div>
+                <div class="collection-detail__cell table-cell word-procent">
+                    0.01%
                 </div>
                 <div class="collection-detail__cell table-cell word-name">
                     {{ $word->name }}
@@ -97,7 +96,7 @@
                     </div>
                 </div>
                 <div class="collection-detail__cell table-cell word-transcription">
-                    |trænˈzækʃənz|
+                    {{ $word->transcription }}
                     <div class="collection-detail__actions">
                         <div class="row">
                             <button class="collection-detail__action-button"><i class="icon ic-play"></i></button>
@@ -106,10 +105,14 @@
                     </div>
                 </div>
                 <div class="collection-detail__cell table-cell word-translate">
-                    операций, сделок, сделки, операциях, сделках, сделкам, операциями, операциям, транзакций, сделками, транзакциях, финансовые операции, транзакциями
+                 {{ $word->translate }}
                 </div>
             </div>
+                    <?$count++;?>
             @endforeach
+        </div>
+        <div class="nav-pagen">
+            {{ $word_list->links() }}
         </div>
     </section>
 @endsection
