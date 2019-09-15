@@ -35,6 +35,11 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
     /*******word********/
     Route::get('words', 'AdminWordController@index')->name('admin.word.index');
+    Route::get('words/data-list', 'AdminWordController@dataList')->name('admin.word.data-list');
+    /******************/
+
+    /*******word generator********/
+    Route::get('word-generator', 'AdminWordGeneratorController@index')->name('admin.word-generator.index');
     /******************/
 
     Route::get('admin/login', 'AdminAuthController@login')->name('admin.login');

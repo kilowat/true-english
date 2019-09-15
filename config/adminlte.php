@@ -144,6 +144,16 @@ return [
             'url' => 'admin/words',
             'icon' => 'fa fa-th-list',
         ],
+        [
+            'text' => 'Генератор слова',
+            'url' => 'admin/word-generator',
+            'icon' => 'fa fa-th-list',
+        ],
+        [
+            'text' => 'Бэкап словаря',
+            'url' => 'admin/word-backup',
+            'icon' => 'fa fa-th-list',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

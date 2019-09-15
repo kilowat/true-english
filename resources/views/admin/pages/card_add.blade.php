@@ -51,6 +51,17 @@
                             <label>Текст</label>
                             <textarea name="text" class="form-control" rows="3" placeholder="Enter ..."></textarea>
                         </div>
+                        <div class="form-group">
+                            <label>Контент</label>
+                            <textarea name="content" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="update_content"> Обновить контент
+                                </label>
+                            </div>
+                        </div>
                         <!-- select -->
                         <div class="form-group">
                             <label>Раздел</label>
@@ -74,7 +85,7 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="active" checked="checked">
+                                    <input type="checkbox" name="active">
                                     Активность
                                 </label>
                             </div>

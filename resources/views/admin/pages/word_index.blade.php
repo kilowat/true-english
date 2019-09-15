@@ -18,67 +18,43 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table id="section-table" class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover" id="word-table">
                         <thead>
                         <tr>
                             <th>id</th>
                             <th>Название</th>
                             <th>Тр-ция</th>
                             <th>Перевод</th>
+                            <th>Проверено</th>
                             <th>Дата создания</th>
                             <th>Дата изменения</th>
                             <th>Управление</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        @foreach($words as $word)
-                            <tr>
-                                <td>{{ $word->id }}</td>
-                                <td>{{ $word->name }}</td>
-                                <td>{{ $word->transcription }}</td>
-                                <td>{{ $word->translate }}</td>
-                                <td>{{ $word->created_at }}</td>
-                                <td>{{ $word->updated_at }}</td>
-                                <td>
-                                    <a href="" title="">Изменить</a><br>
-                                    <a href="" title="">Удалить</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <th>id</th>
-                            <th>Название</th>
-                            <th>Тр-ция</th>
-                            <th>Перевод</th>
-                            <th>Дата создания</th>
-                            <th>Дата изменения</th>
-                            <th>Управление</th>
-                        </tr>
-                        </tfoot>
                     </table>
                 </div>
-                <!-- /.box-body -->
             </div>
-            <!-- /.box -->
-
         </div>
-        <!-- /.col -->
     </div>
-    <!-- /.row -->
 @stop
 @section('js')
     <script>
-        $(function () {
-            $('#section-table').DataTable({
-                'paging'      : false,
-                'lengthChange': false,
-                'searching'   : false,
-                'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : true
-            })
-        })
+        $(function() {
+            $('#word-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('admin.word.data-list') !!}',
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'name', name: 'name' },
+                    { data: 'transcription', name: 'transcription' },
+                    { data: 'translate', name: 'translate' },
+                    { data: 'checked', name: 'checked' },
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'updated_at', name: 'updated_at' },
+                    {data: 'action', name: 'action', orderable: false, searchable: false}
+                ]
+            });
+        });
     </script>
 @stop
