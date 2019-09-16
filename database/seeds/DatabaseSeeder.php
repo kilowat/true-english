@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             WordSectionsTableSeeder::class,
             WordCardsTableSeeder::class,
             WordsTableSeeder::class,
-            WordCardsWordsTableSeeder::class,
+            WordCardWordsTableSeeder::class,
         ]);
     }
 }

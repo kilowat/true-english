@@ -27,8 +27,12 @@ class AdminCardController extends AdminController
         return view('admin.pages.card_add', ['sections' => $sections]);
     }
 
-    public function store(CardPost $request){
-        WordCard::create($request->all());
+    public function store(CardPost $request, WordCard $wordCard){
+        $created_card= $wordCard->create($request->all());
+
+        if($request->update_content == "on" && $request->content_text){
+            $wordCard->insertWords($request->content_text, $created_card->id);
+        }
 
         return redirect()->back()->with('message',  trans('messages.add_success'));
     }

@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use App\Services\TextAnalyze\WordParser;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use QCod\ImageUp\HasImageUploads;
 
 class WordCard extends Model
 {
     use HasImageUploads;
 
-    protected $guarded = [];
+    protected $guarded = ['update_content'];
 
     protected static $imageFields = [
         'picture' => [
@@ -27,10 +29,10 @@ class WordCard extends Model
     public function words(){
         return $this->belongsToMany(
             'App\Models\Word',
-            'word_cards_words',
-            'word_id',
+            'word_card_words',
+            'word',
             'card_id',
-            'id',
+            'name',
             'id');
     }
 
@@ -48,6 +50,39 @@ class WordCard extends Model
 
     public function setActiveAttribute($value)
     {
-        return $this->attributes['active'] = isset($value)?1:0;
+        return $this->attributes['active'] = isset($value) ? 1 : 0;
+    }
+
+    /**
+     * @param $text content text
+     * @param $card_id id own card
+     */
+    public function insertWords($text, $card_id){
+        $res = WordParser::getFrequency($text);
+
+        $words_with_freq = $res->getKeyValuesByFrequency();
+
+        $field_data = [];
+        $words = [];
+
+        foreach($words_with_freq as $word => $freq_value){
+            $field_data[] = [
+                'word' => $word,
+                'card_id' => $card_id,
+                'freq' => $freq_value,
+            ];
+            $words[] = [
+                'name' => $word,
+            ];
+        }
+
+        $wordCardModel = new WordCardWord();
+        $wordModel = new Word();
+
+        DB::transaction(function () use ($wordModel, $field_data, $wordCardModel, $words, $card_id){
+            DB::table($wordModel->getTable())->insertOrIgnore($words);
+            DB::table($wordCardModel->getTable())->where('card_id', '=', $card_id)->delete();
+            DB::table($wordCardModel->getTable())->insert($field_data);
+        });
     }
 }

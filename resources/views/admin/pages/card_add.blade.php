@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group">
                             <label>Контент</label>
-                            <textarea name="content" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea name="content_text" class="form-control" rows="3" placeholder="Enter ..."></textarea>
                         </div>
                         <div class="form-group">
                             <div class="checkbox">

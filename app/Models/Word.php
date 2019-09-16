@@ -9,10 +9,10 @@ class Word extends Model
     public function cards(){
         return $this->belongsToMany(
             'App\Models\WordCard',
-            'word_cards_words',
-            'word_id',
+            'word_card_words',
+            'word',
             'card_id',
-            'id',
+            'name',
             'id');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWordCardsWordsTable extends Migration
+class CreateWordCardWordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateWordCardsWordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('word_cards_words', function (Blueprint $table) {
-            $table->bigInteger("word_id")->unsigned();
+        Schema::create('word_card_words', function (Blueprint $table) {
+            $table->string("word");
             $table->bigInteger("card_id")->unsigned();
             $table->integer('freq')->unsigned();
         });
@@ -27,6 +27,6 @@ class CreateWordCardsWordsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('word_cards_words');
+        Schema::dropIfExists('word_card_words');
     }
 }

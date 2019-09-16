@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class WordCardsWordsTableSeeder extends Seeder
+class WordCardWordsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,15 +12,10 @@ class WordCardsWordsTableSeeder extends Seeder
     public function run()
     {
         for($i = 0; $i < 50; $i++){
-            DB::table('word_cards_words')->insert([
-                'word_id' => $i,
+            DB::table('word_card_words')->insert([
+                'word' => 'absolutely'.$i,
                 'card_id' => 1,
             ]);
         }
     }
 }
-
-/*
- *          $table->integer("word_id")->unsigned();
-            $table->integer("card_id")->unsigned();
- */
