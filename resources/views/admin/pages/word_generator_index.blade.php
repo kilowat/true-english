@@ -15,9 +15,25 @@
                     <form action="{{ route('admin.word.export') }}" method="post">
                         @csrf
                         <div class="button-row">
-                            <input type="checkbox"><label for="">Проверненные</label>
-                            <input type="checkbox"><label for="">Не проверенные</label>
-                            <input type="checkbox" checked="checked"><label for="">Пустые</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="where[checked]" value="0"> Не проверенные
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="where[translate]" value=""> Нет перевода
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="where[transcription]" value=""> Нет транскрипции
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group require">
+                            <label>Кол-во (Если пусто то все)</label>
+                            <input type="text" name="count" class="form-control" placeholder="Enter ...">
                         </div>
                         <div class="button-row">
                             <button class="btn btn-primary" type="submit" name="export_submit" value="Y">Выгрузить слова</button>

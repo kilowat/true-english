@@ -5,14 +5,24 @@ namespace App\Exports;
 use App\Models\Word;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromQuery;
 
-class WordExport implements FromCollection
+class WordExport implements FromQuery
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    public function __construct(array $where = [])
     {
-        return Word::all();
+        foreach ($where as $key => &$value){
+            if(empty($value))
+                $value = '';
+        }
+
+        $this->where = $where;
+
+        return $this;
+    }
+
+    public function query()
+    {
+        return Word::query()->where($this->where);
     }
 }

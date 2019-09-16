@@ -145,7 +145,7 @@ return [
             'icon' => 'fa fa-th-list',
         ],
         [
-            'text' => 'Генератор слова',
+            'text' => 'Импорт/Экспорт таблиц',
             'url' => 'admin/word-generator',
             'icon' => 'fa fa-th-list',
         ],

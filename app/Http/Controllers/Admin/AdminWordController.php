@@ -22,11 +22,13 @@ class AdminWordController extends AdminController
 {
     public function index(){
         $words = Word::paginate(100);
+
         return view('admin.pages.word_index', ['words' => $words]);
     }
 
     public function dataList(){
         $words = Word::query();
+
         return Datatables::of($words)
             ->addColumn('action', function ($words) {
                 return '<a href="#edit-'.$words->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
@@ -35,16 +37,15 @@ class AdminWordController extends AdminController
             ->make(true);
     }
 
-    public function export(){
-        return Excel::download(new WordExport(), 'words.xlsx');
+    public function export(Request $request){
+        $export = new WordExport($request->where ? $request->where : []);
+
+        return Excel::download($export, 'words.xlsx');
     }
 
     public function import(Request $request, Word $wordModel){
-       // dd($request);
-        //$arrayExcelFile = Excel::toArray(new WordImport(), $request->file('table_file'), 'local', \Maatwebsite\Excel\Excel::XLSX);
-        //dd($arrayExcelFile[0]);
-        //DB::table($wordModel->getTable())->insertOrIgnore($array);
         Excel::import(new WordImport(), request()->file('table_file'));
+
         return redirect()->back()->with('message',  trans('messages.add_success'));
     }
 }
