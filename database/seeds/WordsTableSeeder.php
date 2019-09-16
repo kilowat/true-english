@@ -11,7 +11,7 @@ class WordsTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 1000; $i++){
+        for($i = 0; $i < 100; $i++){
             DB::table('words')->insert(
                 [
                     'name' => 'absolutely'.$i,

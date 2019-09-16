@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Word extends Model
 {
+    protected $guarded = [];
+
     public function cards(){
         return $this->belongsToMany(
             'App\Models\WordCard',

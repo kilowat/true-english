@@ -36,6 +36,8 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     /*******word********/
     Route::get('words', 'AdminWordController@index')->name('admin.word.index');
     Route::get('words/data-list', 'AdminWordController@dataList')->name('admin.word.data-list');
+    Route::post('words/export', 'AdminWordController@export')->name('admin.word.export');
+    Route::post('words/import', 'AdminWordController@import')->name('admin.word.import');
     /******************/
 
     /*******word generator********/
