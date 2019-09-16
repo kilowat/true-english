@@ -31,10 +31,6 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="form-group require">
-                            <label>Кол-во (Если пусто то все)</label>
-                            <input type="text" name="count" class="form-control" placeholder="Enter ...">
-                        </div>
                         <div class="button-row">
                             <button class="btn btn-primary" type="submit" name="export_submit" value="Y">Выгрузить слова</button>
                         </div>

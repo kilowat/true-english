@@ -38,7 +38,7 @@ class AdminWordController extends AdminController
     }
 
     public function export(Request $request){
-        $export = new WordExport($request->where ? $request->where : []);
+        $export = new WordExport($request->where ? $request->where : [], $request->limit);
 
         return Excel::download($export, 'words.xlsx');
     }

@@ -17,4 +17,8 @@ class Word extends Model
             'name',
             'id');
     }
+
+    public function getContextReversoLinkAttribute(){
+        return "https://dictionary.reverso.net/english-russian/".$this->name;
+    }
 }
