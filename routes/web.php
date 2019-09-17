@@ -36,9 +36,18 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     /*******word********/
     Route::get('words', 'AdminWordController@index')->name('admin.word.index');
     Route::get('words/data-list', 'AdminWordController@dataList')->name('admin.word.data-list');
+    Route::get('words/edit/{id}', 'AdminWordController@edit')->name('admin.word.edit');
+    Route::post('words/update/{id}', 'AdminWordController@update')->name('admin.word.update');
     Route::post('words/export', 'AdminWordController@export')->name('admin.word.export');
     Route::post('words/import', 'AdminWordController@import')->name('admin.word.import');
     /******************/
+
+    /**********audio files****************/
+    Route::get('words/audio', 'AdminAudioController@index')->name('admin.audio.index');
+    Route::get('words/audio/add', 'AdminAudioController@add')->name('admin.audio.add');
+    Route::get('words/audio/data-list', 'AdminAudioController@dataList')->name('admin.audio.data-list');
+    Route::post('words/audio/upload-file', 'AdminAudioController@uploadFile')->name('admin.audio.upload-file');
+    /************************
 
     /*******word generator********/
     Route::get('word-generator', 'AdminWordGeneratorController@index')->name('admin.word-generator.index');

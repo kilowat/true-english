@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Word extends Model
 {
+    public $timestamps = true;
+
     protected $guarded = [];
 
     public function cards(){

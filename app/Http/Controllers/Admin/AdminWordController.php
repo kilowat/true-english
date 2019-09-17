@@ -31,10 +31,24 @@ class AdminWordController extends AdminController
 
         return Datatables::of($words)
             ->addColumn('action', function ($words) {
-                return '<a href="#edit-'.$words->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                $btn_str =  '<a href="'.route('admin.word.edit', $words->id).'" class="btn btn-xs btn-primary btn-action"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                $btn_str.=  '<a href="#del-'.$words->id.'" class="btn btn-xs btn-danger btn-action"><i class="glyphicon glyphicon-remove"></i> Delete</a>';
+                return $btn_str;
             })
-            ->editColumn('id', 'ID: {{$id}}')
+            ->editColumn('checked', function($words) {
+                return '<span class="label label-'. ($words->checked ? 'success' : 'warning').'">'. ($words->checked ? 'Проверено' : 'Не проверенно').'</span>';
+            })
+            ->rawColumns(['checked', 'action'])
             ->make(true);
+    }
+
+    public function edit($id){
+        $word = Word::findOrFail($id);
+        return view('admin.pages.word_edit', ['word' => $word]);
+    }
+
+    public function update($id){
+        dd($id);
     }
 
     public function export(Request $request){

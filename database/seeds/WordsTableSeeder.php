@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 class WordsTableSeeder extends Seeder
 {
+    public $timestamps = true;
     /**
      * Run the database seeds.
      *

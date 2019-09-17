@@ -12,6 +12,8 @@ class WordSection extends Model
 {
     use NodeTrait, HasImageUploads;
 
+    public $timestamps = true;
+
     private $routeName = 'word-collection.section';
 
     protected $guarded = ['_lft', '_rgt', 'parent_id'];

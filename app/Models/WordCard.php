@@ -10,6 +10,7 @@ use QCod\ImageUp\HasImageUploads;
 class WordCard extends Model
 {
     use HasImageUploads;
+    public $timestamps = true;
 
     protected $guarded = ['update_content'];
 

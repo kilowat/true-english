@@ -145,6 +145,11 @@ return [
             'icon' => 'fa fa-th-list',
         ],
         [
+            'text' => 'Аудио',
+            'url' => 'admin/words/audio',
+            'icon' => 'fa fa-th-list',
+        ],
+        [
             'text' => 'Импорт/Экспорт таблиц',
             'url' => 'admin/word-generator',
             'icon' => 'fa fa-th-list',
