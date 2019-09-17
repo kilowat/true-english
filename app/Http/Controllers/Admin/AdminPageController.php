@@ -22,10 +22,11 @@ class AdminPageController extends AdminController
 {
 
     public function index(){
-        $export = new CardExport(["absolutely7", "absolutely8"]);
+        /*
+        $export = new CardExport(["absolutely0", "absolutely8"]);
 
         return Excel::download($export, 'words.xlsx');
-
+        */
         return view('admin.pages.index');
     }
 }

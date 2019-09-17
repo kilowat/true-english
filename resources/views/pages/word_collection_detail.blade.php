@@ -83,7 +83,7 @@
                     {{ $count }}
                 </div>
                 <div class="collection-detail__cell table-cell word-procent">
-                    0.01%
+                    {{ $word->freq }}
                 </div>
                 <div class="collection-detail__cell table-cell word-name">
                     {{ $word->name }}

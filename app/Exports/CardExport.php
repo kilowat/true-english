@@ -16,11 +16,12 @@ use Maatwebsite\Excel\Events\BeforeWriting;
 use PhpOffice\PhpSpreadsheet\Cell\Hyperlink;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 
-class CardExport implements FromQuery, WithEvents, WithMapping, ShouldAutoSize
+class CardExport implements FromQuery, WithEvents, WithMapping
 {
     use RegistersEventListeners;
 
     private $whereIn;
+    private $count = 0;
 
     public function __construct(array $whereIn = [])
     {
@@ -30,7 +31,11 @@ class CardExport implements FromQuery, WithEvents, WithMapping, ShouldAutoSize
 
     public function query()
     {
-        return Word::query()->whereIn('name',$this->where);
+        $query = Word::query()->whereIn('name',$this->where)
+            ->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word');
+        $this->count = $query->count();
+
+        return $query;
     }
 
     public static function beforeExport(BeforeExport $event)
@@ -64,21 +69,30 @@ class CardExport implements FromQuery, WithEvents, WithMapping, ShouldAutoSize
                     ]);
                 }
 
-                if($cell->getColumn() == "D"){
-                    $event->sheet->getStyle($cell->getCoordinate());
-                }
-
                 //dd(get_class_methods($cell));
                 $event->sheet->getStyle($cell->getCoordinate())
                     ->getBorders()
                     ->getAllBorders()
                     ->applyFromArray( [ 'borderStyle' => Border::BORDER_THIN, 'color' => [ 'rgb' => '808080' ] ] );
 
+                $event->sheet->getStyle($cell->getCoordinate())->applyFromArray([
+                    'font' => [
+                        'size' => '14'
+                    ]
+                ]);
 
                 $event->sheet->getStyle($cell->getCoordinate())->getAlignment()->setWrapText(true);
 
+                $event->sheet->getStyle($cell->getCoordinate())->getAlignment()->applyFromArray([
+                    'vertical' => "top"
+                ]);
 
-
+                $event->sheet->getDelegate()->getColumnDimension("A")->setAutoSize(true);
+                $event->sheet->getDelegate()->getColumnDimension("B")->setAutoSize(true);
+                $event->sheet->getDelegate()->getColumnDimension("C")->setAutoSize(true);
+                $event->sheet->getDelegate()->getColumnDimension("D")->setAutoSize(true);
+                $event->sheet->getDelegate()->getColumnDimension("E")->setWidth(80);
+                $event->sheet->getDelegate()->getColumnDimension("F")->setAutoSize(true);
             }
         }
     }
@@ -87,10 +101,11 @@ class CardExport implements FromQuery, WithEvents, WithMapping, ShouldAutoSize
     {
         return [
             $word->id,
+            $word->freq,
             $word->name,
             $word->transcription,
             $word->translate,
-            $word->contextReversoLink,
+            $word->contextReversoLink."\n".$word->contextReversoLink,
         ];
     }
     /*

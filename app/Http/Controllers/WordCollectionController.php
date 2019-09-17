@@ -27,7 +27,8 @@ class WordCollectionController extends Controller
 
         $word_list = $words->whereHas('cards', function($query) use($card){
             $query->where('card_id', '=', $card->id);
-        })->paginate($this->wordPaginateCount);
+        })->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word')
+            ->paginate($this->wordPaginateCount);
 
         return view("pages.word_collection_detail", ['word_list' => $word_list, 'card' => $card]);
     }
