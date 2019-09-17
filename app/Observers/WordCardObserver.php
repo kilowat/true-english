@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\WordCard;
+use App\Models\WordCard;
 
 class WordCardObserver
 {

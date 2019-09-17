@@ -12,6 +12,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Audio;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -26,10 +28,14 @@ class AdminAudioController extends AdminController
         $files = Audio::query();
 
         return Datatables::of($files)
-            ->addColumn('action', function ($words) {
-                $btn_str = '<a href="#del-'.$words->id.'" class="btn btn-xs btn-danger btn-action"><i class="glyphicon glyphicon-remove"></i> Delete</a>';
+            ->addColumn('action', function ($files) {
+                $btn_str = '<a href="#del-'.$files->id.'" class="btn btn-xs btn-danger btn-action"><i class="glyphicon glyphicon-remove"></i> Delete</a>';
                 return $btn_str;
             })
+            ->editColumn('file_name', function($files) {
+                return $files->file_name."<br><audio controls><source src='/storage/audio/".$files->file_name."' type='".$files->mime."'></audio>";
+            })
+            ->rawColumns(['file_name', 'action'])
             ->make(true);
     }
 
@@ -39,21 +45,31 @@ class AdminAudioController extends AdminController
 
     public function uploadFile(Request $request){
         $file = Input::file('file');
-        $filename = $file->getClientOriginalName();
+        $file_name_origin = $file->getClientOriginalName();
+        $word_name = explode('.', $file_name_origin)[0];
+        $word_name = str_replace(" ", "_", $word_name);
 
-        if(Storage::disk('audio')->put($filename, File::get($file))){
+        if(Storage::disk('audio')->put($file_name_origin, File::get($file))){
             $audio_file = [
-                'word_code' => '',
-                'file_name' => '',
-                'mime' => '',
-                'size' => '',
+                'word_code' => $word_name,
+                'file_name' => $file_name_origin,
+                'mime' => $file->getClientMimeType(),
+                'size' => $file->getSize(),
 
             ];
-            $file = Audio::create($audio_file);
+
+            $audio_item = Audio::where('word_code', '=', $word_name)->first();
+
+            if($audio_item){
+                 Audio::find($audio_item->id)->update($audio_file );
+                $file_id = $audio_item->id;
+            }else{
+                $file_id = Audio::create($audio_file)->id;
+            }
 
             return response()->json([
                 'success' => true,
-                'id' => $file->id
+                'id' => $file_id
             ]);
         }else{
             return response()->json([

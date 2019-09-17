@@ -7,6 +7,8 @@
 @stop
 
 @section('content')
+
+
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -52,9 +54,10 @@
                     { data: 'size', name: 'size' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
-                    {data: 'action', name: 'action', orderable: false, searchable: false}
+                    { data: 'action', name: 'action', orderable: false, searchable: false}
                 ]
             });
         });
+
     </script>
 @stop
