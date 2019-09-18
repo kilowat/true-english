@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/pages/card_edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminWordCollectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminWordCollectionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CardPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CardPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/WordCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/WordCard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/card_add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/card_add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="484">
-              <caret line="37" column="64" selection-start-line="37" selection-start-column="64" selection-end-line="37" selection-end-column="64" />
+              <caret line="37" column="28" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -37,8 +32,8 @@
       <file leaf-file-name="AdminCardController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCardController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="440">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="29" selection-end-column="33" />
               <folding>
                 <element signature="e#131#162#0#PHP" expanded="true" />
               </folding>
@@ -46,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Word.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Word.php">
+      <file leaf-file-name="card_index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+            <state relative-caret-position="695">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
             </state>
           </provider>
         </entry>
@@ -70,17 +65,8 @@
       <file leaf-file-name="card_edit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
+            <state relative-caret-position="1320">
               <caret line="63" column="82" lean-forward="true" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="card_add.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_add.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="60" column="136" selection-start-line="60" selection-start-column="136" selection-end-line="60" selection-end-column="136" />
             </state>
           </provider>
         </entry>
@@ -97,7 +83,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WordCollectionSectionPost.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WordCollectionSectionPost.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Requests/WordCollectionSectionPost.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="506">
@@ -105,6 +91,24 @@
               <folding>
                 <element signature="e#37#64#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminWordCollectionController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminWordCollectionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="695">
+              <caret line="58" column="14" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="word_collection_section_index.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="47" column="63" lean-forward="true" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -199,21 +203,21 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminWordController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/word_index.blade.php" />
         <option value="$PROJECT_DIR$/config/adminlte.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/ru/messages.php" />
         <option value="$PROJECT_DIR$/app/Models/WordSection.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_add.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminWordCollectionController.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCardController.php" />
         <option value="$PROJECT_DIR$/app/Models/WordCard.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/card_edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/card_add.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/ru/validation.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/CardPost.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/WordCollectionSectionPost.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminWordCollectionController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCardController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php" />
       </list>
     </option>
   </component>
@@ -571,7 +575,7 @@
       <workItem from="1568184682769" duration="42228000" />
       <workItem from="1568358201912" duration="113471000" />
       <workItem from="1568740712257" duration="9586000" />
-      <workItem from="1568784475770" duration="27545000" />
+      <workItem from="1568784475770" duration="29608000" />
     </task>
     <servers />
   </component>
@@ -587,7 +591,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268726000" />
+    <option name="totallyTimeSpent" value="270789000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -854,13 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="44" column="32" lean-forward="true" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/lang/ru/messages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -903,48 +900,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminWordCollectionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="41" column="8" lean-forward="true" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="37" column="64" selection-start-line="37" selection-start-column="64" selection-end-line="37" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="e#131#162#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Word.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="63" column="82" lean-forward="true" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="97" />
         </state>
       </provider>
     </entry>
@@ -982,6 +941,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="63" column="82" lean-forward="true" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="37" column="28" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="29" selection-end-column="33" />
+          <folding>
+            <element signature="e#131#162#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/WordCollectionSectionPost.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -989,6 +979,20 @@
           <folding>
             <element signature="e#37#64#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminWordCollectionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="58" column="14" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="47" column="63" lean-forward="true" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
         </state>
       </provider>
     </entry>

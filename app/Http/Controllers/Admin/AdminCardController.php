@@ -28,7 +28,7 @@ class AdminCardController extends AdminController
             ->addColumn('action', function ($cards) {
                 $btn_str =  '<a href="'.route('admin.card.edit', $cards->id).'" class="btn btn-xs btn-primary btn-action"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
                 $btn_str.="<br>";
-                $btn_str.=  '<a href="'.route('admin.card.edit', $cards->id).'" class="btn btn-xs btn-danger btn-action"><i class="glyphicon glyphicon-remove"></i> Delete</a>';
+                $btn_str.=  '<button onclick="if (window.confirm(\'Удалить элемент?\')) location.href=\''.route('admin.card.delete', $cards->id).'\';" class="btn btn-xs btn-danger btn-action del-card"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
                 return $btn_str;
             })
             ->editColumn('picture', function ($cards) {
@@ -85,5 +85,10 @@ class AdminCardController extends AdminController
         }
 
         return redirect()->back()->with('message',  trans('messages.add_success'));
+    }
+
+    public function delete($id){
+        WordCard::destroy($id);
+        return redirect()->back();
     }
 }

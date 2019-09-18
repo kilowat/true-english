@@ -49,8 +49,6 @@
                             <td>{{ $section->updated_at }}</td>
                             <td>
                                 <a href="{{ route("admin.word-collection-sections.edit", $section->id) }}" class="btn btn-xs btn-primary btn-action"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                                <br>
-                                <a href="#del-1" class="btn btn-xs btn-danger btn-action"><i class="glyphicon glyphicon-remove"></i> Delete</a>
                             </td>
                         </tr>
                         @endforeach
