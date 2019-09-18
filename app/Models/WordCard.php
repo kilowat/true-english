@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Services\TextAnalyze\WordParser;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use QCod\ImageUp\HasImageUploads;
@@ -74,6 +75,8 @@ class WordCard extends Model
             ];
             $words[] = [
                 'name' => $word,
+                'created_at' => new Carbon(),
+                'updated_at' => new Carbon(),
             ];
         }
 

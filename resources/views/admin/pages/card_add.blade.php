@@ -37,11 +37,11 @@
 
                         <div class="form-group require">
                             <label>Код</label>
-                            <input type="text" name="code" class="form-control" placeholder="Enter ...">
+                            <input type="text" name="code" class="form-control" value="{{ old("code") }}" placeholder="Enter ...">
                         </div>
                         <div class="form-group">
                             <label>Сортировка</label>
-                            <input type="text" name="sort" value="100" class="form-control" placeholder="Enter ...">
+                            <input type="text" name="sort" value="{{ old("sort") ?  old("sort") : 100}}" class="form-control" placeholder="Enter ...">
                         </div>
                         <div class="form-group">
                             <label for="pictureInputFile">Картинка</label>
@@ -49,16 +49,16 @@
                         </div>
                         <div class="form-group">
                             <label>Текст</label>
-                            <textarea name="text" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea name="text" class="form-control" rows="3" placeholder="Enter ...">{{ old("text") }}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Контент</label>
-                            <textarea name="content_text" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea name="content_text" class="form-control" rows="3" placeholder="Enter ...">{{ old("content_text") }}</textarea>
                         </div>
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="update_content"> Обновить контент
+                                    <input type="checkbox" {{ old("update_content") ? "checked='checked'" : ''}} name="update_content"> Привязать слова
                                 </label>
                             </div>
                         </div>
@@ -67,25 +67,25 @@
                             <label>Раздел</label>
                             <select class="form-control" name="section_id">
                                 @foreach($sections as $section_item)
-                                    <option value="{{ $section_item->id }}">{{ $section_item->name }}</option>
+                                    <option value="{{ $section_item->id }}" {{ old("section_id") == $section_item->id ? "selected='selected'" : ''}}>{{ $section_item->name }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group require">
                             <label>Title</label>
-                            <input type="text" name="title" class="form-control" placeholder="Enter ...">
+                            <input type="text" name="title" value="{{ old("title") }}" class="form-control" placeholder="Enter ...">
                         </div>
 
                         <div class="form-group">
                             <label>Desctiption</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{ old("description") }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="active">
+                                    <input type="checkbox" {{ old("active") ? "checked='checked'" : ''}} name="active">
                                     Активность
                                 </label>
                             </div>

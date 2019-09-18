@@ -39,7 +39,6 @@ class AdminWordCollectionController extends AdminController
     }
 
     public function update($id, WordCollectionSectionPost $request){
-        dd($request->all());
         WordSection::find($id)->update($request->all());
 
         return redirect()->back()->with('message',  trans('messages.update_success'));

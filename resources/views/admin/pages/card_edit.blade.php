@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Сборники слов')
+@section('title', 'Редактировать')
 
 @section('content_header')
-    <h1>Сборники слов (Добавить раздел)</h1>
+    <h1>Сборники слов (Редактировать карточку)</h1>
 @stop
 
 @section('content')
@@ -23,59 +23,72 @@
                             </ul>
                         </div>
                     @endif
-                    <h3 class="box-title">Новый раздел</h3>
+                    <h3 class="box-title">Изменить картачку</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <form role="form" method="post" action="{{ route('admin.word-collection-sections.store') }}" enctype="multipart/form-data">
-                        @csrf
-                        <!-- text input -->
+                    <form role="form" method="post" action="{{ route('admin.card.update', $card->id) }}" enctype="multipart/form-data">
+                    @csrf
+                    <!-- text input -->
                         <div class="form-group require">
                             <label>Название</label>
-                            <input type="text" name="name" class="form-control" value="{{ old("name") }}" placeholder="Enter ...">
+                            <input type="text" name="name" class="form-control" value="{{ $card->name }}" placeholder="Enter ...">
                         </div>
 
                         <div class="form-group require">
                             <label>Код</label>
-                            <input type="text" name="code" class="form-control" value="{{ old("code") }}" placeholder="Enter ...">
+                            <input type="text" name="code" class="form-control" value="{{ $card->code }}" placeholder="Enter ...">
                         </div>
                         <div class="form-group">
-                             <label>Сортировка</label>
-                             <input type="text" name="sort" value="{{ old("sort") ?  old("sort") : 100}}" class="form-control" placeholder="Enter ...">
+                            <label>Сортировка</label>
+                            <input type="text" name="sort" value="{{ $card->sort }}" class="form-control" placeholder="Enter ...">
                         </div>
                         <div class="form-group">
+                            <div class="pic-row">
+                                <img src="{{ $card->previewPicture }}" alt="">
+                            </div>
                             <label for="pictureInputFile">Картинка</label>
                             <input type="file" name="picture" id="pictureInputFile">
                         </div>
                         <div class="form-group">
                             <label>Текст</label>
-                            <textarea name="text" class="form-control" rows="3" placeholder="Enter ...">{{ old("text") }}</textarea>
+                            <textarea name="text" class="form-control" rows="3" placeholder="Enter ...">{{ $card->text }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Контент</label>
+                            <textarea name="content_text" class="form-control" rows="3" placeholder="Enter ...">{{ $card->content_text }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="update_content"> Привязать слова
+                                </label>
+                            </div>
                         </div>
                         <!-- select -->
                         <div class="form-group">
-                            <label>Родительский раздел</label>
-                            <select class="form-control" name="parent_id">
-                                <option value="">--Корневой--</option>
-                                @foreach($parent_sections as $section_item)
-                                    <option value="{{ $section_item->id }}" {{ old("parent_id") == $section_item->id ? "selected='selected'" : ''}}>{{ $section_item->name }}</option>
+                            <label>Раздел</label>
+                            <select class="form-control" name="section_id">
+                                @foreach($sections as $section_item)
+                                    <option value="{{ $section_item->id }}" {{ $section_item->id == $card->section_id ? 'selected="selected"' : '' }}>{{ $section_item->name }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group require">
                             <label>Title</label>
-                            <input type="text" name="title" value="{{ old("title") }}" class="form-control" placeholder="Enter ...">
+                            <input type="text" name="title" value="{{ $card->title }}" class="form-control" placeholder="Enter ...">
                         </div>
 
                         <div class="form-group">
                             <label>Desctiption</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{ old("description") }}</textarea>
+                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{ $card->description }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" {{ old("active") ? "checked='checked'" : ''}} name="active">
+                                    <input type="checkbox" name="active" {{ $card->active ? 'checked="checked"': '' }}>
                                     Активность
                                 </label>
                             </div>

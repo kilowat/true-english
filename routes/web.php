@@ -34,6 +34,8 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('cards/data-list', 'AdminCardController@dataList')->name('admin.card.data-list');
     Route::post('cards', 'AdminCardController@store')->name('admin.card.store');
     Route::get('cards/add', 'AdminCardController@add')->name('admin.card.add');
+    Route::get('cards/edit/{id}', 'AdminCardController@edit')->name('admin.card.edit');
+    Route::post('cards/update/{id}', 'AdminCardController@update')->name('admin.card.update');
     /***************************/
 
     /*******word********/
