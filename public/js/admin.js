@@ -1721,11 +1721,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       post_url: 'admin/words/audio/upload-file',
-      files: []
+      files: [],
+      stepTime: 1000
     };
   },
   methods: {
@@ -1739,33 +1743,41 @@ __webpack_require__.r(__webpack_exports__);
     removeFile: function removeFile(key) {
       this.files.splice(key, 1);
     },
+    send: function send(i) {
+      var formData = new FormData();
+      formData.append('file', this.files[i]);
+      var conf = {
+        method: 'post',
+        url: '/' + this.post_url,
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      };
+      axios(conf).then(function (data) {
+        this.files[i].id = data['data']['id'];
+        this.files.splice(i, 1, this.files[i]);
+        console.log('success');
+      }.bind(this))["catch"](function (data) {
+        console.log('error');
+      });
+    },
     submitFiles: function submitFiles() {
       var _this = this;
 
-      var _loop = function _loop(i) {
-        if (_this.files[i].id) {
-          return "continue";
-        }
+      var time = 0;
 
-        var formData = new FormData();
-        formData.append('file', _this.files[i]);
-        axios.post('/' + _this.post_url, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        }).then(function (data) {
-          this.files[i].id = data['data']['id'];
-          this.files.splice(i, 1, this.files[i]);
-          console.log('success');
-        }.bind(_this))["catch"](function (data) {
-          console.log('error');
-        });
+      var _loop = function _loop(i) {
+        setTimeout(function () {
+          console.log(_this.files[i]);
+
+          _this.send(i);
+        }, time);
+        time += _this.stepTime;
       };
 
       for (var i = 0; i < this.files.length; i++) {
-        var _ret = _loop(i);
-
-        if (_ret === "continue") continue;
+        _loop(i);
       }
     }
   }
@@ -1785,7 +1797,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ninput[type=\"file\"][data-v-4bfa752a]{\n    opacity: 0;\n    width: 100%;\n    height: 200px;\n    position: absolute;\n    cursor: pointer;\n}\n.filezone[data-v-4bfa752a] {\n    outline: 2px dashed grey;\n    outline-offset: -10px;\n    background: #ccc;\n    color: dimgray;\n    padding: 10px 10px;\n    min-height: 200px;\n    position: relative;\n    cursor: pointer;\n}\n.filezone[data-v-4bfa752a]:hover {\n    background: #c0c0c0;\n}\n.filezone p[data-v-4bfa752a] {\n    font-size: 1.2em;\n    text-align: center;\n    padding: 50px 50px 50px 50px;\n}\ndiv.file-listing img[data-v-4bfa752a]{\n    max-width: 90%;\n}\ndiv.file-listing[data-v-4bfa752a]{\n    margin: auto;\n    padding: 10px;\n    border-bottom: 1px solid #ddd;\n}\ndiv.file-listing img[data-v-4bfa752a]{\n    height: 100px;\n}\ndiv.success-container[data-v-4bfa752a]{\n    text-align: center;\n    color: green;\n}\ndiv.remove-container[data-v-4bfa752a]{\n    text-align: center;\n}\ndiv.remove-container a[data-v-4bfa752a]{\n    color: red;\n    cursor: pointer;\n}\na.submit-button[data-v-4bfa752a]{\n    display: block;\n    margin: auto;\n    text-align: center;\n    width: 200px;\n    padding: 10px;\n    text-transform: uppercase;\n    background-color: #CCC;\n    color: white;\n    font-weight: bold;\n    margin-top: 20px;\n}\n", ""]);
+exports.push([module.i, "\ninput[type=\"file\"][data-v-4bfa752a]{\n    opacity: 0;\n    width: 100%;\n    height: 200px;\n    position: absolute;\n    cursor: pointer;\n}\n.filezone[data-v-4bfa752a] {\n    outline: 2px dashed grey;\n    outline-offset: -10px;\n    background: #ccc;\n    color: dimgray;\n    padding: 10px 10px;\n    min-height: 200px;\n    position: relative;\n    cursor: pointer;\n}\n.filezone[data-v-4bfa752a]:hover {\n    background: #c0c0c0;\n}\n.filezone p[data-v-4bfa752a] {\n    font-size: 1.2em;\n    text-align: center;\n    padding: 50px 50px 50px 50px;\n}\ndiv.file-listing img[data-v-4bfa752a]{\n    max-width: 90%;\n}\ndiv.file-listing[data-v-4bfa752a]{\n    margin: auto;\n    padding: 10px;\n    border-bottom: 1px solid #ddd;\n}\ndiv.file-listing img[data-v-4bfa752a]{\n    height: 100px;\n}\ndiv.success-container[data-v-4bfa752a]{\n    text-align: center;\n    color: green;\n}\ndiv.remove-container[data-v-4bfa752a]{\n    text-align: center;\n}\ndiv.remove-container a[data-v-4bfa752a]{\n    color: red;\n    cursor: pointer;\n}\na.submit-button[data-v-4bfa752a]{\n    display: block;\n    margin: auto;\n    text-align: center;\n    width: 200px;\n    margin-top: 20px;\n}\n", ""]);
 
 // exports
 
@@ -2941,6 +2953,27 @@ var render = function() {
         _vm._m(0)
       ]),
       _vm._v(" "),
+      _c(
+        "a",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.files.length > 0,
+              expression: "files.length > 0"
+            }
+          ],
+          staticClass: "btn btn-primary submit-button",
+          on: {
+            click: function($event) {
+              return _vm.submitFiles()
+            }
+          }
+        },
+        [_vm._v("Отправить")]
+      ),
+      _vm._v(" "),
       _vm._l(_vm.files, function(file, key) {
         return _c("div", { staticClass: "file-listing" }, [
           _vm._v("\n        " + _vm._s(file.name) + "\n        "),
@@ -2976,7 +3009,7 @@ var render = function() {
               expression: "files.length > 0"
             }
           ],
-          staticClass: "submit-button",
+          staticClass: "btn btn-primary submit-button",
           on: {
             click: function($event) {
               return _vm.submitFiles()

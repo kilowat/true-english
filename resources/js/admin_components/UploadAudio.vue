@@ -1,11 +1,14 @@
 <template>
     <div class="container">
+
         <div class="large-6 medium-6 small-6 filezone">
             <input type="file" id="files" ref="files" multiple v-on:change="handleFiles()"/>
             <p>
                 Перетащиет сюда файлы <br>или кликнете для поиска
             </p>
         </div>
+
+        <a class="btn btn-primary submit-button" v-on:click="submitFiles()" v-show="files.length > 0">Отправить</a>
 
         <div v-for="(file, key) in files" class="file-listing">
             {{ file.name }}
@@ -17,7 +20,7 @@
             </div>
         </div>
 
-        <a class="submit-button" v-on:click="submitFiles()" v-show="files.length > 0">Отправить</a>
+        <a class="btn btn-primary submit-button" v-on:click="submitFiles()" v-show="files.length > 0">Отправить</a>
     </div>
 </template>
 
@@ -27,7 +30,8 @@
         data() {
             return {
                 post_url: 'admin/words/audio/upload-file',
-                files: []
+                files: [],
+                stepTime: 1000,
             }
         },
         methods: {
@@ -41,30 +45,37 @@
             removeFile( key ){
                 this.files.splice( key, 1 );
             },
-            submitFiles() {
-                for( let i = 0; i < this.files.length; i++ ){
-                    if(this.files[i].id) {
-                        continue;
+            send(i){
+                let formData = new FormData();
+
+                formData.append('file', this.files[i]);
+
+                let conf = {
+                    method: 'post',
+                    url: '/' + this.post_url,
+                    data: formData,
+                    headers:{
+                        'Content-Type': 'multipart/form-data'
                     }
+                }
 
-                    let formData = new FormData();
-                    formData.append('file', this.files[i]);
-                    
+                axios(conf).then(function(data) {
+                    this.files[i].id = data['data']['id'];
+                    this.files.splice(i, 1, this.files[i]);
+                    console.log('success');
+                }.bind(this)).catch(function(data) {
+                    console.log('error');
+                });
+            },
 
-                    axios.post('/' + this.post_url,
-                        formData,
-                        {
-                            headers: {
-                                'Content-Type': 'multipart/form-data'
-                            }
-                        }
-                    ).then(function(data) {
-                        this.files[i].id = data['data']['id'];
-                        this.files.splice(i, 1, this.files[i]);
-                        console.log('success');
-                    }.bind(this)).catch(function(data) {
-                        console.log('error');
-                    });
+            submitFiles() {
+                let time = 0;
+                for (let i = 0; i < this.files.length; i++){
+                    setTimeout(()=>{
+                        console.log(this.files[i]);
+                        this.send(i);
+                    },time);
+                    time+=this.stepTime;
                 }
             }
         }
@@ -130,11 +141,6 @@
         margin: auto;
         text-align: center;
         width: 200px;
-        padding: 10px;
-        text-transform: uppercase;
-        background-color: #CCC;
-        color: white;
-        font-weight: bold;
         margin-top: 20px;
     }
 </style>
