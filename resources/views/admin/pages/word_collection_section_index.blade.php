@@ -42,12 +42,15 @@
                                 <span>Кол-во: {{ count($section->children) }}</span>
                             </td>
                             <td>{{ $section->sort }}</td>
-                            <td>{{ $section->active ? "Активен" : "Не активет" }}</td>
+                            <td>
+                                 <span class="label label-{{($section->active ? 'success' : 'warning') }}">{{($section->active ? 'Активен' : 'Не активет')}}</span>
+                            </td>
                             <td>{{ $section->created_at }}</td>
                             <td>{{ $section->updated_at }}</td>
                             <td>
-                                <a href="" title="">Изменить</a><br>
-                                <a href="" title="">Удалить</a>
+                                <a href="{{ route("admin.word-collection-sections.edit", $section->id) }}" class="btn btn-xs btn-primary btn-action"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                                <br>
+                                <a href="#del-1" class="btn btn-xs btn-danger btn-action"><i class="glyphicon glyphicon-remove"></i> Delete</a>
                             </td>
                         </tr>
                         @endforeach

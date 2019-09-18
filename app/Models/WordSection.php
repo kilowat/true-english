@@ -43,6 +43,6 @@ class WordSection extends Model
 
     public function setActiveAttribute($value)
     {
-        return $this->attributes['active'] = isset($value)?1:0;
+        return $this->attributes['active'] = isset($value) ? 1 : 0;
     }
 }

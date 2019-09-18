@@ -30,6 +30,21 @@ class AdminWordCollectionController extends AdminController
         return view('admin.pages.word_collection_section_add', ['parent_sections' => $parent_sections]);
     }
 
+    public function edit($id){
+        $section = WordSection::where('id', '=', $id)->first();
+
+        $parent_sections = WordSection::where('parent_id', '=', null)->get();
+
+        return view('admin.pages.word_collection_section_edit', compact('section', 'parent_sections'));
+    }
+
+    public function update($id, WordCollectionSectionPost $request){
+        dd($request->all());
+        WordSection::find($id)->update($request->all());
+
+        return redirect()->back()->with('message',  trans('messages.update_success'));
+    }
+
     public function store(WordCollectionSectionPost $request){
         if($request->parent_id){
             $parent = WordSection::find($request->parent_id);

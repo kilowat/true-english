@@ -3,7 +3,7 @@
 @section('title', 'Сборники слов')
 
 @section('content_header')
-    <h1>Сборники слов (Добавить раздел)</h1>
+    <h1>(Карточки слов) Изменить раздел</h1>
 @stop
 
 @section('content')
@@ -27,29 +27,32 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <form role="form" method="post" action="{{ route('admin.word-collection-sections.store') }}" enctype="multipart/form-data">
-                        @csrf
-                        <!-- text input -->
+                    <form role="form" method="post" action="{{ route('admin.word-collection-sections.update', $section->id) }}" enctype="multipart/form-data">
+                    @csrf
+                    <!-- text input -->
                         <div class="form-group require">
                             <label>Название</label>
-                            <input type="text" name="name" class="form-control" value="{{ old("name") }}" placeholder="Enter ...">
+                            <input type="text" name="name" class="form-control" value="{{ $section->name }}" placeholder="Enter ...">
                         </div>
 
                         <div class="form-group require">
                             <label>Код</label>
-                            <input type="text" name="code" class="form-control" placeholder="Enter ...">
+                            <input type="text" name="code" class="form-control" value="{{ $section->code }}" placeholder="Enter ...">
                         </div>
                         <div class="form-group">
-                             <label>Сортировка</label>
-                             <input type="text" name="sort" value="100" class="form-control" placeholder="Enter ...">
+                            <label>Сортировка</label>
+                            <input type="text" name="sort" value="{{ $section->sort }}" class="form-control" placeholder="Enter ...">
                         </div>
                         <div class="form-group">
+                            <div class="pic-row">
+                                <img src="{{ $section->previewPicture }}" alt="">
+                            </div>
                             <label for="pictureInputFile">Картинка</label>
                             <input type="file" name="picture" id="pictureInputFile">
                         </div>
                         <div class="form-group">
                             <label>Текст</label>
-                            <textarea name="text" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea name="text" class="form-control" rows="3" placeholder="Enter ...">{{ $section->text }}</textarea>
                         </div>
                         <!-- select -->
                         <div class="form-group">
@@ -57,25 +60,27 @@
                             <select class="form-control" name="parent_id">
                                 <option value="">--Корневой--</option>
                                 @foreach($parent_sections as $section_item)
-                                    <option value="{{ $section_item->id }}">{{ $section_item->name }}</option>
+                                    @if($section_item->id !== $section->id)
+                                        <option value="{{ $section_item->id }}" {{ $section_item->id == $section->parent_id ? 'selected="selected"' : ''}}>{{ $section_item->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group require">
                             <label>Title</label>
-                            <input type="text" name="title" class="form-control" placeholder="Enter ...">
+                            <input type="text" name="title" value="{{ $section->title }}" class="form-control" placeholder="Enter ...">
                         </div>
 
                         <div class="form-group">
                             <label>Desctiption</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{ $section->description }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="active" checked="checked">
+                                    <input type="checkbox" name="active" {{ $section->active ? 'checked="checked"': '' }}>
                                     Активность
                                 </label>
                             </div>

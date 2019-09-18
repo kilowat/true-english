@@ -23,12 +23,15 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
     /*******word-collection******/
     Route::get('word-collection-sections', 'AdminWordCollectionController@index')->name('admin.word-collection-sections.index');
+    Route::get('word-collection-sections/edit/{id}', 'AdminWordCollectionController@edit')->name('admin.word-collection-sections.edit');
+    Route::post('word-collection-sections/update/{id}', 'AdminWordCollectionController@update')->name('admin.word-collection-sections.update');
     Route::get('word-collection-sections/add', 'AdminWordCollectionController@addSection')->name('admin.word-collection-sections.addSection');
     Route::post('word-collection-sections', 'AdminWordCollectionController@store')->name('admin.word-collection-sections.store');
     /***************************/
 
     /*******card******/
     Route::get('cards', 'AdminCardController@index')->name('admin.card.index');
+    Route::get('cards/data-list', 'AdminCardController@dataList')->name('admin.card.data-list');
     Route::post('cards', 'AdminCardController@store')->name('admin.card.store');
     Route::get('cards/add', 'AdminCardController@add')->name('admin.card.add');
     /***************************/

@@ -18,11 +18,12 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table id="section-table" class="table table-bordered table-hover">
+                    <table id="card-table" class="table table-bordered table-hover">
                         <thead>
                         <tr>
                             <th>id</th>
                             <th>Название</th>
+                            <th>Код</th>
                             <th>Картинка</th>
                             <th>Раздел</th>
                             <th>Сортировка</th>
@@ -32,37 +33,6 @@
                             <th>Управление</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        @foreach($cards as $card)
-                            <tr>
-                                <td>{{ $card->id }}</td>
-                                <td>{{ $card->name }}</td>
-                                <td><img src="{{ $card->previewPicture }}" style="max-width: 80px" alt=""></td>
-                                <td>{{ $card->section->name }}</td>
-                                <td>{{ $card->sort }}</td>
-                                <td>{{ $card->active ? "Активен" : "Не активет" }}</td>
-                                <td>{{ $card->created_at }}</td>
-                                <td>{{ $card->updated_at }}</td>
-                                <td>
-                                    <a href="" title="">Изменить</a><br>
-                                    <a href="" title="">Удалить</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <th>id</th>
-                            <th>Название</th>
-                            <th>Картинка</th>
-                            <th>Раздел</th>
-                            <th>Сортировка</th>
-                            <th>Активность</th>
-                            <th>Дата создания</th>
-                            <th>Дата изменения</th>
-                            <th>Управление</th>
-                        </tr>
-                        </tfoot>
                     </table>
                 </div>
                 <!-- /.box-body -->
@@ -76,15 +46,24 @@
 @stop
 @section('js')
     <script>
-        $(function () {
-            $('#section-table').DataTable({
-                'paging'      : false,
-                'lengthChange': false,
-                'searching'   : false,
-                'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : true
-            })
-        })
+        $(function() {
+            $('#card-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('admin.card.data-list') !!}',
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'name', name: 'name' },
+                    { data: 'code', name: 'code' },
+                    { data: 'picture', name: 'picture' },
+                    { data: 'section', name: 'section' },
+                    { data: 'sort', name: 'sort' },
+                    { data: 'active', name: 'active' },
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'updated_at', name: 'updated_at' },
+                    { data: 'action', name: 'action', orderable: false, searchable: false}
+                ]
+            });
+        });
     </script>
 @stop
