@@ -1724,12 +1724,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       post_url: 'admin/words/audio/upload-file',
       files: [],
-      stepTime: 1000
+      stepTime: 1000,
+      currentIndex: 0,
+      procent: 0,
+      worked: false
     };
   },
   methods: {
@@ -1755,22 +1762,33 @@ __webpack_require__.r(__webpack_exports__);
         }
       };
       axios(conf).then(function (data) {
+        this.currentIndex = i + 1;
+        this.procent = Math.round(this.currentIndex * 100 / this.files.length);
         this.files[i].id = data['data']['id'];
         this.files.splice(i, 1, this.files[i]);
+
+        if (i >= this.files.length - 1) {
+          this.worked = false;
+        }
+
         console.log('success');
       }.bind(this))["catch"](function (data) {
+        if (i >= this.files.length - 1) {
+          this.worked = false;
+        }
+
         console.log('error');
       });
     },
     submitFiles: function submitFiles() {
       var _this = this;
 
+      if (this.worked) return false;
+      this.worked = true;
       var time = 0;
 
       var _loop = function _loop(i) {
         setTimeout(function () {
-          console.log(_this.files[i]);
-
           _this.send(i);
         }, time);
         time += _this.stepTime;
@@ -2951,6 +2969,23 @@ var render = function() {
         }),
         _vm._v(" "),
         _vm._m(0)
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "progress" }, [
+        _c(
+          "div",
+          {
+            staticClass: "progress-bar",
+            style: { width: _vm.procent + "%" },
+            attrs: {
+              role: "progressbar",
+              "aria-valuenow": "0",
+              "aria-valuemin": "0",
+              "aria-valuemax": "100"
+            }
+          },
+          [_vm._v(_vm._s(_vm.procent) + "%")]
+        )
       ]),
       _vm._v(" "),
       _c(

@@ -23,4 +23,12 @@ class Word extends Model
     public function getContextReversoLinkAttribute(){
         return "https://dictionary.reverso.net/english-russian/".$this->name;
     }
+
+    public function audio(){
+        return $this->hasOne(
+            '\App\Models\Audio',
+            'word_code',
+            'name'
+        );
+    }
 }

@@ -27,9 +27,15 @@ class AdminWordController extends AdminController
     }
 
     public function dataList(){
-        $words = Word::query();
+        $words = Word::query()->with('audio');
 
         return Datatables::of($words)
+            ->addColumn('audio', function($words){
+                if($words->audio)
+                    return $words->audio->file_name."<br><audio controls><source src='/storage/audio/".$words->audio->file_name."' type='".$words->audio->mime."'></audio>";
+                else
+                    return "";
+            })
             ->addColumn('action', function ($words) {
                 $btn_str =  '<a href="'.route('admin.word.edit', $words->id).'" class="btn btn-xs btn-primary btn-action"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
                 $btn_str.=  '<a href="#del-'.$words->id.'" class="btn btn-xs btn-danger btn-action"><i class="glyphicon glyphicon-remove"></i> Delete</a>';
@@ -38,7 +44,7 @@ class AdminWordController extends AdminController
             ->editColumn('checked', function($words) {
                 return '<span class="label label-'. ($words->checked ? 'success' : 'warning').'">'. ($words->checked ? 'Проверено' : 'Не проверенно').'</span>';
             })
-            ->rawColumns(['checked', 'action'])
+            ->rawColumns(['audio','checked' ,'action'])
             ->make(true);
     }
 
@@ -48,7 +54,7 @@ class AdminWordController extends AdminController
     }
 
     public function update($id){
-        dd($id);
+
     }
 
     public function export(Request $request){

@@ -8,6 +8,10 @@
             </p>
         </div>
 
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" v-bind:style="{width: procent+'%'}" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ procent }}%</div>
+        </div>
+
         <a class="btn btn-primary submit-button" v-on:click="submitFiles()" v-show="files.length > 0">Отправить</a>
 
         <div v-for="(file, key) in files" class="file-listing">
@@ -19,9 +23,9 @@
                 <a class="remove" v-on:click="removeFile(key)">Удалить</a>
             </div>
         </div>
-
         <a class="btn btn-primary submit-button" v-on:click="submitFiles()" v-show="files.length > 0">Отправить</a>
     </div>
+
 </template>
 
 
@@ -32,8 +36,12 @@
                 post_url: 'admin/words/audio/upload-file',
                 files: [],
                 stepTime: 1000,
+                currentIndex: 0,
+                procent: 0,
+                worked: false,
             }
         },
+
         methods: {
             handleFiles() {
                 let uploadedFiles = this.$refs.files.files;
@@ -60,19 +68,32 @@
                 }
 
                 axios(conf).then(function(data) {
+                    this.currentIndex = i + 1;
+                    this.procent = Math.round(( this.currentIndex * 100 ) / this.files.length);
+
                     this.files[i].id = data['data']['id'];
                     this.files.splice(i, 1, this.files[i]);
+                    if(i >= this.files.length - 1){
+                        this.worked = false;
+                    }
                     console.log('success');
                 }.bind(this)).catch(function(data) {
+                    if(i >= this.files.length - 1){
+                        this.worked = false;
+                    }
                     console.log('error');
                 });
             },
 
             submitFiles() {
+                if(this.worked)
+                    return false;
+
+                this.worked = true;
+
                 let time = 0;
                 for (let i = 0; i < this.files.length; i++){
                     setTimeout(()=>{
-                        console.log(this.files[i]);
                         this.send(i);
                     },time);
                     time+=this.stepTime;

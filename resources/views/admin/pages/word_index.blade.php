@@ -3,7 +3,7 @@
 @section('title', 'Сборники слов')
 
 @section('content_header')
-    <h1>Сборники слов (Карточки)</h1>
+    <h1>Список слов</h1>
 @stop
 
 @section('content')
@@ -25,6 +25,7 @@
                             <th>Название</th>
                             <th>Тр-ция</th>
                             <th>Перевод</th>
+                            <th>Аудио</th>
                             <th>Проверено</th>
                             <th>Дата создания</th>
                             <th>Дата изменения</th>
@@ -49,10 +50,11 @@
                     { data: 'name', name: 'name' },
                     { data: 'transcription', name: 'transcription' },
                     { data: 'translate', name: 'translate' },
+                    { data: 'audio', name: 'audio', orderable: false, searchable: false},
                     { data: 'checked', name: 'checked' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
-                    {data: 'action', name: 'action', orderable: false, searchable: false}
+                    { data: 'action', name: 'action', orderable: false, searchable: false}
                 ]
             });
         });
