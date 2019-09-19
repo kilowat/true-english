@@ -28,6 +28,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+});
+
 const app = new Vue({
     el: '#app',
 });
