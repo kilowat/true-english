@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('./materialize.min');
 
 window.Vue = require('vue');
 

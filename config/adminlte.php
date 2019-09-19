@@ -128,6 +128,16 @@ return [
     */
 
     'menu' => [
+        [
+            'text' => 'Перейти на сайт',
+            'url'  => 'http://true-english.local',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+        [
+            'text' => 'Главная',
+            'url'  => '/',
+            'icon' => 'fas fa-fw fa-file',
+        ],
         ['header' => 'Сборники слов'],
         [
             'text' => 'Разделы',
