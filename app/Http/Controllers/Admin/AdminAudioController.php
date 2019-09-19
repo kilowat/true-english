@@ -29,7 +29,7 @@ class AdminAudioController extends AdminController
 
         return Datatables::of($files)
             ->addColumn('action', function ($files) {
-                $btn_str = '<a href="#del-'.$files->id.'" class="btn btn-xs btn-danger btn-action"><i class="glyphicon glyphicon-remove"></i> Delete</a>';
+                $btn_str = '<button onclick="if (window.confirm(\'Удалить элемент?\')) location.href=\''.route('admin.audio.delete', $files->id).'\';" class="btn btn-xs btn-danger btn-action del-card"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
                 return $btn_str;
             })
             ->editColumn('file_name', function($files) {
@@ -76,5 +76,16 @@ class AdminAudioController extends AdminController
                 'success' => false
             ], 500);
         }
+    }
+
+    public function delete($id){
+        $file = Audio::where('id', '=', $id)->first();
+
+        if($file){
+            Storage::disk('audio')->delete($file->file_name);
+            Audio::destroy($id);
+        }
+
+        return redirect()->back();
     }
 }

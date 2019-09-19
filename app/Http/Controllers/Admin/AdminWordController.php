@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Exports\WordExport;
+use App\Http\Requests\WordPost;
 use App\Imports\WordImport;
 use App\Models\Word;
 
@@ -32,18 +33,19 @@ class AdminWordController extends AdminController
         return Datatables::of($words)
             ->addColumn('audio', function($words){
                 if($words->audio)
-                    return $words->audio->file_name."<br><audio controls><source src='/storage/audio/".$words->audio->file_name."' type='".$words->audio->mime."'></audio>";
+                    return $words->audio->file_name."<br><audio style='max-width:70px' controls><source src='/storage/audio/".$words->audio->file_name."' type='".$words->audio->mime."'></audio>";
                 else
                     return "";
             })
             ->addColumn('action', function ($words) {
                 $btn_str =  '<a href="'.route('admin.word.edit', $words->id).'" class="btn btn-xs btn-primary btn-action"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-                $btn_str.=  '<a href="#del-'.$words->id.'" class="btn btn-xs btn-danger btn-action"><i class="glyphicon glyphicon-remove"></i> Delete</a>';
+                $btn_str.=  '<button onclick="if (window.confirm(\'Удалить элемент?\')) location.href=\''.route('admin.word.delete', $words->id).'\';" class="btn btn-xs btn-danger btn-action del-card"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
                 return $btn_str;
             })
             ->editColumn('checked', function($words) {
                 return '<span class="label label-'. ($words->checked ? 'success' : 'warning').'">'. ($words->checked ? 'Проверено' : 'Не проверенно').'</span>';
             })
+            ->removeColumn('created_at')
             ->rawColumns(['audio','checked' ,'action'])
             ->make(true);
     }
@@ -53,8 +55,16 @@ class AdminWordController extends AdminController
         return view('admin.pages.word_edit', ['word' => $word]);
     }
 
-    public function update($id){
+    public function update($id, WordPost $request){
+        Word::find($id)->update($request->all());
 
+        return redirect()->back()->with('message',  trans('messages.update_success'));
+    }
+
+    public function delete($id){
+        Word::destroy($id);
+
+        return redirect()->back();
     }
 
     public function export(Request $request){

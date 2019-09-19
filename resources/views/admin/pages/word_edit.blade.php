@@ -37,21 +37,22 @@
 
                         <div class="form-group require">
                             <label>Транскрипция</label>
-                            <input type="text" name="code" value="{{ $word->transcription }}" class="form-control" placeholder="Enter ...">
+                            <input type="text" name="transcription" value="{{ $word->transcription }}" class="form-control" placeholder="Enter ...">
                         </div>
                         <div class="form-group">
                             <label>Перевод</label>
-                            <textarea name="sort"class="form-control" placeholder="Enter ...">{{ $word->translate }}</textarea>
+                            <textarea name="translate"class="form-control" placeholder="Enter ...">{{ $word->translate }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="pictureInputFile">Аудио</label>
-                            audio-ic
+                            <audio controls=""><source src="/storage/audio/aberdeen.mp3" type="audio/mpeg"></audio>
                         </div>
 
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="active" checked="checked">
+                                    <input type="hidden" name="checked" value="0">
+                                    <input type="checkbox" name="checked" {{ $word->checked ? 'checked="checked"': '' }}>
                                     Проверено
                                 </label>
                             </div>

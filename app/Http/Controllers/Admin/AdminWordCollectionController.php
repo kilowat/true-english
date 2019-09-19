@@ -55,8 +55,4 @@ class AdminWordCollectionController extends AdminController
         return redirect()->back()->with('message',  trans('messages.add_success'));
     }
 
-    public function delete($id){
-        dd($id);
-        return redirect()->back();
-    }
 }

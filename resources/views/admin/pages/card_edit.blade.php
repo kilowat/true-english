@@ -88,6 +88,7 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
+                                    <input type="hidden" name="active" value="0">
                                     <input type="checkbox" name="active" {{ $card->active ? 'checked="checked"': '' }}>
                                     Активность
                                 </label>

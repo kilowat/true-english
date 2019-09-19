@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Word extends Model
 {
-    public $timestamps = true;
-
     protected $guarded = [];
 
     public function cards(){
@@ -30,5 +28,10 @@ class Word extends Model
             'word_code',
             'name'
         );
+    }
+
+    public function setCheckedAttribute($value){
+        $value = $value == "on" ? 1 : 0;
+        $this->attributes['checked'] = $value;
     }
 }
