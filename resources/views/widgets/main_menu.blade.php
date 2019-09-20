@@ -1,5 +1,4 @@
-<nav class="container">
-    <ul>
+    <ul class="main-menu">
         @foreach($config as $item)
         <li>
             <a href="{{ $item["link"]  }}"
@@ -8,4 +7,3 @@
 
         @endforeach
     </ul>
-</nav>

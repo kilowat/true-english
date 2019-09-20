@@ -1,0 +1,30 @@
+.about-block{
+  margin-top: 4rem;
+  h1{
+    text-align: center;
+  }
+}
+.card-top{
+  margin-top: 40px;
+  h4{
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  .card-info{
+    display: flex;
+    justify-content: space-between;
+    padding: 14px;
+    .info-cell{
+      color: #978f8f;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      .ic-svg{
+        fill: #978f8f;
+      }
+      .info-value{
+        color: #000;
+      }
+    }
+  }
+}

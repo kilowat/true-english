@@ -4,7 +4,38 @@ html, body {
   padding: 0;
 }
 .content{
-  min-height: 100vh;
+  min-height: calc(100vh - 200px);
+  clear:both;
+}
+
+.header{
+
+}
+.top-block {
+  height: 120px;
+  background-color: $primary-color-light;
+  @include breakpoint(max-width $medium-screen){
+    display:none;
+  }
+}
+.main-menu{
+  @include breakpoint(max-width $medium-screen){
+    display:none;
+  }
+  li{
+    a{
+      background-color: $primary-color-dark;
+      border-right: 1px solid $primary-color;
+      &:hover, &.selected{
+        background-color: $secondary-color;
+      }
+    }
+    &:last-child{
+      a{
+        border-right: 0;
+      }
+    }
+  }
 }
 
 .container{
@@ -16,6 +47,7 @@ html, body {
     }
   }
 }
+
 .sidebar{
   width: 220px;
   margin-right: 20px;
@@ -50,4 +82,7 @@ html, body {
       vertical-align: middle;
     }
   }
+}
+.page-footer{
+  background-color: map-get($grey, 'darken-1');
 }

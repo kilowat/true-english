@@ -34,11 +34,11 @@
 // 1. Colors
 // ==========================================================================
 
-$primary-color: color("blue", "lighten-2") !default;
+$primary-color: color("blue", "darken-2") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
-$secondary-color: color("teal", "lighten-1") !default;
+$secondary-color: color("pink", "lighten-1") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
@@ -99,9 +99,9 @@ $button-floating-radius: 50% !default;
 // 4. Cards
 // ==========================================================================
 
-$card-padding: 24px !default;
+$card-padding: 8px !default;
 $card-bg-color: #fff !default;
-$card-link-color: color("orange", "accent-2") !default;
+$card-link-color: color("blue", "accent-2") !default;
 $card-link-color-light: lighten($card-link-color, 20%) !default;
 
 
@@ -306,10 +306,10 @@ $toast-action-color: #eeff41;
 $font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !default;
 $off-black: rgba(0, 0, 0, 0.87) !default;
 // Header Styles
-$h1-fontsize: 4.2rem !default;
-$h2-fontsize: 3.56rem !default;
-$h3-fontsize: 2.92rem !default;
-$h4-fontsize: 2.28rem !default;
+$h1-fontsize: 2.28rem !default;
+$h2-fontsize: 1.64rem !default;
+$h3-fontsize: 1.64rem !default;
+$h4-fontsize: 1.64rem !default;
 $h5-fontsize: 1.64rem !default;
 $h6-fontsize: 1.15rem !default;
 

@@ -1,7 +1,9 @@
 // Fonts
 @import "variables";
+@import "lib/breakpoint";
+@import "materialize";
 //@import "lib/jquery.fancybox.css";
 @import "main";
 @import "inputs";
 @import "icons";
-@import "materialize";
+@import "pages/main-page";

@@ -17,25 +17,19 @@ class WordCard extends Model
 
     protected static $imageFields = [
         'picture' => [
-            'width' => 240,
+            'width' => 300,
             'height' => 220,
+            'crop' => true,
         ]
     ];
 
-    public static function makeUrlToDetail($parent_section_code, $current_section_code, $code){
-        return route('word-collection.section', $parent_section_code, $current_section_code)
-            ."/".$current_section_code
-            ."/".$code.".html";
-    }
-
     public function words(){
-        return $this->belongsToMany(
-            'App\Models\Word',
-            'word_card_words',
-            'word',
+        return $this->hasMany(
+            'App\Models\WordCardWord',
             'card_id',
-            'name',
-            'id');
+            'id'
+        );
+
     }
 
     public function section(){
