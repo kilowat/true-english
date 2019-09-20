@@ -18,6 +18,7 @@ class CreateWordSectionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 45);
             $table->string('code', 100)->unique();
+            $table->string('uri', 100);
             $table->string('text', 1000)->nullable();
             $table->string('picture', 100)->nullable();
             $table->string('title', 255)->nullable();

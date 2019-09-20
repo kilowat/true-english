@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\WordCard;
+use App\Models\WordSection;
 use App\Observers\WordCardObserver;
+use App\Observers\WordSectionObserver;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,5 +31,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         WordCard::observe(WordCardObserver::class);
+
+        WordSection::observe(WordSectionObserver::class);
     }
 }

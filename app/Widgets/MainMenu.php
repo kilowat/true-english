@@ -18,7 +18,7 @@ class MainMenu extends AbstractWidget
             "name" => "Главная",
         ],
         [
-            "route_name" => "word-collection.list",
+            "route_name" => "word-collection.index",
             "name" => "Сборники слов"
         ],
     ];

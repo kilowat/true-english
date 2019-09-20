@@ -44,6 +44,11 @@ class WordCard extends Model
         }
     }
 
+    public function getShortDataAttribute(){
+        $data = new Carbon($this->created_at);
+        return $data->format('d.m.Y');
+    }
+
     public function setActiveAttribute($value)
     {
         $value = $value == "on" ? 1 : 0;

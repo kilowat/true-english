@@ -9,14 +9,14 @@ use Illuminate\Http\Request;
 
 class WordCollectionController extends Controller
 {
-    private $elementPaginateCount = 12;
+    private $elementPaginateCount = 20;
     private $wordPaginateCount = 10;
 
-    public function list()
+    public function index()
     {
-        $sections = WordSection::where('parent_id', '=', null)->get();
+        $sections = WordSection::where('parent_id', '>', 0)->paginate($this->elementPaginateCount);
 
-        return view("pages.word_collection_list", ['sections' => $sections]);
+        return view("pages.word_collection_index", ['sections' => $sections]);
     }
 
     public function detail($parent_section_code, $current_section_code, $element_code, Word $words)
@@ -33,7 +33,7 @@ class WordCollectionController extends Controller
         return view("pages.word_collection_detail", ['word_list' => $word_list, 'card' => $card]);
     }
 
-    public function section($section_code, $parent_section = null){
+    public function section($section_code){
         $current_section = WordSection::where("code", "=", $section_code)->first();
 
         $this->checkNeedShow404($current_section);

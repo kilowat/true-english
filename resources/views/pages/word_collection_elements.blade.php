@@ -12,8 +12,11 @@
 
 @section('sidebar-class', 'with-sidebar')
 
+@section('breadcrumbs', Breadcrumbs::render('word_section', $section))
 
 @section('content')
-
+    <section>
+        <h1 class="section-header">{{ $section->name }}</h1>
+    </section>
 
 @endsection

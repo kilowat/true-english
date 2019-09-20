@@ -17,6 +17,7 @@ class CreateWordCardsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('code')->unique();
+            $table->string('uri', 100);
             $table->string('text', 1000)->nullable();
             $table->mediumText('content_text')->nullable();
             $table->string('picture')->nullable();

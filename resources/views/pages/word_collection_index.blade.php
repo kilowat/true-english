@@ -12,12 +12,12 @@
 
 @section('sidebar-class', 'with-sidebar')
 
-@section('breadcrumbs', Breadcrumbs::render('word_section', $current_section))
+@section('breadcrumbs', Breadcrumbs::render('word_collections'))
 
 @section('content')
 
     <section class="card-cmp section-list">
-        <h1 class="section-header">{{ $current_section->name }}</h1>
+        <h1 class="section-header">Сборники слов</h1>
         <div class="row">
             @foreach($sections as $section)
                 <div class="col s12 m6 l3">

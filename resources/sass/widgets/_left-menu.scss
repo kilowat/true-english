@@ -1,4 +1,7 @@
 .collection-word-menu{
+  margin-bottom: 24px;
+  border: 1px solid $primary-color-light;
+  box-sizing: border-box;
   ul{
     list-style: none;
     margin: 0;
@@ -12,12 +15,12 @@
         padding-bottom: 10px;
         padding-left: 8px;
         padding-right: 8px;
-        border-bottom: 1px solid #acafff;
+        border-bottom: 1px solid $primary-color-light;
         text-decoration: none;
         color: rgba(0,0,0, 0.87);
         &.selected, &:hover{
           color: #fff;
-          background: #ff4081;
+          background: $secondary-color;
         }
       }
       &:last-child{

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
 use Kalnoy\Nestedset\NodeTrait;
@@ -14,8 +15,6 @@ class WordSection extends Model
 
     public $timestamps = true;
 
-    private $routeName = 'word-collection.section';
-
     protected $guarded = ['_lft', '_rgt', 'parent_id'];
 
     protected static $imageFields = [
@@ -26,11 +25,12 @@ class WordSection extends Model
     ];
 
     public function getLinkAttribute(){
-        return route($this->routeName, $this->code);
+        return route('word-collection.section',$this->uri);
     }
 
-    public function getSelectedAttribute(){
-        return false;
+    public function getShortDataAttribute(){
+        $data = new Carbon($this->created_at);
+        return $data->format('d.m.Y');
     }
 
     public function getPreviewPictureAttribute(){

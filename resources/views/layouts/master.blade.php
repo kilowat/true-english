@@ -41,12 +41,12 @@
                 <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
             </ul>
             <!--end drower-->
+            @yield('breadcrumbs')
             <main>
                 <div class="container main-container @yield("sidebar-class")" id="app">
                     @yield("sidebar")
                     <div class="content">
                         @yield("content")
-
                     </div>
                 </div>
             </main>

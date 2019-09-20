@@ -3331,17 +3331,17 @@ table span.badge {
 .container {
   margin: 0 auto;
   max-width: 1280px;
-  width: 90%;
+  width: 95%;
 }
 
 @media only screen and (min-width : 601px) {
   .container {
-    width: 85%;
+    width: 95%;
   }
 }
 @media only screen and (min-width : 993px) {
   .container {
-    width: 70%;
+    width: 95%;
   }
 }
 .col .row {
@@ -4323,33 +4323,33 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 h1 {
-  font-size: 2.28rem;
+  font-size: 1.84rem;
   line-height: 110%;
-  margin: 1.52rem 0 0.912rem 0;
+  margin: 1.2266666667rem 0 0.736rem 0;
 }
 
 h2 {
-  font-size: 1.64rem;
+  font-size: 1.44rem;
   line-height: 110%;
-  margin: 1.0933333333rem 0 0.656rem 0;
+  margin: 0.96rem 0 0.576rem 0;
 }
 
 h3 {
-  font-size: 1.64rem;
+  font-size: 1.44rem;
   line-height: 110%;
-  margin: 1.0933333333rem 0 0.656rem 0;
+  margin: 0.96rem 0 0.576rem 0;
 }
 
 h4 {
-  font-size: 1.64rem;
+  font-size: 1.44rem;
   line-height: 110%;
-  margin: 1.0933333333rem 0 0.656rem 0;
+  margin: 0.96rem 0 0.576rem 0;
 }
 
 h5 {
-  font-size: 1.64rem;
+  font-size: 1.44rem;
   line-height: 110%;
-  margin: 1.0933333333rem 0 0.656rem 0;
+  margin: 0.96rem 0 0.576rem 0;
 }
 
 h6 {
@@ -8198,6 +8198,12 @@ html, body {
   clear: both;
 }
 
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
 .top-block {
   height: 120px;
   background-color: #4e9cea;
@@ -8206,6 +8212,22 @@ html, body {
   .top-block {
     display: none;
   }
+}
+
+.breadcrumbs {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+}
+.breadcrumbs .breadcrumb-item {
+  display: inline-block;
+  font-size: 13px;
+}
+.breadcrumbs .breadcrumb-item.active {
+  color: #6c6c6c;
+}
+.breadcrumbs .seporator-item {
+  margin-left: 5px;
 }
 
 @media (max-width: 992px) {
@@ -8226,7 +8248,6 @@ html, body {
 
 .container.with-sidebar {
   display: flex;
-  width: 100%;
 }
 .container.with-sidebar .content {
   width: calc(100% - 240px);
@@ -8261,16 +8282,6 @@ html, body {
 .nav-pagen {
   text-align: center;
 }
-.nav-pagen .pagination {
-  list-style: none;
-  margin-right: 0;
-  padding: 0;
-}
-.nav-pagen .pagination li {
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .page-footer {
   background-color: #757575;
 }
@@ -8405,4 +8416,43 @@ html, body {
 }
 .card-top .card-info .info-cell .info-value {
   color: #000;
+}
+
+.collection-word-menu {
+  margin-bottom: 24px;
+  border: 1px solid #4e9cea;
+  box-sizing: border-box;
+}
+.collection-word-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.collection-word-menu ul li a {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-bottom: 1px solid #4e9cea;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+.collection-word-menu ul li a.selected, .collection-word-menu ul li a:hover {
+  color: #fff;
+  background: #ec407a;
+}
+.collection-word-menu ul li:last-child a {
+  border-bottom: none;
+}
+
+.ads-block {
+  margin-bottom: 24px;
+  margin-top: 24px;
+  border: 1px solid #4e9cea;
+}
+.ads-block img {
+  max-width: 100%;
 }

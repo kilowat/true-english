@@ -11,11 +11,31 @@ html, body {
 .header{
 
 }
+.section-header{
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top:0;
+}
 .top-block {
   height: 120px;
   background-color: $primary-color-light;
   @include breakpoint(max-width $medium-screen){
     display:none;
+  }
+}
+.breadcrumbs{
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+  .breadcrumb-item{
+    display: inline-block;
+    font-size: 13px;
+    &.active{
+      color: #6c6c6c;
+    }
+  }
+  .seporator-item{
+    margin-left: 5px;
   }
 }
 .main-menu{
@@ -41,7 +61,6 @@ html, body {
 .container{
   &.with-sidebar{
     display: flex;
-    width: 100%;
     .content{
       width:calc(100% - 240px);
     }
@@ -74,12 +93,8 @@ html, body {
 .nav-pagen{
   text-align: center;
   .pagination{
-    list-style: none;
-    margin-right: 0;
-    padding: 0;
     li{
-      display: inline-block;
-      vertical-align: middle;
+
     }
   }
 }
