@@ -15,6 +15,7 @@ Route::get('word-collections', 'WordCollectionController@index')->name('word-col
 Route::get('word-collections/{uri}.html', 'WordCollectionController@detail')
     ->where('uri', '[0-9a-zA-Z_/-]+')
     ->name('word-collection.detail');
+Route::get('word-collections/word-table/{card_id}', 'WordCollectionController@wordTable')->name('word-collection.table');
 Route::get('word-collections/{parent_code}/{section_code}', 'WordCollectionController@elements')->name('word-collection.elements');
 Route::get('word-collections/{section_code}', 'WordCollectionController@section')->name('word-collection.section');
 

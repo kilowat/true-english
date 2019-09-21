@@ -29,12 +29,7 @@ class WordCollectionController extends Controller
         $section = WordSection::where('code', '=', $section_code)->first();
 
         $this->checkNeedShow404($card);
-        /*
-        $word_list = $words->whereHas('cards', function($query) use($card){
-            $query->where('card_id', '=', $card->id);
-        })->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word')
-            ->paginate($this->wordPaginateCount);
-        */
+
         return view("pages.word_collection_detail", [
             'card' => $card,
             'section' => $section]);
@@ -71,5 +66,18 @@ class WordCollectionController extends Controller
         ];
 
         return view('pages.word_collection_elements', $data);
+    }
+
+    public function wordTable($card_id){
+        $card = WordCard::find($card_id);
+
+        $this->checkNeedShow404($card);
+
+        $words = Word::whereHas('cards', function($query) use($card_id){
+            $query->where('card_id', '=', $card_id);
+        })->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word')
+            ->paginate(500);
+
+        return view("pages.word_table", compact( 'card', 'words'));
     }
 }

@@ -21,7 +21,17 @@
         <h1>{{ $card->name }}</h1>
         <div class="card-detail">
             <div class="pic-box">
-                <img src="{{ $card->previewPicture }}" alt="{{ $card->name }}">
+                @if($card->youtube)
+                    <iframe width="300"
+                            height="220"
+                            src="https://www.youtube.com/embed/{{ $card->youtube }}"
+                            frameborder="0"
+                            allow="accelerometer;
+                            autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                @else
+                    <img src="{{ $card->previewPicture }}" alt="{{ $card->name }}">
+                @endif
             </div>
             <div class="card-descr">
                 <div class="prop-list table">
@@ -31,15 +41,19 @@
                     </div>
                     <div class="prop-item table-row">
                         <div class="table-cell"><span class="prop-name">Скачать:</span></div>
-                        <div class="table-cell"><span calss="prop-value">Excel</span></div>
+                        <div class="table-cell">
+                            <span calss="prop-value">
+                                <a href="" title="Таблица"><svg class="ic-excel"><use xlink:href="#ic-excel" x="0" y="0"></use></svg> (234 кб)</a>
+                            </span>
+                        </div>
                     </div>
                     <div class="prop-item table-row">
                         <div class="table-cell"><span class="prop-name">Дата:</span></div>
                         <div class="table-cell"><span calss="prop-value">{{ $card->shortData }}</span></div>
                     </div>
                     <div class="prop-item table-row">
-                        <div class="table-cell"><span class="prop-name">Таблица со словами:</span></div>
-                        <div class="table-cell"><span calss="prop-value"><a class="btn">Открыть</a></span></div>
+                        <div class="table-cell"><span class="prop-name">Таблица:</span></div>
+                        <div class="table-cell"><span calss="prop-value"><a class="btn" href="{{ route('word-collection.table', $card->id) }}" title="Таблица" target="_blank">Открыть</a></span></div>
                     </div>
                 </div>
             </div>
