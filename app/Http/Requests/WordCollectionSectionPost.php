@@ -45,12 +45,16 @@ class WordCollectionSectionPost extends FormRequest
     }
 
     private function uniqueCode(){
-        $row = WordSection::where('id', '=', $this->id)->first();
+        $row = WordSection::where('code', '=', $this->code)->first();
 
-        if($this->id > 0){
-            return $row->code !== $this->code;
-        }else{
-            return $row;
+        if(!$row) return true;
+
+        if($this->id){//update
+            if($this->code === WordSection::where('id', '=', $this->id)->first()->code){
+                return true;
+            }
         }
+
+        return false;
     }
 }

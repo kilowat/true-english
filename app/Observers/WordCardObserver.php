@@ -3,9 +3,17 @@
 namespace App\Observers;
 
 use App\Models\WordCard;
+use App\Models\WordSection;
 
 class WordCardObserver
 {
+    private  function makeUri(WordCard $wordCard){
+        $uri = WordSection::where('id', '=', $wordCard->section_id)->first()->uri;
+        $uri.= "/".$wordCard->code;
+
+        $wordCard->find($wordCard->id)->update(["uri" => $uri]);
+    }
+
     /**
      * Handle the word card "created" event.
      *
@@ -14,7 +22,7 @@ class WordCardObserver
      */
     public function created(WordCard $wordCard)
     {
-        //
+        $this->makeUri($wordCard);
     }
 
     /**
@@ -25,7 +33,7 @@ class WordCardObserver
      */
     public function updated(WordCard $wordCard)
     {
-        //
+        $this->makeUri($wordCard);
     }
 
     /**

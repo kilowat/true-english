@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>true-english - @yield('title')</title>
+        <title>true-english.ru | @yield('title')</title>
+        <meta name="description" content="@yield("description")" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap&subset=cyrillic" rel="stylesheet">
@@ -14,7 +15,18 @@
         <div id="app">
             <header class="header">
                 <div class="top-block">
-
+                    <div class="container">
+                        <div class="left-block">
+                            <div class="logo-block">
+                                <a href="/" title="true-english.ru"><img src="/images/logo.png" alt="logo"></a>
+                            </div>
+                        </div>
+                        <div class="user-block">
+                            <div class="user-line">
+                                <a href="#" title="">Авторизоваться</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <nav class="nav-block" role="navigation">

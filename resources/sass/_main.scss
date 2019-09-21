@@ -9,8 +9,28 @@ html, body {
 }
 
 .header{
-
+  .container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo-block{
+    height: 120px;
+    display: flex;
+    align-items: center;
+  }
+  .user-block{
+    height: 120px;
+    display: flex;
+    align-items: center;
+    a{
+      color: #fff;
+      &:hover{
+        color: $secondary-color;
+      }
+    }
+  }
 }
+
 .section-header{
   text-align: center;
   margin-bottom: 2rem;

@@ -39,19 +39,23 @@ class CardPost extends FormRequest
     public function withValidator($validator)
     {
         $validator->after(function ($validator) {
-            if ($this->uniqueCode()) {
+            if (!$this->uniqueCode()) {
                 $validator->errors()->add('code', 'Код должен быть уникальным');
             }
         });
     }
 
     private function uniqueCode(){
-        $row = WordCard::where('id', '=', $this->id)->first();
+        $row = WordCard::where('code', '=', $this->code)->first();
 
-        if($this->id > 0){
-            return $row->code !== $this->code;
-        }else{
-            return $row;
+        if(!$row) return true;
+
+        if($this->id){//update
+            if($this->code === WordCard::where('id', '=', $this->id)->first()->code){
+                return true;
+            }
         }
+
+        return false;
     }
 }

@@ -49,6 +49,10 @@ class WordCard extends Model
         return $data->format('d.m.Y');
     }
 
+    public function getLinkAttribute(){
+         return route("word-collection.detail", $this->uri);
+    }
+
     public function setActiveAttribute($value)
     {
         $value = $value == "on" ? 1 : 0;

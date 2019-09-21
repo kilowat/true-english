@@ -19,18 +19,25 @@ class WordCollectionController extends Controller
         return view("pages.word_collection_index", ['sections' => $sections]);
     }
 
-    public function detail($parent_section_code, $current_section_code, $element_code, Word $words)
+    public function detail($uri, Word $words)
     {
-        $card = WordCard::where('code', '=', $element_code)->first();
+        $arr_uri = explode("/", $uri);
+        $element_code = array_pop($arr_uri);
+        $section_code = array_pop($arr_uri);
+
+        $card = WordCard::where('code', '=', $element_code)->with('words')->withCount('words')->first();
+        $section = WordSection::where('code', '=', $section_code)->first();
 
         $this->checkNeedShow404($card);
-
+        /*
         $word_list = $words->whereHas('cards', function($query) use($card){
             $query->where('card_id', '=', $card->id);
         })->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word')
             ->paginate($this->wordPaginateCount);
-
-        return view("pages.word_collection_detail", ['word_list' => $word_list, 'card' => $card]);
+        */
+        return view("pages.word_collection_detail", [
+            'card' => $card,
+            'section' => $section]);
     }
 
     public function section($section_code){
@@ -55,7 +62,7 @@ class WordCollectionController extends Controller
 
         $this->checkNeedShow404($section);
 
-        $elements = WordCard::where("section_id" , "=", $section->id)->get();
+        $elements = WordCard::where("section_id" , "=", $section->id)->paginate($this->elementPaginateCount);
 
         $data = [
             'parent_section_code' => $parent_code,

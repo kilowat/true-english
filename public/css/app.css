@@ -8198,6 +8198,27 @@ html, body {
   clear: both;
 }
 
+.header .container {
+  display: flex;
+  justify-content: space-between;
+}
+.header .logo-block {
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+.header .user-block {
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+.header .user-block a {
+  color: #fff;
+}
+.header .user-block a:hover {
+  color: #ec407a;
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 2rem;
@@ -8455,4 +8476,12 @@ html, body {
 }
 .ads-block img {
   max-width: 100%;
+}
+
+.card-detail {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card-detail .pic-box {
+  margin-right: 14px;
 }

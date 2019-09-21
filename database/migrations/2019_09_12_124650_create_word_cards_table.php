@@ -21,6 +21,7 @@ class CreateWordCardsTable extends Migration
             $table->string('text', 1000)->nullable();
             $table->mediumText('content_text')->nullable();
             $table->string('picture')->nullable();
+            $table->string('youtube')->nullable();
             $table->string('title', 255)->nullable();
             $table->string('description', 255)->nullable();
             $table->integer('section_id')->unsigned();

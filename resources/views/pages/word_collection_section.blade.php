@@ -1,7 +1,8 @@
 
 @extends('layouts.master')
 
-@section('title', 'Page Title')
+@section('title', $current_section->title)
+@section('description', $current_section->description)
 
 @section('sidebar')
     <aside class="sidebar">
