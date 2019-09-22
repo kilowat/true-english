@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Widgets;
+
+use App\Http\Requests\WordTableDataRequest;
+use Arrilot\Widgets\AbstractWidget;
+
+class WordSort extends AbstractWidget
+{
+
+    private $sortFields = [
+        "freq" => "Частотный индекс",
+        "name" => "Слово"
+    ];
+
+    /**
+     * Treat this method as a controller action.
+     * Return view() or other content to display.
+     */
+    public function run(WordTableDataRequest $request)
+    {
+
+        $sort = [];
+        foreach($this->sortFields as $column => $label){
+            $asc_request = $request->fullUrlWithQuery(['column' => $column, 'order' => "asc"]);
+            $desc_request = $request->fullUrlWithQuery(['column' => $column, 'order' => "desc"]);
+
+            $sort[$column] = [
+                "name" => $label,
+                "asc" => [
+                    "link" => $asc_request,
+                    "selected" => $request->fullUrl() == $asc_request,
+                ],
+                "desc" => [
+                    "link" => $desc_request,
+                    "selected" => $request->fullUrl() == $desc_request,
+                ]
+            ];
+        }
+
+        return view('widgets.word_sort', compact('sort'));
+    }
+}

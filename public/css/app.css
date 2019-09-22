@@ -8530,7 +8530,7 @@ html, body {
 }
 .table-page .table_small {
   display: table-cell;
-  padding: 6px;
+  padding: 8px;
   vertical-align: middle;
 }
 .table-page .table_row > .table_small > .table_cell:nth-child(odd) {

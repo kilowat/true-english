@@ -20,23 +20,7 @@
                     <a href="{{ route('word-collection.detail', $card->uri) }}" title="Вернуться"><i class="material-icons dp48">navigate_before</i></a>
                 </div>
             </div>
-            <div class="sort-block">
-                <div class="sort-cell">
-                    <span class="sort-name">Частотный индекс:</span>
-                    <span class="sort-arrow">
-                        <a href="" class="selected"><i class="material-icons dp48">arrow_downward</i></a>
-                        <a href=""><i class="material-icons dp48">arrow_upward</i></a>
-                    </span>
-
-                </div>
-                <div class="sort-cell">
-                    <span class="sort-name">Слово:</span>
-                    <span class="sort-arrow">
-                        <a href=""><i class="material-icons dp48">arrow_downward</i></a>
-                        <a href=""><i class="material-icons dp48">arrow_upward</i></a>
-                    </span>
-                </div>
-            </div>
+            {{ Widget::run('WordSort') }}
         </div>
     </div>
     <div class="table-page">
@@ -98,7 +82,7 @@
             @endforeach
         </div>
         <div class="nav-pagen">
-            {{ $words->links() }}
+            {{ $words->appends(['column' => $request->column, 'order' => $request->order])->links() }}
         </div>
     </div>
 </div>

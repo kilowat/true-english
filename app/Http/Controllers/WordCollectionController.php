@@ -91,8 +91,7 @@ class WordCollectionController extends Controller
 
         $words = $query->paginate($per_page);
 
-
-        return view("pages.word_table", compact('card','words'));
+        return view("pages.word_table", compact('card','words', 'request'));
     }
 
     public function wordTableData($card_id, WordTableDataRequest $request){
