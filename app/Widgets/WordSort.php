@@ -9,7 +9,7 @@ class WordSort extends AbstractWidget
 {
 
     private $sortFields = [
-        "freq" => "Частотный индекс",
+        "freq" => "Частота",
         "name" => "Слово"
     ];
 
@@ -29,11 +29,11 @@ class WordSort extends AbstractWidget
                 "name" => $label,
                 "asc" => [
                     "link" => $asc_request,
-                    "selected" => $request->fullUrl() == $asc_request,
+                    "selected" => $request->column == $column && $request->order == "asc"
                 ],
                 "desc" => [
                     "link" => $desc_request,
-                    "selected" => $request->fullUrl() == $desc_request,
+                    "selected" => $request->column == $column && $request->order == "desc"
                 ]
             ];
         }

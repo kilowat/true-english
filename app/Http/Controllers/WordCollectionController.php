@@ -79,7 +79,7 @@ class WordCollectionController extends Controller
         $sort = $request->column ? $request->column : "freq";
         $order = $request->order ? $request->order : "desc";
 
-        $per_page = $request->per_page ? $request->per_page : 50;
+        $limit = $request->limit ? $request->limit : 50;
 
         $this->checkNeedShow404($card);
 
@@ -89,7 +89,7 @@ class WordCollectionController extends Controller
             ->with("audio")
             ->orderBy($sort, $order);
 
-        $words = $query->paginate($per_page);
+        $words = $query->paginate($limit);
 
         return view("pages.word_table", compact('card','words', 'request'));
     }

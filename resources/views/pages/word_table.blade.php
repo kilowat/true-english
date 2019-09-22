@@ -21,6 +21,7 @@
                 </div>
             </div>
             {{ Widget::run('WordSort') }}
+            {{ Widget::run('WordLimit') }}
         </div>
     </div>
     <div class="table-page">
@@ -28,7 +29,7 @@
         <div class="table" id="results">
             <div class='theader'>
                 <div class='table_header'>№</div>
-                <div class='table_header'>Индекс</div>
+                <div class='table_header'>Частота</div>
                 <div class='table_header'>Слово</div>
                 <div class='table_header'>Транскрипция</div>
                 <div class='table_header'>Перевод</div>
@@ -43,7 +44,7 @@
                         <div class='table_cell'>{{ $count }}</div>
                     </div>
                     <div class='table_small'>
-                        <div class='table_cell'>Индекс:</div>
+                        <div class='table_cell'>Частота:</div>
                         <div class='table_cell cell-freq'>{{ $word->freq }}</div>
                     </div>
                     <div class='table_small'>
@@ -72,7 +73,7 @@
                         <div class='table_cell'>Ссылки:</div>
                         <div class='table_cell'>
                             <i class="icon ic-youglish"></i>
-                            <i class="icon ic-reverso"></i>
+                            <a href="{{ $word->contextReversoLink }}" title="reverso"><i class="icon ic-reverso"></i></a>
                             <i class="icon ic-meriam"></i>
                             <i class="icon ic-word-hunt"></i>
                         </div>
@@ -82,11 +83,12 @@
             @endforeach
         </div>
         <div class="nav-pagen">
-            {{ $words->appends(['column' => $request->column, 'order' => $request->order])->links() }}
+            {{ $words->appends(['column' => $request->column, 'order' => $request->order, 'limit' => $request->limit])->links() }}
         </div>
     </div>
 </div>
 
 <script src="/js/app.js"></script>
+@yield("js")
 </body>
 </html>
