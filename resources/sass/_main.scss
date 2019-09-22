@@ -115,10 +115,32 @@ html, body {
   text-align: center;
   .pagination{
     li{
-
+      &.active{
+        span.page-link{
+          width: 30px;
+          height: 30px;
+          color: #fff;
+          display: inline-block;
+          line-height: 30px;
+        }
+      }
+      &:first-child,&:last-child{
+        vertical-align: middle;
+      }
+      &:first-child .page-link, &:last-child .page-link{
+        font-size: 48px;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        line-height: 30px;
+        position: relative;
+        top: -4px;
+      }
     }
   }
 }
+
+
 .page-footer{
   background-color: map-get($grey, 'darken-1');
 }

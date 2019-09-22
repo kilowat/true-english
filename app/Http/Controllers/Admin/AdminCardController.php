@@ -9,14 +9,32 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Exports\CardExport;
+use App\Exports\WordExport;
 use App\Http\Requests\CardPost;
 use App\Models\WordCard;
 use App\Models\WordSection;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\Facades\DataTables;
 
 class AdminCardController extends AdminController
 {
+    private function createExcel(WordCard $wordCard, $id){
+        $words = [];
+        $wordQuery = $wordCard->find($id)->words;
+
+        foreach($wordQuery as $item){
+            $words[] = $item->name;
+        }
+
+        $file_name = "word_table_".$id.".xlsx";
+
+        if(Excel::store(new CardExport($words), $file_name, 'excel')){
+            $wordCard->find($id)->update(["excel_file" => $file_name]);
+        }
+    }
+
     public function index(){
         return view('admin.pages.card_index');
     }
@@ -67,11 +85,14 @@ class AdminCardController extends AdminController
     }
 
     public function update($id, CardPost $request, WordCard $wordCard){
-
         $wordCard->find($id)->update($request->all());
 
         if($request->update_content == "on" && $request->content_text){
             $wordCard->insertWords($request->content_text, $id);
+        }
+
+        if($request->create_excel == "on"){
+            $this->createExcel($wordCard, $id);
         }
 
         return redirect()->back()->with('message',  trans('messages.update_success'));
@@ -82,6 +103,10 @@ class AdminCardController extends AdminController
 
         if($request->update_content == "on" && $request->content_text){
             $wordCard->insertWords($request->content_text, $created_card->id);
+        }
+
+        if($request->create_excel == "on"){
+            $this->createExcel($wordCard, $created_card->id);
         }
 
         return redirect()->back()->with('message',  trans('messages.add_success'));

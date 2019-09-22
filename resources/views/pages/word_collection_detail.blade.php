@@ -18,7 +18,7 @@
 
 @section('content')
     <section>
-        <h1>{{ $card->name }}</h1>
+        <h1 class="section-header">{{ $card->name }}</h1>
         <div class="card-detail">
             <div class="pic-box">
                 @if($card->youtube)
@@ -43,7 +43,7 @@
                         <div class="table-cell"><span class="prop-name">Скачать:</span></div>
                         <div class="table-cell">
                             <span calss="prop-value">
-                                <a href="" title="Таблица"><svg class="ic-excel"><use xlink:href="#ic-excel" x="0" y="0"></use></svg> (234 кб)</a>
+                                <a href="{{ $card->excel }}" title="Таблица"><svg class="ic-excel"><use xlink:href="#ic-excel" x="0" y="0"></use></svg> Скачать</a>
                             </span>
                         </div>
                     </div>

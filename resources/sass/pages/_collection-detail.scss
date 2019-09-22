@@ -65,7 +65,15 @@
   .table_row:nth-child(2n+3) {
     background: #f4f4f4;
   }
-
+  .link-cell{
+    min-width: 64px;
+    a{
+      vertical-align: middle;
+      display: inline-block;
+      height: 24px;
+      margin: 4px;
+    }
+  }
   @media screen and (max-width: 650px) {
     .table {
       display: block;

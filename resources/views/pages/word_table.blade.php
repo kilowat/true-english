@@ -31,9 +31,10 @@
                 <div class='table_header'>№</div>
                 <div class='table_header'>Частота</div>
                 <div class='table_header'>Слово</div>
-                <div class='table_header'>Транскрипция</div>
+                <div class='table_header'>Транс-ия</div>
                 <div class='table_header'>Перевод</div>
                 <div class='table_header'>Аудио</div>
+                <div class='table_header'>Видео</div>
                 <div class='table_header'>Ссылки</div>
             </div>
             <?php $count = ($words->currentPage() * $words->perPage()) - $words->perPage() + 1; //dd($word_list)?>
@@ -69,13 +70,19 @@
                             @endif
                         </div>
                     </div>
+                    <div class="table_small">
+                        <div class="table_cell">Видео</div>
+                        <div class="table_cell">
+                            <a href="javascript:void(0)" @click="openYouglishBox('{{ $word->name }}')"><i class="icon ic-youglish"></i></a>
+                        </div>
+                    </div>
                     <div class='table_small'>
                         <div class='table_cell'>Ссылки:</div>
-                        <div class='table_cell'>
-                            <i class="icon ic-youglish"></i>
-                            <a href="{{ $word->contextReversoLink }}" title="reverso"><i class="icon ic-reverso"></i></a>
-                            <i class="icon ic-meriam"></i>
-                            <i class="icon ic-word-hunt"></i>
+                        <div class='table_cell link-cell'>
+                            <a href="{{ $word->contextReversoLink }}" target="_blank" title="reverso"><i class="icon ic-reverso"></i></a>
+                            <a href="{{ $word->meriamlLink }}" target="_blank"><i class="icon ic-meriam"></i></a>
+                            <a href="{{ $word->wordHuntLink }}" target="_blank"><i class="icon ic-word-hunt"></i></a>
+                            <a href="{{ $word->yandexLink }}" target="_blank"><i class="icon ic-yandex"></i></a>
                         </div>
                     </div>
                 </div>

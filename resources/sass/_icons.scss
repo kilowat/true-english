@@ -14,8 +14,8 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 24px;
-  width: 48px;
+  height: 28px;
+  width: 56px;
 }
 .ic-word-hunt{
   background-color: yellowgreen;
@@ -26,12 +26,12 @@
   text-align: center;
   font-style: normal;
   position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   &:before{
-    position: absolute;
     content: "W";
     color: #fff;
-    left: 21%;
-    top: 10%;
   }
 }
 .ic-meriam{
@@ -44,12 +44,32 @@
   position: relative;
   border: 1px solid darkblue;
   box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   &:before{
-    position: absolute;
     content: "M";
     color: darkblue;
-    left: 20%;
-    top: 2%;
+  }
+}
+.ic-yandex{
+  color: #fff;
+  border-radius: 100%;
+  height: 24px;
+  width: 24px;
+  text-align: center;
+  font-style: normal;
+  position: relative;
+  border: 1px solid red;
+  box-sizing: border-box;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:before{
+    content: "Я";
+    color: red;
+    font-family: verdana;
   }
 }
 .ic-reverso{

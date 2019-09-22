@@ -6,6 +6,7 @@ use App\Services\TextAnalyze\WordParser;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use QCod\ImageUp\HasImageUploads;
 
 class WordCard extends Model
@@ -13,7 +14,7 @@ class WordCard extends Model
     use HasImageUploads;
     public $timestamps = true;
 
-    protected $guarded = ['update_content'];
+    protected $guarded = ['update_content', 'create_excel'];
 
     protected static $imageFields = [
         'picture' => [
@@ -57,6 +58,10 @@ class WordCard extends Model
     {
         $value = $value == "on" ? 1 : 0;
         $this->attributes['active'] = $value;
+    }
+
+    public function getExcelAttribute(){
+        return  Storage::disk('excel')->url($this->excel_file);
     }
 
     /**

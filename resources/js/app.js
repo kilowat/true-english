@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 require('./materialize.min');
+require('./jqueryfancyboxmin');
 
 window.Vue = require('vue');
 
@@ -34,4 +35,11 @@ $(document).ready(function(){
 
 const app = new Vue({
     el: '#app',
+    methods:{
+        openYouglishBox(word){
+            let widget = `<a id="yg-widget-0" class="youglish-widget" data-query="${word}" data-components="8447" data-toggle-ui="1"  rel="nofollow" href="https://youglish.com">Visit YouGlish.com</a><script async src="https://youglish.com/public/emb/widget.js" charset="utf-8"></script>`;
+            $.fancybox.open(widget, {
+            });
+        }
+    }
 });

@@ -22,6 +22,18 @@ class Word extends Model
         return "https://dictionary.reverso.net/english-russian/".$this->name;
     }
 
+    public function getWordHuntLinkAttribute(){
+        return "https://wooordhunt.ru/word/".$this->name;
+    }
+
+    public function getMeriamlLinkAttribute(){
+        return "https://www.merriam-webster.com/dictionary/".$this->name;
+    }
+
+    public function getYandexLinkAttribute(){
+        return "https://translate.yandex.ru/?lang=en-ru&text=".$this->name;
+    }
+
     public function audio(){
         return $this->hasOne(
             '\App\Models\Audio',

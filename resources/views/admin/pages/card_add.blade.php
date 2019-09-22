@@ -62,6 +62,13 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="create_excel"> Создать excel таблицу
+                                </label>
+                            </div>
+                        </div>
                         <!-- select -->
                         <div class="form-group">
                             <label>Раздел</label>
