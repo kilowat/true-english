@@ -13,36 +13,93 @@
 </head>
 <body>
 <div id="app">
+    <div class="word-sort-panel">
+        <div class="table-wrapp">
+            <div class="action-block">
+                <div class="action-cell sort-cell back-cell">
+                    <a href="{{ route('word-collection.detail', $card->uri) }}" title="Вернуться"><i class="material-icons dp48">navigate_before</i></a>
+                </div>
+            </div>
+            <div class="sort-block">
+                <div class="sort-cell">
+                    <span class="sort-name">Частотный индекс:</span>
+                    <span class="sort-arrow">
+                        <a href="" class="selected"><i class="material-icons dp48">arrow_downward</i></a>
+                        <a href=""><i class="material-icons dp48">arrow_upward</i></a>
+                    </span>
+
+                </div>
+                <div class="sort-cell">
+                    <span class="sort-name">Слово:</span>
+                    <span class="sort-arrow">
+                        <a href=""><i class="material-icons dp48">arrow_downward</i></a>
+                        <a href=""><i class="material-icons dp48">arrow_upward</i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="table-page">
-        <table>
-            <caption>Statement Summary</caption>
-            <thead>
-            <tr>
-                <th scope="col">№</th>
-                <th scope="col">Индекс</th>
-                <th scope="col">Слово</th>
-                <th scope="col">Транскрипция</th>
-                <th scope="col">Перевод</th>
-                <th scope="col">Аудио</th>
-                <th scope="col">Ссылки</th>
-            </tr>
-            </thead>
-            <tbody>
+        <h1 class="section-header">{{ $card->name }}</h1>
+        <div class="table" id="results">
+            <div class='theader'>
+                <div class='table_header'>№</div>
+                <div class='table_header'>Индекс</div>
+                <div class='table_header'>Слово</div>
+                <div class='table_header'>Транскрипция</div>
+                <div class='table_header'>Перевод</div>
+                <div class='table_header'>Аудио</div>
+                <div class='table_header'>Ссылки</div>
+            </div>
             <?php $count = ($words->currentPage() * $words->perPage()) - $words->perPage() + 1; //dd($word_list)?>
             @foreach($words as $word)
-                <tr>
-                    <td data-label="Account">{{ $count }}</td>
-                    <td data-label="Due Date">{{ $word->freq }}</td>
-                    <td data-label="Amount">{{ $word->name }}</td>
-                    <td data-label="Period">{{ $word->transcription }}</td>
-                    <td data-label="Period">{{ $word->translate }}</td>
-                    <td data-label="Period">audio</td>
-                    <td data-label="Period">#####</td>
-                </tr>
+                <div class='table_row'>
+                    <div class='table_small'>
+                        <div class='table_cell'>№:</div>
+                        <div class='table_cell'>{{ $count }}</div>
+                    </div>
+                    <div class='table_small'>
+                        <div class='table_cell'>Индекс:</div>
+                        <div class='table_cell cell-freq'>{{ $word->freq }}</div>
+                    </div>
+                    <div class='table_small'>
+                        <div class='table_cell'>Слово:</div>
+                        <div class='table_cell'>{{ $word->name }}</div>
+                    </div>
+                    <div class='table_small'>
+                        <div class='table_cell'>Транскрипция:</div>
+                        <div class='table_cell'>{{ $word->transcription }}</div>
+                    </div>
+                    <div class='table_small'>
+                        <div class='table_cell'>Перевод:</div>
+                        <div class='table_cell'>{{ $word->translate }}</div>
+                    </div>
+                    <div class='table_small'>
+                        <div class='table_cell'>Аудио:</div>
+                        <div class='table_cell'>
+                            @if($word->audio)
+                                <audio controls><source src="{{ $word->audio->url }}" type="{{ $word->audio->mime }}"></audio>
+                            @else
+                                Не найден
+                            @endif
+                        </div>
+                    </div>
+                    <div class='table_small'>
+                        <div class='table_cell'>Ссылки:</div>
+                        <div class='table_cell'>
+                            <i class="icon ic-youglish"></i>
+                            <i class="icon ic-reverso"></i>
+                            <i class="icon ic-meriam"></i>
+                            <i class="icon ic-word-hunt"></i>
+                        </div>
+                    </div>
+                </div>
                 <?php $count++;?>
             @endforeach
-            </tbody>
-        </table>
+        </div>
+        <div class="nav-pagen">
+            {{ $words->links() }}
+        </div>
     </div>
 </div>
 

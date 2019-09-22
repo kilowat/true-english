@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\WordTableDataRequest;
+use App\Http\Resources\WordResource;
+use App\Models\Audio;
 use App\Models\Word;
 use App\Models\WordCard;
 use App\Models\WordSection;
@@ -68,16 +71,47 @@ class WordCollectionController extends Controller
         return view('pages.word_collection_elements', $data);
     }
 
-    public function wordTable($card_id){
+    public function wordTable($card_id, WordTableDataRequest $request){
         $card = WordCard::find($card_id);
 
         $this->checkNeedShow404($card);
 
-        $words = Word::whereHas('cards', function($query) use($card_id){
+        $sort = $request->column ? $request->column : "freq";
+        $order = $request->order ? $request->order : "desc";
+
+        $per_page = $request->per_page ? $request->per_page : 50;
+
+        $this->checkNeedShow404($card);
+
+        $query = Word::whereHas('cards', function($query) use($card_id){
             $query->where('card_id', '=', $card_id);
         })->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word')
-            ->paginate(500);
+            ->with("audio")
+            ->orderBy($sort, $order);
 
-        return view("pages.word_table", compact( 'card', 'words'));
+        $words = $query->paginate($per_page);
+
+
+        return view("pages.word_table", compact('card','words'));
     }
+
+    public function wordTableData($card_id, WordTableDataRequest $request){
+        $card = WordCard::find($card_id);
+
+        $sort = $request->column ? $request->column : "freq";
+        $order = $request->order ? $request->order : "desc";
+
+        $this->checkNeedShow404($card);
+
+        $query = Word::whereHas('cards', function($query) use($card_id){
+            $query->where('card_id', '=', $card_id);
+        })->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word')
+            ->with("audio")
+            ->orderBy($sort, $order);
+
+        $words = $query->paginate($request->per_page);
+
+        return WordResource::collection($words);
+    }
+
 }

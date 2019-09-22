@@ -33,12 +33,13 @@ class AdminWordController extends AdminController
         return Datatables::of($words)
             ->addColumn('audio', function($words){
                 if($words->audio)
-                    return $words->audio->file_name."<br><audio style='max-width:70px' controls><source src='/storage/audio/".$words->audio->file_name."' type='".$words->audio->mime."'></audio>";
+                    return $words->audio->file_name."<br><audio controls><source src='".$words->audio->url."' type='".$words->audio->mime."'></audio>";
                 else
                     return "";
             })
             ->addColumn('action', function ($words) {
                 $btn_str =  '<a href="'.route('admin.word.edit', $words->id).'" class="btn btn-xs btn-primary btn-action"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                $btn_str.='<br>';
                 $btn_str.=  '<button onclick="if (window.confirm(\'Удалить элемент?\')) location.href=\''.route('admin.word.delete', $words->id).'\';" class="btn btn-xs btn-danger btn-action del-card"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
                 return $btn_str;
             })
