@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40662920f8626716b3ff2239cfe81205",
+    "content-hash": "f2dbdbf00961bf849e4a657b8c89cb52",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -1567,6 +1567,33 @@
                 "phpspreadsheet"
             ],
             "time": "2019-09-04T19:28:20+00:00"
+        },
+        {
+            "name": "mantas-done/subtitles",
+            "version": "v0.3.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mantas-done/subtitles.git",
+                "reference": "c11531b7a191b97e25235fabc804368a52326108"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mantas-done/subtitles/zipball/c11531b7a191b97e25235fabc804368a52326108",
+                "reference": "c11531b7a191b97e25235fabc804368a52326108",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Subtitle converter and generator for PHP",
+            "time": "2019-02-09T17:25:23+00:00"
         },
         {
             "name": "markbaker/complex",

@@ -9192,7 +9192,7 @@ html, body {
 
 .table-cell {
   display: table-cell;
-  padding: 6px;
+  padding: 8px;
 }
 
 .nav-pagen {
@@ -9425,10 +9425,53 @@ html, body {
 }
 .card-detail .pic-box {
   margin-right: 14px;
+  border: 1px solid #ccc;
 }
 .card-detail .ic-excel {
   position: relative;
   top: 4px;
+}
+.card-detail .btnSeek {
+  cursor: pointer;
+}
+.card-detail .btnSeek:active {
+  background-color: yellow;
+}
+.card-detail .btnSeek:hover {
+  background-color: lightskyblue;
+}
+
+#player {
+  height: 250px;
+  width: 380px;
+}
+
+#subtitles {
+  max-height: 385px;
+  overflow-y: scroll;
+  margin-top: 25px;
+}
+
+.subtitle-list .s-item {
+  cursor: pointer;
+  background-color: #e8e8e8;
+  margin: 4px;
+  padding: 8px;
+  display: block;
+}
+.subtitle-list .s-item .s-en {
+  display: block;
+  color: red;
+}
+.subtitle-list .s-item .s-ru {
+  display: block;
+  color: green;
+}
+.subtitle-list .s-item:hover {
+  background-color: rgba(192, 255, 234, 0.93);
+}
+.subtitle-list .s-item.youtube-marker-current {
+  background-color: #f9f5a5;
 }
 
 .table-page {

@@ -8,6 +8,8 @@ use App\Models\Audio;
 use App\Models\Word;
 use App\Models\WordCard;
 use App\Models\WordSection;
+use App\Services\Subtitles\SubtitleCreator;
+use Done\Subtitles\Subtitles;
 use Illuminate\Http\Request;
 
 class WordCollectionController extends Controller
@@ -24,6 +26,8 @@ class WordCollectionController extends Controller
 
     public function detail($uri, Word $words)
     {
+        $creator = new SubtitleCreator();
+        $subtitles = $creator->merge();
         $arr_uri = explode("/", $uri);
         $element_code = array_pop($arr_uri);
         $section_code = array_pop($arr_uri);
@@ -35,10 +39,12 @@ class WordCollectionController extends Controller
 
         return view("pages.word_collection_detail", [
             'card' => $card,
-            'section' => $section]);
+            'section' => $section,
+            'subtitles' => $subtitles]);
     }
 
-    public function section($section_code){
+    public function section($section_code)
+    {
         $current_section = WordSection::where("code", "=", $section_code)->first();
 
         $this->checkNeedShow404($current_section);
@@ -54,8 +60,8 @@ class WordCollectionController extends Controller
         return view('pages.word_collection_section', $data);
     }
 
-    public function elements($parent_code, $section_code ){
-
+    public function elements($parent_code, $section_code )
+    {
         $section = WordSection::where("code", "=", $section_code)->first();
 
         $this->checkNeedShow404($section);
@@ -71,7 +77,8 @@ class WordCollectionController extends Controller
         return view('pages.word_collection_elements', $data);
     }
 
-    public function wordTable($card_id, WordTableDataRequest $request){
+    public function wordTable($card_id, WordTableDataRequest $request)
+    {
         $card = WordCard::find($card_id);
 
         $this->checkNeedShow404($card);
@@ -94,7 +101,8 @@ class WordCollectionController extends Controller
         return view("pages.word_table", compact('card','words', 'request'));
     }
 
-    public function wordTableData($card_id, WordTableDataRequest $request){
+    public function wordTableData($card_id, WordTableDataRequest $request)
+    {
         $card = WordCard::find($card_id);
 
         $sort = $request->column ? $request->column : "freq";

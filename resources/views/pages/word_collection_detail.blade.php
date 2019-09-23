@@ -22,13 +22,7 @@
         <div class="card-detail">
             <div class="pic-box">
                 @if($card->youtube)
-                    <iframe width="300"
-                            height="220"
-                            src="https://www.youtube.com/embed/{{ $card->youtube }}"
-                            frameborder="0"
-                            allow="accelerometer;
-                            autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                    </iframe>
+                    <iframe id="player" src="https://www.youtube.com/embed/{{ $card->youtube }}?enablejsapi=1" frameborder="0"></iframe>
                 @else
                     <img src="{{ $card->previewPicture }}" alt="{{ $card->name }}">
                 @endif
@@ -40,7 +34,7 @@
                         <div class="table-cell"><span calss="prop-value">{{ $card->words->count() }}</span></div>
                     </div>
                     <div class="prop-item table-row">
-                        <div class="table-cell"><span class="prop-name">Скачать:</span></div>
+                        <div class="table-cell"><span class="prop-name">Excel файл:</span></div>
                         <div class="table-cell">
                             <span calss="prop-value">
                                 <a href="{{ $card->excel }}" title="Таблица"><svg class="ic-excel"><use xlink:href="#ic-excel" x="0" y="0"></use></svg> Скачать</a>
@@ -61,5 +55,127 @@
         <div class="card-text">
             {{ $card->text }}
         </div>
+        <div id="subtitles">
+            <div class="subtitle-list">
+                <?//dd($subtitles)?>
+                @foreach($subtitles as $key_item => $subtitle)
+                    <span class="s-item youtube-marker" data-start="{{ $subtitle["start"] }}" data-end="{{ $subtitle["end"] }}">
+                        <span class="s-en">{{ $subtitle["line"]["en"] }}</span>
+                        <span class="s-ru">{{ $subtitle["line"]["ru"] }}</span>
+                    </span>
+                @endforeach
+            </div>
+        </div>
     </section>
+@endsection
+
+@section('js')
+    <script>
+        jQuery.fn.scrollTo = function(elem) {
+            $(this).scrollTop($(this).scrollTop() - $(this).offset().top + $(elem).offset().top);
+            return this;
+        };
+        // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        var isPlaying = false;
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
+        var Update;
+
+        $("#subtitles").scrollTop(0);
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function watchScroll(){
+            if($(".youtube-marker-current").length > 0){
+                $("#subtitles").scrollTo($(".youtube-marker-current"));
+            }
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                Update = setInterval(function() {
+                    console.log("playing");
+                    UpdateMarkers()
+                    watchScroll();
+                }, 50);
+            } else {
+                console.log("stopped");
+                clearInterval(Update);
+            }
+        }
+
+        // Sample Markers on Page
+        var MarkersInit = function(markers) {
+            var elements = document.querySelectorAll('.youtube-marker');
+            Array.prototype.forEach.call(elements, function(el, i) {
+                var time_start = el.dataset.start;
+                var time_end = el.dataset.end;
+                var id = el.dataset.id;;
+                if (id >= 1) {
+                    id = id - 1;
+                } else {
+                    id = 0;
+                }
+                marker = {};
+                marker.time_start = time_start;
+                marker.time_end = time_end;
+                marker.dom = el;
+                if (typeof(markers[id]) === 'undefined') {
+                    markers[id] = [];
+                }
+                markers[id].push(marker);
+            });
+        }
+
+        // On Ready
+        var markers = [];
+
+        document.onreadystatechange = () => {
+            if (document.readyState === 'complete') {
+
+                // Init Markers
+                MarkersInit(markers);
+
+                // Register On Click Event Handler
+                var elements = document.querySelectorAll('.youtube-marker');
+                Array.prototype.forEach.call(elements, function(el, i) {
+                    el.onclick = function() {
+                        // Get Data Attribute
+                        var pos = el.dataset.start;
+                        // Seek
+                        player.seekTo(pos);
+                        player.playVideo();
+                    }
+                });
+
+            } // Document Complete
+        }; // Document Ready State Change
+
+        function UpdateMarkers() {
+            var current_time = player.getCurrentTime();
+            var j = 0; // NOTE: to extend for several players
+            markers[j].forEach(function(marker, i) {
+
+                if (current_time >= marker.time_start && current_time <= marker.time_end) {
+                    marker.dom.classList.add("youtube-marker-current");
+                } else {
+                    marker.dom.classList.remove("youtube-marker-current");
+                }
+            });
+        }
+
+    </script>
+
 @endsection
