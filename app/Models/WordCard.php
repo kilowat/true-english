@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\Subtitles\SubtitleCreator;
 use App\Services\TextAnalyze\WordParser;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +15,7 @@ class WordCard extends Model
     use HasImageUploads;
     public $timestamps = true;
 
-    protected $guarded = ['update_content', 'create_excel'];
+    protected $guarded = ['update_content', 'create_excel', 'create_transcript'];
 
     protected static $imageFields = [
         'picture' => [
@@ -58,6 +59,14 @@ class WordCard extends Model
     {
         $value = $value == "on" ? 1 : 0;
         $this->attributes['active'] = $value;
+    }
+
+    public function getSubtitleAttribute(){
+        if(!empty($this->ensubtitle)){
+            $creator = new SubtitleCreator($this->ensubtitle, $this->rusubtitle, $this->trsubtitle);
+            return $creator->merge();
+        }
+        return [];
     }
 
     public function getExcelAttribute(){

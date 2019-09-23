@@ -9091,6 +9091,7 @@ html, body {
 .content {
   min-height: calc(100vh - 200px);
   clear: both;
+  margin-bottom: 50px;
 }
 
 .header .container {
@@ -9441,15 +9442,28 @@ html, body {
   background-color: lightskyblue;
 }
 
+.speed-player {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+.speed-player select {
+  width: 50px;
+}
+.speed-player label {
+  margin-right: 8px;
+}
+
 #player {
   height: 250px;
   width: 380px;
 }
 
 #subtitles {
-  max-height: 385px;
+  max-height: 440px;
   overflow-y: scroll;
   margin-top: 25px;
+  border: 1px solid #ccc;
 }
 
 .subtitle-list .s-item {
@@ -9461,6 +9475,8 @@ html, body {
 }
 .subtitle-list .s-item .s-en {
   display: block;
+}
+.subtitle-list .s-item .s-tr {
   color: red;
 }
 .subtitle-list .s-item .s-ru {

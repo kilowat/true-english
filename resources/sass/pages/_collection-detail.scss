@@ -19,14 +19,26 @@
     background-color: lightskyblue;
   }
 }
+.speed-player{
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  select{
+    width: 50px;
+  }
+  label{
+    margin-right: 8px;
+  }
+}
 #player{
   height: 250px;
   width: 380px;
 }
 #subtitles {
-  max-height: 385px;
+  max-height: 440px;
   overflow-y: scroll;
   margin-top: 25px;
+  border: 1px solid #ccc;
 }
 .subtitle-list{
   .s-item{
@@ -37,6 +49,8 @@
     display: block;
     .s-en{
       display: block;
+    }
+    .s-tr{
       color: red;
     }
     .s-ru{

@@ -22,7 +22,7 @@
         <div class="card-detail">
             <div class="pic-box">
                 @if($card->youtube)
-                    <iframe id="player" src="https://www.youtube.com/embed/{{ $card->youtube }}?enablejsapi=1" frameborder="0"></iframe>
+                    <iframe id="player" src="https://www.youtube.com/embed/{{ $card->youtube }}?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 @else
                     <img src="{{ $card->previewPicture }}" alt="{{ $card->name }}">
                 @endif
@@ -55,29 +55,33 @@
         <div class="card-text">
             {{ $card->text }}
         </div>
-        <div id="subtitles">
-            <div class="subtitle-list">
-                <?//dd($subtitles)?>
-                @foreach($subtitles as $key_item => $subtitle)
-                    <span class="s-item youtube-marker" data-start="{{ $subtitle["start"] }}" data-end="{{ $subtitle["end"] }}">
-                        <span class="s-en">{{ $subtitle["line"]["en"] }}</span>
-                        <span class="s-ru">{{ $subtitle["line"]["ru"] }}</span>
-                    </span>
-                @endforeach
+        @if($card->subtitle)
+            <div id="subtitles">
+                <div class="subtitle-list">
+                    <?//dd($subtitles)?>
+                    @foreach($card->subtitle as $key_item => $subtitle)
+                        <span class="s-item youtube-marker" data-start="{{ $subtitle["start"] }}" data-end="{{ $subtitle["end"] }}">
+                            <span class="s-en">{{ $subtitle["line"]["en"] }}</span>
+                            <span class="s-tr">{{ $subtitle["line"]["tr"] }}</span>
+                            <span class="s-ru">{{ $subtitle["line"]["ru"] }}</span>
+                        </span>
+                    @endforeach
+                </div>
             </div>
-        </div>
+            @endif
     </section>
 @endsection
 
 @section('js')
     <script>
+
         jQuery.fn.scrollTo = function(elem) {
             $(this).scrollTop($(this).scrollTop() - $(this).offset().top + $(elem).offset().top);
             return this;
         };
         // 2. This code loads the IFrame Player API code asynchronously.
         var tag = document.createElement('script');
-        var isPlaying = false;
+
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
@@ -92,7 +96,8 @@
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
                 events: {
-                    'onStateChange': onPlayerStateChange
+                    'onStateChange': onPlayerStateChange,
+                    'onReady': onPlayerReady,
                 }
             });
         }
@@ -104,14 +109,13 @@
         }
 
         function onPlayerStateChange(event) {
+            player.setPlaybackRate(0.25);
             if (event.data == YT.PlayerState.PLAYING) {
                 Update = setInterval(function() {
-                    console.log("playing");
                     UpdateMarkers()
                     watchScroll();
                 }, 50);
             } else {
-                console.log("stopped");
                 clearInterval(Update);
             }
         }
@@ -142,12 +146,10 @@
         // On Ready
         var markers = [];
 
-        document.onreadystatechange = () => {
+        document.onreadystatechange = function() {
             if (document.readyState === 'complete') {
-
                 // Init Markers
                 MarkersInit(markers);
-
                 // Register On Click Event Handler
                 var elements = document.querySelectorAll('.youtube-marker');
                 Array.prototype.forEach.call(elements, function(el, i) {
@@ -175,6 +177,14 @@
                 }
             });
         }
+
+        function onPlayerReady(){
+            //player.setPlaybackRate (2)
+        }
+
+        $("#video-speed").change(function(){
+           // player.setPlaybackRate ($(this).val())
+        });
 
     </script>
 

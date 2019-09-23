@@ -26,8 +26,6 @@ class WordCollectionController extends Controller
 
     public function detail($uri, Word $words)
     {
-        $creator = new SubtitleCreator();
-        $subtitles = $creator->merge();
         $arr_uri = explode("/", $uri);
         $element_code = array_pop($arr_uri);
         $section_code = array_pop($arr_uri);
@@ -39,8 +37,8 @@ class WordCollectionController extends Controller
 
         return view("pages.word_collection_detail", [
             'card' => $card,
-            'section' => $section,
-            'subtitles' => $subtitles]);
+            'section' => $section
+        ]);
     }
 
     public function section($section_code)

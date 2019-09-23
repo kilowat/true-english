@@ -8,27 +8,27 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xs-6">
-            <div class="box">
-                <div class="box-header with-border">
-                    @if (Session::has('message'))
-                        <div class="alert alert-info">{{ Session::get('message') }}</div>
-                    @endif
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <h3 class="box-title">Новый раздел</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <form role="form" method="post" action="{{ route('admin.card.store') }}" enctype="multipart/form-data">
-                    @csrf
+        <form role="form" method="post" action="{{ route('admin.card.store') }}" enctype="multipart/form-data">
+            <div class="col-xs-6">
+                <div class="box">
+                    <div class="box-header with-border">
+                        @if (Session::has('message'))
+                            <div class="alert alert-info">{{ Session::get('message') }}</div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <h3 class="box-title">Новый раздел</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        @csrf
                     <!-- text input -->
                         <div class="form-group require">
                             <label>Название</label>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group">
                             <label>Текст</label>
-                            <textarea name="text" class="form-control" rows="3" placeholder="Enter ...">{{ old("text") }}</textarea>
+                            <textarea name="text" class="form-control" rows="6" placeholder="Enter ...">{{ old("text") }}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Контент</label>
@@ -86,7 +86,7 @@
 
                         <div class="form-group">
                             <label>Desctiption</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{ old("description") }}</textarea>
+                            <textarea class="form-control" name="description" rows="6" placeholder="Enter ...">{{ old("description") }}</textarea>
                         </div>
 
                         <div class="form-group">
@@ -100,10 +100,40 @@
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary">Сохранить</button>
                         </div>
-                    </form>
+                    </div>
+                    <!-- /.box-body -->
                 </div>
-                <!-- /.box-body -->
             </div>
-        </div>
+            <div class="col-xs-6">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Youtube</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Код видео</label>
+                            <input type="text" name="youtube" value="{{ old("youtube") }}" class="form-control" placeholder="Enter ...">
+                        </div>
+                        <div class="form-group">
+                            <label>Английские субтитры</label>
+                            <textarea class="form-control" name="ensubtitle" rows="15" placeholder="Enter ...">{{ old("ensubtitle") }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Русские субтитры</label>
+                            <textarea class="form-control" name="rusubtitle" rows="15" placeholder="Enter ...">{{ old("rusubtitle") }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Транскрипция субтитры</label>
+                            <textarea class="form-control" name="trsubtitle" rows="15" placeholder="Enter ...">{{ old("trsubtitle") }}</textarea>
+                        </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Сохранить</button>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </form>
     </div>
 @stop
