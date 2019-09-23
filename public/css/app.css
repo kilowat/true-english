@@ -7180,7 +7180,7 @@ textarea.materialize-textarea {
 }
 [type=checkbox] + span:not(.lever) {
   position: relative;
-  padding-left: 35px;
+  padding-left: 24px;
   cursor: pointer;
   display: inline-block;
   height: 25px;
@@ -9446,12 +9446,31 @@ html, body {
   display: flex;
   align-items: center;
   padding: 2px;
+  margin-right: 8px;
 }
 .speed-player select {
-  width: 50px;
+  width: 40px;
 }
 .speed-player label {
   margin-right: 8px;
+}
+
+.config-subtitle label {
+  margin-right: 12px;
+}
+
+.video-config {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.rev-label {
+  color: green;
+}
+
+.tr-label {
+  color: red;
 }
 
 #player {
