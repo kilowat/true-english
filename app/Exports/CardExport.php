@@ -93,6 +93,7 @@ class CardExport implements FromQuery, WithEvents, WithMapping
                 $event->sheet->getDelegate()->getColumnDimension("D")->setAutoSize(true);
                 $event->sheet->getDelegate()->getColumnDimension("E")->setWidth(80);
                 $event->sheet->getDelegate()->getColumnDimension("F")->setAutoSize(true);
+                $event->sheet->getDelegate()->getColumnDimension("G")->setAutoSize(true);
             }
         }
     }
@@ -105,7 +106,8 @@ class CardExport implements FromQuery, WithEvents, WithMapping
             $word->name,
             $word->transcription,
             $word->translate,
-            $word->contextReversoLink."\n".$word->contextReversoLink,
+            $word->youglishLink,
+            $word->yandexLink,
         ];
     }
     /*

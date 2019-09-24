@@ -6,7 +6,9 @@
 
 @section('sidebar')
     <aside class="sidebar">
-        {{ Widget::run('CollectionWordMenu') }}
+        <div class="collection-menu">
+            {!! $CollectionMenu->asUl() !!}
+        </div>
         {{ Widget::run('AdsBlock') }}
     </aside>
 @endsection
@@ -36,11 +38,11 @@
                         </div>
                         <div class="config-cell config-subtitle">
                             <label>
-                                <input type="checkbox" checked="checked"/>
+                                <input type="checkbox" id="show-tr" checked="checked"/>
                                 <span class="tr-label">Тран-ция</span>
                             </label>
                             <label>
-                                <input type="checkbox" checked="checked" />
+                                <input type="checkbox" id="show-rev" checked="checked" />
                                 <span class="rev-label">Перевод</span>
                             </label>
                         </div>
@@ -56,6 +58,7 @@
                         <div class="table-cell"><span class="prop-name">Уникальных слов:</span></div>
                         <div class="table-cell"><span calss="prop-value">{{ $card->words->count() }}</span></div>
                     </div>
+                    @if($card->excel)
                     <div class="prop-item table-row">
                         <div class="table-cell"><span class="prop-name">Excel файл со словами:</span></div>
                         <div class="table-cell">
@@ -64,6 +67,7 @@
                             </span>
                         </div>
                     </div>
+                    @endif
                     <div class="prop-item table-row">
                         <div class="table-cell"><span class="prop-name">Дата публикации:</span></div>
                         <div class="table-cell"><span calss="prop-value">{{ $card->shortData }}</span></div>
@@ -99,7 +103,9 @@
     <script>
 
         jQuery.fn.scrollTo = function(elem) {
-            $(this).scrollTop($(this).scrollTop() - $(this).offset().top + $(elem).offset().top);
+            var offset_line = 2;
+            var offset = ($(".s-item ").first().height() * offset_line) + $(".s-item ").first().height() / 2 + 10;
+            $(this).scrollTop($(this).scrollTop() - $(this).offset().top + $(elem).offset().top - offset);
             return this;
         };
         // 2. This code loads the IFrame Player API code asynchronously.
@@ -206,6 +212,25 @@
 
         $("#video-speed").change(function(){
             player.setPlaybackRate (parseFloat($("#video-speed").val()));
+        });
+
+        $("#show-tr").change(function(){
+            var $elems = $("#subtitles .s-tr");
+            if($(this).is(":checked")){
+                $elems.show();
+            }else{
+                $elems.hide();
+            }
+        });
+
+        $("#show-rev").change(function(){
+            var $elems = $("#subtitles .s-ru");
+
+            if($(this).is(":checked")){
+                $elems.show();
+            }else{
+                $elems.hide();
+            }
         });
 
     </script>

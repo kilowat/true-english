@@ -34,6 +34,10 @@ class Word extends Model
         return "https://translate.yandex.ru/?lang=en-ru&text=".$this->name;
     }
 
+    public function getYouglishLinkAttribute(){
+        return "https://youglish.com/search/".$this->name."/all";
+    }
+
     public function audio(){
         return $this->hasOne(
             '\App\Models\Audio',

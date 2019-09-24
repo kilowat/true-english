@@ -8,11 +8,13 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Laravelista\Comments\Commentable;
 use QCod\ImageUp\HasImageUploads;
 
 class WordCard extends Model
 {
-    use HasImageUploads;
+    use HasImageUploads, Commentable;
+
     public $timestamps = true;
 
     protected $guarded = ['update_content', 'create_excel', 'create_transcript'];

@@ -6,7 +6,9 @@
 
 @section('sidebar')
     <aside class="sidebar">
-        {{ Widget::run('CollectionWordMenu') }}
+        <div class="collection-menu">
+            {!! $CollectionMenu->asUl() !!}
+        </div>
         {{ Widget::run('AdsBlock') }}
     </aside>
 @endsection

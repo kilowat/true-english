@@ -29,10 +29,10 @@
                     </div>
                 </div>
 
-                <nav class="nav-block" role="navigation">
+                <nav class="nav-block main-menu" role="navigation">
                     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <div class="container">
-                        {{ Widget::run('MainMenu') }}
+                        {!! $MainMenu->asUl() !!}
                     </div>
                 </nav>
             </header>

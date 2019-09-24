@@ -1,4 +1,4 @@
-.collection-word-menu{
+.collection-menu{
   margin-bottom: 24px;
   border: 1px solid $primary-color-light;
   box-sizing: border-box;
@@ -7,6 +7,12 @@
     margin: 0;
     padding: 0;
     li{
+      &.active, &:hover{
+        a{
+          color: #fff;
+          background: $secondary-color;
+        }
+      }
       a{
         box-sizing: border-box;
         display: inline-block;
@@ -18,10 +24,6 @@
         border-bottom: 1px solid $primary-color-light;
         text-decoration: none;
         color: rgba(0,0,0, 0.87);
-        &.selected, &:hover{
-          color: #fff;
-          background: $secondary-color;
-        }
       }
       &:last-child{
         a{

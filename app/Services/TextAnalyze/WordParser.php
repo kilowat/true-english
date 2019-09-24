@@ -9,6 +9,8 @@
 namespace App\Services\TextAnalyze;
 
 
+use TextAnalysis\Filters\LambdaFilter;
+
 class WordParser
 {
     private static $filters = [
@@ -19,6 +21,8 @@ class WordParser
         'SpacePunctuationFilter',
         'TrimFilter',
         'LowerCaseFilter',
+        'StripTagsFilter',
+        'UrlFilter',
     ];
 
     public static function getFrequency($text){

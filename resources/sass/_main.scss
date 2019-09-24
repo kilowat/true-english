@@ -59,17 +59,19 @@ html, body {
     margin-left: 5px;
   }
 }
-.main-menu{
+.main-menu ul{
   @include breakpoint(max-width $medium-screen){
     display:none;
   }
   li{
+    &:hover, &.active{
+      a{
+        background-color: $secondary-color;
+      }
+    }
     a{
       background-color: $primary-color-dark;
       border-right: 1px solid $primary-color;
-      &:hover, &.selected{
-        background-color: $secondary-color;
-      }
     }
     &:last-child{
       a{

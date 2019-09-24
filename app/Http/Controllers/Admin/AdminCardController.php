@@ -25,7 +25,7 @@ class AdminCardController extends AdminController
         $wordQuery = $wordCard->find($id)->words;
 
         foreach($wordQuery as $item){
-            $words[] = $item->name;
+            $words[] = $item->word;
         }
 
         $file_name = "word_table_".$id.".xlsx";
