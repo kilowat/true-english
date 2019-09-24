@@ -73,7 +73,7 @@
                         <div class="table-cell"><span calss="prop-value">{{ $card->shortData }}</span></div>
                     </div>
                     <div class="prop-item table-row">
-                        <div class="table-cell"><span class="prop-name">Таблица слов из видео:</span></div>
+                        <div class="table-cell"><span class="prop-name">Все слова из материала:</span></div>
                         <div class="table-cell"><span calss="prop-value"><a class="btn" href="{{ route('word-collection.table', $card->id) }}" title="Таблица" target="_blank">Открыть</a></span></div>
                     </div>
                 </div>

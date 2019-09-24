@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('word-collections', 'WordCollectionController@index')->name('word-collection.index');
+
 Route::get('word-collections/{uri}.html', 'WordCollectionController@detail')
     ->where('uri', '[0-9a-zA-Z_/-]+')
     ->name('word-collection.detail');
@@ -21,6 +21,8 @@ Route::get('word-collections/{parent_code}/{section_code}', 'WordCollectionContr
 Route::get('word-collections/{section_code}', 'WordCollectionController@section')->name('word-collection.section');
 
 Route::get('/', 'PageController@home')->name('page.home');
+Route::get('word-collections', 'PageController@wordCollection')->name('page.word-collection');
+Route::get('grammar', 'PageController@grammar')->name('page.grammar');
 
 Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/', 'AdminPageController@index')->name('admin.index');

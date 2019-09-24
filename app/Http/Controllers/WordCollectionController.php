@@ -17,13 +17,6 @@ class WordCollectionController extends Controller
     private $elementPaginateCount = 20;
     private $wordPaginateCount = 10;
 
-    public function index()
-    {
-        $sections = WordSection::where('parent_id', '>', 0)->paginate($this->elementPaginateCount);
-
-        return view("pages.word_collection_index", ['sections' => $sections]);
-    }
-
     public function detail($uri, Word $words)
     {
         $arr_uri = explode("/", $uri);
