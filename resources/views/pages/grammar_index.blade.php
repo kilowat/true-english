@@ -5,9 +5,6 @@
 
 @section('sidebar')
     <aside class="sidebar">
-        <div class="collection-menu">
-
-        </div>
         {{ Widget::run('AdsBlock') }}
     </aside>
 @endsection
@@ -20,6 +17,17 @@
 
     <section class="card-cmp section-list">
         <h1 class="section-header">Грамматика</h1>
-    </section>
+        <div class="row">
+            @foreach($sections as $section)
+                <div class="col s12 m6 l3">
+                    <a class="card" href="" title="">
+                        {{ $section->name }}
+                    </a>
+                </div>
+            @endforeach
+        </div>
+        <div class="nav-pagen">
+
+        </div>
 
 @endsection

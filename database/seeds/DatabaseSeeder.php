@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             WordCardsTableSeeder::class,
             WordsTableSeeder::class,
             WordCardWordsTableSeeder::class,
+            GrammarSectionsSeeder::class,
+            GrammarSeeder::class,
         ]);
     }
 }

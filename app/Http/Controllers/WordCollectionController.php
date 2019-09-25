@@ -34,6 +34,12 @@ class WordCollectionController extends Controller
         ]);
     }
 
+    public function index(){
+        $sections = WordSection::where('parent_id', '>', 0)->paginate(12);
+
+        return view("pages.word_collection_index", ['sections' => $sections]);
+    }
+
     public function section($section_code)
     {
         $current_section = WordSection::where("code", "=", $section_code)->first();

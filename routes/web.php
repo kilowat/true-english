@@ -19,10 +19,12 @@ Route::get('word-collections/word-table/{card_id}', 'WordCollectionController@wo
 Route::get('word-collections/word-table-data/{card_id}', 'WordCollectionController@wordTableData')->name('word-collection.table-data');
 Route::get('word-collections/{parent_code}/{section_code}', 'WordCollectionController@elements')->name('word-collection.elements');
 Route::get('word-collections/{section_code}', 'WordCollectionController@section')->name('word-collection.section');
+Route::get('word-collections', 'WordCollectionController@index')->name('word-collection.index');
+
+Route::get('grammar', 'GrammarController@index')->name('grammar.index');
 
 Route::get('/', 'PageController@home')->name('page.home');
-Route::get('word-collections', 'PageController@wordCollection')->name('page.word-collection');
-Route::get('grammar', 'PageController@grammar')->name('page.grammar');
+
 
 Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/', 'AdminPageController@index')->name('admin.index');
