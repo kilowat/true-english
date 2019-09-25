@@ -5,6 +5,9 @@
 
 @section('sidebar')
     <aside class="sidebar">
+        <div class="collection-menu">
+            {!! $grammarMenu->asUl() !!}
+        </div>
         {{ Widget::run('AdsBlock') }}
     </aside>
 @endsection
@@ -17,17 +20,17 @@
 
     <section class="card-cmp section-list">
         <h1 class="section-header">Грамматика</h1>
-        <div class="row">
-            @foreach($sections as $section)
-                <div class="col s12 m6 l3">
-                    <a class="card" href="" title="">
-                        {{ $section->name }}
+            @foreach($grammars as $grammar)
+                <div class="grammar-list collection">
+                    <a class="grammar-item collection-item" href="{{ route('grammar.detail', [$grammar->section->code, $grammar->code]) }}" title="{{ $grammar->name }}">
+                        {{ $grammar->name }}
                     </a>
                 </div>
             @endforeach
-        </div>
         <div class="nav-pagen">
 
         </div>
-
+        <div class="nav-pagen">
+            {{ $grammars->links() }}
+        </div>
 @endsection

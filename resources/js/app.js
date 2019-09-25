@@ -38,9 +38,59 @@ const app = new Vue({
     el: '#app',
     methods:{
         openYouglishBox(word){
-            let widget = `<a id="yg-widget-0" class="youglish-widget" data-query="${word}" data-components="8447" data-toggle-ui="1"  rel="nofollow" href="https://youglish.com">Visit YouGlish.com</a><script async src="https://youglish.com/public/emb/widget.js" charset="utf-8"></script>`;
+            let widget = `<div class="youglish-box"><div id="widget-youglish"></div></div>`;
+            let self = this;
             $.fancybox.open(widget, {
+                beforeShow(){
+                    self.runYouglish(word)
+                }
             });
+        },
+        runYouglish(word){
+            // 2. This code loads the widget API code asynchronously.
+            var tag = document.createElement('script');
+
+            tag.src = "https://youglish.com/public/emb/widget.js";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            // 3. This function creates a widget after the API code downloads.
+            window.widget;
+
+            window.onYouglishAPIReady = function(){
+                widget = new YG.Widget("widget-youglish", {
+                    width: 480,
+                    components:8 + 16 + 64, //search box & caption
+                    events: {
+                        'onSearchDone': onSearchDone,
+                        'onVideoChange': onVideoChange,
+                        'onCaptionConsumed': onCaptionConsumed
+                    }
+                });
+                // 4. process the query
+                widget.search(word,"US");
+            }
+
+
+            var views = 0, curTrack = 0, totalTracks = 0;
+
+            // 5. The API will call this method when the search is done
+            window.onSearchDone = function(event){
+                if (event.totalResult === 0)   alert("No result found");
+                else totalTracks = event.totalResult;
+            }
+
+            // 6. The API will call this method when switching to a new video.
+            window.onVideoChange = function(event){
+                curTrack = event.trackNumber;
+                views = 0;
+            }
+
+            // 7. The API will call this method when a caption is consumed.
+            window.onCaptionConsumed = function(event){
+                if (curTrack < totalTracks)
+                    widget.next();
+            }
         }
     }
 });

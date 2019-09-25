@@ -22,7 +22,8 @@ Route::get('word-collections/{section_code}', 'WordCollectionController@section'
 Route::get('word-collections', 'WordCollectionController@index')->name('word-collection.index');
 
 Route::get('grammar', 'GrammarController@index')->name('grammar.index');
-
+Route::get('grammar/{section}', 'GrammarController@section')->name('grammar.section');
+Route::get('grammar/{section}/{code}.html', 'GrammarController@detail')->name('grammar.detail');
 Route::get('/', 'PageController@home')->name('page.home');
 
 

@@ -17,6 +17,16 @@ class WordCollectionController extends Controller
     private $elementPaginateCount = 20;
     private $wordPaginateCount = 10;
 
+    public function __construct()
+    {
+        \Menu::make('CollectionMenu', function($menu){
+            $section = WordSection::withDepth()->having('depth', '=', 0)->get();
+            foreach($section as $item){
+                $menu->add($item->name, ['route'=>["word-collection.section", $item->code]]);
+            }
+        });
+    }
+
     public function detail($uri, Word $words)
     {
         $arr_uri = explode("/", $uri);
