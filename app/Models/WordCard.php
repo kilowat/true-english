@@ -63,12 +63,12 @@ class WordCard extends Model
         $this->attributes['active'] = $value;
     }
 
-    public function getSubtitleAttribute(){
-        if(!empty($this->ensubtitle)){
-            $creator = new SubtitleCreator($this->ensubtitle, $this->rusubtitle, $this->trsubtitle);
-            return $creator->merge();
-        }
-        return [];
+    public function setSubtitlesAttribute($value){
+        $this->attributes["subtitles"] = serialize($value);
+    }
+
+    public function getSubtitlesAttribute(){
+        return unserialize($this->attributes["subtitles"]);
     }
 
     public function getExcelAttribute(){

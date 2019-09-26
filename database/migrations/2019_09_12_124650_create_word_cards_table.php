@@ -23,6 +23,7 @@ class CreateWordCardsTable extends Migration
             $table->mediumText('ensubtitle')->nullable();
             $table->mediumText('rusubtitle')->nullable();
             $table->mediumText('trsubtitle')->nullable();
+            $table->mediumText('subtitles')->nullable();
             $table->string('picture')->nullable();
             $table->string('youtube')->nullable();
             $table->string('excel_file')->nullable();

@@ -118,6 +118,14 @@
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-honeypot" />
       <path value="$PROJECT_DIR$/vendor/lavary/laravel-menu" />
       <path value="$PROJECT_DIR$/vendor/rtconner/laravel-tagging" />
+      <path value="$PROJECT_DIR$/vendor/benlipp/srt-parser" />
+      <path value="$PROJECT_DIR$/vendor/kevinlebrun/colors.php" />
+      <path value="$PROJECT_DIR$/vendor/patchwork/utf8" />
+      <path value="$PROJECT_DIR$/vendor/nategood/commando" />
+      <path value="$PROJECT_DIR$/vendor/dariuszp/cli-progress-bar" />
+      <path value="$PROJECT_DIR$/vendor/dflydev/apache-mime-types" />
+      <path value="$PROJECT_DIR$/vendor/debach/zend-mp3" />
+      <path value="$PROJECT_DIR$/vendor/masih/youtubedownloader" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

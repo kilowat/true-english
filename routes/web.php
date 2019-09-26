@@ -24,6 +24,10 @@ Route::get('word-collections', 'WordCollectionController@index')->name('word-col
 Route::get('grammar', 'GrammarController@index')->name('grammar.index');
 Route::get('grammar/{section}', 'GrammarController@section')->name('grammar.section');
 Route::get('grammar/{section}/{code}.html', 'GrammarController@detail')->name('grammar.detail');
+
+Route::get('anki', 'AnkiCardController@index')->name('anki.index');
+Route::get('anki/tag/{name}', 'AnkiCardController@index')->name('anki.index.tag');
+
 Route::get('/', 'PageController@home')->name('page.home');
 
 

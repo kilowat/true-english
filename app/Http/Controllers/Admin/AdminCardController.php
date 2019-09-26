@@ -14,9 +14,14 @@ use App\Exports\WordExport;
 use App\Http\Requests\CardPost;
 use App\Models\WordCard;
 use App\Models\WordSection;
+use App\Services\Subtitles\SubtitleCreator;
+use Benlipp\SrtParser\Parser;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
+use Masih\YoutubeDownloader\YoutubeDownloader;
 use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\Facades\DataTables;
+
 
 class AdminCardController extends AdminController
 {
@@ -85,7 +90,21 @@ class AdminCardController extends AdminController
     }
 
     public function update($id, CardPost $request, WordCard $wordCard){
-        $wordCard->find($id)->update($request->all());
+        $fields = $request->all();
+
+        if(!empty($request->ensubtitle)){
+            try {
+                $creator = new SubtitleCreator($request->ensubtitle, $request->rusubtitle, $request->trsubtitle);
+                $fields["subtitles"] = $creator->merge();
+            }catch (\Exception $e){
+                return redirect()->back()->withErrors([
+                    "Subtitles format corrupted",
+                    $e->getMessage()
+                ]);
+            }
+        }
+
+        $wordCard->find($id)->update($fields);
 
         if($request->update_content == "on" && $request->content_text){
             $wordCard->insertWords($request->content_text, $id);
@@ -99,7 +118,14 @@ class AdminCardController extends AdminController
     }
 
     public function store(CardPost $request, WordCard $wordCard){
-        $created_card = $wordCard->create($request->all());
+        $fields = $request->all();
+
+        if(!empty($request->ensubtitle)){
+            $creator = new SubtitleCreator($request->ensubtitle, $request->rusubtitle, $request->trsubtitle);
+            $fields["subtitles"] = $creator->merge();
+        }
+
+        $created_card = $wordCard->create($fields);
 
         if($request->update_content == "on" && $request->content_text){
             $wordCard->insertWords($request->content_text, $created_card->id);

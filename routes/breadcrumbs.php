@@ -31,3 +31,7 @@ Breadcrumbs::for('grammar_detail', function ($trail, $section, $grammar) {
     $trail->push($section->name, route("grammar.section", $section->code));
     $trail->push($grammar->name);
 });
+Breadcrumbs::for('anki', function ($trail) {
+    $trail->push('Главная', route('page.home'));
+    $trail->push('Колоды Anki');
+});

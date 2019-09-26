@@ -82,11 +82,10 @@
         <div class="card-text">
             {{ $card->text }}
         </div>
-        @if($card->subtitle)
+        @if($card->subtitles)
             <div id="subtitles">
                 <div class="subtitle-list">
-                    <?//dd($subtitles)?>
-                    @foreach($card->subtitle as $key_item => $subtitle)
+                    @foreach($card->subtitles as $key_item => $subtitle)
                         <span class="s-item youtube-marker" data-start="{{ $subtitle["start"] }}" data-end="{{ $subtitle["end"] }}">
                             <span class="s-en">{{ $subtitle["line"]["en"] }}</span>
                             <span class="s-tr">{{ $subtitle["line"]["tr"] }}</span>

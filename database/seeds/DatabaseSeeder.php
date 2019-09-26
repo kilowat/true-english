@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             WordCardWordsTableSeeder::class,
             GrammarSectionsSeeder::class,
             GrammarSeeder::class,
+            AnkiCardSeeder::class,
         ]);
     }
 }

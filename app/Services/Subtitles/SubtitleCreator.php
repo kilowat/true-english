@@ -18,7 +18,7 @@ class SubtitleCreator
     private $trStr;
     private $format;
 
-    public function __construct($en_str, $ru_str, $tr_str ,$format = 'srt')
+    public function __construct($en_str, $ru_str = null, $tr_str = null ,$format = 'srt')
     {
         $this->enStr = $en_str;
         $this->ruStr = $ru_str;
@@ -29,7 +29,7 @@ class SubtitleCreator
 
     public function merge(){
         $result = [];
-        try{
+
             $en_arr = Subtitles::load($this->enStr, $this->format)->getInternalFormat();
             $ru_arr = [];
             $tr_arr = [];
@@ -45,6 +45,7 @@ class SubtitleCreator
             foreach($en_arr as $en_key => $en_value){
                 $en_line = implode(" ",$en_value["lines"]);
                 $ru_line = "";
+                $tr_line = "";
 
                 if(array_key_exists($en_key, $ru_arr)){
                     $ru_line = implode(" ",$ru_arr[$en_key]["lines"]);
@@ -64,12 +65,6 @@ class SubtitleCreator
                     ]
                 ];
             }
-        }catch (\Exception $e){
-            dd($e);
-            //to log
-            return $result;
-        }
-
 
         return $result;
     }
