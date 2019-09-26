@@ -1,0 +1,11 @@
+.article{
+  .data-created{
+    font-size: 12px;
+  }
+  .card-action{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}

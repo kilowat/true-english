@@ -35,3 +35,12 @@ Breadcrumbs::for('anki', function ($trail) {
     $trail->push('Главная', route('page.home'));
     $trail->push('Колоды Anki');
 });
+Breadcrumbs::for('article_index', function ($trail) {
+    $trail->push('Главная', route('page.home'));
+    $trail->push('Статьи');
+});
+Breadcrumbs::for('article_detail', function ($trail, $article) {
+    $trail->push('Главная', route('page.home'));
+    $trail->push('Статьи', route('article.index'));
+    $trail->push($article->name);
+});

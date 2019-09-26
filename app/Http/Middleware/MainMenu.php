@@ -22,7 +22,7 @@ class MainMenu
             $menu->add("Грамматика", ['route' => 'grammar.index']);
             //$menu->add("Упражнения");
             $menu->add("Колоды для Anki", ['route' => 'anki.index']);
-            $menu->add("Статьи");
+            $menu->add("Статьи", ['route' => 'article.index']);
             $menu->add("Обратная связь");
 
             foreach($menu->items as $item){

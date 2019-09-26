@@ -1,0 +1,23 @@
+.tags-block {
+  margin-bottom: 24px;
+  border: 1px solid #4e9cea;
+  padding: 12px;
+  .tag-h{
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .tag-list{
+    a{
+      display: inline-block;
+      background-color: $primary-color-dark;
+      color: #fff;
+      padding: 2px;
+      padding-left: 6px;
+      padding-right: 6px;
+      margin-bottom: 4px;
+      &.active{
+        background-color: $secondary-color;
+      }
+    }
+  }
+}

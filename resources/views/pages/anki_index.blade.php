@@ -18,9 +18,26 @@
 
     <section class="card-cmp section-list">
         <h1 class="section-header">Колоды Anki</h1>
-        @foreach($cards as $card)
-            <div>
-                {{ $card->name }}
-            </div>
-        @endforeach
+        <div class="row">
+            @foreach($cards as $card)
+                <div class="col s12 m6 l3">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/storage/{{ $card->picture }}">
+                            <span class="card-title">{{ $card->name }}</span>
+                        </div>
+                        <div class="card-content">
+                            {{ $card->text }}
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="btn">Скачать</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="nav-pagen">
+            {{ $cards->links() }}
+        </div>
+    </section>
 @endsection

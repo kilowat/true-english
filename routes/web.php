@@ -28,6 +28,10 @@ Route::get('grammar/{section}/{code}.html', 'GrammarController@detail')->name('g
 Route::get('anki', 'AnkiCardController@index')->name('anki.index');
 Route::get('anki/tag/{name}', 'AnkiCardController@index')->name('anki.index.tag');
 
+Route::get('articles', 'ArticleController@index')->name('article.index');
+Route::get('articles/tag/{name}', 'ArticleController@index')->name('article.index.tag');
+Route::get('articles/{code}.html', 'ArticleController@detail')->name('article.detail');
+
 Route::get('/', 'PageController@home')->name('page.home');
 
 
@@ -73,6 +77,16 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     /*******word generator********/
     Route::get('word-generator', 'AdminWordGeneratorController@index')->name('admin.word-generator.index');
     /******************/
+
+    /**********articles*******************/
+    Route::get('article', 'AdminArticleController@index')->name('admin.article.index');
+    Route::get('article/add', 'AdminArticleController@add')->name('admin.article.add');
+    Route::post('article/add', 'AdminArticleController@store')->name('admin.article.store');
+    Route::get('article/edit/{id}', 'AdminArticleController@edit')->name('admin.article.edit');
+    Route::post('article/update/{id}', 'AdminArticleController@update')->name('admin.article.update');
+    Route::get('article/data-list', 'AdminArticleController@dataList')->name('admin.article.data-list');
+    Route::get('article/delete/{id}', 'AdminArticleController@delete')->name('admin.article.delete');
+     /****************************/
 
     Route::get('admin/login', 'AdminAuthController@login')->name('admin.login');
 

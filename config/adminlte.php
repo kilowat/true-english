@@ -133,10 +133,16 @@ return [
             'url'  => 'http://true-english.local',
             'icon' => 'fas fa-fw fa-file',
         ],
+        ['header' => 'Страницы'],
         [
             'text' => 'Главная',
             'url'  => '/',
             'icon' => 'fas fa-fw fa-file',
+        ],
+        [
+            'text' => 'Статьи',
+            'url'  => 'admin/article',
+            'icon' => 'fas fa-fw fa-th-list',
         ],
         ['header' => 'Сборники слов'],
         [

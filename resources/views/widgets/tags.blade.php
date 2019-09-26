@@ -1,6 +1,6 @@
 <div class="tags-block">
     <div class="tag-h">
-        Облако тегов
+        Поиск по тегам
     </div>
     <div class="tag-list">
         @foreach($tags as $tag_item)

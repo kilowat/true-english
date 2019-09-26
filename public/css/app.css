@@ -9673,3 +9673,35 @@ html, body {
   padding-left: 8px;
   padding-right: 8px;
 }
+
+.tags-block {
+  margin-bottom: 24px;
+  border: 1px solid #4e9cea;
+  padding: 12px;
+}
+.tags-block .tag-h {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.tags-block .tag-list a {
+  display: inline-block;
+  background-color: #11508e;
+  color: #fff;
+  padding: 2px;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-bottom: 4px;
+}
+.tags-block .tag-list a.active {
+  background-color: #ec407a;
+}
+
+.article .data-created {
+  font-size: 12px;
+}
+.article .card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
