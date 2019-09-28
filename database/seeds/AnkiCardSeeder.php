@@ -20,7 +20,6 @@ class AnkiCardSeeder extends Seeder
                 'name' => 'name_'.$i,
                 'code' => 'code_'.$i,
                 'picture' => 'uploads/ndaA5wdoTy3HEM51KxdHVBSC18QPlMp6IR3BlOoT.jpeg',
-                'file' => 'test.file',
                 'text' => 'Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора',
                 'title' => 'Заголовок'.$i,
                 'description' => 'descr'.$i,

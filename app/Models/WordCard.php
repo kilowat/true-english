@@ -27,7 +27,8 @@ class WordCard extends Model
         ]
     ];
 
-    public function words(){
+    public function words()
+    {
         return $this->hasMany(
             'App\Models\WordCardWord',
             'card_id',
@@ -36,19 +37,22 @@ class WordCard extends Model
 
     }
 
-    public function section(){
+    public function section()
+    {
         return $this->belongsTo('App\Models\WordSection', 'section_id', 'id');
     }
 
-    public function getPreviewPictureAttribute(){
+    public function getPreviewPictureAttribute()
+    {
         if($this->picture){
-            return '/storage/'.$this->picture;
+            return Storage::disk("public")->url($this->picture);
         }else{
             return '/images/default_pic.jpg';
         }
     }
 
-    public function getShortDataAttribute(){
+    public function getShortDataAttribute()
+    {
         $data = new Carbon($this->created_at);
         return $data->format('d.m.Y');
     }

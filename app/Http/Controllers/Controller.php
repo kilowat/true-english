@@ -11,7 +11,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function checkNeedShow404($data){
+    public function checkNeedShow404($data)
+    {
         if($data == null){
             abort(404);
         }

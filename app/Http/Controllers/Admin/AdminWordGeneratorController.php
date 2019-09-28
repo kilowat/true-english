@@ -11,7 +11,8 @@ namespace App\Http\Controllers\Admin;
 
 class AdminWordGeneratorController extends AdminController
 {
-    public function index(){
+    public function index()
+    {
 
         return view('admin.pages.word_generator_index');
     }

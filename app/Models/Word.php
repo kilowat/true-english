@@ -8,7 +8,8 @@ class Word extends Model
 {
     protected $guarded = [];
 
-    public function cards(){
+    public function cards()
+    {
         return $this->belongsToMany(
             'App\Models\WordCard',
             'word_card_words',
@@ -18,27 +19,33 @@ class Word extends Model
             'id');
     }
 
-    public function getContextReversoLinkAttribute(){
+    public function getContextReversoLinkAttribute()
+    {
         return "https://dictionary.reverso.net/english-russian/".$this->name;
     }
 
-    public function getWordHuntLinkAttribute(){
+    public function getWordHuntLinkAttribute()
+    {
         return "https://wooordhunt.ru/word/".$this->name;
     }
 
-    public function getMeriamlLinkAttribute(){
+    public function getMeriamlLinkAttribute()
+    {
         return "https://www.merriam-webster.com/dictionary/".$this->name;
     }
 
-    public function getYandexLinkAttribute(){
+    public function getYandexLinkAttribute()
+    {
         return "https://translate.yandex.ru/?lang=en-ru&text=".$this->name;
     }
 
-    public function getYouglishLinkAttribute(){
+    public function getYouglishLinkAttribute()
+    {
         return "https://youglish.com/search/".$this->name."/all";
     }
 
-    public function audio(){
+    public function audio()
+    {
         return $this->hasOne(
             '\App\Models\Audio',
             'word_code',
@@ -46,7 +53,8 @@ class Word extends Model
         );
     }
 
-    public function setCheckedAttribute($value){
+    public function setCheckedAttribute($value)
+    {
         $value = $value == "on" ? 1 : 0;
         $this->attributes['checked'] = $value;
     }

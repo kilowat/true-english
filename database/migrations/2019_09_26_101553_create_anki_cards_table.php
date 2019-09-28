@@ -20,7 +20,9 @@ class CreateAnkiCardsTable extends Migration
             $table->string('code')->unique();
             $table->mediumText('text')->nullable();
             $table->string('title', 255)->nullable();
-            $table->string('file', 50)->nullable();
+            $table->string('file_name', 50)->nullable();
+            $table->string('file_hash', 50)->nullable();
+            $table->string('file_size', 50)->nullable();
             $table->string('description', 255)->nullable();
             $table->boolean('active')->default(false);
             $table->integer("sort")->default(100);

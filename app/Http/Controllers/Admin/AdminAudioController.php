@@ -24,8 +24,9 @@ class AdminAudioController extends AdminController
         return view('admin.pages.audio_index');
     }
 
-    public function dataList(){
-        $files = Audio::query();
+    public function dataList()
+    {
+        $files = Audio::query()->orderBy("id", "desc");
 
         return Datatables::of($files)
             ->addColumn('action', function ($files) {
@@ -43,7 +44,8 @@ class AdminAudioController extends AdminController
         return view('admin.pages.audio_add');
     }
 
-    public function uploadFile(Request $request){
+    public function uploadFile(Request $request)
+    {
         $file = Input::file('file');
         $file_name_origin = $file->getClientOriginalName();
         $word_name = explode('.', $file_name_origin)[0];
@@ -78,7 +80,8 @@ class AdminAudioController extends AdminController
         }
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $file = Audio::where('id', '=', $id)->first();
 
         if($file){

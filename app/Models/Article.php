@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use QCod\ImageUp\HasImageUploads;
 
@@ -22,18 +23,21 @@ class Article extends Model
         ]
     ];
 
-    public function getPreviewTextAttribute(){
+    public function getPreviewTextAttribute()
+    {
         return Str::limit($this->text, 120);
     }
 
-    public function getShortDateAttribute(){
+    public function getShortDateAttribute()
+    {
         $data = new Carbon($this->created_at);
         return $data->format('d.m.Y');
     }
 
-    public function getPreviewPictureAttribute(){
+    public function getPreviewPictureAttribute()
+    {
         if($this->picture){
-            return '/storage/'.$this->picture;
+            return Storage::disk("public")->url($this->picture);
         }else{
             return '/images/default_pic.jpg';
         }
@@ -45,7 +49,8 @@ class Article extends Model
         $this->attributes['active'] = $value;
     }
 
-    public function getTagsAsStrAttribute(){
+    public function getTagsAsStrAttribute()
+    {
         if(!$this->tags) return "";
         $tags = [];
 

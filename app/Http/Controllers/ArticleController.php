@@ -25,7 +25,8 @@ class ArticleController extends Controller
         return view("pages.article_index", compact('articles', 'tag'));
     }
 
-    public function detail($code){
+    public function detail($code)
+    {
          $article = Article::where("code", "=", $code)->first();
 
          return view("pages.article_detail", compact('article'));

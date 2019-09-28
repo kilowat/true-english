@@ -25,7 +25,8 @@ use Yajra\DataTables\Facades\DataTables;
 
 class AdminCardController extends AdminController
 {
-    private function createExcel(WordCard $wordCard, $id){
+    private function createExcel(WordCard $wordCard, $id)
+    {
         $words = [];
         $wordQuery = $wordCard->find($id)->words;
 
@@ -40,12 +41,14 @@ class AdminCardController extends AdminController
         }
     }
 
-    public function index(){
+    public function index()
+    {
         return view('admin.pages.card_index');
     }
 
-    public function dataList(){
-        $cards = WordCard::with('section');
+    public function dataList()
+    {
+        $cards = WordCard::with('section')->orderBy("id", "desc");
 
         return Datatables::of($cards)
             ->addColumn('action', function ($cards) {
@@ -89,7 +92,8 @@ class AdminCardController extends AdminController
         return view('admin.pages.card_edit', compact('card', 'sections'));
     }
 
-    public function update($id, CardPost $request, WordCard $wordCard){
+    public function update($id, CardPost $request, WordCard $wordCard)
+    {
         $fields = $request->all();
 
         if(!empty($request->ensubtitle)){
@@ -110,7 +114,8 @@ class AdminCardController extends AdminController
             $wordCard->insertWords($request->content_text, $id);
         }
 
-        if($request->create_excel == "on"){
+        if($request->create_excel == "on")
+        {
             $this->createExcel($wordCard, $id);
         }
 
@@ -120,7 +125,8 @@ class AdminCardController extends AdminController
     public function store(CardPost $request, WordCard $wordCard){
         $fields = $request->all();
 
-        if(!empty($request->ensubtitle)){
+        if(!empty($request->ensubtitle))
+        {
             $creator = new SubtitleCreator($request->ensubtitle, $request->rusubtitle, $request->trsubtitle);
             $fields["subtitles"] = $creator->merge();
         }
@@ -138,7 +144,8 @@ class AdminCardController extends AdminController
         return redirect()->back()->with('message',  trans('messages.add_success'));
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         WordCard::destroy($id);
         return redirect()->back();
     }

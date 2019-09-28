@@ -45,7 +45,8 @@ class ArticlePost extends FormRequest
         });
     }
 
-    private function uniqueCode(){
+    private function uniqueCode()
+    {
         $row = Article::where('code', '=', $this->code)->first();
 
         if(!$row) return true;

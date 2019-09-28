@@ -6,7 +6,8 @@ use App\Models\WordSection;
 
 class WordSectionObserver
 {
-    private  function makeUri(WordSection $wordSection){
+    private  function makeUri(WordSection $wordSection)
+    {
         $items = WordSection::ancestorsAndSelf($wordSection->id);
         $code_arr = [];
 

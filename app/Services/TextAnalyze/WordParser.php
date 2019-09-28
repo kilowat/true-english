@@ -25,7 +25,8 @@ class WordParser
         'UrlFilter',
     ];
 
-    public static function getFrequency($text){
+    public static function getFrequency($text)
+    {
         $token = tokenize($text);
 
         foreach(self::$filters as $filter){

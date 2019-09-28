@@ -30,7 +30,7 @@
                             {{ $card->text }}
                         </div>
                         <div class="card-action">
-                            <a href="#" class="btn">Скачать</a>
+                            <a href="{{ $card->fileUrl }}" title="{{ $card->file_name }}" class="btn">Скачать</a>
                         </div>
                     </div>
                 </div>

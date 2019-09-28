@@ -9,7 +9,8 @@ use Yajra\DataTables\Facades\DataTables;
 
 class AdminArticleController extends AdminController
 {
-    public function index(){
+    public function index()
+    {
         return view("admin.pages.article_index");
     }
 
@@ -17,7 +18,8 @@ class AdminArticleController extends AdminController
         return view("admin.pages.article_add");
     }
 
-    public function store(ArticlePost $request){
+    public function store(ArticlePost $request)
+    {
         $created = Article::create($request->all());
 
         if(!empty($request->tags) && $created){
@@ -28,12 +30,14 @@ class AdminArticleController extends AdminController
         return redirect()->back()->with('message',  trans('messages.add_success'));
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $article = Article::with('tagged')->find($id);
         return view('admin.pages.article_edit', compact('article'));
     }
 
-    public function update($id, ArticlePost $request){
+    public function update($id, ArticlePost $request)
+    {
         $created = Article::find($id)->update($request->all());
 
         if(!empty($request->tags) && $created){
@@ -45,14 +49,16 @@ class AdminArticleController extends AdminController
     }
 
 
-    public function delete($id){
+    public function delete($id)
+    {
         Article::destroy($id);
 
         return redirect()->back();
     }
 
-    public function dataList(){
-        $article = Article::query();
+    public function dataList()
+    {
+        $article = Article::query()->orderBy("id", "desc");;
 
         return Datatables::of($article)
             ->addColumn('action', function ($article) {

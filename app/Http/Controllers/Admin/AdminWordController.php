@@ -21,14 +21,16 @@ use Yajra\DataTables\DataTables;
 
 class AdminWordController extends AdminController
 {
-    public function index(){
+    public function index()
+    {
         $words = Word::paginate(100);
 
         return view('admin.pages.word_index', ['words' => $words]);
     }
 
-    public function dataList(){
-        $words = Word::query()->with('audio');
+    public function dataList()
+    {
+        $words = Word::query()->with('audio')->orderBy("id", "desc");
 
         return Datatables::of($words)
             ->addColumn('audio', function($words){
@@ -51,30 +53,35 @@ class AdminWordController extends AdminController
             ->make(true);
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $word = Word::findOrFail($id);
         return view('admin.pages.word_edit', ['word' => $word]);
     }
 
-    public function update($id, WordPost $request){
+    public function update($id, WordPost $request)
+    {
         Word::find($id)->update($request->all());
 
         return redirect()->back()->with('message',  trans('messages.update_success'));
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         Word::destroy($id);
 
         return redirect()->back();
     }
 
-    public function export(Request $request){
+    public function export(Request $request)
+    {
         $export = new WordExport($request->where ? $request->where : [], $request->limit);
 
         return Excel::download($export, 'words.xlsx');
     }
 
-    public function import(Request $request, Word $wordModel){
+    public function import(Request $request, Word $wordModel)
+    {
         Excel::import(new WordImport(), request()->file('table_file'));
 
         return redirect()->back()->with('message',  trans('messages.add_success'));

@@ -21,7 +21,8 @@ class GrammarController extends Controller
         $this->initMenu();
     }
 
-    public function initMenu(){
+    public function initMenu()
+    {
         \Menu::make('grammarMenu', function($menu){
             $section = GrammarSection::get();
             //dd($this->request->segment());
@@ -31,20 +32,23 @@ class GrammarController extends Controller
         });
     }
 
-    public function index(){
+    public function index()
+    {
         $grammars = Grammar::with("section")->paginate(20);
 
         return view("pages.grammar_index", compact('grammars'));
     }
 
-    public function section($code){
+    public function section($code)
+    {
         $section = GrammarSection::where("code", "=", $code)->first();
         $grammars = Grammar::where("section_id", "=", $section->id)->paginate(20);
 
         return view("pages.grammar_section", compact('grammars', 'section'));
     }
 
-    public function detail($section, $code){
+    public function detail($section, $code)
+    {
         $section = GrammarSection::where("code", "=", $code)->first();
         $grammar = Grammar::where("code", "=", $code)->first();
 

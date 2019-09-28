@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Word;
+use App\Models\AnkiCard;
 use Illuminate\Foundation\Http\FormRequest;
 
-class WordPost extends FormRequest
+class AnkiPost extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,18 +26,8 @@ class WordPost extends FormRequest
     {
         return [
             'name' => 'required',
+            'code' => 'required',
         ];
-    }
-
-    private function uniqueCode()
-    {
-        $row = Word::where('id', '=', $this->id)->first();
-
-        if($this->id > 0){
-            return $row->name !== $this->name;
-        }else{
-            return $row;
-        }
     }
 
     /**
@@ -49,9 +39,24 @@ class WordPost extends FormRequest
     public function withValidator($validator)
     {
         $validator->after(function ($validator) {
-            if ($this->uniqueCode()) {
+            if (!$this->uniqueCode()) {
                 $validator->errors()->add('code', 'Код должен быть уникальным');
             }
         });
+    }
+
+    private function uniqueCode()
+    {
+        $row = AnkiCard::where('code', '=', $this->code)->first();
+
+        if(!$row) return true;
+
+        if($this->id){//update
+            if($this->code === AnkiCard::where('id', '=', $this->id)->first()->code){
+                return true;
+            }
+        }
+
+        return false;
     }
 }

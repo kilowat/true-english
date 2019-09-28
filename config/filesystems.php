@@ -42,26 +42,28 @@ return [
     */
 
     'disks' => [
-
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
-
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-
         'audio' => [
             'driver' => 'local',
             'root' => storage_path('app/public/audio'),
             'url' => env('APP_URL').'/storage/audio',
             'visibility' => 'public',
         ],
-
+        'anki' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/anki'),
+            'url' => env('APP_URL').'/storage/anki',
+            'visibility' => 'public',
+        ],
         'excel' => [
             'driver' => 'local',
             'root' => storage_path('app/public/excel'),

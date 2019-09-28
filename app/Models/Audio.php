@@ -11,7 +11,8 @@ class Audio extends Model
     public $timestamps = true;
     protected $guarded = [];
 
-    public function getUrlAttribute(){
+    public function getUrlAttribute()
+    {
         return  Storage::disk('audio')->url($this->file_name);
     }
 

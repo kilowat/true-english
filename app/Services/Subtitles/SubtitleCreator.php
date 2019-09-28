@@ -27,7 +27,8 @@ class SubtitleCreator
     }
 
 
-    public function merge(){
+    public function merge()
+    {
         $result = [];
 
             $en_arr = Subtitles::load($this->enStr, $this->format)->getInternalFormat();

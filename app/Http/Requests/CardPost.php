@@ -45,7 +45,8 @@ class CardPost extends FormRequest
         });
     }
 
-    private function uniqueCode(){
+    private function uniqueCode()
+    {
         $row = WordCard::where('code', '=', $this->code)->first();
 
         if(!$row) return true;

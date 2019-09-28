@@ -37,7 +37,8 @@ class AdminAuthController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(){
+    public function login()
+    {
         return "login_admin";
     }
 }

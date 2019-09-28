@@ -9,7 +9,6 @@ use Kalnoy\Nestedset\NodeTrait;
 use QCod\ImageUp\HasImageUploads;
 
 class WordSection extends Model
-
 {
     use NodeTrait, HasImageUploads;
 
@@ -24,18 +23,21 @@ class WordSection extends Model
         ]
     ];
 
-    public function getLinkAttribute(){
+    public function getLinkAttribute()
+    {
         return route('word-collection.section',$this->uri);
     }
 
-    public function getShortDataAttribute(){
+    public function getShortDataAttribute()
+    {
         $data = new Carbon($this->created_at);
         return $data->format('d.m.Y');
     }
 
-    public function getPreviewPictureAttribute(){
+    public function getPreviewPictureAttribute()
+    {
         if($this->picture){
-            return '/storage/'.$this->picture;
+            return Storage::disk("public")->url($this->picture);
         }else{
             return '/images/default_pic.jpg';
         }

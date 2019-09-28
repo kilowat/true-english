@@ -88,6 +88,26 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('article/delete/{id}', 'AdminArticleController@delete')->name('admin.article.delete');
      /****************************/
 
+    /**********anki*******************/
+    Route::get('anki', 'AdminAnkiController@index')->name('admin.anki.index');
+    Route::get('anki/add', 'AdminAnkiController@add')->name('admin.anki.add');
+    Route::post('anki/add', 'AdminAnkiController@store')->name('admin.anki.store');
+    Route::get('anki/edit/{id}', 'AdminAnkiController@edit')->name('admin.anki.edit');
+    Route::post('anki/update/{id}', 'AdminAnkiController@update')->name('admin.anki.update');
+    Route::get('anki/data-list', 'AdminAnkiController@dataList')->name('admin.anki.data-list');
+    Route::get('anki/delete/{id}', 'AdminAnkiController@delete')->name('admin.anki.delete');
+    /****************************/
+
+    /**********grammar sections*******************/
+    Route::get('grammar/section', 'AdminGrammarSectionController@index')->name('admin.grammar-section.index');
+    Route::get('grammar/section/section/data-list', 'AdminGrammarSectionController@dataList')->name('admin.grammar-section.data-list');
+    Route::get('grammar/section/add', 'AdminGrammarSectionController@add')->name('admin.grammar-section.add');
+    Route::post('grammar/section/add', 'AdminGrammarSectionController@store')->name('admin.grammar-section.store');
+    Route::get('grammar/section/edit/{id}', 'AdminGrammarSectionController@edit')->name('admin.grammar-section.edit');
+    Route::post('grammar/section/update/{id}', 'AdminGrammarSectionController@update')->name('admin.grammar-section.update');
+    Route::get('grammar/section/delete/{id}', 'AdminGrammarSectionController@delete')->name('admin.grammar-section.delete');
+    /****************************/
+
     Route::get('admin/login', 'AdminAuthController@login')->name('admin.login');
 
 });

@@ -7,7 +7,8 @@ use App\Models\WordSection;
 
 class WordCardObserver
 {
-    private  function makeUri(WordCard $wordCard){
+    private  function makeUri(WordCard $wordCard)
+    {
         $uri = WordSection::where('id', '=', $wordCard->section_id)->first()->uri;
         $uri.= "/".$wordCard->code;
 

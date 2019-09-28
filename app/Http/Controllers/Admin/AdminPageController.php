@@ -21,7 +21,8 @@ use Maatwebsite\Excel\Facades\Excel;
 class AdminPageController extends AdminController
 {
 
-    public function index(){
+    public function index()
+    {
         /*
         $export = new CardExport(["absolutely0", "absolutely8"]);
 

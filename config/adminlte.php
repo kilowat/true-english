@@ -140,6 +140,21 @@ return [
             'icon' => 'fas fa-fw fa-file',
         ],
         [
+            'text' => 'Сборники слов',
+            'url'  => 'admin/word-collection',
+            'icon' => 'fas fa-fw fa-th-list',
+        ],
+        [
+            'text' => 'Грамматика',
+            'url'  => 'admin/grammar',
+            'icon' => 'fas fa-fw fa-th-list',
+        ],
+        [
+            'text' => 'Колоды anki',
+            'url'  => 'admin/anki',
+            'icon' => 'fas fa-fw fa-th-list',
+        ],
+        [
             'text' => 'Статьи',
             'url'  => 'admin/article',
             'icon' => 'fas fa-fw fa-th-list',
@@ -169,6 +184,17 @@ return [
             'text' => 'Импорт/Экспорт таблиц',
             'url' => 'admin/word-generator',
             'icon' => 'fa fa-th-list',
+        ],
+        ['header' => 'Грамматика'],
+        [
+            'text' => 'Разделы',
+            'url'  => 'admin/grammar/section',
+            'icon' => 'fas fa-fw fa-th-list',
+        ],
+        [
+            'text' => 'Элементы',
+            'url'  => 'admin/grammar/items',
+            'icon' => 'fas fa-fw fa-th-list',
         ],
         ['header' => 'Настройки'],
         [
