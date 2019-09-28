@@ -110,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/grammar_section_edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
-              <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -169,7 +169,7 @@
       <find>mdl-layout__tab-bar-left-button</find>
       <find>.mdl-layout__header</find>
       <find>mdl-layout__tab-bar-container</find>
-      <find>view sou</find>
+      <find />
       <find>860px</find>
       <find>mdl-demo</find>
       <find>.mdl-layout__header-row</find>
@@ -189,7 +189,7 @@
       <find>contai</find>
       <find>tableData</find>
       <find>url</find>
-      <find>captions = transcript.getElementsByTagName('text');</find>
+      <find />
       <find>console.</find>
       <find>transcriptLoaded</find>
       <find>console.l</find>
@@ -660,7 +660,7 @@
       <workItem from="1568869880407" duration="1435000" />
       <workItem from="1568905134505" duration="41426000" />
       <workItem from="1569053677685" duration="97679000" />
-      <workItem from="1569323129179" duration="71598000" />
+      <workItem from="1569323129179" duration="72198000" />
     </task>
     <servers />
   </component>
@@ -676,10 +676,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="482927000" />
+    <option name="totallyTimeSpent" value="483527000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1030,7 +1030,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/grammar_section_edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
