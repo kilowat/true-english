@@ -21,11 +21,13 @@
                                 <a href="/" title="true-english.ru"><img src="/images/logo.png" alt="logo"></a>
                             </div>
                         </div>
+                        <!--
                         <div class="user-block">
                             <div class="user-line">
                                 <a href="#" title="">Авторизоваться</a>
                             </div>
                         </div>
+                        -->
                     </div>
                 </div>
 

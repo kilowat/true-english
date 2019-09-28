@@ -3,9 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use QCod\ImageUp\HasImageUploads;
 
 class Grammar extends Model
 {
+    use HasImageUploads;
+
+    protected $guarded = [];
+
+    protected static $imageFields = [
+        'picture' => [
+            'width' => 300,
+            'height' => 220,
+            'crop' => true,
+        ]
+    ];
+
     public function section()
     {
         return  $this->belongsTo(
@@ -13,5 +27,20 @@ class Grammar extends Model
             'section_id',
             'id'
         );
+    }
+
+    public function setActiveAttribute($value)
+    {
+        $value = $value == "on" ? 1 : 0;
+        $this->attributes['active'] = $value;
+    }
+
+    public function getPreviewPictureAttribute()
+    {
+        if($this->picture){
+            return Storage::disk("public")->url($this->picture);
+        }else{
+            return '/images/default_pic.jpg';
+        }
     }
 }

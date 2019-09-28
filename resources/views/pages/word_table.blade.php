@@ -37,7 +37,7 @@
                 <div class='table_header'>Видео</div>
                 <div class='table_header'>Ссылки</div>
             </div>
-            <?php $count = ($words->currentPage() * $words->perPage()) - $words->perPage() + 1; //dd($word_list)?>
+            <?php $count = 1; //$count = ($words->currentPage() * $words->perPage()) - $words->perPage() + 1; //dd($word_list)?>
             @foreach($words as $word)
                 <div class='table_row'>
                     <div class='table_small'>

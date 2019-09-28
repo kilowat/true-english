@@ -17,6 +17,7 @@ class CreateGrammarsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('code')->unique();
+            $table->string('picture');
             $table->mediumText('text')->nullable();
             $table->string('title', 255)->nullable();
             $table->string('description', 255)->nullable();

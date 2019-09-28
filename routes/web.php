@@ -108,6 +108,16 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('grammar/section/delete/{id}', 'AdminGrammarSectionController@delete')->name('admin.grammar-section.delete');
     /****************************/
 
+    /**********grammar elements*******************/
+    Route::get('grammar/element', 'AdminGrammarElementController@index')->name('admin.grammar-element.index');
+    Route::get('grammar/element/section/data-list', 'AdminGrammarElementController@dataList')->name('admin.grammar-element.data-list');
+    Route::get('grammar/element/add', 'AdminGrammarElementController@add')->name('admin.grammar-element.add');
+    Route::post('grammar/element/add', 'AdminGrammarElementController@store')->name('admin.grammar-element.store');
+    Route::get('grammar/element/edit/{id}', 'AdminGrammarElementController@edit')->name('admin.grammar-element.edit');
+    Route::post('grammar/element/update/{id}', 'AdminGrammarElementController@update')->name('admin.grammar-element.update');
+    Route::get('grammar/element/delete/{id}', 'AdminGrammarElementController@delete')->name('admin.grammar-element.delete');
+    /****************************/
+
     Route::get('admin/login', 'AdminAuthController@login')->name('admin.login');
 
 });

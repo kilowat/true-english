@@ -21,7 +21,7 @@ class MainMenu
             $menu->add("Сборники слов", ['route'=>"word-collection.index"]);
             $menu->add("Грамматика", ['route' => 'grammar.index']);
             //$menu->add("Упражнения");
-            $menu->add("Колоды для Anki", ['route' => 'anki.index']);
+           // $menu->add("Колоды для Anki", ['route' => 'anki.index']);
             $menu->add("Статьи", ['route' => 'article.index']);
             $menu->add("Обратная связь");
 

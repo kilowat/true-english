@@ -193,7 +193,7 @@ return [
         ],
         [
             'text' => 'Элементы',
-            'url'  => 'admin/grammar/items',
+            'url'  => 'admin/grammar/element',
             'icon' => 'fas fa-fw fa-th-list',
         ],
         ['header' => 'Настройки'],

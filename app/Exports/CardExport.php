@@ -108,6 +108,7 @@ class CardExport implements FromQuery, WithEvents, WithMapping
             $word->translate,
             $word->youglishLink,
             $word->yandexLink,
+            $word->meriamlLinkAttribute,
         ];
     }
     /*
