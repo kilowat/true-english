@@ -18,7 +18,7 @@ class MainMenu
     {
         \Menu::make('MainMenu', function($menu) use($request){
             $menu->add('Главная', [ 'route'=>'page.home']);
-            $menu->add("Сборники слов", ['route'=>"word-collection.index"]);
+            $menu->add("Слова и диалоги", ['route'=>"word-collection.index"]);
             $menu->add("Грамматика", ['route' => 'grammar.index']);
             //$menu->add("Упражнения");
            // $menu->add("Колоды для Anki", ['route' => 'anki.index']);

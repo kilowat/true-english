@@ -32,6 +32,7 @@ class SubtitleCreator
         $result = [];
 
             $en_arr = Subtitles::load($this->enStr, $this->format)->getInternalFormat();
+
             $ru_arr = [];
             $tr_arr = [];
 
@@ -60,6 +61,7 @@ class SubtitleCreator
                     "start" => $en_value["start"],
                     "end" => $en_value["end"],
                     "line" => [
+                        "time" => $this->getHoursMinutes($en_value["start"]),
                         "en" => $en_line,
                         "ru" => $ru_line,
                         "tr" => $tr_line,
@@ -68,5 +70,17 @@ class SubtitleCreator
             }
 
         return $result;
+    }
+
+    private function getHoursMinutes($seconds) {
+
+        if (empty($seconds) || ! is_numeric($seconds) || $seconds <=0) {
+            return "00:00:00";
+        }
+
+        $H = floor($seconds / 3600);
+        $i = ($seconds / 60) % 60;
+        $s = $seconds % 60;
+        return sprintf("%02d:%02d:%02d", $H, $i, $s);
     }
 }

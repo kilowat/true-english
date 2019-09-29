@@ -9466,6 +9466,10 @@ html, body {
   flex-wrap: wrap;
 }
 
+.en-label {
+  color: black;
+}
+
 .rev-label {
   color: green;
 }
@@ -9492,6 +9496,7 @@ html, body {
   margin: 4px;
   padding: 8px;
   display: block;
+  position: relative;
 }
 .subtitle-list .s-item .s-en {
   display: block;
@@ -9508,6 +9513,21 @@ html, body {
 }
 .subtitle-list .s-item.youtube-marker-current {
   background-color: #f9f5a5;
+}
+.subtitle-list .s-item .time-line {
+  position: absolute;
+  background-color: red;
+  color: #fff;
+  padding: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  border-radius: 6px;
+  font-size: 12px;
+  left: calc(50% - 27px);
+  top: -12px;
+  z-index: 1;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 .table-page {

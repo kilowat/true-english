@@ -92,8 +92,8 @@ document.onreadystatechange = function() {
 function UpdateMarkers() {
     var current_time = player.getCurrentTime();
     var j = 0; // NOTE: to extend for several players
-    markers[j].forEach(function(marker, i) {
 
+    markers[j].forEach(function(marker, i) {
         if (current_time >= marker.time_start && current_time <= marker.time_end) {
             marker.dom.classList.add("youtube-marker-current");
         } else {
@@ -108,6 +108,15 @@ function onPlayerReady(){
 
 $("#video-speed").change(function(){
     player.setPlaybackRate (parseFloat($("#video-speed").val()));
+});
+
+$("#show-en").change(function(){
+    var $elems = $("#subtitles .s-en");
+    if($(this).is(":checked")){
+        $elems.show();
+    }else{
+        $elems.hide();
+    }
 });
 
 $("#show-tr").change(function(){
