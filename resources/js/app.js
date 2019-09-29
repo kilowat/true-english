@@ -7,6 +7,8 @@
 require('./bootstrap');
 require('./materialize.min');
 require('./jqueryfancyboxmin');
+let youtube = require('./youtube');
+window.mmooc = youtube.mmooc;
 
 window.Vue = require('vue');
 

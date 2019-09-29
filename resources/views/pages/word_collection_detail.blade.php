@@ -24,7 +24,7 @@
         <div class="card-detail">
             <div class="pic-box">
                 @if($card->youtube)
-                    <iframe id="player" src="https://www.youtube.com/embed/{{ $card->youtube }}?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe id="{{ $card->youtube }}" src="https://www.youtube.com/embed/{{ $card->youtube }}?enablejsapi=1" width="560" height="315" allowfullscreen="allowfullscreen"></iframe></p>
                     <div class="video-config">
                         <div class="config-cell speed-player">
                             <label>Скорость</label>
@@ -65,14 +65,14 @@
                         <div class="table-cell"><span calss="prop-value">{{ $card->words->count() }}</span></div>
                     </div>
                     @if($card->excel)
-                    <div class="prop-item table-row">
-                        <div class="table-cell"><span class="prop-name">Excel файл со словами:</span></div>
-                        <div class="table-cell">
+                        <div class="prop-item table-row">
+                            <div class="table-cell"><span class="prop-name">Excel файл со словами:</span></div>
+                            <div class="table-cell">
                             <span calss="prop-value">
                                 <a href="{{ $card->excel }}" title="Таблица"><svg class="ic-excel"><use xlink:href="#ic-excel" x="0" y="0"></use></svg> Скачать</a>
                             </span>
+                            </div>
                         </div>
-                    </div>
                     @endif
                     <div class="prop-item table-row">
                         <div class="table-cell"><span class="prop-name">Дата публикации:</span></div>
@@ -90,23 +90,13 @@
         </div>
         @if($card->subtitles)
             <div id="subtitles">
-                <div class="subtitle-list">
-                    @foreach($card->subtitles as $key_item => $subtitle)
-                        <span class="s-item youtube-marker" data-start="{{ $subtitle["start"] }}" data-end="{{ $subtitle["end"] }}">
-                            <span class="time-line">{{ $subtitle["line"]["time"] }}</span>
-                            <span class="s-en">{{ $subtitle["line"]["en"] }}</span>
-                            <span class="s-tr">{{ $subtitle["line"]["tr"] }}</span>
-                            <span class="s-ru">{{ $subtitle["line"]["ru"] }}</span>
-                        </span>
-                    @endforeach
-                </div>
+                <div id="videoTranscript{{ $card->youtube }}" class="mmocVideoTranscript subtitle-list" data-route="{{ route("api.subtitle", $card->id) }}" ></div>
             </div>
-            @endif
+        @endif
     </section>
 @endsection
 
 @section('js')
-    <script src="/js/youtube_player.js">
-    </script>
+
 
 @endsection

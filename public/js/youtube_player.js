@@ -27,17 +27,11 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
-function watchScroll(){
-    if($(".youtube-marker-current").length > 0){
-        $("#subtitles").scrollTo($(".youtube-marker-current"));
-    }
-}
 
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         Update = setInterval(function() {
             UpdateMarkers()
-            watchScroll();
         }, 50);
     } else {
         clearInterval(Update);
@@ -75,17 +69,39 @@ document.onreadystatechange = function() {
                 // Get Data Attribute
                 var pos = el.dataset.start;
                 // Seek
-                player.seekTo(pos);
-                player.playVideo();
+                onClickItem(pos);
             }
         });
 
     } // Document Complete
 }; // Document Ready State Change
 
+var current_marker;
+var next_marker;
+
+function onClickItem(pos){
+    player.seekTo(pos);
+    player.playVideo();
+}
+
 function UpdateMarkers() {
     var current_time = player.getCurrentTime();
 
+    if(current_marker != undefined && next_marker !=undefined  && !(current_time >= current_marker.time_start && current_time <= current_marker.time_end)){
+        console.log();
+        onMarkerChange(next_marker);
+    }
+
+    for(var i = 0; i < markers.length - 1; i++){
+        if (current_time >= markers[i].time_start && current_time <= markers[i].time_end) {
+            next_marker = markers[i + 1];
+            current_marker = markers[i];
+            markers[i].dom.classList.add("youtube-marker-current");
+        }else{
+            markers[i].dom.classList.remove("youtube-marker-current");
+        }
+    }
+    /*
     markers.forEach(function(marker, i) {
         if (current_time >= marker.time_start && current_time <= marker.time_end) {
             marker.dom.classList.add("youtube-marker-current");
@@ -93,6 +109,11 @@ function UpdateMarkers() {
             marker.dom.classList.remove("youtube-marker-current");
         }
     });
+    */
+}
+
+function onMarkerChange(marker){
+    console.log(marker);
 }
 
 function onPlayerReady(){

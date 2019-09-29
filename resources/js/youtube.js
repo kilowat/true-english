@@ -7,22 +7,11 @@ this.mmooc.youtube = function() {
 	var transcriptArr = [];
 	var initialized = false;
 
-	function transcript(transcriptId, language, name)
+	function transcript(transcriptId, href)
 	{
 		var transcriptId = transcriptId;
 		var videoId = transcriptId.split(transcriptIdPrefix)[1];
 
-		var href = hrefPrefix + videoId;
-
-		if(language != "")
-		{
-		   href = href + "&lang=" + language;
-		}
-		if(name != "")
-		{
-		  href = href + "&name=" + name;
-		}
-		console.log(href);
 			//Array of captions in video
 		var captionsLoaded = false;
 
@@ -41,8 +30,32 @@ this.mmooc.youtube = function() {
 			'onReady': onPlayerReady,
 			'onStateChange': onPlayerStateChange
 		  }
-  	    });	
-		
+  	    });
+
+        function scrollTo(element, to, duration) {
+            var start = element.scrollTop,
+                change = to - start,
+                currentTime = 0,
+                increment = 20;
+
+            var animateScroll = function(){
+                currentTime += increment;
+                var val = Math.easeInOutQuad(currentTime, start, change, duration);
+                element.scrollTop = val;
+                if(currentTime < duration) {
+                    setTimeout(animateScroll, increment);
+                }
+            };
+            animateScroll();
+        }
+
+        window.Math.easeInOutQuad = function (t, b, c, d) {
+            t /= d/2;
+            if (t < 1) return c/2*t*t + b;
+            t--;
+            return -c/2 * (t*(t-2) - 1) + b;
+        };
+
 		var findCaptionIndexFromTimestamp = function(timeStamp)
 		{
 			var start = 0;
@@ -70,20 +83,22 @@ this.mmooc.youtube = function() {
 		var clearCurrentHighlighting = function()
 		{
 			var timeStampId = getTimeIdFromTimestampIndex(currentCaptionIndex);
-			$("#"+timeStampId).css('background-color', '');
+			$("#"+timeStampId).removeClass('active');
 		}
 
 		var highlightNextCaption = function ()
 		{
 			var timestampId = getTimeIdFromTimestampIndex(nextCaptionIndex);
-			$("#"+timestampId).css('background-color', 'yellow');
+			$("#"+timestampId).addClass("active")
 		}
 
 		var calculateTimeout = function (currentTime)
 		{
 			var startTime = Number(getStartTimeFromCaption(currentCaptionIndex));
 			var duration = Number(getDurationFromCaption(currentCaptionIndex));
-			var timeoutValue = startTime - currentTime + duration;
+
+			var timeoutValue = Math.abs(startTime - currentTime + duration);
+
 			return timeoutValue;
 		}
 
@@ -109,7 +124,7 @@ this.mmooc.youtube = function() {
 			{
 				return -1;
 			}
-			return captions[i].getAttribute('start');
+			return captions[i]["start"];
 		}
 		var getDurationFromCaption = function(i) 
 		{
@@ -117,7 +132,8 @@ this.mmooc.youtube = function() {
 			{
 				return -1;
 			}
-			return captions[i].getAttribute('dur');
+
+			return captions[i]["end"] - captions[i]["start"];
 		}
 		var getTimeIdFromTimestampIndex = function(i)
 		{
@@ -147,7 +163,13 @@ this.mmooc.youtube = function() {
 			{
 				this.setCaptionTimeout(timeoutValue);
 			}
-		}
+			var container = document.querySelector("#subtitles");
+			var to = document.querySelector("#t"+currentCaptionIndex);
+
+            var topPos = to.offsetTop;
+
+            scrollTo(container, topPos - container.offsetHeight * 2, 300);
+        }
 		
 		//Called if the user has dragged the slider to somewhere in the video.
 		this.highlightCaptionFromTimestamp = function(timeStamp)
@@ -171,17 +193,21 @@ this.mmooc.youtube = function() {
 			this.setCaptionTimeout(timeoutValue);
 		}   
 
-		this.transcriptLoaded = function(transcript) {
+		this.transcriptLoaded = function(arr) {
+			captions = arr;
 			var start = 0;
-			captions = transcript.getElementsByTagName('text');
-			var srt_output = "<div class='btnSeek' id='btnSeek' data-seek='0'>0:00</div>";
+			var srt_output = "";
 
 			for (var i = 0, il = captions.length; i < il; i++) {
 				start =+ getStartTimeFromCaption(i);
+				var captionText = '';
+                captionText+= '<span class="time-line">'+captions[i]["line"]["time"]+'</span>';
+				captionText+='<span class="s-en">'+captions[i]["line"]["en"]+'</span>';
+                captionText+='<span class="s-tr">'+captions[i]["line"]["tr"]+'</span>';
+                captionText+='<span class="s-ru">'+captions[i]["line"]["ru"]+'</span>';
 
-				captionText = captions[i].textContent.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 				var timestampId = getTimeIdFromTimestampIndex(i);
-				srt_output += "<span class='btnSeek' data-seek='" + start + "' id='" + timestampId + "'>" + captionText + "</span> ";
+				srt_output += "<span class='btnSeek s-item youtube-marker' data-seek='" + start + "' id='" + timestampId + "'>" + captionText + "</span> ";
 			};
 
 			$("#videoTranscript" + videoId).append(srt_output);
@@ -205,7 +231,7 @@ this.mmooc.youtube = function() {
 				type: 'GET',
 				data: {},
 				success: function(response) {
-					console.log(response);
+					var response = JSON.parse(response);
 					oTranscript.transcriptLoaded(response);
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -301,9 +327,8 @@ this.mmooc.youtube = function() {
 			if(!initialized)
 			{
 				$(".mmocVideoTranscript" ).each(function( i ) {
-					var language = $(this).data('language');
-					var name = $(this).data('name');
-					var oTranscript = new transcript(this.id, language, name);
+					var href = $(this).data('route');
+					var oTranscript = new transcript(this.id, href);
 					oTranscript.getTranscript();
 					transcriptArr.push(oTranscript);
 				});

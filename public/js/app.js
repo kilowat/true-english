@@ -49201,6 +49201,9 @@ __webpack_require__(/*! ./materialize.min */ "./resources/js/materialize.min.js"
 
 __webpack_require__(/*! ./jqueryfancyboxmin */ "./resources/js/jqueryfancyboxmin.js");
 
+var youtube = __webpack_require__(/*! ./youtube */ "./resources/js/youtube.js");
+
+window.mmooc = youtube.mmooc;
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -57259,6 +57262,321 @@ M.anime = function () {
   M.Range = t, M.jQueryLoaded && M.initializeJqueryWrapper(t, "range", "M_Range"), t.init(s("input[type=range]"));
 }(cash, M.anime);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./resources/js/youtube.js":
+/*!*********************************!*\
+  !*** ./resources/js/youtube.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+this.mmooc = this.mmooc || {}; //https://medium.com/@pointbmusic/youtube-api-checklist-c195e9abaff1
+
+this.mmooc.youtube = function () {
+  var hrefPrefix = "https://video.google.com/timedtext?v=";
+  var transcriptIdPrefix = "videoTranscript";
+  var transcriptArr = [];
+  var initialized = false;
+
+  function transcript(transcriptId, href) {
+    var transcriptId = transcriptId;
+    var videoId = transcriptId.split(transcriptIdPrefix)[1]; //Array of captions in video
+
+    var captionsLoaded = false; //Timeout for next caption
+
+    var captionTimeout = null;
+    var captions = null; //Keep track of which captions we are showing
+
+    var currentCaptionIndex = 0;
+    var nextCaptionIndex = 0;
+    this.player = new YT.Player(videoId, {
+      videoId: videoId,
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+
+    function scrollTo(element, to, duration) {
+      var start = element.scrollTop,
+          change = to - start,
+          currentTime = 0,
+          increment = 20;
+
+      var animateScroll = function animateScroll() {
+        currentTime += increment;
+        var val = Math.easeInOutQuad(currentTime, start, change, duration);
+        element.scrollTop = val;
+
+        if (currentTime < duration) {
+          setTimeout(animateScroll, increment);
+        }
+      };
+
+      animateScroll();
+    }
+
+    window.Math.easeInOutQuad = function (t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
+    };
+
+    var findCaptionIndexFromTimestamp = function findCaptionIndexFromTimestamp(timeStamp) {
+      var start = 0;
+      var duration = 0;
+
+      for (var i = 0, il = captions.length; i < il; i++) {
+        start = Number(getStartTimeFromCaption(i));
+        duration = Number(getDurationFromCaption(i)); //Return the first caption if the timeStamp is smaller than the first caption start time.
+
+        if (timeStamp < start) {
+          break;
+        } //Check if the timestamp is in the interval of this caption.
+
+
+        if (timeStamp >= start && timeStamp < start + duration) {
+          break;
+        }
+      }
+
+      return i;
+    };
+
+    var clearCurrentHighlighting = function clearCurrentHighlighting() {
+      var timeStampId = getTimeIdFromTimestampIndex(currentCaptionIndex);
+      $("#" + timeStampId).removeClass('active');
+    };
+
+    var highlightNextCaption = function highlightNextCaption() {
+      var timestampId = getTimeIdFromTimestampIndex(nextCaptionIndex);
+      $("#" + timestampId).addClass("active");
+    };
+
+    var calculateTimeout = function calculateTimeout(currentTime) {
+      var startTime = Number(getStartTimeFromCaption(currentCaptionIndex));
+      var duration = Number(getDurationFromCaption(currentCaptionIndex));
+      var timeoutValue = Math.abs(startTime - currentTime + duration);
+      return timeoutValue;
+    };
+
+    this.setCaptionTimeout = function (timeoutValue) {
+      if (timeoutValue < 0) {
+        return;
+      }
+
+      clearTimeout(captionTimeout);
+      var transcript = this;
+      captionTimeout = setTimeout(function () {
+        transcript.highlightCaptionAndPrepareForNext();
+      }, timeoutValue * 1000);
+    };
+
+    var getStartTimeFromCaption = function getStartTimeFromCaption(i) {
+      if (i >= captions.length) {
+        return -1;
+      }
+
+      return captions[i]["start"];
+    };
+
+    var getDurationFromCaption = function getDurationFromCaption(i) {
+      if (i >= captions.length) {
+        return -1;
+      }
+
+      return captions[i]["end"] - captions[i]["start"];
+    };
+
+    var getTimeIdFromTimestampIndex = function getTimeIdFromTimestampIndex(i) {
+      var strTimestamp = "" + i;
+      return "t" + strTimestamp;
+    }; //////////////////
+    //Public functions
+    /////////////////
+    //This function highlights the next caption in the list and
+    //sets a timeout for the next one after that.
+    //It must be public as it is called from a timer.
+
+
+    this.highlightCaptionAndPrepareForNext = function () {
+      clearCurrentHighlighting();
+      highlightNextCaption();
+      currentCaptionIndex = nextCaptionIndex;
+      nextCaptionIndex++;
+      var currentTime = this.player.getCurrentTime();
+      var timeoutValue = calculateTimeout(currentTime);
+
+      if (nextCaptionIndex <= captions.length) {
+        this.setCaptionTimeout(timeoutValue);
+      }
+
+      var container = document.querySelector("#subtitles");
+      var to = document.querySelector("#t" + currentCaptionIndex);
+      var topPos = to.offsetTop;
+      scrollTo(container, topPos - container.offsetHeight * 2, 300);
+    }; //Called if the user has dragged the slider to somewhere in the video.
+
+
+    this.highlightCaptionFromTimestamp = function (timeStamp) {
+      clearCurrentHighlighting();
+      nextCaptionIndex = findCaptionIndexFromTimestamp(timeStamp);
+      currentCaptionIndex = nextCaptionIndex;
+      var startTime = Number(getStartTimeFromCaption(currentCaptionIndex));
+      var timeoutValue = -1;
+
+      if (timeStamp < startTime) {
+        timeoutValue = startTime - currentTime;
+      } else {
+        highlightNextCaption();
+        timeoutValue = calculateTimeout(currentTime);
+      }
+
+      this.setCaptionTimeout(timeoutValue);
+    };
+
+    this.transcriptLoaded = function (arr) {
+      captions = arr;
+      var start = 0;
+      var srt_output = "";
+
+      for (var i = 0, il = captions.length; i < il; i++) {
+        start = +getStartTimeFromCaption(i);
+        var captionText = '';
+        captionText += '<span class="time-line">' + captions[i]["line"]["time"] + '</span>';
+        captionText += '<span class="s-en">' + captions[i]["line"]["en"] + '</span>';
+        captionText += '<span class="s-tr">' + captions[i]["line"]["tr"] + '</span>';
+        captionText += '<span class="s-ru">' + captions[i]["line"]["ru"] + '</span>';
+        var timestampId = getTimeIdFromTimestampIndex(i);
+        srt_output += "<span class='btnSeek s-item youtube-marker' data-seek='" + start + "' id='" + timestampId + "'>" + captionText + "</span> ";
+      }
+
+      ;
+      $("#videoTranscript" + videoId).append(srt_output);
+      captionsLoaded = true;
+    };
+
+    this.getTranscriptId = function () {
+      return transcriptId;
+    };
+
+    this.getVideoId = function () {
+      return videoId;
+    };
+
+    this.getTranscript = function () {
+      var oTranscript = this;
+      $.ajax({
+        url: href,
+        type: 'GET',
+        data: {},
+        success: function success(response) {
+          var response = JSON.parse(response);
+          oTranscript.transcriptLoaded(response);
+        },
+        error: function error(XMLHttpRequest, textStatus, errorThrown) {
+          console.log("Error during GET");
+        }
+      });
+    };
+
+    this.playerPlaying = function () {
+      if (!captionsLoaded) {
+        return;
+      }
+
+      currentTime = this.player.getCurrentTime();
+      this.highlightCaptionFromTimestamp(currentTime);
+    };
+
+    this.playerNotPlaying = function (transcript) {
+      if (!captionsLoaded) {
+        return;
+      }
+
+      clearTimeout(captionTimeout);
+    };
+  } //Called when user clicks somewhere in the transcript.
+
+
+  $(function () {
+    $(document).on('click', '.btnSeek', function () {
+      var seekToTime = $(this).data('seek');
+      var transcript = mmooc.youtube.getTranscriptFromTranscriptId($(this).parent().attr("id"));
+      transcript.player.seekTo(seekToTime, true);
+      transcript.player.playVideo();
+    });
+  }); //These functions must be global as YouTube API will call them. 
+
+  var previousOnYouTubePlayerAPIReady = window.onYouTubePlayerAPIReady;
+
+  window.onYouTubePlayerAPIReady = function () {
+    if (previousOnYouTubePlayerAPIReady) {
+      previousOnYouTubePlayerAPIReady();
+    }
+
+    mmooc.youtube.APIReady();
+  }; // The API will call this function when the video player is ready.
+  // It can be used to auto start the video f.ex.
+
+
+  window.onPlayerReady = function (event) {}; // The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+
+
+  window.onPlayerStateChange = function (event) {
+    console.log("onPlayerStateChange " + event.data);
+    var transcript = this.mmooc.youtube.getTranscriptFromVideoId(event.target.getIframe().id);
+
+    if (event.data == YT.PlayerState.PLAYING) {
+      transcript.playerPlaying();
+    } else {
+      transcript.playerNotPlaying();
+    }
+  };
+
+  return {
+    getTranscriptFromTranscriptId: function getTranscriptFromTranscriptId(transcriptId) {
+      for (index = 0; index < transcriptArr.length; ++index) {
+        if (transcriptArr[index].getTranscriptId() == transcriptId) {
+          return transcriptArr[index];
+        }
+      }
+
+      return null;
+    },
+    getTranscriptFromVideoId: function getTranscriptFromVideoId(videoId) {
+      for (index = 0; index < transcriptArr.length; ++index) {
+        if (transcriptArr[index].getVideoId() == videoId) {
+          return transcriptArr[index];
+        }
+      }
+
+      return null;
+    },
+    APIReady: function APIReady() {
+      if (!initialized) {
+        $(".mmocVideoTranscript").each(function (i) {
+          var href = $(this).data('route');
+          var oTranscript = new transcript(this.id, href);
+          oTranscript.getTranscript();
+          transcriptArr.push(oTranscript);
+        });
+        initialized = true;
+      }
+    },
+    init: function init() {
+      this.APIReady();
+    }
+  };
+}(); //Everything is ready, load the youtube iframe_api
+
+
+$.getScript("https://www.youtube.com/iframe_api");
 
 /***/ }),
 

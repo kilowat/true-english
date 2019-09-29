@@ -9511,7 +9511,7 @@ html, body {
 .subtitle-list .s-item:hover {
   background-color: rgba(192, 255, 234, 0.93);
 }
-.subtitle-list .s-item.youtube-marker-current {
+.subtitle-list .s-item.active {
   background-color: #f9f5a5;
 }
 .subtitle-list .s-item .time-line {

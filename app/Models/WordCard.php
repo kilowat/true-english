@@ -67,12 +67,16 @@ class WordCard extends Model
         $this->attributes['active'] = $value;
     }
 
+    public function getJsonSubtitlesAttribute(){
+        return $this->attributes["subtitles"];
+    }
+
     public function setSubtitlesAttribute($value){
-        $this->attributes["subtitles"] = serialize($value);
+        $this->attributes["subtitles"] = json_encode($value);
     }
 
     public function getSubtitlesAttribute(){
-        return unserialize($this->attributes["subtitles"]);
+        return json_decode($this->attributes["subtitles"]);
     }
 
     public function getExcelAttribute(){
