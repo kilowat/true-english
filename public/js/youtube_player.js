@@ -50,20 +50,14 @@ var MarkersInit = function(markers) {
     Array.prototype.forEach.call(elements, function(el, i) {
         var time_start = el.dataset.start;
         var time_end = el.dataset.end;
-        var id = el.dataset.id;;
-        if (id >= 1) {
-            id = id - 1;
-        } else {
-            id = 0;
-        }
         marker = {};
         marker.time_start = time_start;
         marker.time_end = time_end;
         marker.dom = el;
-        if (typeof(markers[id]) === 'undefined') {
-            markers[id] = [];
+        if (typeof(markers) === 'undefined') {
+            markers = [];
         }
-        markers[id].push(marker);
+        markers.push(marker);
     });
 }
 
@@ -91,9 +85,8 @@ document.onreadystatechange = function() {
 
 function UpdateMarkers() {
     var current_time = player.getCurrentTime();
-    var j = 0; // NOTE: to extend for several players
 
-    markers[j].forEach(function(marker, i) {
+    markers.forEach(function(marker, i) {
         if (current_time >= marker.time_start && current_time <= marker.time_end) {
             marker.dom.classList.add("youtube-marker-current");
         } else {
