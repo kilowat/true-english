@@ -33,6 +33,7 @@ Route::get('articles/tag/{name}', 'ArticleController@index')->name('article.inde
 Route::get('articles/{code}.html', 'ArticleController@detail')->name('article.detail');
 
 Route::get('/api/subtitle/id/{id}', 'ApiController@subtitle')->name('api.subtitle');
+Route::get('/api/words/id/{id}', 'ApiController@words')->name('api.words');
 Route::get('/', 'PageController@home')->name('page.home');
 
 

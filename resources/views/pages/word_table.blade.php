@@ -21,7 +21,9 @@
                 </div>
             </div>
             {{ Widget::run('WordSort') }}
-            {{ Widget::run('WordLimit') }}
+            <div class="search-block">
+                <input type="text" id="autoComplete" placeholder="Поиск">
+            </div>
         </div>
     </div>
     <div class="table-page">
@@ -39,7 +41,7 @@
             </div>
             <?php $count = 1; //$count = ($words->currentPage() * $words->perPage()) - $words->perPage() + 1; //dd($word_list)?>
             @foreach($words as $word)
-                <div class='table_row'>
+                <div class='table_row' id="word-{{ $word->name }}">
                     <div class='table_small'>
                         <div class='table_cell'>№:</div>
                         <div class='table_cell'>{{ $count }}</div>
@@ -89,13 +91,118 @@
                 <?php $count++;?>
             @endforeach
         </div>
-        <div class="nav-pagen">
-            {{ $words->appends(['column' => $request->column, 'order' => $request->order, 'limit' => $request->limit])->links() }}
-        </div>
     </div>
 </div>
 
 <script src="/js/app.js"></script>
 @yield("js")
+<script>
+    // autoComplete.js on type event emitter
+    document.querySelector("#autoComplete").addEventListener("autoComplete", function (event) {
+        console.log(event.detail);
+        console.log(autoCompletejs);
+    });
+
+    document.querySelector("#autoComplete").addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            var selection = this.value;
+
+            var $word = $("#word-"+selection).addClass("selected");
+            $('html, body').animate({
+                scrollTop: $word.offset().top - 100
+            }, 500);
+        }
+    });
+
+    // The autoComplete.js Engine instance creator
+    var autoCompletejs = new autoComplete({
+        data: {
+            src: function () {
+                // Loading placeholder text
+                document.querySelector("#autoComplete").setAttribute("placeholder", "Loading...");
+                // Fetch External Data Source
+                //const source = await fetch("./db/generic.json");
+                //const data = await source.json();
+                // Returns Fetched data
+
+                var res = JSON.parse('<?php echo json_encode($words) ?>');
+
+                return res;
+            },
+            key: ["name"],
+        },
+        sort: function (a, b) {
+            if (a.match < b.match) {
+                return -1;
+            }
+            if (a.match > b.match) {
+                return 1;
+            }
+            return 0;
+        },
+        query: {
+            manipulate: function (query) {
+                return query;
+            },
+        },
+        trigger: {
+            condition: function (query) {
+                $("#results .selected").removeClass('selected');
+                return query;
+            },
+        },
+        placeHolder: "Поиск",
+        selector: "#autoComplete",
+        threshold: 0,
+        debounce: 0,
+        searchEngine: "strict",
+        highlight: true,
+        maxResults: 10,
+        resultsList: {
+            render: true,
+            container: function (source) {
+                source.setAttribute("id", "autoComplete_results_list");
+            },
+            element: "ul",
+            destination: document.querySelector("#autoComplete"),
+            position: "afterend",
+        },
+        resultItem: {
+            content: function (data, source) {
+                source.innerHTML = data.match;
+            },
+            element: "li",
+        },
+        noResults: function () {
+            var result = document.createElement("li");
+            result.setAttribute("class", "no_result");
+            result.setAttribute("tabindex", "1");
+            result.innerHTML = "No Results";
+            document.querySelector("#autoComplete_results_list").appendChild(result);
+        },
+        onSelection: function (feedback) {
+            var selection = feedback.selection.value.name;
+            // Clear Input
+            document.querySelector("#autoComplete").value = "";
+            // Change placeholder with the selected value
+            document.querySelector("#autoComplete").setAttribute("placeholder", selection);
+            // Concole log autoComplete data feedback
+            //location.href="#word-"+selection;
+            var $word = $("#word-"+selection).addClass("selected");
+            $('html, body').animate({
+                scrollTop: $word.offset().top - 100
+            }, 500);
+        },
+    });
+
+    // On page load add class to input field
+    window.addEventListener("load", function () {
+        document.querySelector("#autoComplete").classList.add("out");
+        // document.querySelector("#autoComplete_results_list").style.display = "none";
+    });
+
+</script>
 </body>
 </html>

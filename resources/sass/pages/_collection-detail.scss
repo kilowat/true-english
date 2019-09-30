@@ -124,6 +124,11 @@
 
   .table_row {
     display: table-row;
+    &.selected{
+      .table-cell, .table_small{
+        background-color: #00E676;
+      }
+    }
   }
 
   .theader {
@@ -274,7 +279,27 @@
     }
   }
 }
-
+.search-block{
+  margin-left: 4px;
+  position: relative;
+  #autoComplete_results_list{
+    position: absolute;
+    z-index: 10;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    top: 30px;
+    width: 100%;
+    padding: 0px;
+    .autoComplete_result {
+      padding: 2px;
+      padding-right: 2px;
+      padding-left: 2px;
+      padding-left: 8px;
+      padding-right: 8px;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}
 .limit-label{
   margin-right: 4px;
 }

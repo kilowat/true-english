@@ -103,8 +103,8 @@ class WordCollectionController extends Controller
             ->with("audio")
             ->orderBy($sort, $order);
 
-        $words = $query->paginate($limit);
-
+        //$words = $query->paginate($limit);
+        $words = $query->get();
         return view("pages.word_table", compact('card','words', 'request'));
     }
 

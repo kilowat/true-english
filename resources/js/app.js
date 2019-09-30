@@ -7,7 +7,10 @@
 require('./bootstrap');
 require('./materialize.min');
 require('./jqueryfancyboxmin');
+window.autoComplete = require('./autoComplete');
+
 let youtube = require('./youtube');
+
 window.mmooc = youtube.mmooc;
 
 window.Vue = require('vue');
@@ -34,6 +37,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 $(document).ready(function(){
     $('.sidenav').sidenav();
+});
+
+$(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top - 100
+    }, 500);
 });
 
 const app = new Vue({

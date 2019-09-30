@@ -116,10 +116,18 @@ this.mmooc.youtube = function() {
 			var transcript = this;
 			
 			captionTimeout = setTimeout(function() {
-				transcript.highlightCaptionAndPrepareForNext();
-				if(typeof transcript.onNext === "function" ){
-                    transcript.onNext();
+				var stop = false;
+                if(typeof transcript.onNext === "function" ){
+                    stop = transcript.onNext();
                 }
+                if(!stop){
+                    transcript.highlightCaptionAndPrepareForNext();
+                    scrollToCurrent();
+				}else{
+                    clearTimeout(captionTimeout);
+                    //scrollToCurrent();
+				}
+
 			}, timeoutValue*1000)
 		}
 
@@ -146,7 +154,14 @@ this.mmooc.youtube = function() {
 			return "t" + strTimestamp;
 		}
 
+		var scrollToCurrent = function(){
+            var container = document.querySelector("#subtitles");
+            var to = document.querySelector("#t"+currentCaptionIndex);
 
+            var topPos = to.offsetTop;
+
+            scrollTo(container, topPos - container.offsetHeight * 2, 300);
+		}
 		//////////////////
 		//Public functions
 		/////////////////
@@ -168,12 +183,7 @@ this.mmooc.youtube = function() {
 			{
 				this.setCaptionTimeout(timeoutValue);
 			}
-			var container = document.querySelector("#subtitles");
-			var to = document.querySelector("#t"+currentCaptionIndex);
 
-            var topPos = to.offsetTop;
-
-            scrollTo(container, topPos - container.offsetHeight * 2, 300);
         }
 		
 		//Called if the user has dragged the slider to somewhere in the video.
@@ -267,6 +277,7 @@ this.mmooc.youtube = function() {
 
 	function domInit(){
         var $video = $(".mmocVideoTranscript");
+		if($video.length == 0) return false;
 
         var href = $video.data('route');
         var oTranscript = new transcript($video.attr("id"), href);
@@ -315,6 +326,10 @@ this.mmooc.youtube = function() {
                 }, pause)
 			}else if(t!=undefined){
         		clearInterval(t);
+			}
+			if(pause < 0){
+        		oTranscript.player.pauseVideo();
+        		return true;
 			}
 		};
 
@@ -398,7 +413,6 @@ this.mmooc.youtube = function() {
 	}
 
 }();
-//Everything is ready, load the youtube iframe_api
-$.getScript("https://www.youtube.com/iframe_api");
+
 
 

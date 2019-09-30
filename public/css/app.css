@@ -9551,6 +9551,9 @@ html, body {
 .table-page .table_row {
   display: table-row;
 }
+.table-page .table_row.selected .table-cell, .table-page .table_row.selected .table_small {
+  background-color: #00E676;
+}
 .table-page .theader {
   display: table-row;
 }
@@ -9682,6 +9685,28 @@ html, body {
 }
 .table-wrapp .sort-arrow a.selected {
   color: #ec407a;
+}
+
+.search-block {
+  margin-left: 4px;
+  position: relative;
+}
+.search-block #autoComplete_results_list {
+  position: absolute;
+  z-index: 10;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  top: 30px;
+  width: 100%;
+  padding: 0px;
+}
+.search-block #autoComplete_results_list .autoComplete_result {
+  padding: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-bottom: 1px solid #ccc;
 }
 
 .limit-label {
