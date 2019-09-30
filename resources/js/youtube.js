@@ -102,7 +102,9 @@ this.mmooc.youtube = function() {
 			return timeoutValue;
 		}
 
-		this.setCaptionTimeout = function (timeoutValue)
+        this.onNext = "";
+
+        this.setCaptionTimeout = function (timeoutValue)
 		{
 			if(timeoutValue < 0)
 			{
@@ -115,6 +117,9 @@ this.mmooc.youtube = function() {
 			
 			captionTimeout = setTimeout(function() {
 				transcript.highlightCaptionAndPrepareForNext();
+				if(typeof transcript.onNext === "function" ){
+                    transcript.onNext();
+                }
 			}, timeoutValue*1000)
 		}
 
@@ -260,6 +265,61 @@ this.mmooc.youtube = function() {
 		}
 	}
 
+	function domInit(){
+        var $video = $(".mmocVideoTranscript");
+
+        var href = $video.data('route');
+        var oTranscript = new transcript($video.attr("id"), href);
+        oTranscript.getTranscript();
+
+        transcriptArr.push(oTranscript);
+		/*speed settings*/
+		$("#video-speed").change(function(){
+            oTranscript.player.setPlaybackRate(parseFloat($(this).val()));
+		});
+		/*text settings*/
+		$(".config-subtitle input").change(function(){
+			var class_str = $(this).data("class");
+
+			if($(this).is(':checked')){
+				$("."+class_str).show();
+			}else{
+                $("."+class_str).hide();
+			}
+
+			var one_checked = false;
+
+            $(".config-subtitle input").each(function(){
+				one_checked = $(this).is(':checked');
+			})
+
+			if(!one_checked){
+				$("#subtitles").hide();
+			}else{
+                $("#subtitles").show();
+			}
+		});
+		/*pause setting*/
+        var pause = 0;
+
+        $("#video-delay").change(function(){
+        	pause = parseInt($(this).val());
+		});
+
+        oTranscript.onNext = function(){
+        	var t;
+        	if (pause > 0){
+                oTranscript.player.pauseVideo();
+                t = setTimeout(function(){
+                    oTranscript.player.playVideo();
+                }, pause)
+			}else if(t!=undefined){
+        		clearInterval(t);
+			}
+		};
+
+	}
+
 	//Called when user clicks somewhere in the transcript.
 	$(function() {
 		$(document).on('click', '.btnSeek', function() {
@@ -326,19 +386,15 @@ this.mmooc.youtube = function() {
 		{
 			if(!initialized)
 			{
-				$(".mmocVideoTranscript" ).each(function( i ) {
-					var href = $(this).data('route');
-					var oTranscript = new transcript(this.id, href);
-					oTranscript.getTranscript();
-					transcriptArr.push(oTranscript);
-				});
+				domInit();
+
 				initialized = true;
 			}
 		},
 		init : function ()
 		{
 			this.APIReady();
-		}		
+		},
 	}
 
 }();

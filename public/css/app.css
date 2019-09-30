@@ -9443,16 +9443,16 @@ html, body {
   background-color: lightskyblue;
 }
 
-.speed-player {
+.speed-player, .delay-player {
   display: flex;
   align-items: center;
   padding: 2px;
   margin-right: 8px;
 }
-.speed-player select {
-  width: 40px;
+.speed-player select, .delay-player select {
+  width: 80px;
 }
-.speed-player label {
+.speed-player label, .delay-player label {
   margin-right: 8px;
 }
 
@@ -9460,7 +9460,7 @@ html, body {
   margin-right: 12px;
 }
 
-.video-config {
+.config-row {
   display: flex;
   align-items: center;
   flex-wrap: wrap;

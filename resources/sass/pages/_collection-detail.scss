@@ -19,13 +19,13 @@
     background-color: lightskyblue;
   }
 }
-.speed-player{
+.speed-player, .delay-player{
   display: flex;
   align-items: center;
   padding: 2px;
   margin-right: 8px;
   select{
-    width: 40px;
+    width: 80px;
   }
   label{
     margin-right: 8px;
@@ -36,7 +36,7 @@
     margin-right: 12px;
   }
 }
-.video-config {
+.config-row{
   display: flex;
   align-items: center;
   flex-wrap: wrap;

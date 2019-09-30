@@ -34,7 +34,7 @@ class AdminCardController extends AdminController
             $words[] = $item->word;
         }
 
-        $file_name = "word_table_".$id.".xlsx";
+        $file_name = $wordCard->name."_".$id.".xlsx";
 
         if(Excel::store(new CardExport($words), $file_name, 'excel')){
             $wordCard->find($id)->update(["excel_file" => $file_name]);

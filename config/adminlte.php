@@ -150,11 +150,6 @@ return [
             'icon' => 'fas fa-fw fa-th-list',
         ],
         [
-            'text' => 'Колоды anki',
-            'url'  => 'admin/anki',
-            'icon' => 'fas fa-fw fa-th-list',
-        ],
-        [
             'text' => 'Статьи',
             'url'  => 'admin/article',
             'icon' => 'fas fa-fw fa-th-list',
