@@ -3,26 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
     private $count = 20;
 
-    public function index($tag = null)
+    public function index($tag = null, Request $request)
     {
+        $page = Page::where("code", "=", $request->getRequestUri())->first();
+
         if ($tag) {
             $articles = Article::with('tagged')
+                ->where('active', '=', 1)
                 ->withAnyTag($tag)
                 ->orderBy('created_at', 'desc')
                 ->paginate($this->count);
         } else {
             $articles = Article::with('tagged')
+                ->where('active', '=', 1)
                 ->orderBy('created_at', 'desc')
                 ->paginate($this->count);
         }
 
-        return view("pages.article_index", compact('articles', 'tag'));
+        return view("pages.article_index", compact('articles', 'tag', 'page'));
     }
 
     public function detail($code)

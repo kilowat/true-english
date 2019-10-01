@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\WordTableDataRequest;
 use App\Http\Resources\WordResource;
 use App\Models\Audio;
+use App\Models\Page;
 use App\Models\Word;
 use App\Models\WordCard;
 use App\Models\WordSection;
@@ -20,7 +21,10 @@ class WordCollectionController extends Controller
     public function __construct()
     {
         \Menu::make('CollectionMenu', function($menu){
-            $section = WordSection::withDepth()->having('depth', '=', 0)->get();
+            $section = WordSection::withDepth()
+                ->having('depth', '=', 0)
+                ->where('active', '=', 1)
+                ->get();
             foreach($section as $item){
                 $menu->add($item->name, ['route'=>["word-collection.section", $item->code]]);
             }
@@ -33,8 +37,13 @@ class WordCollectionController extends Controller
         $element_code = array_pop($arr_uri);
         $section_code = array_pop($arr_uri);
 
-        $card = WordCard::where('code', '=', $element_code)->with('words')->withCount('words')->first();
-        $section = WordSection::where('code', '=', $section_code)->first();
+        $card = WordCard::where('code', '=', $element_code)
+            ->with('words')->withCount('words')
+            ->where('active', '=', 1)
+            ->first();
+        $section = WordSection::where('code', '=', $section_code)
+            ->where('active', '=', 1)
+            ->first();
 
         $this->checkNeedShow404($card);
 
@@ -44,19 +53,27 @@ class WordCollectionController extends Controller
         ]);
     }
 
-    public function index(){
-        $sections = WordSection::where('parent_id', '>', 0)->paginate(12);
+    public function index(Request $request)
+    {
+        $page = Page::where("code", "=", $request->getRequestUri())->first();
 
-        return view("pages.word_collection_index", ['sections' => $sections]);
+        $sections = WordSection::where('parent_id', '>', 0)
+            ->where('active', '=', 1)
+            ->paginate(12);
+
+        return view("pages.word_collection_index", ['sections' => $sections, 'page' => $page]);
     }
 
     public function section($section_code)
     {
-        $current_section = WordSection::where("code", "=", $section_code)->first();
+        $current_section = WordSection::where("code", "=", $section_code)
+            ->where('active', '=', 1)
+            ->first();
 
         $this->checkNeedShow404($current_section);
 
         $sections = WordSection::where('parent_id', '=', $current_section->id)
+            ->where('active', '=', 1)
             ->paginate($this->elementPaginateCount);
 
         $data =  [
@@ -69,11 +86,15 @@ class WordCollectionController extends Controller
 
     public function elements($parent_code, $section_code )
     {
-        $section = WordSection::where("code", "=", $section_code)->first();
+        $section = WordSection::where("code", "=", $section_code)
+            ->where('active', '=', 1)
+            ->first();
 
         $this->checkNeedShow404($section);
 
-        $elements = WordCard::where("section_id" , "=", $section->id)->paginate($this->elementPaginateCount);
+        $elements = WordCard::where("section_id" , "=", $section->id)
+            ->where('active', '=', 1)
+            ->paginate($this->elementPaginateCount);
 
         $data = [
             'parent_section_code' => $parent_code,
@@ -86,7 +107,7 @@ class WordCollectionController extends Controller
 
     public function wordTable($card_id, WordTableDataRequest $request)
     {
-        $card = WordCard::find($card_id);
+        $card = WordCard::find($card_id)->where('active', '=', 1);
 
         $this->checkNeedShow404($card);
 
@@ -110,7 +131,7 @@ class WordCollectionController extends Controller
 
     public function wordTableData($card_id, WordTableDataRequest $request)
     {
-        $card = WordCard::find($card_id);
+        $card = WordCard::find($card_id)->where('active', '=', 1);
 
         $sort = $request->column ? $request->column : "freq";
         $order = $request->order ? $request->order : "desc";

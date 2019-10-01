@@ -133,26 +133,15 @@ return [
             'url'  => 'http://true-english.local',
             'icon' => 'fas fa-fw fa-file',
         ],
-        ['header' => 'Страницы'],
         [
-            'text' => 'Главная',
-            'url'  => '/',
+            'text' => 'Главная панель',
+            'url'  =>  "admin/",
             'icon' => 'fas fa-fw fa-file',
         ],
         [
-            'text' => 'Сборники слов',
-            'url'  => 'admin/word-collection',
-            'icon' => 'fas fa-fw fa-th-list',
-        ],
-        [
-            'text' => 'Грамматика',
-            'url'  => 'admin/grammar',
-            'icon' => 'fas fa-fw fa-th-list',
-        ],
-        [
-            'text' => 'Статьи',
-            'url'  => 'admin/article',
-            'icon' => 'fas fa-fw fa-th-list',
+            'text' => 'Страницы',
+            'url'  =>  "admin/page",
+            'icon' => 'fas fa-fw fa-file',
         ],
         ['header' => 'Сборники слов'],
         [

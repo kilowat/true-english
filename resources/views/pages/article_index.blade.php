@@ -1,7 +1,9 @@
 
 @extends('layouts.master')
-
-@section('title', 'Page Title')
+@if($page)
+    @section('title', $page->title)
+    @section('description', $page->description)
+@endif
 
 @section('sidebar')
     <aside class="sidebar">
@@ -17,7 +19,9 @@
 @section('content')
 
     <section class="card-cmp article">
-        <h1 class="section-header">Статьи</h1>
+        @if($page)
+            <h1 class="section-header">{{ $page->name }}</h1>
+        @endif
         <div class="row">
             @foreach($articles as $article)
                 <div class="col s12 m6 l4">

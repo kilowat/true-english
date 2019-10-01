@@ -1,7 +1,10 @@
 
 @extends('layouts.master')
 
-@section('title', 'Page Title')
+@if($page)
+    @section('title', $page->title)
+    @section('description', $page->description)
+@endif
 
 @section('sidebar')
     <aside class="sidebar">
@@ -19,14 +22,16 @@
 @section('content')
 
     <section class="card-cmp section-list">
-        <h1 class="section-header">Грамматика</h1>
-            @foreach($grammars as $grammar)
-                <div class="grammar-list collection">
-                    <a class="grammar-item collection-item" href="{{ route('grammar.detail', [$grammar->section->code, $grammar->code]) }}" title="{{ $grammar->name }}">
-                        {{ $grammar->name }}
-                    </a>
-                </div>
-            @endforeach
+        @if($page)
+            <h1 class="section-header">{{ $page->name }}</h1>
+        @endif
+        @foreach($grammars as $grammar)
+            <div class="grammar-list collection">
+                <a class="grammar-item collection-item" href="{{ route('grammar.detail', [$grammar->section->code, $grammar->code]) }}" title="{{ $grammar->name }}">
+                    {{ $grammar->name }}
+                </a>
+            </div>
+        @endforeach
         <div class="nav-pagen">
 
         </div>

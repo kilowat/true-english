@@ -20,7 +20,11 @@ class TopCards extends AbstractWidget
      */
     public function run()
     {
-        $cards = WordCard::with('words')->withCount('words')->orderBy("created_at", "desc")->take($this->take)->get();
+        $cards = WordCard::with('words')
+            ->withCount('words')
+            ->where('active', '=', 1)
+            ->orderBy("created_at", "desc")
+            ->take($this->take)->get();
 
         return view('widgets.top_cards', [
             'cards' => $cards,

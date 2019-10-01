@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Grammar;
 use App\Models\GrammarSection;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 
@@ -24,7 +25,7 @@ class GrammarController extends Controller
     public function initMenu()
     {
         \Menu::make('grammarMenu', function($menu){
-            $section = GrammarSection::get();
+            $section = GrammarSection::where("active", "=", 1)->get();
             //dd($this->request->segment());
             foreach($section as $section_item){
                 $menu->add($section_item->name, ['route'=>["grammar.section", $section_item->code]]);
@@ -32,25 +33,32 @@ class GrammarController extends Controller
         });
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $grammars = Grammar::with("section")->paginate(20);
+        $page = Page::where("code", "=", $request->getRequestUri())->first();
+        $grammars = Grammar::with("section")
+            ->where('active', '=', 1)
+            ->paginate(20);
 
-        return view("pages.grammar_index", compact('grammars'));
+        return view("pages.grammar_index", compact('grammars', 'page'));
     }
 
     public function section($code)
     {
-        $section = GrammarSection::where("code", "=", $code)->first();
-        $grammars = Grammar::where("section_id", "=", $section->id)->paginate(20);
+        $section = GrammarSection::where("code", "=", $code)
+            ->where('active', '=', 1)
+            ->first();
+        $grammars = Grammar::where("section_id", "=", $section->id)
+            ->where('active', '=', 1)
+            ->paginate(20);
 
         return view("pages.grammar_section", compact('grammars', 'section'));
     }
 
     public function detail($section, $code)
     {
-        $section = GrammarSection::where("code", "=", $code)->first();
-        $grammar = Grammar::where("code", "=", $code)->first();
+        $section = GrammarSection::where("code", "=", $code)->where('active', '=', 1)->first();
+        $grammar = Grammar::where("code", "=", $code)->where('active', '=', 1)->first();
 
         return view("pages.grammar_detail", compact('grammar', 'section'));
     }

@@ -120,6 +120,17 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('grammar/element/delete/{id}', 'AdminGrammarElementController@delete')->name('admin.grammar-element.delete');
     /****************************/
 
+    /***************pages*****************************/
+    Route::get('page', 'AdminPageController@index')->name('admin.page.index');
+    Route::get('page/add', 'AdminPageController@add')->name('admin.page.add');
+    Route::post('page/add', 'AdminPageController@store')->name('admin.page.store');
+    Route::get('page/edit/{id}', 'AdminPageController@edit')->name('admin.page.edit');
+    Route::post('page/update/{id}', 'AdminPageController@update')->name('admin.page.update');
+    Route::get('page/data-list', 'AdminPageController@dataList')->name('admin.page.data-list');
+    Route::get('page/delete/{id}', 'AdminPageController@delete')->name('admin.page.delete');
+
+    /*************************************************/
+    Route::get('/', 'AdminPageController@main')->name('admin.page.main');
     Route::get('admin/login', 'AdminAuthController@login')->name('admin.login');
 
 });

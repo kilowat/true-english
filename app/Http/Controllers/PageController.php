@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\WordSection;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
-        return view('pages.home');
+        $page = Page::where("code", "=", $request->getRequestUri())->first();
+
+        return view('pages.home', compact('page'));
     }
 }
