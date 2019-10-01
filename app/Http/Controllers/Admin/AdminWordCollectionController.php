@@ -34,7 +34,7 @@ class AdminWordCollectionController extends AdminController
 
     public function edit($id)
     {
-        $section = WordSection::where('id', '=', $id)->first();
+        $section = WordSection::where('id', '=', $id)->firstOrFail();
 
         $parent_sections = WordSection::where('parent_id', '=', null)->get();
 

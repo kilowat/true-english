@@ -128,7 +128,7 @@ this.mmooc.youtube = function() {
                     //scrollToCurrent();
 				}
 
-			}, timeoutValue*1000)
+			}, timeoutValue*(1000 / this.player.getPlaybackRate()))
 		}
 
 		var getStartTimeFromCaption = function(i)
@@ -159,8 +159,11 @@ this.mmooc.youtube = function() {
             var to = document.querySelector("#t"+currentCaptionIndex);
 
             var topPos = to.offsetTop;
-
-            scrollTo(container, topPos - container.offsetHeight * 2, 300);
+			var itemHeight = $(".s-item").height();
+			var item = 4;
+			console.log("topPost:"+topPos);
+			console.log("container:"+container.offsetTop);
+            scrollTo(container, Math.abs(topPos - container.offsetTop - (itemHeight * item)), 300);
 		}
 		//////////////////
 		//Public functions

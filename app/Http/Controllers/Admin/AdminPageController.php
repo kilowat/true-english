@@ -32,7 +32,8 @@ class AdminPageController extends AdminController
 
     public function edit($id)
     {
-        $page = Page::find($id);
+        $page = Page::findOrFail($id);
+
         return view('admin.pages.page_edit', compact('page'));
     }
 

@@ -31,7 +31,7 @@ class AdminGrammarElementController extends AdminController
     public function edit($id)
     {
         $sections = GrammarSection::get();
-        $element = Grammar::find($id);
+        $element = Grammar::findOrFail($id);
 
         return view('admin.pages.grammar_element_edit', compact('element', 'sections'));
     }

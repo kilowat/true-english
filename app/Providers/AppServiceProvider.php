@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Article;
 use App\Models\WordCard;
 use App\Models\WordSection;
+use App\Observers\ArticleObserver;
 use App\Observers\WordCardObserver;
 use App\Observers\WordSectionObserver;
 use Illuminate\Support\Facades\Schema;
@@ -33,5 +35,7 @@ class AppServiceProvider extends ServiceProvider
         WordCard::observe(WordCardObserver::class);
 
         WordSection::observe(WordSectionObserver::class);
+
+        Article::observe(ArticleObserver::class);
     }
 }

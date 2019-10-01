@@ -20,8 +20,7 @@ class MainMenu
             $menu->add('Главная', [ 'route'=>'page.home']);
             $menu->add("Слова и диалоги", ['route'=>"word-collection.index"]);
             $menu->add("Грамматика", ['route' => 'grammar.index']);
-            //$menu->add("Упражнения");
-           // $menu->add("Колоды для Anki", ['route' => 'anki.index']);
+            $menu->add("Произношение", ['route' => 'page.prononciation']);
             $menu->add("Статьи", ['route' => 'article.index']);
             $menu->add("Обратная связь");
 

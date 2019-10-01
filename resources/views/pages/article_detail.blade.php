@@ -16,11 +16,10 @@
 @section('breadcrumbs', Breadcrumbs::render('article_detail', $article))
 
 @section('content')
-
     <section>
         <h1 class="section-header">Детальная</h1>
         <div class="article-detail">
-            {{ $article->text }}
+         {!! $article->text !!}
         </div>
     </section>
 @endsection

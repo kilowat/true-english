@@ -13,7 +13,7 @@ class Article extends Model
     use \Conner\Tagging\Taggable;
     use HasImageUploads;
 
-    protected $guarded = ["tags"];
+    protected $guarded = [];
 
     protected static $imageFields = [
         'picture' => [
@@ -47,17 +47,5 @@ class Article extends Model
     {
         $value = $value == "on" ? 1 : 0;
         $this->attributes['active'] = $value;
-    }
-
-    public function getTagsAsStrAttribute()
-    {
-        if(!$this->tags) return "";
-        $tags = [];
-
-        foreach($this->tags as $tag_item){
-            $tags[] = $tag_item->name;
-        }
-
-        return implode(",", $tags);
     }
 }

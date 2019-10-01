@@ -1,3 +1,8 @@
+$primary-color: "#4e9cea";
+$secondary-color:"#ec407a";
+
+@import "pages/collection-detail";
+
 .button-row{
   margin-top: 12px;
   margin-bottom: 12px;
@@ -6,4 +11,5 @@
   margin-top: 4px;
   margin-bottom: 4px;
   width: 80px;
+  display: block;
 }

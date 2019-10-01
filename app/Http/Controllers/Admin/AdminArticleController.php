@@ -22,28 +22,26 @@ class AdminArticleController extends AdminController
     {
         $created = Article::create($request->all());
 
-        if(!empty($request->tags) && $created){
-            $arr_tags = explode(",", $request->tags);
-            $created->retag($arr_tags);
-        }
-
         return redirect()->back()->with('message',  trans('messages.add_success'));
+    }
+
+    public function show($id)
+    {
+        $article = Article::with('tagged')->findOrFail($id);
+
+        return view('admin.pages.article_show', compact('article'));
     }
 
     public function edit($id)
     {
-        $article = Article::with('tagged')->find($id);
+        $article = Article::with('tagged')->findOrFail($id);
+
         return view('admin.pages.article_edit', compact('article'));
     }
 
     public function update($id, ArticlePost $request)
     {
-        $created = Article::find($id)->update($request->all());
-
-        if(!empty($request->tags) && $created){
-            $arr_tags = explode(",", $request->tags);
-            Article::find($id)->retag($arr_tags);
-        }
+        $created = Article::findOrFail($id)->update($request->all());
 
         return redirect()->back()->with('message',  trans('messages.update_success'));
     }
@@ -63,7 +61,7 @@ class AdminArticleController extends AdminController
         return Datatables::of($article)
             ->addColumn('action', function ($article) {
                 $btn_str =  '<a href="'.route('admin.article.edit', $article->id).'" class="btn btn-xs btn-primary btn-action"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-                $btn_str.="<br>";
+                $btn_str.=  '<a href="'.route('admin.article.show', $article->id).'" class="btn btn-xs btn-success btn-action"><i class="glyphicon glyphicon-eye-open"></i> Show</a>';
                 $btn_str.='<button onclick="if (window.confirm(\'Удалить элемент?\')) location.href=\''.route('admin.article.delete', $article->id).'\';" class="btn btn-xs btn-danger btn-action del-card"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
                 return $btn_str;
             })

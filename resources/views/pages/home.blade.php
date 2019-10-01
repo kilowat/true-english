@@ -9,7 +9,7 @@
 @section('content')
     @if($page)
         <section class="about-block">
-            {{ $page->text }}
+            {!! $page->text !!}
         </section>
     @endif
 

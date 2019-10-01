@@ -22,7 +22,7 @@
     <section>
         <h1 class="section-header">{{ $grammar->name }}</h1>
         <div class="content-detail">
-            {{ $grammar->text }}
+            {!! $grammar->text !!}
         </div>
     </section>
 

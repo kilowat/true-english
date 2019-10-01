@@ -12,7 +12,7 @@ Breadcrumbs::for('word_section', function ($trail, $section) {
 });
 Breadcrumbs::for('card', function ($trail, $section, $card) {
     $trail->push('Главная', route('page.home'));
-    $trail->push('Сборник коллекций', route('word-collection.index'));
+    $trail->push('Слова и диалоги', route('word-collection.index'));
     $trail->push($section->name, route('word-collection.section', $section->uri));
     $trail->push($card->name);
 });
@@ -43,4 +43,8 @@ Breadcrumbs::for('article_detail', function ($trail, $article) {
     $trail->push('Главная', route('page.home'));
     $trail->push('Статьи', route('article.index'));
     $trail->push($article->name);
+});
+Breadcrumbs::for('prononciation_index', function ($trail) {
+    $trail->push('Главная', route('page.home'));
+    $trail->push('Произношение');
 });

@@ -143,6 +143,12 @@ return [
             'url'  =>  "admin/page",
             'icon' => 'fas fa-fw fa-file',
         ],
+        ['header' => 'Статьи'],
+        [
+            'text' => 'Список статей',
+            'url'  => 'admin/article',
+            'icon' => 'fas fa-fw fa-file',
+        ],
         ['header' => 'Сборники слов'],
         [
             'text' => 'Разделы',

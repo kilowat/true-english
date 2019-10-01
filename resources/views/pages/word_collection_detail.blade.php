@@ -103,7 +103,7 @@
             </div>
         </div>
         <div class="card-text">
-            {{ $card->text }}
+            {!! $card->text  !!}
         </div>
         @if($card->subtitles)
             <div id="subtitles">

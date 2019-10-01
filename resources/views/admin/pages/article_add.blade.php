@@ -63,7 +63,7 @@
 
                         <div class="form-group require">
                             <label>Теги</label>
-                            <input type="text" name="tags" value="{{ old('tags') }}" class="form-control" placeholder="Enter ...">
+                            <input type="text" name="tags_text" value="{{ old('tags_text') }}" class="form-control" placeholder="Enter ...">
                         </div>
 
                         <div class="form-group">

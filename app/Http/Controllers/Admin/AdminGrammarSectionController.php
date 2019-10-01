@@ -58,7 +58,8 @@ class AdminGrammarSectionController extends AdminController
 
     public function edit($id)
     {
-        $section = GrammarSection::find($id);
+        $section = GrammarSection::findOrFail($id);
+
         return view('admin.pages.grammar_section_edit', compact('section'));
     }
 

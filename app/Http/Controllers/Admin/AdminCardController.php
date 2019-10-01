@@ -53,7 +53,7 @@ class AdminCardController extends AdminController
         return Datatables::of($cards)
             ->addColumn('action', function ($cards) {
                 $btn_str =  '<a href="'.route('admin.card.edit', $cards->id).'" class="btn btn-xs btn-primary btn-action"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-                $btn_str.="<br>";
+                $btn_str.=  '<a href="'.route('admin.card.show', $cards->id).'" class="btn btn-xs btn-success btn-action"><i class="glyphicon glyphicon-eye-open"></i> Show</a>';
                 $btn_str.=  '<button onclick="if (window.confirm(\'Удалить элемент?\')) location.href=\''.route('admin.card.delete', $cards->id).'\';" class="btn btn-xs btn-danger btn-action del-card"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
                 return $btn_str;
             })
@@ -78,14 +78,26 @@ class AdminCardController extends AdminController
             ->make(true);
     }
 
-    public function add(){
+    public function add()
+    {
         $sections = WordSection::where('parent_id', '>' , 0)->get();
 
         return view('admin.pages.card_add', ['sections' => $sections]);
     }
 
-    public function edit($id){
-        $card = WordCard::where('id', '=', $id)->first();
+    public function show($id)
+    {
+        $card = WordCard::where('id', '=', $id)
+            ->with('words')
+            ->withCount('words')
+            ->firstOrFail();
+
+        return view('admin.pages.card_show', compact('card'));
+    }
+
+    public function edit($id)
+    {
+        $card = WordCard::where('id', '=', $id)->firstOrFail();
 
         $sections = WordSection::where('parent_id', '>' , 0)->get();
 

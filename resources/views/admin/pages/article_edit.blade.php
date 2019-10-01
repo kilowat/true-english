@@ -66,7 +66,7 @@
 
                         <div class="form-group require">
                             <label>Теги</label>
-                            <input type="text" name="tags" value="{{ $article->tagsAsStr }}" class="form-control" placeholder="Enter ...">
+                            <input type="text" name="tags_text" value="{{ $article->tags_text }}" class="form-control" placeholder="Enter ...">
                         </div>
 
                         <div class="form-group">

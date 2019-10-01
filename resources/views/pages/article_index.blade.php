@@ -31,7 +31,7 @@
                             <span class="card-title">{{ $article->name }}</span>
                         </div>
                         <div class="card-content">
-                            {{  ($article->previewText) }}
+                            {!! $article->previewText !!}
                         </div>
                         <div class="card-action">
                             <a href="{{ route("article.detail", $article->code) }}" class="btn">Подробнее</a>

@@ -27,7 +27,7 @@
                             <span class="card-title">{{ $card->name }}</span>
                         </div>
                         <div class="card-content">
-                            {{ $card->text }}
+                            {!! $card->text !!}
                         </div>
                         <div class="card-action">
                             <a href="{{ $card->fileUrl }}" title="{{ $card->file_name }}" class="btn">Скачать</a>

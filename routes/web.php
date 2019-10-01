@@ -34,6 +34,7 @@ Route::get('articles/{code}.html', 'ArticleController@detail')->name('article.de
 
 Route::get('/api/subtitle/id/{id}', 'ApiController@subtitle')->name('api.subtitle');
 Route::get('/api/words/id/{id}', 'ApiController@words')->name('api.words');
+Route::get('prononciation', 'PageController@prononciation')->name('page.prononciation');
 Route::get('/', 'PageController@home')->name('page.home');
 
 
@@ -53,6 +54,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('cards/data-list', 'AdminCardController@dataList')->name('admin.card.data-list');
     Route::post('cards', 'AdminCardController@store')->name('admin.card.store');
     Route::get('cards/add', 'AdminCardController@add')->name('admin.card.add');
+    Route::get('cards/show/{id}', 'AdminCardController@show')->name('admin.card.show');
     Route::get('cards/edit/{id}', 'AdminCardController@edit')->name('admin.card.edit');
     Route::get('cards/delete/{id}', 'AdminCardController@delete')->name('admin.card.delete');
     Route::post('cards/update/{id}', 'AdminCardController@update')->name('admin.card.update');
@@ -82,6 +84,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
     /**********articles*******************/
     Route::get('article', 'AdminArticleController@index')->name('admin.article.index');
+    Route::get('article/show/{id}', 'AdminArticleController@show')->name('admin.article.show');
     Route::get('article/add', 'AdminArticleController@add')->name('admin.article.add');
     Route::post('article/add', 'AdminArticleController@store')->name('admin.article.store');
     Route::get('article/edit/{id}', 'AdminArticleController@edit')->name('admin.article.edit');

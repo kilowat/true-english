@@ -107,7 +107,7 @@ class WordCollectionController extends Controller
 
     public function wordTable($card_id, WordTableDataRequest $request)
     {
-        $card = WordCard::find($card_id)->where('active', '=', 1);
+        $card = WordCard::find($card_id)->first();
 
         $this->checkNeedShow404($card);
 
@@ -125,7 +125,9 @@ class WordCollectionController extends Controller
             ->orderBy($sort, $order);
 
         //$words = $query->paginate($limit);
+
         $words = $query->get();
+
         return view("pages.word_table", compact('card','words', 'request'));
     }
 
