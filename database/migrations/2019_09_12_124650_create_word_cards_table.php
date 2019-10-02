@@ -29,9 +29,10 @@ class CreateWordCardsTable extends Migration
             $table->string('excel_file')->nullable();
             $table->string('title', 255)->nullable();
             $table->string('description', 255)->nullable();
-            $table->integer('section_id')->unsigned();
-            $table->boolean('active')->default(false);
+            $table->unsignedBigInteger('section_id');
+            $table->boolean('active')->default(false)->index('active_idx');
             $table->integer("sort")->default(100);
+            $table->integer("excel_downloaded")->default(0);
             $table->timestamps();
         });
         /*

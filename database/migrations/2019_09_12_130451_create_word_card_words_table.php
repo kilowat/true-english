@@ -14,8 +14,8 @@ class CreateWordCardWordsTable extends Migration
     public function up()
     {
         Schema::create('word_card_words', function (Blueprint $table) {
-            $table->string("word");
-            $table->bigInteger("card_id")->unsigned();
+            $table->string("word")->index('word_idx');
+            $table->bigInteger("card_id")->unsigned()->index('card_id_idx');
             $table->integer('freq')->unsigned();
         });
     }

@@ -23,7 +23,9 @@ class CreateWordSectionsTable extends Migration
             $table->string('picture', 100)->nullable();
             $table->string('title', 255)->nullable();
             $table->string('description', 255)->nullable();
-            $table->boolean('active')->default(true);
+            $table->boolean('active')
+                ->default(false)
+                ->index('active_idx');
             $table->integer("sort")->default(100);
             $table->timestamps();
             NestedSet::columns($table);

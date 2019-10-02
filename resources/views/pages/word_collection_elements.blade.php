@@ -13,6 +13,10 @@
     </aside>
 @endsection
 
+@section('drower_dop_section')
+    {!! $CollectionMenu->asUl() !!}
+@stop
+
 @section('sidebar-class', 'with-sidebar')
 
 @section('breadcrumbs', Breadcrumbs::render('word_section', $section))

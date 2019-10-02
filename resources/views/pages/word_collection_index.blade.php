@@ -15,6 +15,10 @@
     </aside>
 @endsection
 
+@section('drower_dop_section')
+    {!! $CollectionMenu->asUl() !!}
+@stop
+
 @section('sidebar-class', 'with-sidebar')
 
 @section('breadcrumbs', Breadcrumbs::render('word_collections'))
@@ -27,7 +31,7 @@
         @endif
         <div class="row">
             @foreach($sections as $section)
-                <div class="col s12 m6 l3">
+                <div class="col s12 m4 l3">
                     <a class="card" href="{{ $section->link }}" title="">
                         <div class="card-image">
                             <img src="{{ $section->previewPicture }}">

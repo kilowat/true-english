@@ -9,9 +9,15 @@ use App\Models\Page;
 use App\Models\Word;
 use App\Models\WordCard;
 use App\Models\WordSection;
+use App\Providers\ExcelTableDownloaded;
+use App\Providers\ExcelTableWordDownloaded;
+use App\Providers\WordCardEvent;
+use App\Providers\WordCardExcelDownloaded;
 use App\Services\Subtitles\SubtitleCreator;
 use Done\Subtitles\Subtitles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 
 class WordCollectionController extends Controller
 {
@@ -151,4 +157,19 @@ class WordCollectionController extends Controller
         return WordResource::collection($words);
     }
 
+    public function tableFileDownload($id, Response $response)
+    {
+        $card = WordCard::findOrFail($id);
+
+        $this->checkNeedShow404($card->excel);
+
+        $down_load_file = public_path($card->excelPath);
+
+        $headers = ['Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
+        $newName = $card->name.'.xlsx';
+
+        event (new WordCardExcelDownloaded($card));
+
+        return response()->download($down_load_file, $newName, $headers);
+    }
 }

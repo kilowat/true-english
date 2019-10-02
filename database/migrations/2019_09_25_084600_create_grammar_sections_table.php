@@ -21,7 +21,7 @@ class CreateGrammarSectionsTable extends Migration
             $table->string('text', 1000)->nullable();
             $table->string('title', 255)->nullable();
             $table->string('description', 255)->nullable();
-            $table->boolean('active')->default(false);
+            $table->boolean('active')->default(false)->index('active_idx');
             $table->integer("sort")->default(100);
             $table->timestamps();
         });

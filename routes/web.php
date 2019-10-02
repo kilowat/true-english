@@ -15,6 +15,7 @@
 Route::get('word-collections/{uri}.html', 'WordCollectionController@detail')
     ->where('uri', '[0-9a-zA-Z_/-]+')
     ->name('word-collection.detail');
+Route::get('word-collections/excel-file/{id}', 'WordCollectionController@tableFileDownload')->name('word-collection.excel-download');
 Route::get('word-collections/word-table/{card_id}', 'WordCollectionController@wordTable')->name('word-collection.table');
 Route::get('word-collections/word-table-data/{card_id}', 'WordCollectionController@wordTableData')->name('word-collection.table-data');
 Route::get('word-collections/{parent_code}/{section_code}', 'WordCollectionController@elements')->name('word-collection.elements');
@@ -115,6 +116,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
     /**********grammar elements*******************/
     Route::get('grammar/element', 'AdminGrammarElementController@index')->name('admin.grammar-element.index');
+    Route::get('grammar/element/show/{id}', 'AdminGrammarElementController@show')->name('admin.grammar-element.show');
     Route::get('grammar/element/section/data-list', 'AdminGrammarElementController@dataList')->name('admin.grammar-element.data-list');
     Route::get('grammar/element/add', 'AdminGrammarElementController@add')->name('admin.grammar-element.add');
     Route::post('grammar/element/add', 'AdminGrammarElementController@store')->name('admin.grammar-element.store');

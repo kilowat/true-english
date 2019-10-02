@@ -89,7 +89,7 @@ const app = new Vue({
 
             // 5. The API will call this method when the search is done
             window.onSearchDone = function(event){
-                if (event.totalResult === 0)   alert("No result found");
+                if (event.totalResult === 0)   alert("Видео по этому слову не найдено");
                 else totalTracks = event.totalResult;
             }
 

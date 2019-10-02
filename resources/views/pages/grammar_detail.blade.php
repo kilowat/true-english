@@ -13,6 +13,10 @@
     </aside>
 @endsection
 
+@section('drower_dop_section')
+    {!! $grammarMenu->asUl() !!}
+@stop
+
 @section('breadcrumbs', Breadcrumbs::render('grammar_detail', $section, $grammar))
 
 @section('sidebar-class', 'with-sidebar')

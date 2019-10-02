@@ -32,28 +32,19 @@
                 </div>
 
                 <nav class="nav-block main-menu" role="navigation">
-                    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <a href="javascript:void(0)" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <div class="container">
                         {!! $MainMenu->asUl() !!}
                     </div>
                 </nav>
             </header>
             <!--drower-->
-            <ul id="slide-out" class="sidenav">
-                <li><div class="user-view">
-                        <div class="background">
-                            <img src="images/office.jpg">
-                        </div>
-                        <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-                        <a href="#name"><span class="white-text name">John Doe</span></a>
-                        <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-                    </div></li>
-                <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-                <li><a href="#!">Second Link</a></li>
-                <li><div class="divider"></div></li>
-                <li><a class="subheader">Subheader</a></li>
-                <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-            </ul>
+            <div id="slide-out" class="sidenav">
+                {!! $MainMenu->asUl() !!}
+                <div class="dop-section">
+                    @yield("drower_dop_section")
+                </div>
+            </div>
             <!--end drower-->
             @yield('breadcrumbs')
             <main>
@@ -67,35 +58,26 @@
             <footer class="page-footer">
                 <div class="container">
                     <div class="row">
-                        <div class="col l6 s12">
-                            <h5 class="white-text">Company Bio</h5>
-                            <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
+                        <div class="col l4 m6 s12 menu-block">
+                            <h5 class="white-text">Меню</h5>
+                            {!! $MainMenu->asUl() !!}
                         </div>
-                        <div class="col l3 s12">
-                            <h5 class="white-text">Settings</h5>
-                            <ul>
-                                <li><a class="white-text" href="#!">Link 1</a></li>
-                                <li><a class="white-text" href="#!">Link 2</a></li>
-                                <li><a class="white-text" href="#!">Link 3</a></li>
-                                <li><a class="white-text" href="#!">Link 4</a></li>
-                            </ul>
+                        <div class="col l4 m6 s12 center-cell">
+                            <div class="center-component">
+
+                            </div>
                         </div>
-                        <div class="col l3 s12">
-                            <h5 class="white-text">Connect</h5>
-                            <ul>
-                                <li><a class="white-text" href="#!">Link 1</a></li>
-                                <li><a class="white-text" href="#!">Link 2</a></li>
-                                <li><a class="white-text" href="#!">Link 3</a></li>
-                                <li><a class="white-text" href="#!">Link 4</a></li>
-                            </ul>
+                        <div class="col l4 m6 s12 vk-block">
+                            <!-- VK Widget -->
+                            <div id="vk_groups">
+                            </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="footer-copyright">
                     <div class="container">
-                        Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                        &copy; <?php echo date('Y'); ?> true-english.ru
                     </div>
                 </div>
             </footer>
@@ -109,6 +91,10 @@
             </symbol>
         </svg>
         <script src="/js/app.js"></script>
+        <script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
+        <script type="text/javascript">
+            VK.Widgets.Group("vk_groups", {mode: 3, no_cover: 1}, 20003922);
+        </script>
         @yield("js")
     </body>
 </html>

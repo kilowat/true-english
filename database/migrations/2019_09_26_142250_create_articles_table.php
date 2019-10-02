@@ -22,7 +22,7 @@ class CreateArticlesTable extends Migration
             $table->mediumText('text')->nullable();
             $table->string('title', 255)->nullable();
             $table->string('description', 255)->nullable();
-            $table->boolean('active')->default(false);
+            $table->boolean('active')->default(false)->index('active_idx');
             $table->integer("sort")->default(100);
             $table->timestamps();
         });

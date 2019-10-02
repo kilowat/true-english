@@ -14,28 +14,32 @@ class WordCardsTableSeeder extends Seeder
     {
         $arrData = [
             [
-              "name" => "Название 1",
-              "code" => "code_1",
-              "picture" => "",
-              "section_id" => 2,
+                "name" => "Название 1",
+                "code" => "code_1",
+                "picture" => "",
+                "section_id" => 2,
+                'active' => 1,
             ],
             [
-              "name" => "Название 2",
-              "code" => "code_3",
-              "picture" => "",
-              "section_id" => 2,
+                "name" => "Название 2",
+                "code" => "code_3",
+                "picture" => "",
+                "section_id" => 2,
+                'active' => 1,
             ],
             [
                 "name" => "Название 3",
                 "code" => "code_4",
                 "picture" => "",
                 "section_id" => 2,
+                'active' => 1,
             ],
             [
                 "name" => "Название 4",
                 "code" => "code_5",
                 "picture" => "",
                 "section_id" => 2,
+                'active' => 1,
             ],
         ];
 

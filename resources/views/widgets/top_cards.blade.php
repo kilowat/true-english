@@ -1,5 +1,5 @@
 <section class="card-cmp card-top">
-    <h4>Новые сборники слов</h4>
+    <h4>Новые слова и диалоги</h4>
     <div class="row">
         @foreach($cards as $card)
             <div class="col s12 m6 l3">

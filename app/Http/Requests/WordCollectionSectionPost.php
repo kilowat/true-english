@@ -38,7 +38,7 @@ class WordCollectionSectionPost extends FormRequest
     public function withValidator($validator)
     {
         $validator->after(function ($validator) {
-            if ($this->uniqueCode()) {
+            if (!$this->uniqueCode()) {
                 $validator->errors()->add('code', 'Код должен быть уникальным');
             }
         });

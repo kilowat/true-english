@@ -9095,9 +9095,12 @@ html, body {
   margin-bottom: 50px;
 }
 
-.header .container {
+.header .top-block .container {
   display: flex;
   justify-content: space-between;
+  background-color: #eaeef4;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
 }
 .header .logo-block {
   height: 120px;
@@ -9116,6 +9119,15 @@ html, body {
   color: #ec407a;
 }
 
+.sidenav .dop-section {
+  border-top: 1px solid #ccc;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.sidenav .dop-section .tags-block {
+  border: none;
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 2rem;
@@ -9124,7 +9136,7 @@ html, body {
 
 .top-block {
   height: 120px;
-  background-color: #4e9cea;
+  background-color: #fff;
 }
 @media (max-width: 992px) {
   .top-block {
@@ -9146,6 +9158,10 @@ html, body {
 }
 .breadcrumbs .seporator-item {
   margin-left: 5px;
+}
+
+.nav-block .container {
+  background-color: #1976D2;
 }
 
 @media (max-width: 992px) {
@@ -9170,10 +9186,20 @@ html, body {
 .container.with-sidebar .content {
   width: calc(100% - 240px);
 }
+@media (max-width: 992px) {
+  .container.with-sidebar .content {
+    width: 100%;
+  }
+}
 
 .sidebar {
   width: 220px;
   margin-right: 20px;
+}
+@media (max-width: 992px) {
+  .sidebar {
+    display: none;
+  }
 }
 
 .ads-block img {
@@ -9222,6 +9248,44 @@ html, body {
 
 .page-footer {
   background-color: #757575;
+}
+@media (max-width: 992px) {
+  .page-footer .menu-block {
+    display: none;
+  }
+}
+.page-footer .vk-block {
+  text-align: right;
+}
+@media (max-width: 600px) {
+  .page-footer .vk-block {
+    text-align: center;
+  }
+}
+.page-footer .vk-block .white-text {
+  text-align: center;
+}
+.page-footer .center-cell {
+  text-align: center;
+}
+@media (max-width: 992px) {
+  .page-footer .center-cell {
+    text-align: left;
+  }
+}
+@media (max-width: 600px) {
+  .page-footer .center-cell {
+    text-align: center;
+  }
+}
+.page-footer .center-component {
+  width: 220px;
+  height: 200px;
+  background-color: #ccc;
+  display: inline-block;
+}
+.page-footer #vk_groups {
+  display: inline-block;
 }
 
 .text-input {

@@ -14,6 +14,10 @@
 
 @section('sidebar-class', 'with-sidebar')
 
+@section('drower_dop_section')
+    {{ Widget::run('Tags', ['model' => "App\Models\Article", 'route' => 'article.index.tag', 'current_tag' => $tag]) }}
+@stop
+
 @section('breadcrumbs', Breadcrumbs::render('article_index'))
 
 @section('content')

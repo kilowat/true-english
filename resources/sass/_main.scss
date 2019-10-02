@@ -10,9 +10,12 @@ html, body {
 }
 
 .header{
-  .container{
+  .top-block .container{
     display: flex;
     justify-content: space-between;
+    background-color: #eaeef4;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
   }
   .logo-block{
     height: 120px;
@@ -31,6 +34,16 @@ html, body {
     }
   }
 }
+.sidenav{
+  .dop-section {
+    border-top: 1px solid #ccc;
+    padding-left: 14px;
+    padding-right: 14px;
+    .tags-block{
+      border:none;
+    }
+  }
+}
 
 .section-header{
   text-align: center;
@@ -39,7 +52,7 @@ html, body {
 }
 .top-block {
   height: 120px;
-  background-color: $primary-color-light;
+  background-color: #fff;
   @include breakpoint(max-width $medium-screen){
     display:none;
   }
@@ -58,6 +71,9 @@ html, body {
   .seporator-item{
     margin-left: 5px;
   }
+}
+.nav-block .container{
+  background-color: $primary-color;
 }
 .main-menu ul{
   @include breakpoint(max-width $medium-screen){
@@ -86,6 +102,9 @@ html, body {
     display: flex;
     .content{
       width:calc(100% - 240px);
+      @include breakpoint(max-width $medium-screen){
+        width: 100%;
+      }
     }
   }
 }
@@ -93,6 +112,9 @@ html, body {
 .sidebar{
   width: 220px;
   margin-right: 20px;
+  @include breakpoint(max-width $medium-screen){
+    display: none;
+  }
 }
 .ads-block img{
   max-width: 100%;
@@ -146,4 +168,37 @@ html, body {
 
 .page-footer{
   background-color: map-get($grey, 'darken-1');
+  .menu-block{
+    @include breakpoint(max-width $medium-screen){
+      display: none;
+    }
+  }
+  .vk-block{
+    text-align: right;
+    @include breakpoint(max-width $small-screen){
+      text-align: center;
+    }
+    .white-text{
+      text-align: center;
+    }
+  }
+  .center-cell{
+    text-align: center;
+    @include breakpoint(max-width $medium-screen){
+      text-align: left;
+    }
+    @include breakpoint(max-width $small-screen){
+      text-align: center;
+    }
+  }
+  .center-component{
+    width: 220px;
+    height: 200px;
+    background-color: #ccc;
+    display: inline-block;
+  }
+  #vk_groups{
+    display: inline-block;
+  }
 }
+

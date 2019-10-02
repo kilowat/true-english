@@ -57,7 +57,8 @@ class WordCard extends Model
         return $data->format('d.m.Y');
     }
 
-    public function getLinkAttribute(){
+    public function getLinkAttribute()
+    {
          return route("word-collection.detail", $this->uri);
     }
 
@@ -67,11 +68,13 @@ class WordCard extends Model
         $this->attributes['active'] = $value;
     }
 
-    public function getJsonSubtitlesAttribute(){
+    public function getJsonSubtitlesAttribute()
+    {
         return $this->attributes["subtitles"];
     }
 
-    public function setSubtitlesAttribute($value){
+    public function setSubtitlesAttribute($value)
+    {
         $this->attributes["subtitles"] = json_encode($value);
     }
 
@@ -79,15 +82,28 @@ class WordCard extends Model
         return json_decode($this->attributes["subtitles"]);
     }
 
-    public function getExcelAttribute(){
-        return  Storage::disk('excel')->url($this->excel_file);
+    public function getExcelAttribute()
+    {
+        $exists = Storage::disk('excel')->exists($this->excel_file);
+
+        if($exists){
+            return  Storage::disk('excel')->url($this->excel_file);
+        }else{
+            return false;
+        }
+    }
+
+    public function getExcelPathAttribute()
+    {
+        return "/storage/excel/".$this->excel_file;
     }
 
     /**
      * @param $text content text
      * @param $card_id id own card
      */
-    public function insertWords($text, $card_id){
+    public function insertWords($text, $card_id)
+    {
         $res = WordParser::getFrequency($text);
 
         $words_with_freq = $res->getKeyValuesByFrequency();

@@ -13,6 +13,10 @@
     </aside>
 @endsection
 
+@section('drower_dop_section')
+    {!! $CollectionMenu->asUl() !!}
+@stop
+
 @section('breadcrumbs', Breadcrumbs::render('card', $section, $card))
 
 @section('sidebar-class', 'with-sidebar')
@@ -86,7 +90,7 @@
                             <div class="table-cell"><span class="prop-name">Excel файл со словами:</span></div>
                             <div class="table-cell">
                             <span calss="prop-value">
-                                <a href="{{ $card->excel }}" title="Таблица"><svg class="ic-excel"><use xlink:href="#ic-excel" x="0" y="0"></use></svg> Скачать</a>
+                                <a href="{{ route('word-collection.excel-download', $card->id) }}" title="Таблица"><svg class="ic-excel"><use xlink:href="#ic-excel" x="0" y="0"></use></svg> Скачать</a>
                             </span>
                             </div>
                         </div>

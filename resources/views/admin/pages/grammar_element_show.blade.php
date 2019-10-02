@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Статья '.$article->name)
+@section('title', 'Грамматика элемент '.$element->name)
 
 @section('content_header')
-    <h1>Статья {{ $article->name }}</h1>
+    <h1>Грамматика элемент {{ $element->name }}</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header with-border">
-                    {!! $article->text !!}
+                    {!! $element->text !!}
                 </div>
             </div>
         </div>

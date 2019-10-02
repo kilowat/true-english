@@ -28,6 +28,13 @@ class AdminGrammarElementController extends AdminController
         return redirect()->back()->with('message',  trans('messages.add_success'));
     }
 
+    public function show($id)
+    {
+        $element = Grammar::findOrFail($id);
+
+        return view('admin.pages.grammar_element_show', compact('element'));
+    }
+
     public function edit($id)
     {
         $sections = GrammarSection::get();
@@ -58,7 +65,7 @@ class AdminGrammarElementController extends AdminController
         return Datatables::of($grammar)
             ->addColumn('action', function ($grammar) {
                 $btn_str =  '<a href="'.route('admin.grammar-element.edit', $grammar->id).'" class="btn btn-xs btn-primary btn-action"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-                $btn_str.="<br>";
+                $btn_str.=  '<a href="'.route('admin.grammar-element.show', $grammar->id).'" class="btn btn-xs btn-success btn-action"><i class="glyphicon glyphicon-eye-open"></i> Show</a>';
                 $btn_str.='<button onclick="if (window.confirm(\'Удалить элемент?\')) location.href=\''.route('admin.grammar-element.delete', $grammar->id).'\';" class="btn btn-xs btn-danger btn-action del-card"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
                 return $btn_str;
             })

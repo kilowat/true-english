@@ -27,15 +27,6 @@
                         </div>
                     @enderror
                 </div>
-                <div class="form-group">
-                    <label for="message">Enter your email here:</label>
-                    <input type="email" class="form-control @if($errors->has('guest_email')) is-invalid @endif" name="guest_email" />
-                    @error('guest_email')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
             @endif
 
             <div class="form-group">

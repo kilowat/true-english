@@ -13,13 +13,13 @@ class WordSectionsTableSeeder extends Seeder
      */
     public function run()
     {
-
         $section_testing_data = [];
 
         for($i = 0; $i < 100; $i++){
             $section_testing_data[] = [
                     'name' => 'Название'.$i,
                     'code' => 'code'.$i,
+                    'active' => true,
                     'picture' => '',
                     'updated_at' =>  Carbon::now(),
                     'created_at' =>  Carbon::now(),
@@ -33,12 +33,14 @@ class WordSectionsTableSeeder extends Seeder
                 'picture' => '',
                 'updated_at' =>  Carbon::now(),
                 'created_at' =>  Carbon::now(),
+                'active' => true,
                 'children' => $section_testing_data,
             ],
             [
                 'name' => 'Youtube',
                 'code' => 'youtube',
                 'picture' => '',
+                'active' => true,
                 'updated_at' =>  Carbon::now(),
                 'created_at' =>  Carbon::now(),
                 'children' => [
@@ -46,6 +48,7 @@ class WordSectionsTableSeeder extends Seeder
                         'name' => 'TED',
                         'code' => 'ted',
                         'picture' => '',
+                        'active' => true,
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
                     ],
@@ -53,12 +56,14 @@ class WordSectionsTableSeeder extends Seeder
                         'name' => 'IT',
                         'code' => 'it',
                         'picture' => '',
+                        'active' => true,
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
                     ],
                     [
                         'name' => 'Политика',
                         'code' => 'politic',
+                        'active' => true,
                         'picture' => '',
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
@@ -68,12 +73,14 @@ class WordSectionsTableSeeder extends Seeder
             [
                 'name' => 'Мультфильмы',
                 'code' => 'mult',
+                'active' => 1,
                 'updated_at' =>  Carbon::now(),
                 'created_at' =>  Carbon::now(),
                 'children' => [
                     [
                         'name' => 'Футурама',
                         'code' => 'futurama',
+                        'active' => 1,
                         'picture' => '',
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
@@ -81,6 +88,7 @@ class WordSectionsTableSeeder extends Seeder
                     [
                         'name' => 'Simpsons',
                         'code' => 'simposon',
+                        'active' => 1,
                         'picture' => '',
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
@@ -88,6 +96,7 @@ class WordSectionsTableSeeder extends Seeder
                     [
                         'name' => 'Lion king',
                         'code' => 'lion_king',
+                        'active' => 1,
                         'picture' => '',
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
@@ -99,6 +108,7 @@ class WordSectionsTableSeeder extends Seeder
                 'code' => 'books',
                 'updated_at' =>  Carbon::now(),
                 'created_at' =>  Carbon::now(),
+                'active' => 1,
                 'children' => [
                     [
                         'name' => 'Сказки',
@@ -106,6 +116,7 @@ class WordSectionsTableSeeder extends Seeder
                         'picture' => '',
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
+                        'active' => 1,
                     ],
                     [
                         'name' => 'Sky fi',
@@ -113,6 +124,7 @@ class WordSectionsTableSeeder extends Seeder
                         'picture' => '',
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
+                        'active' => 1,
                     ],
                     [
                         'name' => 'Детективы',
@@ -120,6 +132,7 @@ class WordSectionsTableSeeder extends Seeder
                         'picture' => '',
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
+                        'active' => 1,
                     ],
                 ],
             ],
@@ -128,6 +141,7 @@ class WordSectionsTableSeeder extends Seeder
                 'code' => 'theme',
                 'updated_at' =>  Carbon::now(),
                 'created_at' =>  Carbon::now(),
+                'active' => 1,
                 'children' => [
                     [
                         'name' => 'Профессии',
@@ -135,6 +149,7 @@ class WordSectionsTableSeeder extends Seeder
                         'picture' => '',
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
+                        'active' => 1,
                     ],
                     [
                         'name' => 'Природа',
@@ -142,6 +157,7 @@ class WordSectionsTableSeeder extends Seeder
                         'picture' => '',
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
+                        'active' => 1,
                     ],
                     [
                         'name' => 'Путешествия',
@@ -149,6 +165,7 @@ class WordSectionsTableSeeder extends Seeder
                         'picture' => '',
                         'updated_at' =>  Carbon::now(),
                         'created_at' =>  Carbon::now(),
+                        'active' => 1,
                     ],
                 ],
             ],

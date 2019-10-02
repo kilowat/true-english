@@ -14,4 +14,5 @@
     @endif
 
     @widget('TopCards')
+    @widget('LastArticles')
 @endsection

@@ -11,6 +11,10 @@
     </aside>
 @endsection
 
+@section('drower_dop_section')
+    {{ Widget::run('Tags', ['model' => "App\Models\Article", 'route' => 'article.index.tag']) }}
+@stop
+
 @section('sidebar-class', 'with-sidebar')
 
 @section('breadcrumbs', Breadcrumbs::render('article_detail', $article))
