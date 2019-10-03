@@ -13,11 +13,7 @@ class AdminController extends BaseController
 
     public function __construct()
     {
-        //$this->middleware(['admin.auth','admin']);
+        $this->middleware(['auth','admin']);
     }
 
-    public function login()
-    {
-        return "test";
-    }
 }

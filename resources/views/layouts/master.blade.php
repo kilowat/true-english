@@ -9,6 +9,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap&subset=cyrillic" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap&subset=cyrillic" rel="stylesheet">
         <link href="/css/app.css" rel="stylesheet">
     </head>
     <body>
@@ -19,6 +20,10 @@
                         <div class="left-block">
                             <div class="logo-block">
                                 <a href="/" title="true-english.ru"><img src="/images/logo.png" alt="logo"></a>
+                                <span class="slogan-txt"><span class="slogan-left">Учи английский по</span> <span class="slogan-right">настоящему!</span></span>
+                            </div>
+                            <div class="addition-info-block">
+                                <div><b>По вопросам обращайтесь:</b> <a href="#" title="#">text@test.ru</a></div>
                             </div>
                         </div>
                         <!--
