@@ -195,6 +195,21 @@ html, body {
     @include breakpoint(max-width $medium-screen){
       display: none;
     }
+    ul{
+      li{
+        &.active{
+          a{
+            color: $secondary-color;
+          }
+        }
+        a{
+          color: #fff;
+          &:hover{
+            color: $secondary-color;
+          }
+        }
+      }
+    }
   }
   .vk-block{
     text-align: right;
@@ -217,7 +232,6 @@ html, body {
   .center-component{
     width: 220px;
     height: 200px;
-    background-color: #ccc;
     display: inline-block;
   }
   #vk_groups{

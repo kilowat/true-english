@@ -6,6 +6,7 @@ use App\Http\Requests\PagePost;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use ZipArchive;
 
 class AdminPageController extends AdminController
 {

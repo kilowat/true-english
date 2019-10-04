@@ -73,6 +73,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
     /**********audio files****************/
     Route::get('words/audio', 'AdminAudioController@index')->name('admin.audio.index');
+    Route::post('words/audio', 'AdminAudioController@zip')->name('admin.audio.zip');
     Route::get('words/audio/add', 'AdminAudioController@add')->name('admin.audio.add');
     Route::get('words/audio/data-list', 'AdminAudioController@dataList')->name('admin.audio.data-list');
     Route::post('words/audio/upload-file', 'AdminAudioController@uploadFile')->name('admin.audio.upload-file');

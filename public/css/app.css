@@ -8045,6 +8045,15 @@ html, body {
     display: none;
   }
 }
+.page-footer .menu-block ul li.active a {
+  color: #ec407a;
+}
+.page-footer .menu-block ul li a {
+  color: #fff;
+}
+.page-footer .menu-block ul li a:hover {
+  color: #ec407a;
+}
 .page-footer .vk-block {
   text-align: right;
 }
@@ -8072,7 +8081,6 @@ html, body {
 .page-footer .center-component {
   width: 220px;
   height: 200px;
-  background-color: #ccc;
   display: inline-block;
 }
 .page-footer #vk_groups {

@@ -14,8 +14,24 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Список аудио файлов</h3>
+                    @if (Session::has('message'))
+                        <div class="alert alert-info">{{ Session::get('message') }}</div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="button-row">
                         <a href="{{ route('admin.audio.add') }}" title="Добавить" class="btn btn-primary">Добавить</a>
+                        <form action="{{ route('admin.audio.zip') }}" method="POST" style="display: inline-block;margin-left: 8px">
+                            @csrf
+                            <button class="btn btn-danger" type="submit">Создать архив</button>
+                        </form>
                     </div>
                 </div>
                 <!-- /.box-header -->

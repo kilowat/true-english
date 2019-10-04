@@ -70,6 +70,12 @@ return [
             'url' => env('APP_URL').'/storage/excel',
             'visibility' => 'public',
         ],
+        'audio_archive' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/audio_archive'),
+            'url' => env('APP_URL').'/storage/audio_archive',
+            'visibility' => 'public',
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

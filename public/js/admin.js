@@ -15699,7 +15699,7 @@ this.mmooc.youtube = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\work_dir\webserver_5_3\OSPanel\domains\true-english.ru\resources\js\admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! C:\work_dir\webserver_5_5\OSPanel\domains\true-english.ru\resources\js\admin.js */"./resources/js/admin.js");
 
 
 /***/ })

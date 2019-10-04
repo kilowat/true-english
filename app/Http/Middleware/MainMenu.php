@@ -22,7 +22,6 @@ class MainMenu
             $menu->add("Грамматика", ['route' => 'grammar.index']);
             $menu->add("Произношение", ['route' => 'page.prononciation']);
             $menu->add("Статьи", ['route' => 'article.index']);
-            $menu->add("Обратная связь");
 
             foreach($menu->items as $item){
                 if($request->segment(1) && array_key_exists("route", $item->link->path)){
