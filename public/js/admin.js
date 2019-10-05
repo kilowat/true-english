@@ -15390,11 +15390,13 @@ this.mmooc.youtube = function () {
     var clearCurrentHighlighting = function clearCurrentHighlighting() {
       var timeStampId = getTimeIdFromTimestampIndex(currentCaptionIndex);
       $("#" + timeStampId).removeClass('active');
+      $("#" + timeStampId).parent().removeClass('active');
     };
 
     var highlightNextCaption = function highlightNextCaption() {
       var timestampId = getTimeIdFromTimestampIndex(nextCaptionIndex);
       $("#" + timestampId).addClass("active");
+      $("#" + timestampId).parent().addClass('active');
     };
 
     var calculateTimeout = function calculateTimeout(currentTime) {
@@ -15452,10 +15454,10 @@ this.mmooc.youtube = function () {
 
     var scrollToCurrent = function scrollToCurrent() {
       var container = document.querySelector("#subtitles");
-      var to = document.querySelector("#t" + currentCaptionIndex);
+      var to = document.querySelector("#t" + currentCaptionIndex).parentNode;
       var topPos = to.offsetTop;
       var itemHeight = $(".s-item").height();
-      var item = 4;
+      var item = 2;
       console.log("topPost:" + topPos);
       console.log("container:" + container.offsetTop);
       scrollTo(container, Math.abs(topPos - container.offsetTop - itemHeight * item), 300);
@@ -15505,19 +15507,23 @@ this.mmooc.youtube = function () {
 
       for (var i = 0, il = captions.length; i < il; i++) {
         start = +getStartTimeFromCaption(i);
+        var timestampId = getTimeIdFromTimestampIndex(i);
         var captionText = '';
-        captionText += '<span class="time-line">' + captions[i]["line"]["time"] + '</span>';
-        captionText += '<span class="s-en">' + captions[i]["line"]["en"] + '</span>';
+        captionText += '<span class="time-line btnSeek youtube-marker" data-seek="' + start + '" id="' + timestampId + '">' + captions[i]["line"]["time"] + '</span>';
+        captionText += '<span class="s-en">' + wrapWords(captions[i]["line"]["en"]) + '</span>';
         captionText += '<span class="s-tr">' + captions[i]["line"]["tr"] + '</span>';
         captionText += '<span class="s-ru">' + captions[i]["line"]["ru"] + '</span>';
-        var timestampId = getTimeIdFromTimestampIndex(i);
-        srt_output += "<span class='btnSeek s-item youtube-marker' data-seek='" + start + "' id='" + timestampId + "'>" + captionText + "</span> ";
+        srt_output += "<span class='s-line s-item'>" + captionText + "</span> ";
       }
 
       ;
       $("#videoTranscript" + videoId).append(srt_output);
       captionsLoaded = true;
     };
+
+    function wrapWords(str, tmpl) {
+      return str.replace(/[a-zA-Z]+/g, tmpl || "<span class='s-link'>$&</span>");
+    }
 
     this.getTranscriptId = function () {
       return transcriptId;
@@ -15562,6 +15568,7 @@ this.mmooc.youtube = function () {
   }
 
   function domInit() {
+    var stopped_on_hover = false;
     var $video = $(".mmocVideoTranscript");
     if ($video.length == 0) return false;
     var href = $video.data('route');
@@ -15601,6 +15608,11 @@ this.mmooc.youtube = function () {
     $("#video-delay").change(function () {
       pause = parseInt($(this).val());
     });
+    /*font-size*/
+
+    $("#font-size-s").change(function () {
+      $("#subtitles .s-line").css("font-size", $(this).val() + "px");
+    });
 
     oTranscript.onNext = function () {
       var t;
@@ -15619,13 +15631,17 @@ this.mmooc.youtube = function () {
         return true;
       }
     };
+    /*Собития при наведении на ссылку*/
+
+
+    $('#subtitles .s-link').hover(function () {});
   } //Called when user clicks somewhere in the transcript.
 
 
   $(function () {
     $(document).on('click', '.btnSeek', function () {
       var seekToTime = $(this).data('seek');
-      var transcript = mmooc.youtube.getTranscriptFromTranscriptId($(this).parent().attr("id"));
+      var transcript = mmooc.youtube.getTranscriptFromTranscriptId($(this).parent().parent().attr("id"));
       transcript.player.seekTo(seekToTime, true);
       transcript.player.playVideo();
     });

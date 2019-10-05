@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="config-row">
                                         <div class="config-cell speed-player">
-                                            <label>Скорость</label>
+                                            <label for="video-speed">Скорость</label>
                                             <select name="speed" class="browser-default" id="video-speed">
                                                 <option value="0.25">0.25</option>
                                                 <option value="0.5">0.5</option>
@@ -46,7 +46,7 @@
                                             </select>
                                         </div>
                                         <div class="config-cell delay-player">
-                                            <label>Пауза</label>
+                                            <label for="video-delay">Пауза</label>
                                             <select name="video-delay" class="browser-default" id="video-delay">
                                                 <option value="0" selected="selected">0</option>
                                                 <option value="-1">На фразе</option>
@@ -56,6 +56,14 @@
                                                 <option value="5000">5 сек</option>
                                                 <option value="8000">8 сек</option>
                                                 <option value="10000">10 сек</option>
+                                            </select>
+                                        </div>
+                                        <div class="config-cell font-size">
+                                            <label for="font-size-s">Размер шрифта</label>
+                                            <select name="font-size" class="browser-default" id="font-size-s">
+                                                <option value="14" selected="selected">1</option>
+                                                <option value="18">1.5</option>
+                                                <option value="22">2</option>
                                             </select>
                                         </div>
                                     </div>

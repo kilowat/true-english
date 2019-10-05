@@ -33,7 +33,7 @@ class WordParser
             filter_tokens($token, $filter);
         }
 
-        $stop_words = ['a', 'an', 'the', 'is', 'are', 'of', 'off', 'to'];
+        $stop_words = [];
 
         filter_stopwords($token, $stop_words);
 

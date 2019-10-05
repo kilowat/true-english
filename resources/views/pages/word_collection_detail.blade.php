@@ -72,6 +72,14 @@
                                     <option value="10000">10 сек</option>
                                 </select>
                             </div>
+                            <div class="config-cell font-size">
+                                <label for="font-size-s">Размер шрифта</label>
+                                <select name="font-size" class="browser-default" id="font-size-s">
+                                    <option value="14" selected="selected">1</option>
+                                    <option value="18">1.5</option>
+                                    <option value="22">2</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 

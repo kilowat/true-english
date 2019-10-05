@@ -8359,14 +8359,13 @@ html, body {
 }
 
 #subtitles {
-  max-height: 440px;
+  max-height: 500px;
   overflow-y: scroll;
   margin-top: 25px;
   border: 1px solid #ccc;
 }
 
 .subtitle-list .s-item {
-  cursor: pointer;
   background-color: #e8e8e8;
   margin: 4px;
   padding: 8px;
@@ -8375,6 +8374,12 @@ html, body {
 }
 .subtitle-list .s-item .s-en {
   display: block;
+}
+.subtitle-list .s-item .s-en .s-link {
+  cursor: pointer;
+}
+.subtitle-list .s-item .s-en .s-link:hover {
+  color: blue;
 }
 .subtitle-list .s-item .s-tr {
   color: red;
@@ -8385,6 +8390,9 @@ html, body {
 }
 .subtitle-list .s-item:hover {
   background-color: rgba(192, 255, 234, 0.93);
+}
+.subtitle-list .s-item:hover .s-link {
+  text-decoration: underline;
 }
 .subtitle-list .s-item.active {
   background-color: #f9f5a5;
@@ -8403,6 +8411,13 @@ html, body {
   z-index: 1;
   padding-left: 4px;
   padding-right: 4px;
+  cursor: pointer;
+}
+.subtitle-list .s-item .time-line:hover {
+  background-color: #4163c1;
+}
+.subtitle-list .s-item .time-line.active {
+  background-color: #4163c1;
 }
 
 .table-page {
