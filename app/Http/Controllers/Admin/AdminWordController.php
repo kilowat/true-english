@@ -42,7 +42,7 @@ class AdminWordController extends AdminController
 
     public function dataList()
     {
-        $words = Word::query()->with('audio')->orderBy("id", "desc");
+        $words = Word::query()->with('audio');
 
         return Datatables::of($words)
             ->addColumn('audio', function($words){

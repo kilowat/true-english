@@ -48,7 +48,7 @@ class AdminCardController extends AdminController
 
     public function dataList()
     {
-        $cards = WordCard::with('section')->orderBy("id", "desc");
+        $cards = WordCard::with('section');
 
         return Datatables::of($cards)
             ->addColumn('action', function ($cards) {

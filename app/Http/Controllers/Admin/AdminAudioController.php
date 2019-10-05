@@ -27,7 +27,7 @@ class AdminAudioController extends AdminController
 
     public function dataList()
     {
-        $files = Audio::query()->orderBy("id", "desc");
+        $files = Audio::query();
 
         return Datatables::of($files)
             ->addColumn('action', function ($files) {

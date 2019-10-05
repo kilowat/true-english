@@ -60,7 +60,7 @@ class AdminGrammarElementController extends AdminController
 
     public function dataList()
     {
-        $grammar = Grammar::query()->orderBy("id", "desc");;
+        $grammar = Grammar::query();
 
         return Datatables::of($grammar)
             ->addColumn('action', function ($grammar) {

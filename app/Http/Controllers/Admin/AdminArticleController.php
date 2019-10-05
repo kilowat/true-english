@@ -57,7 +57,7 @@ class AdminArticleController extends AdminController
 
     public function dataList()
     {
-        $article = Article::query()->orderBy("id", "desc");;
+        $article = Article::query();
 
         return Datatables::of($article)
             ->addColumn('action', function ($article) {

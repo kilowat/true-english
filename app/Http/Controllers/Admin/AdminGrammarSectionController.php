@@ -16,7 +16,7 @@ class AdminGrammarSectionController extends AdminController
 
     public function dataList()
     {
-        $section = GrammarSection::query()->orderBy("id", "desc");;
+        $section = GrammarSection::query();
 
         return Datatables::of($section)
             ->addColumn('action', function ($section) {
