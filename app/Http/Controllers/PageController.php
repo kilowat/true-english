@@ -21,4 +21,11 @@ class PageController extends Controller
 
         return view('pages.prononciation_index', compact('page'));
     }
+
+    public function misc(Request $request)
+    {
+        $page = Page::where("code", "=", $request->getRequestUri())->first();
+
+        return view('pages.misc_index', compact('page'));
+    }
 }

@@ -24,8 +24,21 @@
                             </div>
                             <div class="addition-info-block">
                                 <div><b>По вопросам обращайтесь:</b> <a href="#" title="#">text@test.ru</a></div>
+                                <div class="support-row"><b>Поддержать проект:</b>
+                                    <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%9D%D0%B0%20%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0&default-sum=100&button-text=11&yamoney-payment-type=on&button-size=m&button-color=orange&successURL=&quickpay=small&account=410018237147676&"
+                                            width="184"
+                                            height="36"
+                                            frameborder="0"
+                                            allowtransparency="true"
+                                            scrolling="no"></iframe>
+                                </div>
+                                <div class="text-donat-descr">
+                                    Деньги пойдут на оплату более качественной озвучки слов для словаря, которые вы можете скачать архивом в разделе
+                                    <a href="{{ route('page.misc') }}" title="Полезное">полезное</a>.
+                                </div>
                             </div>
                         </div>
+
                         <!--
                         <div class="user-block">
                             <div class="user-line">
@@ -64,23 +77,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col l4 m6 s12 menu-block">
-                            <h5 class="white-text">Меню</h5>
                             {!! $MainMenu->asUl() !!}
                         </div>
                         <div class="col l4 m6 s12 center-cell">
                             <div class="center-component">
-                                <!--LiveInternet counter--><script type="text/javascript">
-                                    document.write('<a href="//www.liveinternet.ru/click" '+
-                                        'target="_blank"><img src="//counter.yadro.ru/hit?t27.1;r'+
-                                        escape(document.referrer)+((typeof(screen)=='undefined')?'':
-                                            ';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
-                                            screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
-                                        ';h'+escape(document.title.substring(0,150))+';'+Math.random()+
-                                        '" alt="" title="LiveInternet: показано количество просмотров и'+
-                                        ' посетителей" '+
-                                        'border="0" width="88" height="120"><\/a>')
-                                </script><!--/LiveInternet-->
-
+                                <div id="live-widget"></div>
                             </div>
                         </div>
                         <div class="col l4 m6 s12 vk-block">
@@ -105,11 +106,24 @@
             <symbol id="ic-excel" viewBox="0 0 48 48">
                 <path fill="#388E3C" d="M40 45L8 45 8 3 30 3 40 13z"/><path fill="#E8F5E9" d="M38.5 14L29 14 29 4.5z"/><path fill="#FFF" d="M23.739,26.457l2.092-4.254h3.524l-3.577,6.346L29.452,35h-3.56l-2.153-4.333L21.586,35h-3.551l3.665-6.451l-3.568-6.346h3.516L23.739,26.457z"/>
             </symbol>
+            <symbol id="ic-txt" viewBox="0 0 512 512">
+                <g><path d="M257.7,384.5l65.6-57.4H51.6v114.9h271.8L257.7,384.5z M132.3,360.7h-20.1V417h-10.8v-56.3H81.5V352h50.7V360.7z    M179.7,417l-14.1-24.4L151.5,417h-12.9l20.4-32.8l-20-32.2h12.8l13.6,24l13.7-24H192l-20,32.2l20.8,32.8H179.7z M249.4,360.7   h-20.1V417h-10.8v-56.3h-19.8V352h50.7V360.7z"/><path d="M455.8,117.2h-27.9v-54h-63.1v54H337c-4,0-6.1,4.2-3.4,6.8l59.4,68.9c1.8,1.8,5,1.8,6.8,0l59.4-68.9   C461.9,121.3,459.8,117.2,455.8,117.2z" id="XMLID_10_"/><rect height="24.5" id="XMLID_9_" width="63.1" x="364.8" y="28.9"/><path d="M389.5,206v259.4c0,15.1-12.2,27.3-27.3,27.3H99.6c-15.1,0-27.3-12.2-27.3-27.3v-14.6H58.9v20   c0,19.5,15.8,35.4,35.4,35.4h273.2c19.5,0,35.4-15.8,35.4-35.4V206.1c-2,0.8-4.2,1.2-6.5,1.2C394,207.3,391.6,206.8,389.5,206z" id="XMLID_8_"/><path d="M72.3,81.1c0-15.1,12.2-27.3,27.3-27.3h252.1V50v-9.5H94.3c-19.5,0-35.4,15.8-35.4,35.4v242.5h13.4V81.1z" id="XMLID_7_"/><path d="M323.2,132H112.3v19.4h227.7l-16.1-18.6C323.6,132.6,323.4,132.3,323.2,132z" id="XMLID_6_"/><rect height="19.4" id="XMLID_5_" width="237.2" x="112.3" y="163.5"/><rect height="19.4" id="XMLID_4_" width="237.2" x="112.3" y="195"/><rect height="19.4" id="XMLID_3_" width="237.2" x="112.3" y="226.6"/><rect height="19.4" id="XMLID_2_" width="185.8" x="112.3" y="258.1"/><path d="M427.9,10.1c0-2.2-2-4.1-4.6-4.1h-54c-2.5,0-4.6,1.8-4.6,4.1v9h63.1V10.1z" id="XMLID_1_"/></g>
+            </symbol>
         </svg>
         <script src="/js/app.js"></script>
         <script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
         <script type="text/javascript">
             VK.Widgets.Group("vk_groups", {mode: 3, no_cover: 1}, 20003922);
+
+            $('#live-widget').append('<a href="//www.liveinternet.ru/click" '+
+                'target="_blank"><img src="//counter.yadro.ru/hit?t27.1;r'+
+                escape(document.referrer)+((typeof(screen)=='undefined')?'':
+                    ';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+                    screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
+                ';h'+escape(document.title.substring(0,150))+';'+Math.random()+
+                '" alt="" title="LiveInternet: показано количество просмотров и'+
+                ' посетителей" '+
+                'border="0" width="88" height="120"><\/a>');
         </script>
         @yield("js")
     </body>

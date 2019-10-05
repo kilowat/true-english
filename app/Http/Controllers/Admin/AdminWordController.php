@@ -28,6 +28,18 @@ class AdminWordController extends AdminController
         return view('admin.pages.word_index', ['words' => $words]);
     }
 
+    public function add()
+    {
+        return view("admin.pages.word_add");
+    }
+
+    public function store(WordPost $request)
+    {
+        $created = Word::create($request->all());
+
+        return redirect()->back()->with('message',  trans('messages.add_success'));
+    }
+
     public function dataList()
     {
         $words = Word::query()->with('audio')->orderBy("id", "desc");

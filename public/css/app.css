@@ -7876,7 +7876,15 @@ html, body {
 }
 .header .addition-info-block {
   margin-left: 18px;
-  font-size: 18px;
+  font-size: 16px;
+  width: 380px;
+  padding-right: 18px;
+  border-right: 1px solid #4d6986;
+}
+.header .addition-info-block .text-donat-descr {
+  font-size: 15px;
+  line-height: 1.2;
+  font-style: italic;
 }
 .header .addition-info-block a {
   font-weight: 700;
@@ -7897,6 +7905,13 @@ html, body {
 }
 .header .logo-block .slogan-txt .slogan-right {
   font-size: 32px;
+}
+.header .support-row {
+  display: flex;
+  align-items: center;
+}
+.header .support-row b {
+  margin-right: 8px;
 }
 .header .user-block {
   height: 120px;
@@ -8300,9 +8315,21 @@ html, body {
   display: flex;
   flex-wrap: wrap;
 }
+@media (max-width: 876px) {
+  .card-detail {
+    flex-direction: column-reverse;
+  }
+}
 .card-detail .pic-box {
   margin-right: 14px;
   border: 1px solid #ccc;
+}
+@media (max-width: 876px) {
+  .card-detail .pic-box {
+    margin-right: 0px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
 }
 .card-detail .ic-excel {
   position: relative;
@@ -8329,6 +8356,10 @@ html, body {
 }
 .speed-player label, .delay-player label {
   margin-right: 8px;
+}
+
+.video-config {
+  padding: 8px;
 }
 
 .config-subtitle label {
@@ -8514,6 +8545,23 @@ html, body {
   }
 }
 
+.word-info {
+  margin: 12px;
+}
+.word-info .link-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.word-info .link-list a {
+  margin: 4px;
+  height: 28px;
+  display: inline-block;
+}
+.word-info .table-cell {
+  vertical-align: middle;
+}
+
 .word-sort-panel {
   position: fixed;
   width: 100%;
@@ -8585,8 +8633,7 @@ html, body {
   position: absolute;
   z-index: 10;
   background-color: #fff;
-  border: 1px solid #ccc;
-  top: 30px;
+  top: 23px;
   width: 100%;
   padding: 0px;
 }

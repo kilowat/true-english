@@ -162,8 +162,12 @@ class WordCollectionController extends Controller
         $card = WordCard::findOrFail($id);
 
         $this->checkNeedShow404($card->excel);
+        $down_load_file = Storage::disk('excel')->path($card->excel_file);
 
-        $down_load_file = public_path($card->excelPath);
+        if(!file_exists($down_load_file))
+        {
+            abort(404);
+        }
 
         $headers = ['Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
         $newName = $card->name.'.xlsx';

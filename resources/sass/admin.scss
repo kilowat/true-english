@@ -1,6 +1,7 @@
 $primary-color: "#4e9cea";
 $secondary-color:"#ec407a";
-
+@import "lib/breakpoint";
+@import "lib/jquery.fancybox.css";
 @import "pages/collection-detail";
 
 .button-row{

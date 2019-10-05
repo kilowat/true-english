@@ -147,13 +147,13 @@ return [
         [
             'text' => 'Список статей',
             'url'  => 'admin/article',
-            'icon' => 'fas fa-fw fa-file',
+            'icon' => 'fa fa-th-list',
         ],
         ['header' => 'Сборники слов'],
         [
             'text' => 'Разделы',
             'url'  => 'admin/word-collection-sections',
-            'icon' => 'fas fa-fw fa-file',
+            'icon' => 'fa fa-th-list',
         ],
         [
             'text' => 'Карточки',
@@ -188,8 +188,8 @@ return [
         ],
         ['header' => 'Настройки'],
         [
-            'text' => 'Backup',
-            'url'  => 'admin/settings',
+            'text' => 'Очистить кэш',
+            'url'  => 'admin/settings/clear-cache',
             'icon' => 'fas fa-fw fa-archive',
         ],
     ],

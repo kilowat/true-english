@@ -34,7 +34,7 @@ class AdminCardController extends AdminController
             $words[] = $item->word;
         }
 
-        $file_name = $wordCard->name."_".$id.".xlsx";
+        $file_name = $wordCard->code.".xlsx";
 
         if(Excel::store(new CardExport($words), $file_name, 'excel')){
             $wordCard->find($id)->update(["excel_file" => $file_name]);
@@ -128,7 +128,8 @@ class AdminCardController extends AdminController
 
         if($request->create_excel == "on")
         {
-            $this->createExcel($wordCard, $id);
+            $updated = $wordCard->find($id);
+            $this->createExcel($updated, $id);
         }
 
         return redirect()->back()->with('message',  trans('messages.update_success'));
@@ -150,7 +151,7 @@ class AdminCardController extends AdminController
         }
 
         if($request->create_excel == "on"){
-            $this->createExcel($wordCard, $created_card->id);
+            $this->createExcel($created_card, $created_card->id);
         }
 
         return redirect()->back()->with('message',  trans('messages.add_success'));

@@ -28,7 +28,11 @@
         <div class="card-detail">
             <div class="pic-box">
                 @if($card->youtube)
-                    <iframe id="{{ $card->youtube }}" src="https://www.youtube.com/embed/{{ $card->youtube }}?enablejsapi=1" width="560" height="315" allowfullscreen="allowfullscreen"></iframe></p>
+                    <iframe id="{{ $card->youtube }}"
+                            src="https://www.youtube.com/embed/{{ $card->youtube }}?enablejsapi=1"
+                            width="100%" height="315"
+                            frameborder="0"
+                            allowfullscreen="allowfullscreen"></iframe>
                     <div class="video-config">
                         <div class="config-row">
                             <div class="config-cell config-subtitle">
@@ -103,6 +107,14 @@
                             </div>
                         </div>
                     @endif
+                    <div class="prop-item table-row">
+                        <div class="table-cell"><span class="prop-name">Текст для клав-тренажера:</span></div>
+                        <div class="table-cell">
+                            <span calss="prop-value">
+                                <a href="{{ route('api.text-words', $card->id) }}" title="файл"><svg class="ic-svg ic-txt"><use xlink:href="#ic-txt" x="0" y="0"></use></svg> Скачать</a>
+                            </span>
+                        </div>
+                    </div>
                     <div class="prop-item table-row">
                         <div class="table-cell"><span class="prop-name">Дата публикации:</span></div>
                         <div class="table-cell"><span calss="prop-value">{{ $card->shortData }}</span></div>

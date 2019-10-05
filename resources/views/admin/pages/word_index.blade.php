@@ -11,6 +11,9 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
+                    <div class="button-row">
+                        <a href="{{ route('admin.word.add') }}" title="Добавить" class="btn btn-primary">Добавить</a>
+                    </div>
                     <h3 class="box-title">Список слов</h3>
                 </div>
                 <!-- /.box-header -->

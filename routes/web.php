@@ -21,6 +21,8 @@ Route::get('word-collections/word-table-data/{card_id}', 'WordCollectionControll
 Route::get('word-collections/{parent_code}/{section_code}', 'WordCollectionController@elements')->name('word-collection.elements');
 Route::get('word-collections/{section_code}', 'WordCollectionController@section')->name('word-collection.section');
 Route::get('word-collections', 'WordCollectionController@index')->name('word-collection.index');
+Route::get('word/{code}', 'WordController@show')->name('word.show');
+
 
 Route::get('grammar', 'GrammarController@index')->name('grammar.index');
 Route::get('grammar/{section}', 'GrammarController@section')->name('grammar.section');
@@ -30,12 +32,16 @@ Route::get('anki', 'AnkiCardController@index')->name('anki.index');
 Route::get('anki/tag/{name}', 'AnkiCardController@index')->name('anki.index.tag');
 
 Route::get('articles', 'ArticleController@index')->name('article.index');
+
 Route::get('articles/tag/{name}', 'ArticleController@index')->name('article.index.tag');
 Route::get('articles/{code}.html', 'ArticleController@detail')->name('article.detail');
 
 Route::get('/api/subtitle/id/{id}', 'ApiController@subtitle')->name('api.subtitle');
 Route::get('/api/words/id/{id}', 'ApiController@words')->name('api.words');
+Route::get('/api/text-words/id/{id}', 'ApiController@textWords')->name('api.text-words');
 Route::get('prononciation', 'PageController@prononciation')->name('page.prononciation');
+Route::get('misc', 'PageController@misc')->name('page.misc');
+
 Route::get('/', 'PageController@home')->name('page.home');
 
 
@@ -63,6 +69,8 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
     /*******word********/
     Route::get('words', 'AdminWordController@index')->name('admin.word.index');
+    Route::get('words/add', 'AdminWordController@add')->name('admin.word.add');
+    Route::post('words/add', 'AdminWordController@store')->name('admin.word.store');
     Route::get('words/data-list', 'AdminWordController@dataList')->name('admin.word.data-list');
     Route::get('words/edit/{id}', 'AdminWordController@edit')->name('admin.word.edit');
     Route::post('words/update/{id}', 'AdminWordController@update')->name('admin.word.update');
@@ -134,6 +142,10 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::post('page/update/{id}', 'AdminPageController@update')->name('admin.page.update');
     Route::get('page/data-list', 'AdminPageController@dataList')->name('admin.page.data-list');
     Route::get('page/delete/{id}', 'AdminPageController@delete')->name('admin.page.delete');
+
+    /******************settings********************/
+
+    Route::get('settings/clear-cache', 'AdminSettingsController@clearCache')->name('admin.settings.clear-cache');
 
     /*************************************************/
     Route::get('/', 'AdminPageController@main')->name('admin.page.main');

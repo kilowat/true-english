@@ -1,9 +1,17 @@
 .card-detail{
   display: flex;
   flex-wrap: wrap;
+  @include breakpoint(max-width 876px){
+    flex-direction: column-reverse;
+  }
   .pic-box{
     margin-right: 14px;
     border:1px solid #ccc;
+    @include breakpoint(max-width 876px){
+      margin-right: 0px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
   }
   .ic-excel{
     position: relative;
@@ -30,6 +38,9 @@
   label{
     margin-right: 8px;
   }
+}
+.video-config{
+  padding: 8px;
 }
 .config-subtitle{
   label{
@@ -227,6 +238,22 @@
     }
   }
 }
+.word-info{
+  margin: 12px;
+  .link-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    a{
+      margin: 4px;
+      height: 28px;
+      display: inline-block;
+    }
+  }
+  .table-cell{
+    vertical-align: middle;
+  }
+}
 .word-sort-panel{
   position: fixed;
   width: 100%;
@@ -301,8 +328,7 @@
     position: absolute;
     z-index: 10;
     background-color: #fff;
-    border: 1px solid #ccc;
-    top: 30px;
+    top: 23px;
     width: 100%;
     padding: 0px;
     .autoComplete_result {
@@ -312,6 +338,7 @@
       padding-left: 8px;
       padding-right: 8px;
       border-bottom: 1px solid #ccc;
+
     }
   }
 }

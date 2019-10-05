@@ -126,6 +126,7 @@
       <path value="$PROJECT_DIR$/vendor/dflydev/apache-mime-types" />
       <path value="$PROJECT_DIR$/vendor/debach/zend-mp3" />
       <path value="$PROJECT_DIR$/vendor/masih/youtubedownloader" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-responsecache" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

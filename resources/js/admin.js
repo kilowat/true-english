@@ -9,7 +9,7 @@ window.axios = require('axios');
 let youtube = require('./youtube');
 
 window.mmooc = youtube.mmooc;
-
+require('./jqueryfancyboxmin');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

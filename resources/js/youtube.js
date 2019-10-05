@@ -163,8 +163,6 @@ this.mmooc.youtube = function() {
             var topPos = to.offsetTop;
 			var itemHeight = $(".s-item").height();
 			var item = 2;
-			console.log("topPost:"+topPos);
-			console.log("container:"+container.offsetTop);
             scrollTo(container, Math.abs(topPos - container.offsetTop - (itemHeight * item)), 300);
 		}
 		//////////////////
@@ -236,7 +234,7 @@ this.mmooc.youtube = function() {
 		}
 
         function wrapWords(str, tmpl) {
-            return str.replace(/[a-zA-Z]+/g, tmpl || "<span class='s-link'>$&</span>");
+            return str.replace(/[a-zA-Z’']+/g, tmpl || "<span class='s-link'>$&</span>");
         }
 
 		this.getTranscriptId = function()
@@ -286,8 +284,6 @@ this.mmooc.youtube = function() {
 	}
 
 	function domInit(){
-		var stopped_on_hover = false;
-
         var $video = $(".mmocVideoTranscript");
 
 		if($video.length == 0) return false;
@@ -350,21 +346,40 @@ this.mmooc.youtube = function() {
         		return true;
 			}
 		};
-
-        /*Собития при наведении на ссылку*/
-		$('#subtitles .s-link').hover(function(){
-
-		});
 	}
 
 	//Called when user clicks somewhere in the transcript.
 	$(function() {
+		var open_on_played = false;
+
 		$(document).on('click', '.btnSeek', function() {
 			var seekToTime = $(this).data('seek');
-			var transcript = mmooc.youtube.getTranscriptFromTranscriptId($(this).parent().parent().attr("id"));
+			var transcript = mmooc.youtube.getTranscriptFromTranscriptId($(this).parents('.mmocVideoTranscript').attr("id"));
 			transcript.player.seekTo(seekToTime, true);
 			transcript.player.playVideo();
 		});
+		//hover on word
+        $(document).on('click', '.s-link', function() {
+            var transcript = mmooc.youtube.getTranscriptFromTranscriptId($(this).parents('.mmocVideoTranscript').attr("id"));
+			if(mmooc.youtube.getCurrentState() == 1){
+				transcript.player.pauseVideo();
+				open_on_played = true;
+			}
+
+			$.ajax({
+				url: "/word/"+$(this).text()
+			}).done(function(res){
+				$.fancybox.open(res,{
+					afterClose:function(){
+						if(open_on_played){
+                            transcript.player.playVideo();
+                            open_on_played = false;
+						}
+					}
+				});
+			})
+        });
+
 	});
 
 	//These functions must be global as YouTube API will call them. 
@@ -382,11 +397,13 @@ this.mmooc.youtube = function() {
 	window.onPlayerReady = function(event) {
 	}
 
+	var current_state = -1;
+
 	// The API calls this function when the player's state changes.
 	//    The function indicates that when playing a video (state=1),
 	//    the player should play for six seconds and then stop.
 	window.onPlayerStateChange = function(event) {
-		console.log("onPlayerStateChange " + event.data);
+		current_state = event.data;
 		var transcript = this.mmooc.youtube.getTranscriptFromVideoId(event.target.getIframe().id);
 		if (event.data == YT.PlayerState.PLAYING) {
 			transcript.playerPlaying();
@@ -432,6 +449,9 @@ this.mmooc.youtube = function() {
 		{
 			this.APIReady();
 		},
+        getCurrentState: function(){
+			return current_state;
+		}
 	}
 
 }();
