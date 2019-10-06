@@ -32,10 +32,6 @@
                                             allowtransparency="true"
                                             scrolling="no"></iframe>
                                 </div>
-                                <div class="text-donat-descr">
-                                    Деньги пойдут на оплату более качественной озвучки слов для словаря, которые вы можете скачать архивом в разделе
-                                    <a href="{{ route('page.misc') }}" title="Полезное">полезное</a>.
-                                </div>
                             </div>
                         </div>
 

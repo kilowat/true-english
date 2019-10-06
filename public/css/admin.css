@@ -944,6 +944,21 @@ body.compensate-for-scrollbar {
   padding: 8px;
 }
 
+.player-handler {
+  text-align: center;
+  background-color: #E1E1E1;
+  padding-top: 4px;
+  padding-bottom: 2px;
+}
+.player-handler .player-btn {
+  margin-left: 4px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.player-handler .player-btn i {
+  font-size: 28px;
+}
+
 .config-subtitle label {
   margin-right: 12px;
 }
@@ -1029,8 +1044,44 @@ body.compensate-for-scrollbar {
 .subtitle-list .s-item .time-line:hover {
   background-color: #4163c1;
 }
+.subtitle-list .s-item .time-line:hover:before {
+  border-color: transparent transparent transparent #4163c1;
+}
+.subtitle-list .s-item .time-line:hover:after {
+  border-color: #4163c1;
+}
 .subtitle-list .s-item .time-line.active {
   background-color: #4163c1;
+}
+.subtitle-list .s-item .time-line.active:before {
+  border-color: transparent transparent transparent #4163c1;
+}
+.subtitle-list .s-item .time-line.active:after {
+  border-color: #4163c1;
+}
+.subtitle-list .s-item .time-line:before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 0 7px 10px;
+  border-color: transparent transparent transparent red;
+  right: -19px;
+  top: 2px;
+}
+.subtitle-list .s-item .time-line:after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -22px;
+  top: -1px;
+  background-color: transparent;
+  border: 1px solid red;
+  border-radius: 100%;
 }
 
 .table-page {
@@ -1055,7 +1106,7 @@ body.compensate-for-scrollbar {
   display: table-row;
 }
 .table-page .table_row.selected .table-cell, .table-page .table_row.selected .table_small {
-  background-color: #00E676;
+  background-color: #A5EAC8;
 }
 .table-page .theader {
   display: table-row;
@@ -1129,6 +1180,7 @@ body.compensate-for-scrollbar {
 
 .word-info {
   margin: 12px;
+  max-width: 520px;
 }
 .word-info .link-list {
   display: flex;
@@ -1142,6 +1194,9 @@ body.compensate-for-scrollbar {
 }
 .word-info .table-cell {
   vertical-align: middle;
+}
+.word-info .translate-cell {
+  color: green;
 }
 
 .word-sort-panel {

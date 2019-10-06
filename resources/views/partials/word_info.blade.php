@@ -6,12 +6,12 @@
                     <div class="table-cell">{{ $word->name }}</div>
                 </div>
                 <div class="table-row">
-                    <div class="table-cell">Тран-ция:</div>
+                    <div class="table-cell">Тр-ция:</div>
                     <div class="table-cell">{{ $word->transcription }}</div>
                 </div>
                 <div class="table-row">
                     <div class="table-cell">Перевод:</div>
-                    <div class="table-cell">{{ $word->translate }}</div>
+                    <div class="table-cell translate-cell">{{ $word->translate }}</div>
                 </div>
                 <div class="table-row">
                     <div class="table-cell">Аудио:</div>

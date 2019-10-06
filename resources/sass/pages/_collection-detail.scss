@@ -42,6 +42,20 @@
 .video-config{
   padding: 8px;
 }
+.player-handler{
+  text-align: center;
+  background-color: #E1E1E1;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  .player-btn{
+    margin-left: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+    i{
+      font-size: 28px;
+    }
+  }
+}
 .config-subtitle{
   label{
     margin-right: 12px;
@@ -121,9 +135,47 @@
       cursor: pointer;
       &:hover{
         background-color: #4163c1;
+        &:before{
+          border-color: transparent transparent transparent #4163c1;
+        }
+        &:after{
+          border-color: #4163c1;
+        }
       }
       &.active{
         background-color: #4163c1;
+        &:before{
+          border-color: transparent transparent transparent #4163c1;
+        }
+        &:after{
+          border-color: #4163c1;
+        }
+      }
+      &:before{
+        display: block;
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 0 7px 10px;
+        border-color: transparent transparent transparent red;
+        right: -19px;
+        top: 2px;
+      }
+      &:after{
+        display: block;
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -22px;
+        top: -1px;
+        background-color: transparent;
+        border:1px solid red;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border-radius: 100%;
       }
     }
   }
@@ -152,7 +204,7 @@
     display: table-row;
     &.selected{
       .table-cell, .table_small{
-        background-color: #00E676;
+        background-color: #A5EAC8;
       }
     }
   }
@@ -240,6 +292,7 @@
 }
 .word-info{
   margin: 12px;
+  max-width: 520px;
   .link-list{
     display: flex;
     flex-wrap: wrap;
@@ -252,6 +305,9 @@
   }
   .table-cell{
     vertical-align: middle;
+  }
+  .translate-cell{
+    color: green;
   }
 }
 .word-sort-panel{

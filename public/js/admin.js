@@ -17169,7 +17169,7 @@ this.mmooc.youtube = function () {
       var to = document.querySelector("#t" + currentCaptionIndex).parentNode;
       var topPos = to.offsetTop;
       var itemHeight = $(".s-item").height();
-      var item = 2;
+      var item = 3;
       scrollTo(container, Math.abs(topPos - container.offsetTop - itemHeight * item), 300);
     }; //////////////////
     //Public functions
@@ -17321,6 +17321,16 @@ this.mmooc.youtube = function () {
 
     $("#font-size-s").change(function () {
       $("#subtitles .s-line").css("font-size", $(this).val() + "px");
+    });
+    $("#play-btn").click(function () {
+      oTranscript.player.playVideo();
+    });
+    $("#stop-btn").click(function () {
+      oTranscript.player.pauseVideo();
+    });
+    $("#replay-btn").click(function () {
+      oTranscript.player.seekTo(0);
+      oTranscript.player.playVideo();
     });
 
     oTranscript.onNext = function () {
