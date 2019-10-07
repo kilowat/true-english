@@ -31,17 +31,17 @@ class SubtitleCreator
     {
         $result = [];
 
-            $en_arr = Subtitles::load($this->enStr, $this->format)->getInternalFormat();
+            $en_arr = Subtitles::loadString($this->enStr, $this->format)->getInternalFormat();
 
             $ru_arr = [];
             $tr_arr = [];
 
             if(!empty($this->ruStr)){
-                $ru_arr = Subtitles::load($this->ruStr, $this->format)->getInternalFormat();
+                $ru_arr = Subtitles::loadString($this->ruStr, $this->format)->getInternalFormat();
             }
 
             if(!empty($this->trStr)){
-                $tr_arr = Subtitles::load($this->trStr, $this->format)->getInternalFormat();
+                $tr_arr = Subtitles::loadString($this->trStr, $this->format)->getInternalFormat();
             }
 
             foreach($en_arr as $en_key => $en_value){

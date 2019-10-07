@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="player-handler">
                                     <button class="player-btn btn" id="replay-btn"><i class="material-icons small dp48">replay</i></button>
-                                    <button class="player-btn btn" id="play-btn"><i class="material-icons small dp48">play_circle_outline</i></button>
+                                    <button class="player-btn btn" id="play-btn"><i class="material-icons small dp48">play</i></button>
                                     <button class="player-btn btn" id="stop-btn"><i class="material-icons small dp48">stop</i></button>
                                 </div>
                             @else

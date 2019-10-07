@@ -223,8 +223,13 @@ this.mmooc.youtube = function() {
 				var captionText = '';
                 captionText+= '<span class="time-line btnSeek youtube-marker" data-seek="' + start +'" id="'+ timestampId+'">'+captions[i]["line"]["time"]+'</span>';
 				captionText+='<span class="s-en">'+wrapWords(captions[i]["line"]["en"])+'</span>';
-                captionText+='<span class="s-tr">'+captions[i]["line"]["tr"]+'</span>';
-                captionText+='<span class="s-ru">'+captions[i]["line"]["ru"]+'</span>';
+
+				if(captions[i]["line"]["tr"].length > 0)
+                	captionText+='<br><span class="s-tr">'+captions[i]["line"]["tr"]+'</span>';
+
+                if(captions[i]["line"]["ru"].length > 0)
+                    captionText+='<br><span class="s-ru">'+captions[i]["line"]["ru"]+'</span>';
+
 
 				srt_output += "<span class='s-line s-item'>" + captionText + "</span> ";
 			};
@@ -365,11 +370,15 @@ this.mmooc.youtube = function() {
 	$(function() {
 		var open_on_played = false;
 
-		$(document).on('click', '.btnSeek', function() {
-			var seekToTime = $(this).data('seek');
-			var transcript = mmooc.youtube.getTranscriptFromTranscriptId($(this).parents('.mmocVideoTranscript').attr("id"));
-			transcript.player.seekTo(seekToTime, true);
-			transcript.player.playVideo();
+		$(document).on('click', '#subtitles', function(e) {
+			if($(e.target).hasClass('s-line')){
+				console.log($(e.target));
+                var seekToTime = $(e.target).find('.btnSeek ').data('seek');
+                var transcript = mmooc.youtube.getTranscriptFromTranscriptId($(e.target).parents('.mmocVideoTranscript').attr("id"));
+                transcript.player.seekTo(seekToTime, true);
+                transcript.player.playVideo();
+			}
+
 		});
 		//hover on word
         $(document).on('click', '.s-link', function() {
