@@ -109,6 +109,7 @@
         <script src="/js/app.js"></script>
         <script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
         <script type="text/javascript">
+            /*
             VK.Widgets.Group("vk_groups", {mode: 3, no_cover: 1}, 20003922);
 
             $('#live-widget').append('<a href="//www.liveinternet.ru/click" '+
@@ -120,6 +121,7 @@
                 '" alt="" title="LiveInternet: показано количество просмотров и'+
                 ' посетителей" '+
                 'border="0" width="88" height="120"><\/a>');
+                */
         </script>
         @yield("js")
     </body>
