@@ -62,7 +62,7 @@
             <!--end drower-->
             @yield('breadcrumbs')
             <main>
-                <div class="container main-container @yield("sidebar-class")" id="app">
+                <div class="container main-container @yield("sidebar-class")">
                     @yield("sidebar")
                     <div class="content">
                         @yield("content")

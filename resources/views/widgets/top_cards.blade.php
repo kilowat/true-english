@@ -5,7 +5,7 @@
             <div class="col s12 m6 l3">
                 <a class="card" href="{{ $card->link }}" title="">
                     <div class="card-image">
-                        <img src="{{ $card->previewPicture }}">
+                        <img src="{{ $card->previewPicture }}" alt="{{ $card->name }}">
                         <span class="card-title">{{ $card->name }}</span>
                     </div>
                     <div class="card-info">
