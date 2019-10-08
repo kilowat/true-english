@@ -46,7 +46,9 @@ this.mmooc.youtube = function() {
                     setTimeout(animateScroll, increment);
                 }
             };
+
             animateScroll();
+
         }
 
         window.Math.easeInOutQuad = function (t, b, c, d) {
@@ -120,14 +122,13 @@ this.mmooc.youtube = function() {
             captionTimeout = setTimeout(function() {
                 var stop = false;
                 if(typeof transcript.onNext === "function" ){
-                    stop = transcript.onNext();
+                    var startTime = Number(getStartTimeFromCaption(nextCaptionIndex));
+                    stop = transcript.onNext(startTime);
                 }
                 if(!stop){
                     transcript.highlightCaptionAndPrepareForNext();
-                    scrollToCurrent();
                 }else{
                     clearTimeout(captionTimeout);
-                    //scrollToCurrent();
                 }
 
             }, timeoutValue*(1000 / this.player.getPlaybackRate()))
@@ -156,17 +157,22 @@ this.mmooc.youtube = function() {
             return "t" + strTimestamp;
         }
 
-        var scrollToCurrent = function(){
+        this.scrollToCurrent = function(){
+            var currentNode = document.querySelector("#t"+currentCaptionIndex);
+
+            if(currentNode == undefined) return false;
+
             var container = document.querySelector("#subtitles");
-            var to = document.querySelector("#t"+currentCaptionIndex).parentNode;
+            var to = currentNode.parentNode;
 
             var topPos = to.offsetTop;
             var itemHeight = $(".s-item").height();
-            var item = 3;
+            var item = 2;
             var scrollPos = Math.abs(topPos - container.offsetTop - (itemHeight * item));
 
-            if(scrollPos > (itemHeight * item))
+            if(scrollPos > (itemHeight * item)){
                 scrollTo(container, scrollPos, 300);
+            }
         }
         //////////////////
         //Public functions
@@ -352,7 +358,14 @@ this.mmooc.youtube = function() {
             oTranscript.player.playVideo();
         });
 
-        oTranscript.onNext = function(){
+        var isPhraseMode = false;
+
+        $("#phrase-mode").change(function(){
+           isPhraseMode = $(this).is(':checked');
+        });
+
+        oTranscript.onNext = function(startTime){
+            //Настройка паузы на фразе
             var t;
             if (pause > 0){
                 oTranscript.player.pauseVideo();
@@ -366,6 +379,14 @@ this.mmooc.youtube = function() {
                 oTranscript.player.pauseVideo();
                 return true;
             }
+            //Режим фраз
+            var seek = $('#subtitles .s-line.active').next().find('.btnSeek').data('seek');
+
+            if(seek > 0 && isPhraseMode){
+                oTranscript.player.seekTo(seek);
+            }
+
+            oTranscript.scrollToCurrent();
         };
     }
 
@@ -408,6 +429,11 @@ this.mmooc.youtube = function() {
                     },
                 });
             })
+        });
+
+        $("#settings-toggle").click(function(){
+            var $toggleBlock = $(this).parent().next();
+            $toggleBlock.toggle();
         });
 
     });

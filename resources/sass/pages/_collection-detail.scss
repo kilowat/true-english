@@ -7,10 +7,12 @@
   .pic-box{
     margin-right: 14px;
     border:1px solid #ccc;
+    width: 60%;
     @include breakpoint(max-width 876px){
       margin-right: 0px;
       margin-top: 8px;
       margin-bottom: 8px;
+      width: 100%;
     }
   }
   .ic-excel{
@@ -27,6 +29,9 @@
     background-color: lightskyblue;
   }
 }
+.config-toggle-row{
+  text-align: center;
+}
 .config-cell{
   margin: 6px;
 }
@@ -35,7 +40,7 @@
   align-items: center;
   margin-right: 8px;
   select{
-    width: 80px;
+    max-width: 80px;
   }
   label{
     margin-right: 8px;
@@ -43,6 +48,9 @@
 }
 .video-config{
   padding: 8px;
+  @include breakpoint(max-width 560px){
+    display: none;
+  }
 }
 .player-handler{
   text-align: center;
@@ -85,7 +93,7 @@
 #subtitles {
   max-height: 500px;
   overflow-y: scroll;
-  margin-top: 25px;
+  margin-top: 5px;
   border: 1px solid #ccc;
 }
 

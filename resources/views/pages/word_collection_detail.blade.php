@@ -33,6 +33,9 @@
                             width="100%" height="315"
                             frameborder="0"
                             allowfullscreen="allowfullscreen"></iframe>
+                    <div class="config-toggle-row">
+                        <a href="javascript:void(0)" title="Скрыть/Показать" id="settings-toggle">Скрыть/Показать настройки</a>
+                    </div>
                     <div class="video-config">
                         <div class="config-row">
                             <div class="config-cell config-subtitle">
@@ -83,6 +86,12 @@
                                     <option value="18">1.5</option>
                                     <option value="22">2</option>
                                 </select>
+                            </div>
+                            <div class="config-cell">
+                                <label for="phrase-mode">
+                                    <input type="checkbox"id="phrase-mode" />
+                                    <span>Режим фраз</span>
+                                </label>
                             </div>
                         </div>
                     </div>

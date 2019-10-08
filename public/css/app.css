@@ -8360,12 +8360,14 @@ html, body {
 .card-detail .pic-box {
   margin-right: 14px;
   border: 1px solid #ccc;
+  width: 60%;
 }
 @media (max-width: 876px) {
   .card-detail .pic-box {
     margin-right: 0px;
     margin-top: 8px;
     margin-bottom: 8px;
+    width: 100%;
   }
 }
 .card-detail .ic-excel {
@@ -8382,6 +8384,10 @@ html, body {
   background-color: lightskyblue;
 }
 
+.config-toggle-row {
+  text-align: center;
+}
+
 .config-cell {
   margin: 6px;
 }
@@ -8392,7 +8398,7 @@ html, body {
   margin-right: 8px;
 }
 .speed-player select, .delay-player select {
-  width: 80px;
+  max-width: 80px;
 }
 .speed-player label, .delay-player label {
   margin-right: 8px;
@@ -8400,6 +8406,11 @@ html, body {
 
 .video-config {
   padding: 8px;
+}
+@media (max-width: 560px) {
+  .video-config {
+    display: none;
+  }
 }
 
 .player-handler {
@@ -8447,7 +8458,7 @@ html, body {
 #subtitles {
   max-height: 500px;
   overflow-y: scroll;
-  margin-top: 25px;
+  margin-top: 5px;
   border: 1px solid #ccc;
 }
 

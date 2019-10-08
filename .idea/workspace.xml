@@ -6,17 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GrammarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GrammarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/youtube.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/youtube.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/card_show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/card_show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,20 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="word_collection_section_index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_collection-detail.scss" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_collection-detail.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="198">
+              <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -78,17 +66,26 @@
       <file leaf-file-name="card_show.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="205" lean-forward="true" selection-start-line="16" selection-start-column="205" selection-end-line="16" selection-end-column="205" />
+            <state relative-caret-position="418">
+              <caret line="73" column="1" lean-forward="true" selection-start-line="73" selection-start-column="1" selection-end-line="79" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="word_collection_detail.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="word_collection_detail.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1451">
-              <caret line="92" column="26" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
+            <state relative-caret-position="703">
+              <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="youtube.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/youtube.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="435" column="34" selection-start-line="435" selection-start-column="34" selection-end-line="435" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -105,8 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>-section</find>
-      <find>.mdl-mega-footer</find>
       <find>Сборников</find>
       <find>mdl-grid</find>
       <find>Jquery</find>
@@ -135,6 +130,8 @@
       <find>active</find>
       <find>scroll</find>
       <find>app</find>
+      <find>animateScroll</find>
+      <find>scrollTo</find>
     </findStrings>
     <replaceStrings>
       <replace>r</replace>
@@ -186,7 +183,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminGrammarElementController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminGrammarSectionController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminWordController.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/word_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/errors/404.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/_main.scss" />
@@ -194,14 +190,15 @@
         <option value="$PROJECT_DIR$/config/excel.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/Services/Subtitles/SubtitleCreator.php" />
-        <option value="$PROJECT_DIR$/resources/js/youtube.js" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/GrammarController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/card_show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/youtube.js" />
+        <option value="$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" />
       </list>
     </option>
   </component>
@@ -404,6 +401,12 @@
               <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
               <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="sass" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -531,7 +534,7 @@
       <workItem from="1570212113911" duration="3245000" />
       <workItem from="1570270266584" duration="25991000" />
       <workItem from="1570362205576" duration="7323000" />
-      <workItem from="1570456180378" duration="7207000" />
+      <workItem from="1570456180378" duration="13616000" />
     </task>
     <servers />
   </component>
@@ -547,10 +550,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="611932000" />
+    <option name="totallyTimeSpent" value="618341000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -845,13 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/youtube.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="386" column="14" selection-start-line="386" selection-start-column="14" selection-end-line="386" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -866,6 +862,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GrammarController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
@@ -873,31 +876,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/js/youtube.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        <state relative-caret-position="594">
+          <caret line="435" column="34" selection-start-line="435" selection-start-column="34" selection-end-line="435" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="205" lean-forward="true" selection-start-line="16" selection-start-column="205" selection-end-line="16" selection-end-column="205" />
+        <state relative-caret-position="418">
+          <caret line="73" column="1" lean-forward="true" selection-start-line="73" selection-start-column="1" selection-end-line="79" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1451">
-          <caret line="92" column="26" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
+        <state relative-caret-position="703">
+          <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="15" />
         </state>
       </provider>
     </entry>
