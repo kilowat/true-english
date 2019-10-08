@@ -324,7 +324,9 @@ this.mmooc.youtube = function() {
             var one_checked = false;
 
             $(".config-subtitle input").each(function(){
-                one_checked = $(this).is(':checked');
+                if($(this).is(':checked')){
+                    one_checked = true;
+                }
             })
 
             if(!one_checked){
