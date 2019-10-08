@@ -29,7 +29,6 @@
                             <th>Сортировка</th>
                             <th>Активность</th>
                             <th>Скачиваний</th>
-                            <th>Дата создания</th>
                             <th>Дата изменения</th>
                             <th>Управление</th>
                         </tr>
@@ -61,7 +60,6 @@
                     { data: 'sort', name: 'sort' },
                     { data: 'active', name: 'active' },
                     { data: 'excel_downloaded', name: 'excel_downloaded' },
-                    { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
                     { data: 'action', name: 'action', orderable: false, searchable: false}
                 ]

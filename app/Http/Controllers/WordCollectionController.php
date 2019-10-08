@@ -64,6 +64,7 @@ class WordCollectionController extends Controller
         $page = Page::where("code", "=", $request->getRequestUri())->first();
 
         $sections = WordSection::where('parent_id', '>', 0)
+            ->orderBy('sort', 'asc')
             ->where('active', '=', 1)
             ->paginate(12);
 
@@ -80,6 +81,7 @@ class WordCollectionController extends Controller
 
         $sections = WordSection::where('parent_id', '=', $current_section->id)
             ->where('active', '=', 1)
+            ->orderBy('sort', 'asc')
             ->paginate($this->elementPaginateCount);
 
         $data =  [
@@ -100,6 +102,7 @@ class WordCollectionController extends Controller
 
         $elements = WordCard::where("section_id" , "=", $section->id)
             ->where('active', '=', 1)
+            ->orderBy('sort', 'asc')
             ->paginate($this->elementPaginateCount);
 
         $data = [

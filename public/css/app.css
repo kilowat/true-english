@@ -8382,10 +8382,13 @@ html, body {
   background-color: lightskyblue;
 }
 
+.config-cell {
+  margin: 6px;
+}
+
 .speed-player, .delay-player {
   display: flex;
   align-items: center;
-  padding: 2px;
   margin-right: 8px;
 }
 .speed-player select, .delay-player select {

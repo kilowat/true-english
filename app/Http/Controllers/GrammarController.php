@@ -38,6 +38,7 @@ class GrammarController extends Controller
         $page = Page::where("code", "=", $request->getRequestUri())->first();
         $grammars = Grammar::with("section")
             ->where('active', '=', 1)
+            ->orderBy('sort', 'asc')
             ->paginate(20);
 
         return view("pages.grammar_index", compact('grammars', 'page'));
@@ -50,6 +51,7 @@ class GrammarController extends Controller
             ->first();
         $grammars = Grammar::where("section_id", "=", $section->id)
             ->where('active', '=', 1)
+            ->orderBy('sort', 'asc')
             ->paginate(20);
 
         return view("pages.grammar_section", compact('grammars', 'section'));

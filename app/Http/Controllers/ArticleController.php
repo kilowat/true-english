@@ -18,11 +18,13 @@ class ArticleController extends Controller
             $articles = Article::with('tagged')
                 ->where('active', '=', 1)
                 ->withAnyTag($tag)
+                ->orderBy('sort', 'asc')
                 ->orderBy('created_at', 'desc')
                 ->paginate($this->count);
         } else {
             $articles = Article::with('tagged')
                 ->where('active', '=', 1)
+                ->orderBy('sort', 'asc')
                 ->orderBy('created_at', 'desc')
                 ->paginate($this->count);
         }

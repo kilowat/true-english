@@ -17170,7 +17170,8 @@ this.mmooc.youtube = function () {
       var topPos = to.offsetTop;
       var itemHeight = $(".s-item").height();
       var item = 3;
-      scrollTo(container, Math.abs(topPos - container.offsetTop - itemHeight * item), 300);
+      var scrollPos = Math.abs(topPos - container.offsetTop - itemHeight * item);
+      if (scrollPos > itemHeight * item) scrollTo(container, scrollPos, 300);
     }; //////////////////
     //Public functions
     /////////////////
@@ -17357,12 +17358,17 @@ this.mmooc.youtube = function () {
     var open_on_played = false;
     $(document).on('click', '#subtitles', function (e) {
       if ($(e.target).hasClass('s-line')) {
-        console.log($(e.target));
         var seekToTime = $(e.target).find('.btnSeek ').data('seek');
         var transcript = mmooc.youtube.getTranscriptFromTranscriptId($(e.target).parents('.mmocVideoTranscript').attr("id"));
         transcript.player.seekTo(seekToTime, true);
         transcript.player.playVideo();
       }
+    });
+    $(document).on('click', '.btnSeek', function () {
+      var seekToTime = $(this).data('seek');
+      var transcript = mmooc.youtube.getTranscriptFromTranscriptId($(this).parents('.mmocVideoTranscript').attr("id"));
+      transcript.player.seekTo(seekToTime, true);
+      transcript.player.playVideo();
     }); //hover on word
 
     $(document).on('click', '.s-link', function () {
@@ -17386,7 +17392,7 @@ this.mmooc.youtube = function () {
         });
       });
     });
-  }); //These functions must be global as YouTube API will call them. 
+  }); //These functions must be global as YouTube API will call them.
 
   var previousOnYouTubePlayerAPIReady = window.onYouTubePlayerAPIReady;
 

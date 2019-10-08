@@ -14,7 +14,7 @@
                     <div class="card-detail">
                         <div class="pic-box">
                             @if($card->youtube)
-                                <iframe id="{{ $card->youtube }}" src="https://www.youtube.com/embed/{{ $card->youtube }}?enablejsapi=1" width="560" height="315" allowfullscreen="allowfullscreen"></iframe></p>
+                                <iframe id="{{ $card->youtube }}" src="https://www.youtube.com/embed/{{ $card->youtube }}?enablejsapi=1" width="560" height="315" allowfullscreen="allowfullscreen"></iframe>
                                 <div class="video-config">
                                     <div class="config-row">
                                         <div class="config-cell config-subtitle">
