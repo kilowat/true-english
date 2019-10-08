@@ -167,7 +167,7 @@ this.mmooc.youtube = function() {
 
             var topPos = to.offsetTop;
             var itemHeight = $(".s-item").height();
-            var item = 2;
+            var item = 1;
             var scrollPos = Math.abs(topPos - container.offsetTop - (itemHeight * item));
 
             if(scrollPos > (itemHeight * item)){

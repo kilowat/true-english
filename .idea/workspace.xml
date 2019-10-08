@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/youtube.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/youtube.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/card_show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/card_show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,7 +47,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_collection-detail.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_collection-detail.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
@@ -67,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="73" column="1" lean-forward="true" selection-start-line="73" selection-start-column="1" selection-end-line="79" selection-end-column="42" />
+              <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="79" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -81,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="youtube.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="youtube.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/youtube.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="435" column="34" selection-start-line="435" selection-start-column="34" selection-end-line="435" selection-end-column="34" />
+            <state relative-caret-position="286">
+              <caret line="169" column="24" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -196,9 +189,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/GrammarController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/card_show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/youtube.js" />
         <option value="$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" />
+        <option value="$PROJECT_DIR$/resources/js/youtube.js" />
       </list>
     </option>
   </component>
@@ -534,7 +527,7 @@
       <workItem from="1570212113911" duration="3245000" />
       <workItem from="1570270266584" duration="25991000" />
       <workItem from="1570362205576" duration="7323000" />
-      <workItem from="1570456180378" duration="13616000" />
+      <workItem from="1570456180378" duration="14232000" />
     </task>
     <servers />
   </component>
@@ -550,7 +543,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="618341000" />
+    <option name="totallyTimeSpent" value="618957000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -876,17 +869,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/youtube.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="435" column="34" selection-start-line="435" selection-start-column="34" selection-end-line="435" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="73" column="1" lean-forward="true" selection-start-line="73" selection-start-column="1" selection-end-line="79" selection-end-column="42" />
+          <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="79" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -901,6 +887,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/youtube.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="169" column="24" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="24" />
         </state>
       </provider>
     </entry>
