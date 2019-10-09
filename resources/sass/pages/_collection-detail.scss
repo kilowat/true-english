@@ -106,8 +106,8 @@
     position: relative;
     .s-en, .s-tr, .s-ru{
       display: none;
-      &.show{
-        display: inline-block;
+      &.show-str{
+        display: inline;
       }
     }
     .s-en{
