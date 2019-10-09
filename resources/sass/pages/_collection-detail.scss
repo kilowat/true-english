@@ -291,7 +291,7 @@
   }
   audio{
     @include breakpoint(max-width 480px){
-      width: 80px;
+      width: 140px;
     }
   }
 }
