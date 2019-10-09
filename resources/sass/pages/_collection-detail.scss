@@ -289,6 +289,11 @@
   .translate-cell{
     color: green;
   }
+  audio{
+    @include breakpoint(max-width 480px){
+      width: 80px;
+    }
+  }
 }
 .word-sort-panel{
   position: fixed;
