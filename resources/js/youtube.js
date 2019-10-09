@@ -305,7 +305,7 @@ this.mmooc.youtube = function() {
         var href = $video.data('route');
         var oTranscript = new transcript($video.attr("id"), href);
         oTranscript.getTranscript();
-
+        window.oTranscript = oTranscript;
         transcriptArr.push(oTranscript);
         /*speed settings*/
         $("#video-speed").change(function(){

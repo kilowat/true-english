@@ -7,11 +7,17 @@
   .pic-box{
     margin-right: 14px;
     border:1px solid #ccc;
-    width: 60%;
+    width: calc(100% - 334px);
     @include breakpoint(max-width 876px){
       margin-right: 0px;
       margin-top: 8px;
       margin-bottom: 8px;
+      width: 100%;
+    }
+  }
+  .card-descr{
+    width: 320px;
+    @include breakpoint(max-width 876px){
       width: 100%;
     }
   }

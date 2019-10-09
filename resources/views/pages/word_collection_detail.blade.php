@@ -32,6 +32,7 @@
                             src="https://www.youtube.com/embed/{{ $card->youtube }}?enablejsapi=1"
                             width="100%" height="315"
                             frameborder="0"
+                            allow="autoplay"
                             allowfullscreen="allowfullscreen"></iframe>
                     <div class="config-toggle-row">
                         <a href="javascript:void(0)" title="Скрыть/Показать" id="settings-toggle">Скрыть/Показать настройки</a>

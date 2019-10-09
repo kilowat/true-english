@@ -20,7 +20,7 @@
                         <div class="left-block">
                             <div class="logo-block">
                                 <a href="/" title="true-english.ru"><img src="/images/logo.png" alt="logo"></a>
-                                <span class="slogan-txt"><span class="slogan-left">Учи английский по</span> <span class="slogan-right">настоящему!</span></span>
+                                <span class="slogan-txt"><span class="slogan-left">Учи английский по-</span> <span class="slogan-right">настоящему!</span></span>
                             </div>
                             <div class="addition-info-block">
                                 <div><b>По вопросам обращайтесь:</b> <a href="#" title="#">text@test.ru</a></div>
