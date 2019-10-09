@@ -130,7 +130,7 @@ return [
     'menu' => [
         [
             'text' => 'Перейти на сайт',
-            'url'  => 'http://true-english.local',
+            'url'  => 'https://true-english.ru',
             'icon' => 'fas fa-fw fa-file',
         ],
         [
