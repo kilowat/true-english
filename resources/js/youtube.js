@@ -387,9 +387,10 @@ this.mmooc.youtube = function() {
 
             if(seek > 0 && isPhraseMode){
                 oTranscript.player.seekTo(seek);
+                oTranscript.scrollToCurrent();
+            }else {
+                oTranscript.scrollToCurrent();
             }
-
-            oTranscript.scrollToCurrent();
         };
     }
 
