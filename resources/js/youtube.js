@@ -231,13 +231,13 @@ this.mmooc.youtube = function() {
 
                 var captionText = '';
                 captionText+= '<span class="time-line btnSeek youtube-marker" data-seek="' + start +'" id="'+ timestampId+'">'+captions[i]["line"]["time"]+'</span>';
-                captionText+='<span class="s-en">'+wrapWords(captions[i]["line"]["en"])+'</span>';
+                captionText+='<span class="s-en show">'+wrapWords(captions[i]["line"]["en"])+'</span><br class="s-en show">';
 
                 if(captions[i]["line"]["tr"].length > 0)
-                    captionText+='<br class="s-tr"><span class="s-tr">'+captions[i]["line"]["tr"]+'</span>';
+                    captionText+='<span class="s-tr">'+captions[i]["line"]["tr"]+'</span><br class="s-tr">';
 
                 if(captions[i]["line"]["ru"].length > 0)
-                    captionText+='<br class="s-ru"><span class="s-ru">'+captions[i]["line"]["ru"]+'</span>';
+                    captionText+='<span class="s-ru show">'+captions[i]["line"]["ru"]+'</span>';
 
 
                 srt_output += "<span class='s-line s-item'>" + captionText + "</span> ";
@@ -316,9 +316,9 @@ this.mmooc.youtube = function() {
             var class_str = $(this).data("class");
 
             if($(this).is(':checked')){
-                $("."+class_str).show();
+                $("."+class_str).addClass('show');
             }else{
-                $("."+class_str).hide();
+                $("."+class_str).removeClass('show');
             }
 
             var one_checked = false;
@@ -335,6 +335,7 @@ this.mmooc.youtube = function() {
                 $("#subtitles").show();
             }
         });
+
         /*pause setting*/
         var pause = 0;
 

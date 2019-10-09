@@ -104,8 +104,13 @@
     padding: 8px;
     display: block;
     position: relative;
+    .s-en, .s-tr, .s-ru{
+      display: none;
+      &.show{
+        display: inline-block;
+      }
+    }
     .s-en{
-      display: inline-block;
       .s-link{
         cursor: pointer;
         &:hover{
@@ -117,7 +122,6 @@
       color: red;
     }
     .s-ru{
-      display: inline-block;
       color: green;
     }
     &:hover{

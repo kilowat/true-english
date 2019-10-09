@@ -28,7 +28,7 @@
                                                 <span class="en-label">Англ-слова</span>
                                             </label>
                                             <label>
-                                                <input type="checkbox" data-class="s-tr" id="show-tr" checked="checked"/>
+                                                <input type="checkbox" data-class="s-tr" id="show-tr"/>
                                                 <span class="tr-label">Тран-ция</span>
                                             </label>
                                             <label>
