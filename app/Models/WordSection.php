@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use Kalnoy\Nestedset\NodeTrait;
 use QCod\ImageUp\HasImageUploads;
 
