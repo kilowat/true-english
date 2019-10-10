@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Импорт/Экспорт словаря')
 
 @section('content_header')
-    <h1>Генерация слов</h1>
+    <h1>Импорт/Экспорт словаря</h1>
 @stop
 
 @section('content')
@@ -28,6 +28,11 @@
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" name="where[transcription]" value=""> Нет транскрипции
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="where[audio]" value=""> Нет аудио
                                 </label>
                             </div>
                         </div>
