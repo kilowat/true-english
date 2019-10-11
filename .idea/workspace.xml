@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Exports/CardExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/CardExport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/backup.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/backup.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +29,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="backup.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="backup.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/backup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state relative-caret-position="849">
+              <caret line="211" lean-forward="true" selection-start-line="211" selection-end-line="211" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mail.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/mail.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-264" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExampleComponent.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/ExampleComponent.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CardExport.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Exports/CardExport.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="96" column="89" selection-start-line="96" selection-start-column="89" selection-end-line="96" selection-end-column="89" />
             </state>
           </provider>
         </entry>
@@ -58,7 +84,7 @@
       <file leaf-file-name="filesystems.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/filesystems.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
+            <state relative-caret-position="805">
               <caret line="92" column="10" selection-start-line="92" selection-start-column="10" selection-end-line="92" selection-end-column="10" />
             </state>
           </provider>
@@ -140,8 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminArticleController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminAudioController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCardController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminGrammarElementController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminGrammarSectionController.php" />
@@ -191,6 +215,8 @@
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/config/backup.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" />
+        <option value="$PROJECT_DIR$/app/Exports/CardExport.php" />
       </list>
     </option>
   </component>
@@ -392,12 +418,36 @@
               <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
               <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Exports" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Providers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
               <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
@@ -489,7 +539,7 @@
       <workItem from="1570270266584" duration="25991000" />
       <workItem from="1570362205576" duration="7323000" />
       <workItem from="1570456180378" duration="24741000" />
-      <workItem from="1570728904672" duration="10349000" />
+      <workItem from="1570728904672" duration="13113000" />
     </task>
     <servers />
   </component>
@@ -505,7 +555,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="639815000" />
+    <option name="totallyTimeSpent" value="642579000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -546,23 +596,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminWordGeneratorController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Word.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-594" />
@@ -865,20 +898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="176" column="22" selection-start-line="176" selection-start-column="22" selection-end-line="176" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/filesystems.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="92" column="10" selection-start-line="92" selection-start-column="10" selection-end-line="92" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -893,10 +912,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="176" column="22" selection-start-line="176" selection-start-column="22" selection-end-line="176" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/filesystems.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="92" column="10" selection-start-line="92" selection-start-column="10" selection-end-line="92" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/backup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        <state relative-caret-position="849">
+          <caret line="211" lean-forward="true" selection-start-line="211" selection-end-line="211" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-264" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ExampleComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Exports/CardExport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="96" column="89" selection-start-line="96" selection-start-column="89" selection-end-line="96" selection-end-column="89" />
         </state>
       </provider>
     </entry>
