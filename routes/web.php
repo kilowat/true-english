@@ -28,6 +28,9 @@ Route::get('grammar', 'GrammarController@index')->name('grammar.index');
 Route::get('grammar/{section}', 'GrammarController@section')->name('grammar.section');
 Route::get('grammar/{section}/{code}.html', 'GrammarController@detail')->name('grammar.detail');
 
+Route::get('prononciation', 'PrononsController@index')->name('prononciation.index');
+Route::get('prononciation/{code}.html', 'PrononsController@detail')->name('prononciation.detail');
+
 Route::get('anki', 'AnkiCardController@index')->name('anki.index');
 Route::get('anki/tag/{name}', 'AnkiCardController@index')->name('anki.index.tag');
 
@@ -39,7 +42,7 @@ Route::get('articles/{code}.html', 'ArticleController@detail')->name('article.de
 Route::get('/api/subtitle/id/{id}', 'ApiController@subtitle')->name('api.subtitle');
 Route::get('/api/words/id/{id}', 'ApiController@words')->name('api.words');
 Route::get('/api/text-words/id/{id}', 'ApiController@textWords')->name('api.text-words');
-Route::get('prononciation', 'PageController@prononciation')->name('page.prononciation');
+
 Route::get('misc', 'PageController@misc')->name('page.misc');
 
 Route::get('/', 'PageController@home')->name('page.home');
@@ -132,6 +135,18 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('grammar/element/edit/{id}', 'AdminGrammarElementController@edit')->name('admin.grammar-element.edit');
     Route::post('grammar/element/update/{id}', 'AdminGrammarElementController@update')->name('admin.grammar-element.update');
     Route::get('grammar/element/delete/{id}', 'AdminGrammarElementController@delete')->name('admin.grammar-element.delete');
+    /****************************/
+
+
+    /**********pronons*******************/
+    Route::get('pronons', 'AdminPrononsController@index')->name('admin.pronons.index');
+    Route::get('pronons/show/{id}', 'AdminPrononsController@show')->name('admin.pronons.show');
+    Route::get('pronons/data-list', 'AdminPrononsController@dataList')->name('admin.pronons.data-list');
+    Route::get('pronons/add', 'AdminPrononsController@add')->name('admin.pronons.add');
+    Route::post('pronons/add', 'AdminPrononsController@store')->name('admin.pronons.store');
+    Route::get('pronons/edit/{id}', 'AdminPrononsController@edit')->name('admin.pronons.edit');
+    Route::post('pronons/update/{id}', 'AdminPrononsController@update')->name('admin.pronons.update');
+    Route::get('pronons/delete/{id}', 'AdminPrononsController@delete')->name('admin.pronons.delete');
     /****************************/
 
     /***************pages*****************************/

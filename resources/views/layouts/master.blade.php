@@ -23,7 +23,7 @@
                                 <span class="slogan-txt"><span class="slogan-left">Учи английский по-</span> <span class="slogan-right">настоящему!</span></span>
                             </div>
                             <div class="addition-info-block">
-                                <div><b>По вопросам обращайтесь:</b> <a href="#" title="#">text@test.ru</a></div>
+                                <div><b>По вопросам обращайтесь:</b> <a href="mailto:info@true-english.ru" title="info@true-english.ru">info@true-english.ru</a></div>
                                 <div class="support-row"><b>Поддержать проект:</b>
                                     <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%9D%D0%B0%20%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0&default-sum=100&button-text=11&yamoney-payment-type=on&button-size=m&button-color=orange&successURL=&quickpay=small&account=410018237147676&"
                                             width="184"

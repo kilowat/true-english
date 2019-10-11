@@ -186,6 +186,12 @@ return [
             'url'  => 'admin/grammar/element',
             'icon' => 'fas fa-fw fa-th-list',
         ],
+        ['header' => 'Произношение'],
+        [
+            'text' => 'Элементы',
+            'url'  => 'admin/pronons',
+            'icon' => 'fas fa-fw fa-th-list',
+        ],
         ['header' => 'Настройки'],
         [
             'text' => 'Очистить кэш',

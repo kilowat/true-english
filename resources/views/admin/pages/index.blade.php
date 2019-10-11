@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Панель управления tru-english.ru')
 
 @section('content_header')
     <h1>Главная страница</h1>

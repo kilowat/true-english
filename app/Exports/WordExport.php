@@ -35,7 +35,7 @@ class WordExport implements FromQuery, WithMapping
 
         if($this->needWhereEmptyAudio){
             $word_query->whereDoesntHave('audio', function($query){
-                
+
             });
         }
 

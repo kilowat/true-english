@@ -20,7 +20,7 @@ class MainMenu
             $menu->add('Главная', [ 'route'=>'page.home']);
             $menu->add("Слова и диалоги", ['route'=>"word-collection.index"]);
             $menu->add("Грамматика", ['route' => 'grammar.index']);
-            $menu->add("Произношение", ['route' => 'page.prononciation']);
+            $menu->add("Произношение", ['route' => 'prononciation.index']);
             $menu->add("Статьи", ['route' => 'article.index']);
             $menu->add("Полезное", ['route' => 'page.misc']);
 

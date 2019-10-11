@@ -21,7 +21,7 @@
 
 @section('content')
     <section>
-        <h1 class="section-header">Детальная</h1>
+        <h1 class="section-header">{{$article->name}}</h1>
         <div class="article-detail">
          {!! $article->text !!}
         </div>

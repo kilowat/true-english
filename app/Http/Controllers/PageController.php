@@ -15,13 +15,6 @@ class PageController extends Controller
         return view('pages.home', compact('page'));
     }
 
-    public function prononciation(Request $request)
-    {
-        $page = Page::where("code", "=", $request->getRequestUri())->first();
-
-        return view('pages.prononciation_index', compact('page'));
-    }
-
     public function misc(Request $request)
     {
         $page = Page::where("code", "=", $request->getRequestUri())->first();

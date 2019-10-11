@@ -48,6 +48,11 @@ Breadcrumbs::for('prononciation_index', function ($trail) {
     $trail->push('Главная', route('page.home'));
     $trail->push('Произношение');
 });
+Breadcrumbs::for('prononciation_detail', function ($trail, $pronons) {
+    $trail->push('Главная', route('page.home'));
+    $trail->push('Произношение', route('prononciation.index'));
+    $trail->push($pronons->name);
+});
 Breadcrumbs::for('misc_index', function ($trail) {
     $trail->push('Главная', route('page.home'));
     $trail->push('Полезно');

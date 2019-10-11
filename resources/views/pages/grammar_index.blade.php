@@ -8,9 +8,11 @@
 
 @section('sidebar')
     <aside class="sidebar">
-        <div class="collection-menu">
-            {!! $grammarMenu->asUl() !!}
-        </div>
+        @if(count($grammarMenu->all()) > 0)
+            <div class="collection-menu">
+                {!! $grammarMenu->asUl() !!}
+            </div>
+        @endif
         {{ Widget::run('AdsBlock') }}
     </aside>
 @endsection
@@ -36,9 +38,6 @@
                 </a>
             </div>
         @endforeach
-        <div class="nav-pagen">
-
-        </div>
         <div class="nav-pagen">
             {{ $grammars->links() }}
         </div>
