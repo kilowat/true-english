@@ -2,7 +2,7 @@
     <h4>Новые статьи</h4>
     <div class="row">
         @foreach($articles as $article)
-            <div class="col s12 m6 l4">
+            <div class="col s12 m6 l3">
                 <div class="card">
                     <div class="card-image">
                         <img src="{{ $article->previewPicture }}" alt="{{ $article->name }}">
