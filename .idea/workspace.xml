@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/misc_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/misc_index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,11 +22,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="word_collection_detail.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="word_collection_detail.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="616">
               <caret line="124" column="75" selection-start-line="124" selection-start-column="75" selection-end-line="124" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="misc_index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/pages/misc_index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="13" column="76" selection-start-line="13" selection-start-column="76" selection-end-line="13" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -86,7 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/errors/404.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/widgets/top_cards.blade.php" />
         <option value="$PROJECT_DIR$/config/excel.php" />
         <option value="$PROJECT_DIR$/app/Services/Subtitles/SubtitleCreator.php" />
@@ -121,7 +141,6 @@
         <option value="$PROJECT_DIR$/resources/views/pages/pronons_detail.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/GrammarController.php" />
         <option value="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/GoogleDriveServiceProvider.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/config/filesystems.php" />
@@ -137,6 +156,8 @@
         <option value="$PROJECT_DIR$/resources/views/pages/grammar_index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/article_index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/misc_index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
       </list>
     </option>
   </component>
@@ -408,6 +429,13 @@
               <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -503,7 +531,7 @@
       <workItem from="1570728904672" duration="16902000" />
       <workItem from="1570822633293" duration="49000" />
       <workItem from="1570872077312" duration="2207000" />
-      <workItem from="1570881122296" duration="1130000" />
+      <workItem from="1570881122296" duration="1645000" />
     </task>
     <servers />
   </component>
@@ -519,7 +547,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="649754000" />
+    <option name="totallyTimeSpent" value="650269000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -560,13 +588,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/pronons_add.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/grammar_element_edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -732,13 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -883,6 +897,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
           <caret line="124" column="75" selection-start-line="124" selection-start-column="75" selection-end-line="124" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/misc_index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="76" selection-start-line="13" selection-start-column="76" selection-end-line="13" selection-end-column="76" />
         </state>
       </provider>
     </entry>

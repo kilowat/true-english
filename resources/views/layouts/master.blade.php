@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap&subset=cyrillic" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap&subset=cyrillic" rel="stylesheet">
         <link href="/css/app.css" rel="stylesheet">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     </head>
     <body>
         <div id="app">

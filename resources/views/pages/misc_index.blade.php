@@ -21,6 +21,7 @@
     <section class="card-cmp section-list">
         @if($page)
             <h1 class="section-header">{{ $page->name }}</h1>
+            {!! $page->text !!}
         @endif
     </section>
 @endsection
