@@ -122,7 +122,7 @@
                         </div>
                     @endif
                     <div class="prop-item table-row">
-                        <div class="table-cell"><span class="prop-name">Текстовый файл со словами:</span></div>
+                        <div class="table-cell"><span class="prop-name">TXT файл со словами:</span></div>
                         <div class="table-cell">
                             <span calss="prop-value">
                                 <a href="{{ route('api.text-words', $card->id) }}" title="файл"><svg class="ic-svg ic-txt"><use xlink:href="#ic-txt" x="0" y="0"></use></svg> Скачать</a>

@@ -23,7 +23,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="616">
-              <caret line="124" column="97" selection-start-line="124" selection-start-column="97" selection-end-line="124" selection-end-column="97" />
+              <caret line="124" column="75" selection-start-line="124" selection-start-column="75" selection-end-line="124" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -503,7 +503,7 @@
       <workItem from="1570728904672" duration="16902000" />
       <workItem from="1570822633293" duration="49000" />
       <workItem from="1570872077312" duration="2207000" />
-      <workItem from="1570881122296" duration="1055000" />
+      <workItem from="1570881122296" duration="1130000" />
     </task>
     <servers />
   </component>
@@ -519,7 +519,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="649679000" />
+    <option name="totallyTimeSpent" value="649754000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -882,7 +882,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/pages/word_collection_detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
-          <caret line="124" column="97" selection-start-line="124" selection-start-column="97" selection-end-line="124" selection-end-column="97" />
+          <caret line="124" column="75" selection-start-line="124" selection-start-column="75" selection-end-line="124" selection-end-column="75" />
         </state>
       </provider>
     </entry>
