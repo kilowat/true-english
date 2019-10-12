@@ -248,7 +248,7 @@ this.mmooc.youtube = function() {
         }
 
         function wrapWords(str, tmpl) {
-            return str.replace(/[a-zA-Z’']+/g, tmpl || "<span class='s-link'>$&</span>");
+            return str.replace(/[a-zA-Z’'<//>]+/g, tmpl || "<span class='s-link'>$&</span>");
         }
 
         this.getTranscriptId = function()
