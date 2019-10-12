@@ -25,6 +25,7 @@
     <section class="card-cmp article">
         @if($page)
             <h1 class="section-header">{{ $page->name }}</h1>
+            {!! $page->text !!}
         @endif
         <div class="row">
             @foreach($articles as $article)
