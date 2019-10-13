@@ -93,6 +93,7 @@ const app = new Vue({
                 widget.search(word,"US");
             }
 
+            var autoChangeTimer;
 
             var views = 0, curTrack = 0, totalTracks = 0;
 
@@ -106,12 +107,19 @@ const app = new Vue({
             window.onVideoChange = function(event){
                 curTrack = event.trackNumber;
                 views = 0;
+                if(autoChangeTimer){
+                    clearTimeout(autoChangeTimer);
+                }
             }
 
             // 7. The API will call this method when a caption is consumed.
             window.onCaptionConsumed = function(event){
-                if (curTrack < totalTracks)
-                    widget.next();
+                if (curTrack < totalTracks){
+                    autoChangeTimer = setTimeout(function(){
+                        widget.next();
+                    }, 2000)
+                }
+
             }
         }
     }
