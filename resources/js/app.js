@@ -37,6 +37,15 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 $(document).ready(function(){
     $('.sidenav').sidenav();
+
+    $(".word-popup").click(function(){
+        $.ajax({
+            url: "/word/"+$(this).text()
+        }).done(function(res){
+            $.fancybox.open(res,{
+            });
+        })
+    })
 });
 
 $(document).on('click', 'a[href^="#"]', function (event) {

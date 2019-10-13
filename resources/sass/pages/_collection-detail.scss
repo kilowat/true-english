@@ -221,7 +221,15 @@
   .table_row > .table_small > .table_cell {
 
   }
-
+  .word-cell{
+    font-weight: 700;
+  }
+  .transcript-cell{
+    color: red;
+  }
+  .translate-cell{
+    color: green;
+  }
 
   .table_row:nth-child(2n+3) {
     background: #f4f4f4;
@@ -291,6 +299,12 @@
   }
   .table-cell{
     vertical-align: middle;
+  }
+  .word-cell{
+    font-weight: 700;
+  }
+  .transcript-cell{
+    color: red;
   }
   .translate-cell{
     color: green;

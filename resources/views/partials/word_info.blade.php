@@ -3,11 +3,11 @@
             <div class="table">
                 <div class="table-row">
                     <div class="table-cell">Слово:</div>
-                    <div class="table-cell">{{ $word->name }}</div>
+                    <div class="table-cell word-cell">{{ $word->name }}</div>
                 </div>
                 <div class="table-row">
                     <div class="table-cell">Тр-ция:</div>
-                    <div class="table-cell">{{ $word->transcription }}</div>
+                    <div class="table-cell transcript-cell">{{ $word->transcription }}</div>
                 </div>
                 <div class="table-row">
                     <div class="table-cell">Перевод:</div>

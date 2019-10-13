@@ -52,15 +52,15 @@
                     </div>
                     <div class='table_small'>
                         <div class='table_cell'>Слово:</div>
-                        <div class='table_cell'>{{ $word->name }}</div>
+                        <div class='table_cell word-cell'>{{ $word->name }}</div>
                     </div>
                     <div class='table_small'>
                         <div class='table_cell'>Транскрипция:</div>
-                        <div class='table_cell'>{{ $word->transcription }}</div>
+                        <div class='table_cell transcript-cell'>{{ $word->transcription }}</div>
                     </div>
                     <div class='table_small'>
                         <div class='table_cell'>Перевод:</div>
-                        <div class='table_cell'>{{ $word->translate }}</div>
+                        <div class='table_cell translate-cell'>{{ $word->translate }}</div>
                     </div>
                     <div class='table_small'>
                         <div class='table_cell'>Аудио:</div>

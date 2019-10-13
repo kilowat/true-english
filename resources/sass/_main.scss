@@ -157,6 +157,13 @@ html, body {
 .ads-block img{
   max-width: 100%;
 }
+.word-popup{
+  text-decoration: underline;
+  cursor:pointer;
+  &:hover{
+    color: blue;
+  }
+}
 .table{
   display: table;
   width: 100%;
