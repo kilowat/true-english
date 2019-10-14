@@ -36,7 +36,7 @@ class CardExport implements FromQuery, WithEvents, WithMapping
             ->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word')
         ->where('card_id', '=', $this->card_id);
         $this->count = $query->count();
-  
+
         return $query;
     }
 
