@@ -22,19 +22,21 @@ class CardExport implements FromQuery, WithEvents, WithMapping
 
     private $whereIn;
     private $count = 0;
+    private $card_id;
 
-    public function __construct(array $whereIn = [])
+    public function __construct(array $whereIn = [], $id)
     {
-
+        $this->card_id = $id;
         $this->where = $whereIn;
     }
 
     public function query()
     {
         $query = Word::query()->whereIn('name',$this->where)
-            ->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word');
+            ->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word')
+        ->where('card_id', '=', $this->card_id);
         $this->count = $query->count();
-
+  
         return $query;
     }
 

@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\WordCard;
+use App\Models\WordCardWord;
 use App\Models\WordSection;
 
 class WordCardObserver
@@ -45,7 +46,7 @@ class WordCardObserver
      */
     public function deleted(WordCard $wordCard)
     {
-        //
+        WordCardWord::where("card_id", "=", $wordCard->id)->delete();
     }
 
     /**

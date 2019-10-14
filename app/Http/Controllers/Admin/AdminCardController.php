@@ -36,7 +36,7 @@ class AdminCardController extends AdminController
 
         $file_name = $wordCard->code.".xlsx";
 
-        if(Excel::store(new CardExport($words), $file_name, 'excel')){
+        if(Excel::store(new CardExport($words, $id), $file_name, 'excel')){
             $wordCard->find($id)->update(["excel_file" => $file_name]);
         }
     }
@@ -160,6 +160,7 @@ class AdminCardController extends AdminController
     public function delete($id)
     {
         WordCard::destroy($id);
+
         return redirect()->back();
     }
 }

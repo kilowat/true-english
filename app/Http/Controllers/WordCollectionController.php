@@ -116,7 +116,7 @@ class WordCollectionController extends Controller
 
     public function wordTable($card_id, WordTableDataRequest $request)
     {
-        $card = WordCard::find($card_id)->first();
+        $card = WordCard::where('id','=',$card_id)->first();
 
         $this->checkNeedShow404($card);
 
@@ -135,14 +135,14 @@ class WordCollectionController extends Controller
 
         //$words = $query->paginate($limit);
 
-        $words = $query->get();
+        $words = $query->where('card_id', '=', $card_id)->get();
 
         return view("pages.word_table", compact('card','words', 'request'));
     }
 
     public function wordTableData($card_id, WordTableDataRequest $request)
     {
-        $card = WordCard::find($card_id)->where('active', '=', 1);
+        $card = WordCard::where('id','=',$card_id)->where('active', '=', 1);
 
         $sort = $request->column ? $request->column : "freq";
         $order = $request->order ? $request->order : "desc";
@@ -155,7 +155,7 @@ class WordCollectionController extends Controller
             ->with("audio")
             ->orderBy($sort, $order);
 
-        $words = $query->paginate($request->per_page);
+        $words = $query->where('card_id', '=', $card_id)->paginate($request->per_page);
 
         return WordResource::collection($words);
     }
