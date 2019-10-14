@@ -95,6 +95,16 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
+                                    <input type="hidden" name="phrase" value="0">
+                                    <input type="checkbox" name="phrase" {{ $card->phrase ? 'checked="checked"': '' }}>
+                                    Режим фраз
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
                                     <input type="hidden" name="active" value="0">
                                     <input type="checkbox" name="active" {{ $card->active ? 'checked="checked"': '' }}>
                                     Активность

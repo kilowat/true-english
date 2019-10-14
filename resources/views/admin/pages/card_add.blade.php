@@ -92,6 +92,15 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
+                                    <input type="checkbox" {{ old("phrase") ? "checked='checked'" : ''}} name="phrase">
+                                    Режим фраз
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
                                     <input type="checkbox" {{ old("active") ? "checked='checked'" : ''}} name="active">
                                     Активность
                                 </label>

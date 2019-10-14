@@ -88,12 +88,15 @@
                                     <option value="22">2</option>
                                 </select>
                             </div>
-                            <div class="config-cell">
-                                <label for="phrase-mode">
-                                    <input type="checkbox"id="phrase-mode" />
-                                    <span>Режим фраз</span>
-                                </label>
-                            </div>
+                            @if($card->phrase)
+                                <div class="config-cell">
+                                    <label for="phrase-mode">
+                                        <input type="checkbox"id="phrase-mode" />
+                                        <span>Режим фраз</span>
+                                        <span class="tip-text">(Видео будет перематываться между фразами)</span>
+                                    </label>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="player-handler">

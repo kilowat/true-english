@@ -54,6 +54,10 @@
     margin-right: 8px;
   }
 }
+span.tip-text {
+  font-size: 13px;
+  font-style: italic;
+}
 .video-config{
   padding: 8px;
   @include breakpoint(max-width 560px){

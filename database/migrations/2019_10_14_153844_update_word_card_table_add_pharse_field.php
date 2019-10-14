@@ -13,7 +13,9 @@ class UpdateWordCardTableAddPharseField extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('word_cards', function (Blueprint $table) {
+            $table->boolean('phrase')->default(false);
+        });
     }
 
     /**
@@ -23,6 +25,8 @@ class UpdateWordCardTableAddPharseField extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('word_cards', function($table) {
+            $table->dropColumn('phrase');
+        });
     }
 }

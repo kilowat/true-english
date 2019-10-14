@@ -68,6 +68,12 @@ class WordCard extends Model
         $this->attributes['active'] = $value;
     }
 
+    public function setPhraseAttribute($value)
+    {
+        $value = $value == "on" ? 1 : 0;
+        $this->attributes['phrase'] = $value;
+    }
+
     public function getJsonSubtitlesAttribute()
     {
         return $this->attributes["subtitles"];
