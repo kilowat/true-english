@@ -32,6 +32,13 @@ class AdminWordCollectionController extends AdminController
         return view('admin.pages.word_collection_section_add', ['parent_sections' => $parent_sections]);
     }
 
+    public function delete($id)
+    {
+        WordSection::destroy($id);
+
+        return redirect()->back();
+    }
+
     public function edit($id)
     {
         $section = WordSection::where('id', '=', $id)->firstOrFail();

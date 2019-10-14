@@ -55,6 +55,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('word-collection-sections', 'AdminWordCollectionController@index')->name('admin.word-collection-sections.index');
     Route::get('word-collection-sections/edit/{id}', 'AdminWordCollectionController@edit')->name('admin.word-collection-sections.edit');
     Route::post('word-collection-sections/update/{id}', 'AdminWordCollectionController@update')->name('admin.word-collection-sections.update');
+    Route::get('word-collection-sections/delete/{id}', 'AdminWordCollectionController@delete')->name('admin.word-collection-sections.delete');
     Route::get('word-collection-sections/add', 'AdminWordCollectionController@addSection')->name('admin.word-collection-sections.addSection');
     Route::post('word-collection-sections', 'AdminWordCollectionController@store')->name('admin.word-collection-sections.store');
     /***************************/
