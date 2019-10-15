@@ -17,7 +17,7 @@
         <div class="table-wrapp">
             <div class="action-block">
                 <div class="action-cell sort-cell back-cell">
-                    <a href="{{ route('word-collection.detail', $card->uri) }}" title="Вернуться"><i class="material-icons dp48">navigate_before</i></a>
+                    <a href="{{ url()->previous() }}" title="Вернуться"><i class="material-icons dp48">navigate_before</i></a>
                 </div>
             </div>
             {{ Widget::run('WordSort') }}
