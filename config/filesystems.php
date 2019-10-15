@@ -70,6 +70,12 @@ return [
             'url' => env('APP_URL').'/storage/excel',
             'visibility' => 'public',
         ],
+        'custom' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/custom'),
+            'url' => env('APP_URL').'/storage/custom',
+            'visibility' => 'public',
+        ],
         'audio_archive' => [
             'driver' => 'local',
             'root' => storage_path('app/public/audio_archive'),
