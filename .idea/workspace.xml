@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/word_table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/word_table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/backup.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/backup.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,11 +43,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="word_table.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="word_table.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/word_table.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
               <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="backup.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/backup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="63" column="10" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -124,7 +133,6 @@
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/config/filesystems.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/config/backup.php" />
         <option value="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" />
         <option value="$PROJECT_DIR$/resources/views/mail.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
@@ -161,6 +169,7 @@
         <option value="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" />
         <option value="$PROJECT_DIR$/app/Imports/WordImport.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/word_table.blade.php" />
+        <option value="$PROJECT_DIR$/config/backup.php" />
       </list>
     </option>
   </component>
@@ -600,7 +609,7 @@
       <workItem from="1570881122296" duration="6510000" />
       <workItem from="1570971660789" duration="4196000" />
       <workItem from="1571059582504" duration="3119000" />
-      <workItem from="1571124411694" duration="1548000" />
+      <workItem from="1571124411694" duration="2648000" />
     </task>
     <servers />
   </component>
@@ -616,7 +625,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="663997000" />
+    <option name="totallyTimeSpent" value="665097000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -657,9 +666,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/mail.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/GoogleDriveServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
@@ -969,6 +975,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/backup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="63" column="10" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
         </state>
       </provider>
     </entry>
