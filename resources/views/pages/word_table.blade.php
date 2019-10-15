@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div class="table-page">
+    <div class="table-page table-component">
         <h1 class="section-header">{{ $card->name }}</h1>
         <div class="table" id="results">
             <div class='theader'>

@@ -1,73 +1,117 @@
 <template>
-    <div class="data-table">
-        <div class="main-table">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th class="table-head">#</th>
-                    <th v-for="column in columns" :key="column" @click="sortByColumn(column)"
-                        class="table-head">
-                        {{ column | columnHead }}
-                        <span v-if="column === sortedColumn">
-                            <i v-if="order === 'asc' " class="fas fa-arrow-up"></i>
-                            <i v-else class="fas fa-arrow-down"></i>
-            </span>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="" v-if="tableData.length === 0">
-                    <td class="lead text-center" :colspan="columns.length + 1">No data found.</td>
-                </tr>
-                <tr v-for="(data, key1) in tableData" :key="data.id" class="m-datatable__row" v-else>
-                    <td>{{ serialNumber(key1) }}</td>
-                    <td v-for="(value, key) in data">{{ value }}</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <nav v-if="pagination && tableData.length > 0">
+    <div class="table-component">
+        <div v-if="pagination && tableData.length > 0" class="nav-table">
             <ul class="pagination">
                 <li class="page-item" :class="{'disabled' : currentPage === 1}">
-                    <a class="page-link" href="#" @click.prevent="changePage(currentPage - 1)">Previous</a>
+                    <a class="page-link" href="#" @click.prevent="changePage(currentPage - 1)">Назад</a>
                 </li>
                 <li v-for="page in pagesNumber" class="page-item"
                     :class="{'active': page == pagination.meta.current_page}">
                     <a href="javascript:void(0)" @click.prevent="changePage(page)" class="page-link">{{ page }}</a>
                 </li>
                 <li class="page-item" :class="{'disabled': currentPage === pagination.meta.last_page }">
-                    <a class="page-link" href="#" @click.prevent="changePage(currentPage + 1)">Next</a>
+                    <a class="page-link" href="#" @click.prevent="changePage(currentPage + 1)">Вперед</a>
                 </li>
-                <span style="margin-top: 8px;"> &nbsp; <i>Displaying {{ pagination.data.length }} of {{ pagination.meta.total }} entries.</i></span>
             </ul>
-        </nav>
+        </div>
+        <div class="table">
+            <div class='theader'>
+                <div class='table_header'>№</div>
+                <div class='table_header'
+                     v-for="(label, column) in columns"
+                     :key="column"
+                     @click="sortByColumn(column)">
+                    {{ label }}
+                    <span v-if="column === sortedColumn" class="sort-arrow">
+                        <i v-if="order === 'asc' " class="material-icons dp48">expand_less</i>
+                        <i v-else class="material-icons dp48">expand_more</i>
+                    </span>
+                </div>
+                <div class='table_header'>Видео</div>
+                <div class='table_header'>Ссылки</div>
+            </div>
+            <div class='table_row' v-if="tableData.length === 0">
+                <div class='table_small'>
+                    <div class="table-cell lead text-center" :colspan="columns.length + 1">Ничего не найдено</div>
+                </div>
+            </div>
+            <div class='table_row' v-for="(data, key1) in tableData" :key="data.id"  v-else>
+                <div class='table_small'>
+                    <div class='table_cell'>№</div>
+                    <div class='table_cell'>{{ serialNumber(key1) }}</div>
+                </div>
+                <div class='table_small' v-for="(value, key) in data" v-if="columns[key] !== undefined">
+                    <div class='table_cell'>{{ columns[key] }}</div>
+                    <div class='table_cell' v-if="key === 'audio'">
+                        <audio controls v-if="value!== null"><source :src="value.url" :type="value.mime" /></audio>
+                        <span v-else>Фаил не найден</span>
+                    </div>
+                    <div v-else class='table_cell'>{{ value }}</div>
+                </div>
+                <div class='table_small'>
+                    <div class='table_cell'>Видео</div>
+                    <div class='table_cell'>
+                        <a href="javascript:void(0)" @click="openYouglishBox(tableData[key1].name)"><i class="icon ic-youglish"></i></a>
+                    </div>
+                </div>
+                <div class='table_small'>
+                    <div class='table_cell'>Ссылки</div>
+                    <div class='table_cell link-cell'>
+                        <a v-bind:href="tableData[key1].contextReversoLink" target="_blank" title="reverso"><i class="icon ic-reverso"></i></a>
+                        <a v-bind:href="tableData[key1].meriamlLink" target="_blank"><i class="icon ic-meriam"></i></a>
+                        <a v-bind:href="tableData[key1].wordHuntLink" target="_blank"><i class="icon ic-word-hunt"></i></a>
+                        <a v-bind:href="tableData[key1].yandexLink" target="_blank"><i class="icon ic-yandex"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-if="pagination && tableData.length > 0" class="nav-table">
+            <ul class="pagination">
+                <li class="page-item" :class="{'disabled' : currentPage === 1}">
+                    <a class="page-link" href="#" @click.prevent="changePage(currentPage - 1)">Назад</a>
+                </li>
+                <li v-for="page in pagesNumber" class="page-item"
+                    :class="{'active': page == pagination.meta.current_page}">
+                    <a href="javascript:void(0)" @click.prevent="changePage(page)" class="page-link">{{ page }}</a>
+                </li>
+                <li class="page-item" :class="{'disabled': currentPage === pagination.meta.last_page }">
+                    <a class="page-link" href="#" @click.prevent="changePage(currentPage + 1)">Вперед</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
     export default {
         props: {
-            fetchUrl: { type: String, required: true },
-            columns: { type: Array, required: true },
+            cardId: { type: String, required: true },
         },
         data() {
             return {
+                columns:{
+                    "name" : "Слово",
+                    "transcription" : "Тран-ция",
+                    "translate" : "Перевод",
+                    "audio" : "Аудио"
+                },
                 tableData: [],
-                url: '',
+                fetchUrl: "",
+                url: '/api/words-table/id/'+this.cardId,
                 pagination: {
                     meta: { to: 1, from: 1 }
                 },
                 offset: 4,
                 currentPage: 1,
-                perPage: 5,
-                sortedColumn: this.columns[0],
+                perPage: 50,
+                sortedColumn: "name",
                 order: 'asc'
             }
         },
         watch: {
             fetchUrl: {
                 handler: function(fetchUrl) {
-                    this.url = fetchUrl
+                    this.url+= fetchUrl
                 },
                 immediate: true
             }
@@ -139,7 +183,76 @@
                     this.order = 'asc'
                 }
                 this.fetchData()
-            }
+            },
+            openYouglishBox(word){
+                console.log(word);
+                let widget = `<div class="youglish-box"><div id="widget-youglish"></div></div>`;
+                let self = this;
+                $.fancybox.open(widget, {
+                    beforeShow(){
+                        self.runYouglish(word)
+                    }
+                });
+            },
+            runYouglish(word){
+                // 2. This code loads the widget API code asynchronously.
+                var tag = document.createElement('script');
+
+                tag.src = "https://youglish.com/public/emb/widget.js";
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                // 3. This function creates a widget after the API code downloads.
+                window.widget;
+
+                window.onYouglishAPIReady = function(){
+                    window.widget = new YG.Widget("widget-youglish", {
+                        width: 480,
+                        components:8 + 16 + 64, //search box & caption
+                        events: {
+                            'onSearchDone': onSearchDone,
+                            'onVideoChange': onVideoChange,
+                            'onCaptionConsumed': onCaptionConsumed
+                        }
+                    });
+                    // 4. process the query
+                    window.widget.search(word,"US");
+                }
+
+                var autoChangeTimer;
+
+                var views = 0, curTrack = 0, totalTracks = 0;
+
+                // 5. The API will call this method when the search is done
+                window.onSearchDone = function(event){
+                    if (event.totalResult === 0){
+                        alert("Видео по этому слову не найдено");
+                        window.$.fancybox.close();
+                    }
+                    else {
+                        totalTracks = event.totalResult;
+                    }
+                }
+
+                // 6. The API will call this method when switching to a new video.
+                window.onVideoChange = function(event){
+                    curTrack = event.trackNumber;
+                    views = 0;
+                    if(autoChangeTimer){
+                        clearTimeout(autoChangeTimer);
+                    }
+                }
+
+                // 7. The API will call this method when a caption is consumed.
+                window.onCaptionConsumed = function(event){
+                    if (curTrack < totalTracks){
+                        autoChangeTimer = setTimeout(function(){
+                            widget.next();
+                        }, 2000)
+                    }
+
+                }
+            },
         },
         filters: {
             columnHead(value) {
@@ -151,4 +264,12 @@
 </script>
 
 <style scoped>
+    .nav-table{
+        text-align: center;
+    }
+    .sort-arrow {
+        cursor: pointer;
+        position: relative;
+        top: 6px;
+    }
 </style>

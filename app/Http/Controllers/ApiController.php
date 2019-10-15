@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\WordResource;
 use App\Models\Word;
 use App\Models\WordCard;
 use Illuminate\Http\Request;
@@ -30,6 +31,23 @@ class ApiController extends Controller
         $words = $query->get();
 
         return json_encode($words);
+    }
+
+    public function wordTableResource($id, Request $request)
+    {
+        $card = WordCard::find($id);
+
+        $this->checkNeedShow404($card);
+
+        $query = Word::whereHas('cards', function($query) use($id){
+            $query->where('card_id', '=', $id);
+        })->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word');
+        $query->with('audio');
+        $query->orderBy($request->column, $request->order);
+
+        $words = $query->paginate($request->per_page);
+
+        return WordResource::collection($words);
     }
 
     public function textWords($id, Response $response)

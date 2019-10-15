@@ -15,12 +15,14 @@ class WordResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "id" => $this->id,
-            "freq" => $this->freq,
             "name" => $this->name,
             "transcription" => $this->transcription,
             "translate" => $this->translate,
-            "audio" => new AudioResource($this->whenLoaded('audio'))
+            "audio" => new AudioResource($this->whenLoaded('audio')),
+            "contextReversoLink" => $this->contextReversoLink,
+            "wordHuntLink" => $this->wordHuntLink,
+            "meriamlLink" => $this->meriamlLink,
+            "yandexLink" => $this->yandexLink,
         ];
     }
 }
