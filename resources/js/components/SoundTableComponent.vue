@@ -102,7 +102,7 @@
                             <span class="sound">ɑɪ</span>
                             <span class="word-example">sk<span class="accent-tip">y</span> blue</span>
                         </div>
-                        <div class="tbl-cell show-youtube" v-bind:href="`https://www.youtube.com/watch?v=V690OA75bA&autoplay=1&t=10s`">
+                        <div class="tbl-cell show-youtube" v-bind:href="`https://www.youtube.com/watch?v=-V690OA75bA&autoplay=1&t=10s`">
                              <span class="sound">ɑʊ</span>
                             <span class="word-example">br<span class="accent-tip">ow</span>n</span>
                         </div>
