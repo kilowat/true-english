@@ -19,13 +19,8 @@
                 <div class='table_header'>№</div>
                 <div class='table_header' v-bind:class="column"
                      v-for="(label, column) in columns"
-                     :key="column"
-                     @click="sortByColumn(column)">
+                     :key="column">
                     {{ label }}
-                    <span v-if="column === sortedColumn" class="sort-arrow">
-                        <i v-if="order === 'asc' " class="material-icons dp48">expand_less</i>
-                        <i v-else class="material-icons dp48">expand_more</i>
-                    </span>
                 </div>
                 <div class='table_header'>Видео</div>
                 <div class='table_header'>Ссылки</div>
