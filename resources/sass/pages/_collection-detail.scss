@@ -217,6 +217,24 @@ span.tip-text {
     padding: 6px;
   }
 
+  .table_small.name{
+    .value_cell{
+      font-weight: 700;
+    }
+  }
+
+  .table_small.transcription{
+    .value_cell{
+      color: red;
+    }
+  }
+
+  .table_small.translate{
+    .value_cell{
+      color: green;
+    }
+  }
+
   .table_small {
     display: table-cell;
     padding: 8px;

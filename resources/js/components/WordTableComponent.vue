@@ -40,13 +40,13 @@
                     <div class='table_cell'>№</div>
                     <div class='table_cell'>{{ serialNumber(key1) }}</div>
                 </div>
-                <div class='table_small' v-for="(value, key) in data" v-if="columns[key] !== undefined">
+                <div class='table_small' v-bind:class="key" v-for="(value, key) in data" v-if="columns[key] !== undefined">
                     <div class='table_cell'>{{ columns[key] }}</div>
                     <div class='table_cell' v-if="key === 'audio'">
                         <audio controls v-if="value!== null"><source :src="value.url" :type="value.mime" /></audio>
                         <span v-else>Фаил не найден</span>
                     </div>
-                    <div v-else class='table_cell'>{{ value }}</div>
+                    <div v-else class='table_cell value_cell'>{{ value }}</div>
                 </div>
                 <div class='table_small'>
                     <div class='table_cell'>Видео</div>
