@@ -1,5 +1,6 @@
 <template>
-    <div class="table-component">
+
+    <div class="table-component" v-bind:class="{loading: working}">
         <div v-if="pagination && tableData.length > 0" class="nav-table">
             <ul class="pagination">
                 <li class="page-item" :class="{'disabled' : currentPage === 1}">
@@ -17,7 +18,7 @@
         <div class="table">
             <div class='theader'>
                 <div class='table_header'>№</div>
-                <div class='table_header'
+                <div class='table_header' v-bind:class="column"
                      v-for="(label, column) in columns"
                      :key="column"
                      @click="sortByColumn(column)">
@@ -95,6 +96,7 @@
                     "translate" : "Перевод",
                     "audio" : "Аудио"
                 },
+                working: true,
                 tableData: [],
                 fetchUrl: "",
                 url: '/api/words-table/id/'+this.cardId,
@@ -151,11 +153,13 @@
         methods: {
             fetchData() {
                 let dataFetchUrl = `${this.url}?page=${this.currentPage}&column=${this.sortedColumn}&order=${this.order}&per_page=${this.perPage}`
+                this.working = true;
                 axios.get(dataFetchUrl)
                     .then(({ data }) => {
                         this.pagination = data
                         this.tableData = data.data
-                    }).catch(error => this.tableData = [])
+                        this.working = false;
+                    }).catch(error => {this.tableData = [];this.working = false;})
             },
             /**
              * Get the serial number.

@@ -181,6 +181,9 @@ span.tip-text {
   audio{
     width: 130px;
   }
+  .table-header.name{
+    
+  }
   .table {
     max-width: 1400px;
     margin: auto;
@@ -288,6 +291,23 @@ span.tip-text {
       display: table-row;
     }
   }
+}
+.table-component.loading {
+  position: relative;
+  >*{
+    opacity: 0.4;
+  }
+}
+.table-component.loading::after {
+  content: "";
+  background-image: url('/images/spin-ajax.svg');
+  height: 64px;
+  width: 64px;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  left: 50%;
 }
 .word-info.fancybox-content {
   padding: 24px;
