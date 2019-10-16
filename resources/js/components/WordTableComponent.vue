@@ -1,17 +1,16 @@
 <template>
-
     <div class="table-component" v-bind:class="{loading: working}">
         <div v-if="pagination && tableData.length > 0" class="nav-table">
             <ul class="pagination">
                 <li class="page-item" :class="{'disabled' : currentPage === 1}">
-                    <a class="page-link" href="#" @click.prevent="changePage(currentPage - 1)">Назад</a>
+                    <a class="page-link" href="javascript:void(0)" @click.prevent="changePage(currentPage - 1)">Назад</a>
                 </li>
                 <li v-for="page in pagesNumber" class="page-item"
                     :class="{'active': page == pagination.meta.current_page}">
                     <a href="javascript:void(0)" @click.prevent="changePage(page)" class="page-link">{{ page }}</a>
                 </li>
                 <li class="page-item" :class="{'disabled': currentPage === pagination.meta.last_page }">
-                    <a class="page-link" href="#" @click.prevent="changePage(currentPage + 1)">Вперед</a>
+                    <a class="page-link" href="javascript:void(0)" @click.prevent="changePage(currentPage + 1)">Вперед</a>
                 </li>
             </ul>
         </div>
@@ -69,14 +68,14 @@
         <div v-if="pagination && tableData.length > 0" class="nav-table">
             <ul class="pagination">
                 <li class="page-item" :class="{'disabled' : currentPage === 1}">
-                    <a class="page-link" href="#" @click.prevent="changePage(currentPage - 1)">Назад</a>
+                    <a class="page-link" href="javascript:void(0)" @click.prevent="changePage(currentPage - 1)">Назад</a>
                 </li>
                 <li v-for="page in pagesNumber" class="page-item"
                     :class="{'active': page == pagination.meta.current_page}">
                     <a href="javascript:void(0)" @click.prevent="changePage(page)" class="page-link">{{ page }}</a>
                 </li>
                 <li class="page-item" :class="{'disabled': currentPage === pagination.meta.last_page }">
-                    <a class="page-link" href="#" @click.prevent="changePage(currentPage + 1)">Вперед</a>
+                    <a class="page-link" href="javascript:void(0)" @click.prevent="changePage(currentPage + 1)">Вперед</a>
                 </li>
             </ul>
         </div>
@@ -173,6 +172,10 @@
              * @param pageNumber
              */
             changePage(pageNumber) {
+                if(pageNumber < 1)  return false;
+
+                if(this.pagination.meta.last_page < pageNumber ) return false;
+
                 this.currentPage = pageNumber
                 this.fetchData()
             },
@@ -189,7 +192,6 @@
                 this.fetchData()
             },
             openYouglishBox(word){
-                console.log(word);
                 let widget = `<div class="youglish-box"><div id="widget-youglish"></div></div>`;
                 let self = this;
                 $.fancybox.open(widget, {
