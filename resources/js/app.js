@@ -29,6 +29,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('word-table-component', require('./components/WordTableComponent.vue').default);
+Vue.component('sound-table', require('./components/SoundTableComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
