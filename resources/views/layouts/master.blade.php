@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="yandex-verification" content="726e7ffdbddea4cc" />
         <title>true-english.ru | @yield('title')</title>
         <meta name="description" content="@yield("description")" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -114,7 +114,7 @@
             VK.Widgets.Group("vk_groups", {mode: 3, no_cover: 1}, 20003922);
               */
             $('#live-widget').append('<a href="//www.liveinternet.ru/click" '+
-                'target="_blank"><img src="//counter.yadro.ru/hit?t27.1;r'+
+                'target="_blank"><img src="//counter.yadro.ru/hit?t29.2;r'+
                 escape(document.referrer)+((typeof(screen)=='undefined')?'':
                     ';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
                     screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
