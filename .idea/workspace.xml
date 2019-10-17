@@ -4,7 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/resources/views/widgets/tags.blade.php" line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="" />
+    <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +22,7 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
+            <state relative-caret-position="594">
               <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
             </state>
           </provider>
@@ -29,8 +31,8 @@
       <file leaf-file-name="SoundTableComponent.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/SoundTableComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="104" column="116" selection-start-line="104" selection-start-column="116" selection-end-line="104" selection-end-column="116" />
+            <state relative-caret-position="484">
+              <caret line="104" column="105" selection-start-line="104" selection-start-column="105" selection-end-line="104" selection-end-column="105" />
             </state>
           </provider>
         </entry>
@@ -318,7 +320,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="260" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -332,6 +334,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -530,7 +533,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -619,7 +621,8 @@
       <workItem from="1571059582504" duration="3119000" />
       <workItem from="1571124411694" duration="3313000" />
       <workItem from="1571133637562" duration="16340000" />
-      <workItem from="1571214258366" duration="25595000" />
+      <workItem from="1571214258366" duration="26289000" />
+      <workItem from="1571296131645" duration="17000" />
     </task>
     <servers />
   </component>
@@ -635,7 +638,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="707697000" />
+    <option name="totallyTimeSpent" value="708408000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -923,9 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="880">
           <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
-          <folding>
-            <element signature="e#40#76#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -983,7 +983,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="594">
           <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
         </state>
       </provider>
@@ -997,8 +997,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/SoundTableComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="104" column="116" selection-start-line="104" selection-start-column="116" selection-end-line="104" selection-end-column="116" />
+        <state relative-caret-position="484">
+          <caret line="104" column="105" selection-start-line="104" selection-start-column="105" selection-end-line="104" selection-end-column="105" />
         </state>
       </provider>
     </entry>
