@@ -210,6 +210,13 @@ html, body {
   }
 }
 
+/*page misc*/
+.type-item {
+  margin-bottom: 6px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ccc;
+}
+/***********/
 
 .page-footer{
   background-color: map-get($grey, 'darken-1');
