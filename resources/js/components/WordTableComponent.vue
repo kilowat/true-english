@@ -38,7 +38,7 @@
                 <div class='table_small' v-bind:class="key" v-for="(value, key) in data" v-if="columns[key] !== undefined">
                     <div class='table_cell'>{{ columns[key] }}</div>
                     <div class='table_cell' v-if="key === 'audio'">
-                        <audio controls v-if="value!== null"><source :src="value.url" :type="value.mime" /></audio>
+                        <audio v-on:load="audioLoad" controls v-if="value!== null"><source :src="value.url" :type="value.mime" /></audio>
                         <span v-else>Фаил не найден</span>
                     </div>
                     <div v-else class='table_cell value_cell'>{{ value }}</div>
@@ -81,6 +81,9 @@
     export default {
         props: {
             cardId: { type: String, required: true },
+        },
+        mounted() {
+
         },
         data() {
             return {
@@ -153,6 +156,9 @@
                         this.pagination = data
                         this.tableData = data.data
                         this.working = false;
+                        this.$nextTick(() => {
+                            this.audioLoad();
+                        });
                     }).catch(error => {this.tableData = [];this.working = false;})
             },
             /**
@@ -254,6 +260,11 @@
 
                 }
             },
+            audioLoad: function(){
+                $("audio").each(function(key, value){
+                    value.load();
+                });
+            }
         },
         filters: {
             columnHead(value) {
