@@ -57,71 +57,76 @@ $(document).on('click', 'a[href^="#"]', function (event) {
     }, 500);
 });
 
+
+window.openYouglishBox = function(word){
+    let widget = `<div class="youglish-box"><div id="widget-youglish"></div></div>`;
+    let self = this;
+    $.fancybox.open(widget, {
+        beforeShow(){
+            runYouglish(word)
+        }
+    });
+}
+window.runYouglish = function (word){
+    // 2. This code loads the widget API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://youglish.com/public/emb/widget.js";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates a widget after the API code downloads.
+    window.widget;
+
+    window.onYouglishAPIReady = function(){
+        widget = new YG.Widget("widget-youglish", {
+            width: 480,
+            components:8 + 16 + 64, //search box & caption
+            events: {
+                'onSearchDone': onSearchDone,
+                'onVideoChange': onVideoChange,
+                'onCaptionConsumed': onCaptionConsumed
+            }
+        });
+        // 4. process the query
+        widget.search(word,"US");
+    }
+
+    var autoChangeTimer;
+
+    var views = 0, curTrack = 0, totalTracks = 0;
+
+    // 5. The API will call this method when the search is done
+    window.onSearchDone = function(event){
+        if (event.totalResult === 0)   alert("Видео по этому слову не найдено");
+        else totalTracks = event.totalResult;
+    }
+
+    // 6. The API will call this method when switching to a new video.
+    window.onVideoChange = function(event){
+        curTrack = event.trackNumber;
+        views = 0;
+        if(autoChangeTimer){
+            clearTimeout(autoChangeTimer);
+        }
+    }
+
+    // 7. The API will call this method when a caption is consumed.
+    window.onCaptionConsumed = function(event){
+        if (curTrack < totalTracks){
+            autoChangeTimer = setTimeout(function(){
+                widget.next();
+            }, 2000)
+        }
+
+    }
+}
+
 const app = new Vue({
     el: '#app',
     methods:{
         openYouglishBox(word){
-            let widget = `<div class="youglish-box"><div id="widget-youglish"></div></div>`;
-            let self = this;
-            $.fancybox.open(widget, {
-                beforeShow(){
-                    self.runYouglish(word)
-                }
-            });
+            window.openYouglishBox(word);
         },
-        runYouglish(word){
-            // 2. This code loads the widget API code asynchronously.
-            var tag = document.createElement('script');
-
-            tag.src = "https://youglish.com/public/emb/widget.js";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-            // 3. This function creates a widget after the API code downloads.
-            window.widget;
-
-            window.onYouglishAPIReady = function(){
-                widget = new YG.Widget("widget-youglish", {
-                    width: 480,
-                    components:8 + 16 + 64, //search box & caption
-                    events: {
-                        'onSearchDone': onSearchDone,
-                        'onVideoChange': onVideoChange,
-                        'onCaptionConsumed': onCaptionConsumed
-                    }
-                });
-                // 4. process the query
-                widget.search(word,"US");
-            }
-
-            var autoChangeTimer;
-
-            var views = 0, curTrack = 0, totalTracks = 0;
-
-            // 5. The API will call this method when the search is done
-            window.onSearchDone = function(event){
-                if (event.totalResult === 0)   alert("Видео по этому слову не найдено");
-                else totalTracks = event.totalResult;
-            }
-
-            // 6. The API will call this method when switching to a new video.
-            window.onVideoChange = function(event){
-                curTrack = event.trackNumber;
-                views = 0;
-                if(autoChangeTimer){
-                    clearTimeout(autoChangeTimer);
-                }
-            }
-
-            // 7. The API will call this method when a caption is consumed.
-            window.onCaptionConsumed = function(event){
-                if (curTrack < totalTracks){
-                    autoChangeTimer = setTimeout(function(){
-                        widget.next();
-                    }, 2000)
-                }
-
-            }
-        }
     }
 });
