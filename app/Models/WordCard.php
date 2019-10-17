@@ -138,6 +138,7 @@ class WordCard extends Model
         $wordModel = new Word();
 
         DB::transaction(function () use ($wordModel, $field_data, $wordCardModel, $words, $card_id){
+            $words = trim($words);
             DB::table($wordModel->getTable())->insertOrIgnore($words);
             DB::table($wordCardModel->getTable())->where('card_id', '=', $card_id)->delete();
             DB::table($wordCardModel->getTable())->insert($field_data);
@@ -160,9 +161,12 @@ class WordCard extends Model
         $words_parsered = [];
 
         foreach($arr_tmp as $word){
+            $w = Word::where("name","=", $word);
+            $w->delete();
+            $word = trim($word);
             $words_parsered[$word] = 1;
         }
-
+        die();
         return $words_parsered;
     }
 }
