@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>true-english.ru | {{ $card->name }}</title>
+    <title>True-english - {{ $card->name }}</title>
     <meta name="description" content="{{ $card->description }}" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
