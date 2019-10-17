@@ -59,7 +59,7 @@ class ApiController extends Controller
         $query = Word::whereHas('cards', function($query) use($id){
             $query->where('card_id', '=', $id);
         })->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word');
-
+        $query = $query->where('card_id', '=', $id);
         $words = $query->get();
 
         $word_arr = [];
