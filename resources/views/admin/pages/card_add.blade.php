@@ -58,7 +58,7 @@
                             <div class="form-group">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" {{ old("parse_content") ? "checked='checked'" : ''}} name="parse_content"> Парсить слова
+                                        <input type="checkbox" {{ old("parse_content") ? "checked='checked'" : ''}} name="parse_content"> Парсить как текст
                                     </label>
                                 </div>
                             </div>

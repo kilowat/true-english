@@ -61,7 +61,7 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="parse_content"> Парсить слова
+                                    <input type="checkbox" name="parse_content"> Парсить как текст
                                 </label>
                             </div>
                         </div>
