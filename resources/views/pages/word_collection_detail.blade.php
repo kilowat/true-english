@@ -25,6 +25,9 @@
 @section('content')
     <section>
         <h1 class="section-header">{{ $card->name }}</h1>
+        <div class="card-text">
+            {!! $card->text  !!}
+        </div>
         <div class="card-detail">
             <div class="pic-box">
                 @if($card->youtube)
@@ -142,9 +145,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card-text">
-            {!! $card->text  !!}
         </div>
         @if($card->subtitles)
             <div id="subtitles">
