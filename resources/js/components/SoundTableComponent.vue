@@ -79,7 +79,7 @@
                         <div class="tbl-cell empty-cell"></div>
                     </div>
                     <div class="tbl-row">
-                        <div class="tbl-cell show-youtube" v-bind:href="`https://www.youtube.com/watch?v=F3tmoFM2ecw&autoplay=1&t=10s`">
+                        <div class="tbl-cell show-youtube" v-bind:href="`https://www.youtube.com/watch?v=F3tmoFM2ecw&autoplay=1`">
                             <span class="sound">ʊr</span>
                             <span class="word-example">pu<span class="accent-tip">re</span> white</span>
                         </div>
