@@ -123,7 +123,8 @@ class AdminCardController extends AdminController
         $wordCard->find($id)->update($fields);
 
         if($request->update_content == "on" && $request->content_text){
-            $wordCard->insertWords($request->content_text, $id);
+            $use_parser = $request->parse_content == "on";
+            $wordCard->insertWords($request->content_text, $id, $use_parser);
         }
 
         if($request->create_excel == "on")
@@ -147,7 +148,8 @@ class AdminCardController extends AdminController
         $created_card = $wordCard->create($fields);
 
         if($request->update_content == "on" && $request->content_text){
-            $wordCard->insertWords($request->content_text, $created_card->id);
+            $use_parser = $request->parse_content == "on";
+            $wordCard->insertWords($request->content_text, $created_card->id, $use_parser);
         }
 
         if($request->create_excel == "on"){

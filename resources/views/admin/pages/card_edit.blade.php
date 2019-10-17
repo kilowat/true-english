@@ -61,6 +61,13 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
+                                    <input type="checkbox" name="parse_content"> Парсить слова
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
                                     <input type="checkbox" name="update_content"> Привязать слова
                                 </label>
                             </div>

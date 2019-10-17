@@ -55,6 +55,13 @@
                             <label>Контент</label>
                             <textarea name="content_text" class="form-control" rows="3" placeholder="Enter ...">{{ old("content_text") }}</textarea>
                         </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" {{ old("parse_content") ? "checked='checked'" : ''}} name="parse_content"> Парсить слова
+                                    </label>
+                                </div>
+                            </div>
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>

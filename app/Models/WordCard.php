@@ -17,7 +17,7 @@ class WordCard extends Model
 
     public $timestamps = true;
 
-    protected $guarded = ['update_content', 'create_excel', 'create_transcript'];
+    protected $guarded = ['update_content', 'create_excel', 'create_transcript', 'parse_content'];
 
     protected static $imageFields = [
         'picture' => [
@@ -108,16 +108,20 @@ class WordCard extends Model
      * @param $text content text
      * @param $card_id id own card
      */
-    public function insertWords($text, $card_id)
+    public function insertWords($text, $card_id, $useFreqParser = false)
     {
-        $res = WordParser::getFrequency($text);
+        $words_parsered = [];
 
-        $words_with_freq = $res->getKeyValuesByFrequency();
+        if($useFreqParser){
+            $words_parsered = $this->useParser($text);
+        }else{
+            $words_parsered = $this->useSimpleArray($text);
+        }
 
         $field_data = [];
         $words = [];
 
-        foreach($words_with_freq as $word => $freq_value){
+        foreach($words_parsered as $word => $freq_value){
             $field_data[] = [
                 'word' => $word,
                 'card_id' => $card_id,
@@ -138,5 +142,27 @@ class WordCard extends Model
             DB::table($wordCardModel->getTable())->where('card_id', '=', $card_id)->delete();
             DB::table($wordCardModel->getTable())->insert($field_data);
         });
+    }
+
+    private function useParser($text)
+    {
+        $res = WordParser::getFrequency($text);
+
+        $words_parsered = $res->getKeyValuesByFrequency();
+
+        return $words_parsered;
+    }
+
+    private function useSimpleArray($text)
+    {
+        $arr_tmp = explode(PHP_EOL, $text);
+
+        $words_parsered = [];
+
+        foreach($arr_tmp as $word){
+            $words_parsered[$word] = 1;
+        }
+
+        return $words_parsered;
     }
 }
