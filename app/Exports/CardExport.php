@@ -23,7 +23,7 @@ class CardExport implements FromQuery, WithEvents, WithMapping
     private $whereIn;
     private $count = 0;
     private $card_id;
-
+    private $currentId = 0;
     public function __construct(array $whereIn = [], $id)
     {
         $this->card_id = $id;
@@ -103,8 +103,10 @@ class CardExport implements FromQuery, WithEvents, WithMapping
 
     public function map($word): array
     {
+        $this->currentId++;
+
         return [
-            $word->id,
+            $this->currentId,
             $word->freq,
             $word->name,
             $word->transcription,

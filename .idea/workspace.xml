@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/sass/_icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_icons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/CardExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/CardExport.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,11 +47,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_icons.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_icons.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/sass/_icons.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
               <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CardExport.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Exports/CardExport.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="108" column="12" lean-forward="true" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -139,7 +149,6 @@
         <option value="$PROJECT_DIR$/app/Observers/WordCardObserver.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCardController.php" />
-        <option value="$PROJECT_DIR$/app/Exports/CardExport.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminWordCollectionController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/word_collection_section_index.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_10_14_153844_update_word_card_table_add_pharse_field.php" />
@@ -164,6 +173,7 @@
         <option value="$PROJECT_DIR$/resources/views/partials/word_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/_main.scss" />
         <option value="$PROJECT_DIR$/resources/sass/_icons.scss" />
+        <option value="$PROJECT_DIR$/app/Exports/CardExport.php" />
       </list>
     </option>
   </component>
@@ -637,7 +647,7 @@
       <workItem from="1571133637562" duration="16340000" />
       <workItem from="1571214258366" duration="26289000" />
       <workItem from="1571296131645" duration="3815000" />
-      <workItem from="1571319014122" duration="1375000" />
+      <workItem from="1571319014122" duration="3103000" />
     </task>
     <servers />
   </component>
@@ -653,7 +663,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="713581000" />
+    <option name="totallyTimeSpent" value="715309000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -776,13 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
           <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Exports/CardExport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
     </entry>
@@ -1016,6 +1019,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Exports/CardExport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="108" column="12" lean-forward="true" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="28" />
         </state>
       </provider>
     </entry>
