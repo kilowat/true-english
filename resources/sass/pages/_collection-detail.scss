@@ -179,7 +179,7 @@ span.tip-text {
 }
 .table-component{
   audio{
-    width: 70px;
+    width: 130px;
   }
   .table-header.name{
 
@@ -358,7 +358,7 @@ span.tip-text {
   }
   audio{
     @include breakpoint(max-width 480px){
-      width: 70px;
+      width: 140px;
     }
   }
 }
