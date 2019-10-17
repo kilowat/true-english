@@ -31,8 +31,8 @@
       <file leaf-file-name="WordCard.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Models/WordCard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="761">
-              <caret line="168" column="14" selection-start-line="168" selection-start-column="14" selection-end-line="168" selection-end-column="14" />
+            <state relative-caret-position="717">
+              <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
             </state>
           </provider>
         </entry>
@@ -645,7 +645,7 @@
       <workItem from="1571133637562" duration="16340000" />
       <workItem from="1571214258366" duration="26289000" />
       <workItem from="1571296131645" duration="3815000" />
-      <workItem from="1571319014122" duration="8139000" />
+      <workItem from="1571319014122" duration="8223000" />
     </task>
     <servers />
   </component>
@@ -661,7 +661,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="720345000" />
+    <option name="totallyTimeSpent" value="720429000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1022,8 +1022,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/WordCard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="761">
-          <caret line="168" column="14" selection-start-line="168" selection-start-column="14" selection-end-line="168" selection-end-column="14" />
+        <state relative-caret-position="717">
+          <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
         </state>
       </provider>
     </entry>

@@ -161,12 +161,10 @@ class WordCard extends Model
         $words_parsered = [];
 
         foreach($arr_tmp as $word){
-            $w = Word::where("name","=", $word);
-            $w->delete();
             $word = trim($word);
             $words_parsered[$word] = 1;
         }
-        die();
+
         return $words_parsered;
     }
 }
