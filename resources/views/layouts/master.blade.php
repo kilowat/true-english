@@ -112,7 +112,7 @@
         <script type="text/javascript">
             /*
             VK.Widgets.Group("vk_groups", {mode: 3, no_cover: 1}, 20003922);
-
+              */
             $('#live-widget').append('<a href="//www.liveinternet.ru/click" '+
                 'target="_blank"><img src="//counter.yadro.ru/hit?t27.1;r'+
                 escape(document.referrer)+((typeof(screen)=='undefined')?'':
@@ -122,7 +122,7 @@
                 '" alt="" title="LiveInternet: показано количество просмотров и'+
                 ' посетителей" '+
                 'border="0" width="88" height="120"><\/a>');
-                */
+
         </script>
         @yield("js")
     </body>
