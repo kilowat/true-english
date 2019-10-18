@@ -13,7 +13,7 @@ class LastArticles extends AbstractWidget
      * @var array
      */
     protected $config = [];
-    private $take = 3;
+    private $take = 4;
     /**
      * Treat this method as a controller action.
      * Return view() or other content to display.
