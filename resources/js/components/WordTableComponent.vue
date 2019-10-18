@@ -195,6 +195,7 @@
 
                 this.currentPage = pageNumber
                 this.fetchData()
+                window.scrollTo(0, 0);
             },
             /**
              * Sort the data by column.
