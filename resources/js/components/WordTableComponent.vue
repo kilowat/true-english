@@ -19,8 +19,15 @@
                 <div class='table_header'>№</div>
                 <div class='table_header' v-bind:class="column"
                      v-for="(label, column) in columns"
-                     :key="column">
-                    {{ label }}
+                     :key="column"
+                     @click="sortByColumn(column)">
+                      <div class="h-wrapper">
+                          {{ label }}
+                          <span v-if="sortFields[column]" class="sort-arrow">
+                            <i v-if="order === 'asc' && sortedColumn == column " class="material-icons dp48">expand_less</i>
+                            <i v-else class="material-icons dp48">expand_more</i>
+                        </span>
+                      </div>
                 </div>
                 <div class='table_header'>Видео</div>
                 <div class='table_header'>Ссылки</div>
@@ -80,14 +87,16 @@
 <script type="text/ecmascript-6">
     export default {
         props: {
+            sortOrder:{type:String, required:false},
+            sortField: {type:String, required:false},
             cardId: { type: String, required: true },
         },
         mounted() {
-
         },
         data() {
             return {
                 columns:{
+                    "freq" : "Частота",
                     "name" : "Слово",
                     "transcription" : "Тран-ция",
                     "translate" : "Перевод",
@@ -103,6 +112,7 @@
                 offset: 4,
                 currentPage: 1,
                 perPage: 50,
+                sortFields:{"name":true, "freq": true},
                 sortedColumn: "name",
                 order: 'asc'
             }
@@ -116,6 +126,12 @@
             }
         },
         created() {
+            if(this.sortField){
+                this.sortedColumn = this.sortField;
+            }
+            if(this.sortOrder){
+                this.order = this.sortOrder;
+            }
             return this.fetchData()
         },
         computed: {
@@ -284,4 +300,29 @@
         position: relative;
         top: 6px;
     }
+    .table-component .link-cell {
+        width: 70px;
+    }
+    .table_small.audio {
+        width: 70px;
+    }
+    .table-component audio {
+        width: 90px;
+    }
+    .h-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .article-detail .table_small.freq {
+        display: none;
+    }
+    .article-detail .table_header.freq {
+        display: none;
+    }
+
 </style>
