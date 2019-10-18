@@ -21,6 +21,7 @@
 
     <section class="card-cmp section-list">
         <h1 class="section-header">{{ $current_section->name }}</h1>
+        {!! $current_section->text !!}
         <div class="row">
             @foreach($sections as $section)
                 <div class="col s12 m6 l3">
