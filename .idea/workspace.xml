@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/word_collection_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/word_collection_index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,20 +19,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="60" column="22" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WordTableComponent.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WordTableComponent.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="506">
               <caret line="197" column="38" selection-start-line="197" selection-start-column="38" selection-end-line="197" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="word_collection_index.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/pages/word_collection_index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -163,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Providers/GoogleDriveServiceProvider.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" />
@@ -214,6 +213,7 @@
         <option value="$PROJECT_DIR$/app/Http/Resources/WordResource.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/word_table.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/views/pages/word_collection_index.blade.php" />
       </list>
     </option>
   </component>
@@ -695,7 +695,7 @@
       <workItem from="1571133637562" duration="16340000" />
       <workItem from="1571214258366" duration="26289000" />
       <workItem from="1571296131645" duration="3815000" />
-      <workItem from="1571319014122" duration="16031000" />
+      <workItem from="1571319014122" duration="16246000" />
     </task>
     <servers />
   </component>
@@ -711,7 +711,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="728237000" />
+    <option name="totallyTimeSpent" value="728452000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -810,9 +810,6 @@
           <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/word_collection_index.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_11_092619_create_pronons_table.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1074,6 +1071,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="197" column="38" selection-start-line="197" selection-start-column="38" selection-end-line="197" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/word_collection_index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
         </state>
       </provider>
     </entry>
