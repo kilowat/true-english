@@ -54,7 +54,6 @@ class AdminAudioController extends AdminController
         $word_name = str_replace("-", " ", $word_name);
 
         $file_name = str_replace(" ", "_", $word_name);
-        $file_name = str_replace("-", "_", $file_name);
 
         if(Storage::disk('audio')->put($file_name, File::get($file))){
             $audio_file = [
