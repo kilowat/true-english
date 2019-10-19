@@ -25,7 +25,7 @@ class Article extends Model
 
     public function getPreviewTextAttribute()
     {
-        return Str::limit($this->text, 120);
+        return Str::limit($this->text, 110);
     }
 
     public function getShortDateAttribute()
