@@ -9,7 +9,7 @@ use Laravelista\Comments\Commenter;
 
 class User extends Authenticatable
 {
-    use Notifiable, Commenter;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.

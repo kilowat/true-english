@@ -8,12 +8,11 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Laravelista\Comments\Commentable;
 use QCod\ImageUp\HasImageUploads;
 
 class WordCard extends Model
 {
-    use HasImageUploads, Commentable;
+    use HasImageUploads;
 
     public $timestamps = true;
 

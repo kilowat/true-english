@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c590b22a537fa593b278ab7434b5256",
+    "content-hash": "e60babd6b707a414b1b098d76535e849",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -1787,59 +1787,6 @@
                 "psysh"
             ],
             "time": "2019-08-07T15:10:45+00:00"
-        },
-        {
-            "name": "laravelista/comments",
-            "version": "3.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravelista/comments.git",
-                "reference": "6f09748873f90b112de36702b390f882b3839a7c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravelista/comments/zipball/6f09748873f90b112de36702b390f882b3839a7c",
-                "reference": "6f09748873f90b112de36702b390f882b3839a7c",
-                "shasum": ""
-            },
-            "require": {
-                "erusev/parsedown": "^1.7",
-                "illuminate/database": "^5.6|^6.0",
-                "illuminate/http": "^5.6|^6.0",
-                "illuminate/support": "^5.6|^6.0",
-                "php": "^7.1.3",
-                "spatie/laravel-honeypot": "^1.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Laravelista\\Comments\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravelista\\Comments\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mario Bašić",
-                    "email": "mario@laravelista.hr",
-                    "homepage": "https://laravelista.hr"
-                }
-            ],
-            "description": "Comments for Laravel.",
-            "keywords": [
-                "comments",
-                "laravel"
-            ],
-            "time": "2019-09-07T16:33:18+00:00"
         },
         {
             "name": "lavary/laravel-menu",
@@ -3853,66 +3800,6 @@
                 "spatie"
             ],
             "time": "2019-04-04T12:00:30+00:00"
-        },
-        {
-            "name": "spatie/laravel-honeypot",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-honeypot.git",
-                "reference": "486c58b9bea4628a84fe24176e3b56ee2853980e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-honeypot/zipball/486c58b9bea4628a84fe24176e3b56ee2853980e",
-                "reference": "486c58b9bea4628a84fe24176e3b56ee2853980e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "~5.7|~5.8",
-                "illuminate/encryption": "~5.7|~5.8",
-                "illuminate/http": "~5.7|~5.8",
-                "illuminate/support": "~5.7|~5.8",
-                "illuminate/validation": "~5.7|~5.8",
-                "php": "~7.1"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~3.7|~3.8",
-                "phpunit/phpunit": "~8.0",
-                "spatie/phpunit-snapshot-assertions": "~2.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\Honeypot\\HoneypotServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Honeypot\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Preventing spam submitted through forms",
-            "homepage": "https://github.com/spatie/laravel-honeypot",
-            "keywords": [
-                "laravel-honeypot",
-                "spatie"
-            ],
-            "time": "2019-02-27T10:01:57+00:00"
         },
         {
             "name": "spatie/laravel-responsecache",
@@ -7738,5 +7625,8 @@
     "platform": {
         "php": "^7.1.3"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "platform-overrides": {
+        "php": "7.2"
+    }
 }
