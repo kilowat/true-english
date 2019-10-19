@@ -50,13 +50,16 @@ class AdminAudioController extends AdminController
         $file = Input::file('file');
         $file_name_origin = $file->getClientOriginalName();
         $word_name = explode('.', $file_name_origin)[0];
-        $word_name = str_replace(" ", "_", $word_name);
-        $word_name = str_replace("-", "_", $word_name);
-        
-        if(Storage::disk('audio')->put($file_name_origin, File::get($file))){
+        $word_name = str_replace("_", " ", $word_name);
+        $word_name = str_replace("-", " ", $word_name);
+
+        $file_name = str_replace(" ", "_", $word_name);
+        $file_name = str_replace("-", "_", $file_name);
+
+        if(Storage::disk('audio')->put($file_name, File::get($file))){
             $audio_file = [
                 'word_code' => $word_name,
-                'file_name' => $file_name_origin,
+                'file_name' => $file_name,
                 'mime' => $file->getClientMimeType(),
                 'size' => $file->getSize(),
 
