@@ -26,7 +26,7 @@ Route::get('word/{code}', 'WordController@show')->name('word.show');
 
 Route::get('grammar', 'GrammarController@index')->name('grammar.index');
 Route::get('grammar/{section}', 'GrammarController@section')->name('grammar.section');
-Route::get('grammar/{section}/{code}.html', 'GrammarController@detail')->name('grammar.detail');
+Route::get('grammar/{section_code}/{code}.html', 'GrammarController@detail')->name('grammar.detail');
 
 Route::get('prononciation', 'PrononsController@index')->name('prononciation.index');
 Route::get('prononciation/{code}.html', 'PrononsController@detail')->name('prononciation.detail');

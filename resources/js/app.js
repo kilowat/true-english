@@ -64,16 +64,19 @@ window.openYouglishBox = function(word){
     $.fancybox.open(widget, {
         beforeShow(){
             runYouglish(word)
+        },
+        beforeClose(){
+            window.youglish_tag.remove();
         }
     });
 }
 window.runYouglish = function (word){
     // 2. This code loads the widget API code asynchronously.
-    var tag = document.createElement('script');
+    window.youglish_tag = document.createElement('script');
 
-    tag.src = "https://youglish.com/public/emb/widget.js";
+    window.youglish_tag.src = "https://youglish.com/public/emb/widget.js";
     var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    firstScriptTag.parentNode.insertBefore(window.youglish_tag, firstScriptTag);
 
     // 3. This function creates a widget after the API code downloads.
     window.widget;

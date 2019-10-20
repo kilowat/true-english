@@ -57,10 +57,10 @@ class GrammarController extends Controller
         return view("pages.grammar_section", compact('grammars', 'section'));
     }
 
-    public function detail($section, $code)
+    public function detail($section_code, $code)
     {
-        $section = GrammarSection::where("code", "=", $code)->where('active', '=', 1)->first();
-        $grammar = Grammar::where("code", "=", $code)->where('active', '=', 1)->first();
+        $section = GrammarSection::where("code", "=", $section_code)->where('active', '=', 1)->firstOrFail();
+        $grammar = Grammar::where("code", "=", $code)->where('active', '=', 1)->firstOrFail();
 
         return view("pages.grammar_detail", compact('grammar', 'section'));
     }

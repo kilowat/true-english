@@ -35,6 +35,8 @@ class CardExport implements FromQuery, WithEvents, WithMapping
         $query = Word::query()->whereIn('name',$this->where)
             ->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word')
         ->where('card_id', '=', $this->card_id);
+        $query->where("card_id", '=', $this->card_id);
+        $query->orderBy("freq", 'desc');
         $this->count = $query->count();
 
         return $query;

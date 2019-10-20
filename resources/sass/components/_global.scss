@@ -393,11 +393,10 @@ ul.staggered-list li {
 
 // Tables
 table, th, td {
-   border: none;
+  border: 1px solid $table-border-color;
 }
 
 table {
-  width:100%;
   display: table;
   border-collapse: collapse;
   border-spacing: 0;
@@ -433,7 +432,7 @@ table {
 }
 
 tr {
-  border-bottom: 1px solid $table-border-color;
+
 }
 
 td, th{
