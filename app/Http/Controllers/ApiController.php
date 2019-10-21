@@ -44,8 +44,8 @@ class ApiController extends Controller
         })->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word');
         $query->with('audio')
             ->orderBy($request->column, $request->order)
-            ->where('card_id', '=', $id)
-            ->whereRaw('LENGTH(words.name) > 2');
+            ->where('card_id', '=', $id);
+            //->whereRaw('LENGTH(words.name) > 2');
         $words = $query->paginate($request->per_page);
 
         return WordResource::collection($words);
