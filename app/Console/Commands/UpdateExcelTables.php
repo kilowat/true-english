@@ -42,7 +42,7 @@ class UpdateExcelTables extends Command
      */
     public function handle()
     {
-        $cardIds = WordCard::select('id')->where('active','=', 1)->pluck('id')->all();
+        $cardIds = WordCard::select('id')->pluck('id')->all();
         $startTime = 'start task at:'. Carbon::now();
         $count = 0;
         $this->info($startTime);
