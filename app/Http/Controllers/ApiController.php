@@ -42,9 +42,10 @@ class ApiController extends Controller
         $query = Word::whereHas('cards', function($query) use($id){
             $query->where('card_id', '=', $id);
         })->leftJoin('word_card_words', 'words.name', '=', 'word_card_words.word');
-        $query->with('audio');
-        $query->orderBy($request->column, $request->order);
-        $query = $query->where('card_id', '=', $id);
+        $query->with('audio')
+            ->orderBy($request->column, $request->order)
+            ->where('card_id', '=', $id)
+            ->whereRaw('LENGTH(words.name) > 2');
         $words = $query->paginate($request->per_page);
 
         return WordResource::collection($words);
