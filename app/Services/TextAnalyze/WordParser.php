@@ -55,7 +55,7 @@ class WordParser
         $token = filter_empty($token);
 
         $freqDist = freq_dist($token);
- 
+
         return $freqDist;
     }
 }

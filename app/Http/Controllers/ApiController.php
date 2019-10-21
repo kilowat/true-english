@@ -11,13 +11,14 @@ use Illuminate\Support\Facades\Response;
 
 class ApiController extends Controller
 {
+    //need cache
     public function subtitle($id)
     {
         $card = WordCard::find($id);
 
         return $card->jsonSubtitles;
     }
-
+    /*
     public function words($id)
     {
         $card = WordCard::find($id);
@@ -32,7 +33,8 @@ class ApiController extends Controller
 
         return json_encode($words);
     }
-
+    */
+    //need cache
     public function wordTableResource($id, Request $request)
     {
         $card = WordCard::find($id);
@@ -50,7 +52,7 @@ class ApiController extends Controller
 
         return WordResource::collection($words);
     }
-
+    //need cache
     public function textWords($id, Response $response)
     {
         $card = WordCard::find($id);
