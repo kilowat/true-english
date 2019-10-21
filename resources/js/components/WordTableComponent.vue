@@ -309,7 +309,7 @@
         width: 70px;
     }
     .table-component audio {
-        width: 90px;
+        width: 100px;
     }
     .h-wrapper {
         display: -webkit-box;

@@ -6,20 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/CardExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/CardExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GrammarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GrammarController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/SoundTableComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SoundTableComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/_global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/grammar_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/grammar_detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/grammar_element_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/grammar_element_edit.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,17 +28,26 @@
       <file leaf-file-name="_collection-detail.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
-              <caret line="236" column="19" selection-start-line="236" selection-start-column="19" selection-end-line="236" selection-end-column="19" />
+            <state relative-caret-position="66">
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SoundTableComponent.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/SoundTableComponent.vue">
+      <file leaf-file-name="grammar_element_edit.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/grammar_element_edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="267" column="50" lean-forward="true" selection-start-line="267" selection-start-column="50" selection-end-line="267" selection-end-column="50" />
+            <state relative-caret-position="308">
+              <caret line="53" column="79" selection-start-line="53" selection-start-column="79" selection-end-line="53" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WordTableComponent.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="311" column="18" selection-start-line="311" selection-start-column="18" selection-end-line="311" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -118,7 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/pages/misc_index.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_09_26_142250_create_articles_table.php" />
         <option value="$PROJECT_DIR$/resources/views/widgets/last_articles.blade.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -164,11 +164,12 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/GrammarController.php" />
         <option value="$PROJECT_DIR$/resources/sass/components/_global.scss" />
         <option value="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" />
-        <option value="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/Exports/CardExport.php" />
         <option value="$PROJECT_DIR$/resources/js/components/SoundTableComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/views/admin/pages/grammar_element_edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" />
       </list>
     </option>
   </component>
@@ -333,8 +334,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
+    <option name="x" value="1889" />
+    <option name="y" value="69" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -498,6 +499,21 @@
               <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -621,7 +637,7 @@
       <workItem from="1571296131645" duration="3815000" />
       <workItem from="1571319014122" duration="19327000" />
       <workItem from="1571480890799" duration="3097000" />
-      <workItem from="1571508092618" duration="25451000" />
+      <workItem from="1571508092618" duration="28275000" />
     </task>
     <servers />
   </component>
@@ -637,10 +653,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="760081000" />
+    <option name="totallyTimeSpent" value="762905000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -651,7 +667,7 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3642857" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -678,13 +694,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/backup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1826">
-          <caret line="83" column="14" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/filesystems.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -958,20 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="218" selection-start-line="218" selection-end-line="220" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="236" column="19" selection-start-line="236" selection-start-column="19" selection-end-line="236" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -988,8 +983,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/SoundTableComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="267" column="50" lean-forward="true" selection-start-line="267" selection-start-column="50" selection-end-line="267" selection-end-column="50" />
+        <state relative-caret-position="264">
+          <caret line="252" column="65" selection-start-line="252" selection-start-column="65" selection-end-line="252" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/grammar_element_edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="53" column="79" selection-start-line="53" selection-start-column="79" selection-end-line="53" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="311" column="18" selection-start-line="311" selection-start-column="18" selection-end-line="311" selection-end-column="18" />
         </state>
       </provider>
     </entry>
