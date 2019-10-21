@@ -52,11 +52,11 @@
                         </div>
                         <div class="form-group">
                             <label>Текст</label>
-                            <textarea name="text" class="form-control" rows="3" placeholder="Enter ...">{{ $card->text }}</textarea>
+                            <textarea name="text" class="form-control" rows="20" placeholder="Enter ...">{{ $card->text }}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Контент</label>
-                            <textarea name="content_text" class="form-control" rows="6" placeholder="Enter ...">{{ $card->content_text }}</textarea>
+                            <textarea name="content_text" class="form-control" rows="5" placeholder="Enter ...">{{ $card->content_text }}</textarea>
                         </div>
                         <div class="form-group">
                             <div class="checkbox">

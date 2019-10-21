@@ -306,7 +306,7 @@
         width: 70px;
     }
     .table_small.audio {
-        width: 70px;
+        width: 100px;
     }
     .table-component audio {
         width: 100px;
