@@ -61,8 +61,8 @@
       <file leaf-file-name="_collection-detail.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="306" column="21" lean-forward="true" selection-start-line="306" selection-start-column="21" selection-end-line="306" selection-end-column="21" />
+            <state relative-caret-position="288">
+              <caret line="300" column="16" selection-start-line="300" selection-start-column="16" selection-end-line="300" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -88,7 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>contai</find>
       <find>tableData</find>
       <find>url</find>
       <find />
@@ -118,6 +117,7 @@
       <find>show-youtube</find>
       <find>audio</find>
       <find>70</find>
+      <find>50%</find>
     </findStrings>
     <replaceStrings>
       <replace>r</replace>
@@ -657,7 +657,7 @@
       <workItem from="1571480890799" duration="3097000" />
       <workItem from="1571508092618" duration="35629000" />
       <workItem from="1571657252039" duration="9110000" />
-      <workItem from="1571725042131" duration="1998000" />
+      <workItem from="1571725042131" duration="2260000" />
     </task>
     <servers />
   </component>
@@ -673,7 +673,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="781367000" />
+    <option name="totallyTimeSpent" value="781629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1032,8 +1032,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="306" column="21" lean-forward="true" selection-start-line="306" selection-start-column="21" selection-end-line="306" selection-end-column="21" />
+        <state relative-caret-position="288">
+          <caret line="300" column="16" selection-start-line="300" selection-start-column="16" selection-end-line="300" selection-end-column="16" />
         </state>
       </provider>
     </entry>
