@@ -1,0 +1,12 @@
+.section-list{
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+    .card{
+      height: calc(100% - 20px);
+      .card-image{
+        position: unset;
+      }
+    }
+  }
+}

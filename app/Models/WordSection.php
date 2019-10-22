@@ -19,8 +19,8 @@ class WordSection extends Model
 
     protected static $imageFields = [
         'picture' => [
-            'width' => 240,
-            'height' => 220,
+            'width' => 480,
+            'height' => 440,
         ]
     ];
 

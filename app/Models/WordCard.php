@@ -20,8 +20,8 @@ class WordCard extends Model
 
     protected static $imageFields = [
         'picture' => [
-            'width' => 300,
-            'height' => 220,
+            'width' => 600,
+            'height' => 440,
             'crop' => true,
         ]
     ];
