@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label>Текст</label>
-                            <textarea name="text" class="form-control" rows="3" placeholder="Enter ...">{{ $element->text }}</textarea>
+                            <textarea name="text" class="form-control" rows="20" placeholder="Enter ...">{{ $element->text }}</textarea>
                         </div>
                         <div class="form-group require">
                             <label>Title</label>

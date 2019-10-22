@@ -147,6 +147,21 @@ html, body {
   }
 }
 
+.content ul{
+  list-style-type:disc;
+  list-style-position: inside;
+  li{
+    list-style-type:disc;
+  }
+}
+.border-block{
+  border:1px solid #ccc;
+}
+.youtube-video{
+  @include breakpoint(max-width 600px){
+    width: 100%;
+  }
+}
 .sidebar{
   width: 220px;
   margin-right: 20px;
