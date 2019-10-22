@@ -40,10 +40,10 @@
             <div class='table_row' v-for="(data, key1) in tableData" :key="data.id"  v-else>
                 <div class='table_small'>
                     <div class='table_cell'>№:</div>
-                    <div class='table_cell'>{{ serialNumber(key1) }}:</div>
+                    <div class='table_cell'>{{ serialNumber(key1) }}</div>
                 </div>
                 <div class='table_small' v-bind:class="key" v-for="(value, key) in data" v-if="columns[key] !== undefined">
-                    <div class='table_cell'>{{ columns[key] }}</div>
+                    <div class='table_cell'>{{ columns[key] }}:</div>
                     <div class='table_cell' v-if="key === 'audio'">
                         <audio v-on:load="audioLoad" controls v-if="value!== null"><source :src="value.url" :type="value.mime" /></audio>
                         <span v-else>Фаил не найден</span>
