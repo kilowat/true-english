@@ -306,7 +306,7 @@ span.tip-text {
     .table_row {
       display: table;
       border-collapse: separate;
-      padding: 5%;
+      padding: 2%;
       width: 100%;
     }
     .table_row:nth-child(odd) {
@@ -367,6 +367,8 @@ span.tip-text {
   }
   audio{
     @include breakpoint(max-width 480px){
+      padding-bottom: 4px;
+      padding-top: 4px;
       width: 140px;
     }
   }
