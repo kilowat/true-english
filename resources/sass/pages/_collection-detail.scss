@@ -358,9 +358,11 @@ span.tip-text {
   }
   .transcript-cell{
     color: red;
+    font-size: 16px;
   }
   .translate-cell{
     color: green;
+    font-size: 16px;
   }
   audio{
     @include breakpoint(max-width 480px){

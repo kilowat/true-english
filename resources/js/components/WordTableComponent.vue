@@ -39,8 +39,8 @@
             </div>
             <div class='table_row' v-for="(data, key1) in tableData" :key="data.id"  v-else>
                 <div class='table_small'>
-                    <div class='table_cell'>№</div>
-                    <div class='table_cell'>{{ serialNumber(key1) }}</div>
+                    <div class='table_cell'>№:</div>
+                    <div class='table_cell'>{{ serialNumber(key1) }}:</div>
                 </div>
                 <div class='table_small' v-bind:class="key" v-for="(value, key) in data" v-if="columns[key] !== undefined">
                     <div class='table_cell'>{{ columns[key] }}</div>
@@ -51,13 +51,13 @@
                     <div v-else class='table_cell value_cell'>{{ value }}</div>
                 </div>
                 <div class='table_small'>
-                    <div class='table_cell'>Видео</div>
+                    <div class='table_cell'>Видео:</div>
                     <div class='table_cell'>
                         <a href="javascript:void(0)" @click="openYouglishBox(tableData[key1].name)"><i class="icon ic-youglish"></i></a>
                     </div>
                 </div>
                 <div class='table_small'>
-                    <div class='table_cell'>Ссылки</div>
+                    <div class='table_cell'>Ссылки:</div>
                     <div class='table_cell link-cell'>
                         <a v-bind:href="tableData[key1].contextReversoLink" target="_blank" title="reverso"><i class="icon ic-reverso"></i></a>
                         <a v-bind:href="tableData[key1].meriamlLink" target="_blank"><i class="icon ic-meriam"></i></a>
