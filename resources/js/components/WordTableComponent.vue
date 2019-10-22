@@ -306,10 +306,10 @@
         width: 70px;
     }
     .table_small.audio {
-        width: 100px;
+        width: 120px;
     }
     .table-component audio {
-        width: 100px;
+        width: 120px;
     }
     .h-wrapper {
         display: -webkit-box;
