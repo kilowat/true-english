@@ -109,13 +109,17 @@
                             <audio src="/storage/custom/sound_o_as_in_go.wav"></audio>
                             <span class="word-example">yell<span class="accent-tip">ow</span></span>
                         </div>
-                        <div class="tbl-cell empty-cell"></div>
+                        <div class="tbl-cell">
+                            <span class="sound" @click="play">aɪr</span>
+                            <audio src="/storage/custom/sound_ar_as_in_fire.wav"></audio>
+                            <span class="word-example">f<span class="accent-tip">ire</span></span>
+                        </div>
                     </div>
                     <div class="tbl-row">
                         <div class="tbl-cell">
-                            <span class="sound" @click="play">ɪə</span>
-                            <audio src="/storage/custom/sound_ar_as_in_fire.wav"></audio>
-                            <span class="word-example">f<span class="accent-tip">air</span></span>
+                            <span class="sound" @click="play">ɛr</span>
+                            <audio src="/storage/custom/sound_r_as_chair.wav"></audio>
+                            <span class="word-example">ch<span class="accent-tip">air</span></span>
                         </div>
                         <div class="tbl-cell">
                             <span class="sound" @click="play">ɑɪ</span>
