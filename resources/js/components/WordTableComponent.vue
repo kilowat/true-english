@@ -1,5 +1,5 @@
 <template>
-    <div class="table-component" v-bind:class="{loading: working}">
+    <div class="table-component" v-bind:class="{loading: working}" id="table-words">
         <div v-if="pagination && tableData.length > 0" class="nav-table">
             <ul class="pagination">
                 <li class="page-item" :class="{'disabled' : currentPage === 1}">
@@ -195,7 +195,9 @@
 
                 this.currentPage = pageNumber
                 this.fetchData()
-                window.scrollTo(0, 0);
+                document.querySelector("#table-words").scrollIntoView({
+                    behavior: 'smooth'
+                });
             },
             /**
              * Sort the data by column.
