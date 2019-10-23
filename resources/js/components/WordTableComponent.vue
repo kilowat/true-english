@@ -320,6 +320,8 @@
         max-width: 1400px;
         margin: auto;
         width: 100%;
+        text-align: right;
+        margin-top: 5px;
     }
     @media (max-width: 650px) { .hot-keys{display:none} }
     .hot-keys ul{
