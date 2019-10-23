@@ -56,7 +56,7 @@
                     { data: 'name', name: 'name' },
                     { data: 'code', name: 'code' },
                     { data: 'picture', name: 'picture' },
-                    { data: 'section', name: 'section' },
+                    { data: 'section', name: 'section',orderable: false, searchable: false },
                     { data: 'sort', name: 'sort' },
                     { data: 'active', name: 'active' },
                     { data: 'excel_downloaded', name: 'excel_downloaded' },

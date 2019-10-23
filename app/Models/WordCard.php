@@ -158,9 +158,9 @@ class WordCard extends Model
 
         $words_parsered = [];
 
-        foreach($arr_tmp as $word){
+        foreach($arr_tmp as $key => $word){
             $word = trim($word);
-            $words_parsered[$word] = 1;
+            $words_parsered[$word] = $key; //This for right ordering
         }
 
         return $words_parsered;

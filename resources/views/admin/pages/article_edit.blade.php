@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label>Текст</label>
-                            <textarea name="text" class="form-control" rows="3" placeholder="Enter ...">{{ $article->text }}</textarea>
+                            <textarea name="text" class="form-control" rows="20" placeholder="Enter ...">{{ $article->text }}</textarea>
                         </div>
 
                         <div class="form-group require">
@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label>Desctiption</label>
-                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{ $article->description }}</textarea>
+                            <textarea class="form-control" name="description" rows="10" placeholder="Enter ...">{{ $article->description }}</textarea>
                         </div>
 
                         <div class="form-group require">
