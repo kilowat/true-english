@@ -318,6 +318,16 @@
         line-height: 1;
     }
     .hot-keys{
+        max-width: 1400px;
+        width: 100%;
+        text-align: right;
+        margin-top: 8px;
+    }
+    @media (max-width: 650px) { .hot-keys{display:none} }
+    .hot-keys ul{
+        text-align:left;
+        margin:auto;
+        display:inline-block;
         text-align: right;
         margin: auto;
         display: inline-block;
@@ -325,12 +335,6 @@
         padding: 8px;
         border-radius: 5px;
         border: 1px solid #ccc;
-    }
-    @media (max-width: 650px) { .hot-keys{display:none} }
-    .hot-keys ul{
-        text-align:right;
-        margin:auto;
-        display:inline-block;
     }
     .hot-keys ul li{
         text-align:left;
