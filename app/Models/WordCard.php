@@ -155,12 +155,16 @@ class WordCard extends Model
     private function useSimpleArray($text)
     {
         $arr_tmp = explode(PHP_EOL, $text);
+        krsort($arr_tmp);
 
         $words_parsered = [];
 
-        foreach($arr_tmp as $key => $word){
+        $key = 0;
+
+        foreach($arr_tmp as $word){
             $word = trim($word);
             $words_parsered[$word] = $key; //This for right ordering
+            $key++;
         }
 
         return $words_parsered;

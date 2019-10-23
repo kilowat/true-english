@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/CardExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/CardExport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/WordCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/WordCard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/article_add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/article_add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/article_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/article_edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/card_add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/card_add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WordCard.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WordCard.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Models/WordCard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="148" selection-start-line="148" selection-end-line="148" />
+            <state relative-caret-position="572">
+              <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
             </state>
           </provider>
         </entry>
@@ -64,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="card_add.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="card_add.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/card_add.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="528">
@@ -94,7 +88,7 @@
       <file leaf-file-name="Word.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Word.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
+            <state relative-caret-position="682">
               <caret line="31" column="34" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="34" />
             </state>
           </provider>
@@ -207,8 +201,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCardController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/card_index.blade.php" />
         <option value="$PROJECT_DIR$/app/Exports/CardExport.php" />
-        <option value="$PROJECT_DIR$/app/Models/WordCard.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/pages/card_add.blade.php" />
+        <option value="$PROJECT_DIR$/app/Models/WordCard.php" />
       </list>
     </option>
   </component>
@@ -372,7 +366,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="152" />
     <option name="y" value="52" />
     <option name="width" value="1400" />
@@ -720,7 +714,7 @@
       <workItem from="1571725042131" duration="4459000" />
       <workItem from="1571741192109" duration="1975000" />
       <workItem from="1571760733765" duration="3201000" />
-      <workItem from="1571813923125" duration="4046000" />
+      <workItem from="1571813923125" duration="5085000" />
     </task>
     <servers />
   </component>
@@ -736,7 +730,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="793050000" />
+    <option name="totallyTimeSpent" value="794089000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1028,27 +1022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Word.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="31" column="34" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Exports/CardExport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="112" column="23" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/TextAnalyze/WordParser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1025">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCardController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1541">
@@ -1056,13 +1029,6 @@
           <folding>
             <element signature="e#131#158#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/WordCard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="148" selection-start-line="148" selection-end-line="148" />
         </state>
       </provider>
     </entry>
@@ -1084,6 +1050,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="51" column="80" selection-start-line="51" selection-start-column="80" selection-end-line="51" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/TextAnalyze/WordParser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Exports/CardExport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="112" column="23" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Word.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/WordCard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
         </state>
       </provider>
     </entry>
