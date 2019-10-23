@@ -3,7 +3,7 @@
          v-bind:class="{loading: working}"
          id="table-words">
         <div class="hot-keys">
-            <a href="javascript:void(0)" v-on:click="isShowHotKey = !isShowHotKey" class="hot-key-link">Показать клавишы навигации</a>
+            <div><a href="javascript:void(0)" v-on:click="isShowHotKey = !isShowHotKey" class="hot-key-link">Показать клавишы навигации</a></div>
             <ul v-show="isShowHotKey">
                 <li>Навигация по страницам: <b>&larr; &rarr;</b></li>
                 <li>Навигация по строкам: <b>&uarr; &darr;</b></li>
@@ -105,6 +105,7 @@
             cardId: { type: String, required: true },
         },
         mounted() {
+            this.audioLoad();
         },
         data() {
             return {
@@ -317,16 +318,22 @@
         line-height: 1;
     }
     .hot-keys{
-        max-width: 1400px;
-        margin: auto;
-        width: 100%;
         text-align: right;
-        margin-top: 5px;
+        margin: auto;
+        display: inline-block;
+        background-color: beige;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
     }
     @media (max-width: 650px) { .hot-keys{display:none} }
     .hot-keys ul{
-        text-align:left;
+        text-align:right;
         margin:auto;
+        display:inline-block;
+    }
+    .hot-keys ul li{
+        text-align:left;
     }
     .sort-arrow {
         cursor: pointer;
