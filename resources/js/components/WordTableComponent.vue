@@ -1,5 +1,18 @@
 <template>
-    <div class="table-component" v-bind:class="{loading: working}" id="table-words">
+    <div class="table-component"
+         v-bind:class="{loading: working}"
+         id="table-words">
+        <div class="hot-keys">
+            <a href="javascript:void(0)" v-on:click="isShowHotKey = !isShowHotKey" class="hot-key-link">Показать клавишы навигации</a>
+            <ul v-show="isShowHotKey">
+                <li>Навигация по страницам: <b>&larr; &rarr;</b></li>
+                <li>Навигация по строкам: <b>&uarr; &darr;</b></li>
+                <li>Проиграть audio: <b>Пробел</b></li>
+                <li>Открыть youglish: <b>Левый контрол</b></li>
+                <li>Закрыть youglish: <b>Esc</b></li>
+                <li>Выбрать строку: <b>Клик мышкой по строке</b></li>
+            </ul>
+        </div>
         <div v-if="pagination && tableData.length > 0" class="nav-table">
             <ul class="pagination">
                 <li class="page-item" :class="{'disabled' : currentPage === 1}">
@@ -37,7 +50,7 @@
                     <div class="table-cell lead text-center" :colspan="columns.length + 1">Ничего не найдено</div>
                 </div>
             </div>
-            <div class='table_row' v-for="(data, key1) in tableData" :key="data.id"  v-else>
+            <div class='table_row' v-bind:class="{ 'selected' : selectedRow == key1}" v-bind:id="'row-'+key1"  @click="selectRow(key1)" v-for="(data, key1) in tableData" :key="data.id"  v-else>
                 <div class='table_small'>
                     <div class='table_cell'>№:</div>
                     <div class='table_cell'>{{ serialNumber(key1) }}</div>
@@ -95,6 +108,8 @@
         },
         data() {
             return {
+                selectedRow: 0,
+                isShowHotKey: false,
                 columns:{
                     "freq" : "Частота",
                     "name" : "Слово",
@@ -114,7 +129,7 @@
                 perPage: 50,
                 sortFields:{"name":true, "freq": true},
                 sortedColumn: "name",
-                order: 'asc'
+                order: 'asc',
             }
         },
         watch: {
@@ -132,6 +147,9 @@
             if(this.sortOrder){
                 this.order = this.sortOrder;
             }
+
+            this.setHandlerKeyPressed();
+
             return this.fetchData()
         },
         computed: {
@@ -195,9 +213,11 @@
 
                 this.currentPage = pageNumber
                 this.fetchData()
-                document.querySelector("#table-words").scrollIntoView({
-                    behavior: 'smooth'
-                });
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#table-words").offset().top - 150
+                }, 500);
+
+                this.selectedRow = 0;
             },
             /**
              * Sort the data by column.
@@ -212,77 +232,69 @@
                 this.fetchData()
             },
             openYouglishBox(word){
-                let widget = `<div class="youglish-box"><div id="widget-youglish"></div></div>`;
-                let self = this;
-                $.fancybox.open(widget, {
-                    beforeShow(){
-                        self.runYouglish(word)
-                    },
-                    beforeClose(){
-                        window.youglish_tag.remove();
-                    }
-                });
+                window.openYouglishBox(word);
             },
-            runYouglish(word){
-                // 2. This code loads the widget API code asynchronously.
-                window.youglish_tag = document.createElement('script');
-
-                window.youglish_tag.src = "https://youglish.com/public/emb/widget.js";
-                var firstScriptTag = document.getElementsByTagName('script')[0];
-                firstScriptTag.parentNode.insertBefore(window.youglish_tag, firstScriptTag);
-
-                window.widget;
-                window.onYouglishAPIReady = function(){
-                    window.widget = new YG.Widget("widget-youglish", {
-                        width: 480,
-                        components:8 + 16 + 64, //search box & caption
-                        events: {
-                            'onSearchDone': onSearchDone,
-                            'onVideoChange': onVideoChange,
-                            'onCaptionConsumed': onCaptionConsumed
-                        }
-                    });
-                    // 4. process the query
-                    window.widget.search(word,"US");
-                }
-
-                var autoChangeTimer;
-
-                var views = 0, curTrack = 0, totalTracks = 0;
-
-                // 5. The API will call this method when the search is done
-                window.onSearchDone = function(event){
-                    if (event.totalResult === 0){
-                        alert("Видео по этому слову не найдено");
-                        window.$.fancybox.close();
-                    }
-                    else {
-                        totalTracks = event.totalResult;
-                    }
-                }
-
-                // 6. The API will call this method when switching to a new video.
-                window.onVideoChange = function(event){
-                    curTrack = event.trackNumber;
-                    views = 0;
-                    if(autoChangeTimer){
-                        clearTimeout(autoChangeTimer);
-                    }
-                }
-
-                // 7. The API will call this method when a caption is consumed.
-                window.onCaptionConsumed = function(event){
-                    if (curTrack < totalTracks){
-                        autoChangeTimer = setTimeout(function(){
-                            widget.next();
-                        }, 2000)
-                    }
-
-                }
-            },
-            audioLoad: function(){
+            audioLoad(){
                 $("audio").each(function(key, value){
                     value.load();
+                });
+            },
+            selectRow(id){
+                this.selectedRow = id;
+            },
+            playAudioSelected(){
+                let player = window.document.querySelector('#row-' + this.selectedRow + " audio");
+                if(player != undefined){
+                    player.play();
+                }
+            },
+            setHandlerKeyPressed(){
+                document.querySelector('html').addEventListener('keydown', (e) => {
+                    const code = e.code;
+                    let handled = false;
+
+                    if(code == "Space"){
+                        this.playAudioSelected()
+                        handled = true;
+                    }
+
+                    if(code == "ArrowDown" && this.tableData.length > this.selectedRow + 1){
+                        this.selectedRow+=1
+                        handled = true;
+                        $([document.documentElement, document.body]).animate({
+                            scrollTop: $("#row-" + this.selectedRow).offset().top - 200
+                        }, 50);
+                        this.playAudioSelected()
+                    }
+
+                    if(code == "ArrowUp" && this.selectedRow > 0){
+                        this.selectedRow-=1
+                        handled = true;
+                        $([document.documentElement, document.body]).animate({
+                            scrollTop: $("#row-" + this.selectedRow).offset().top - 200
+                        }, 50);
+                        this.playAudioSelected()
+                    }
+
+                    if(code == "ArrowRight"){
+                        this.selectedRow-=1
+                        handled = true;
+                        this.changePage(this.currentPage + 1)
+                    }
+
+                    if(code == "ArrowLeft"){
+                        this.selectedRow-=1
+                        handled = true;
+                        this.changePage(this.currentPage - 1)
+                    }
+                    if(code == "ControlLeft"){
+                        let word = $("#row-" + this.selectedRow + " .name .value_cell").text();
+                        this.openYouglishBox(word);
+                    }
+                    console.log(code);
+                    if(handled){
+                        event.preventDefault();
+                    }
                 });
             }
         },
@@ -298,6 +310,21 @@
 <style scoped>
     .nav-table{
         text-align: center;
+    }
+    .hot-key-link{
+        display:inline-block;
+        border-bottom: 1px dashed;
+        line-height: 1;
+    }
+    .hot-keys{
+        max-width: 1400px;
+        margin: auto;
+        width: 100%;
+    }
+    @media (max-width: 650px) { .hot-keys{display:none} }
+    .hot-keys ul{
+        text-align:left;
+        margin:auto;
     }
     .sort-arrow {
         cursor: pointer;
@@ -321,12 +348,16 @@
         -ms-flex-align: center;
         align-items: center;
     }
-
+    .table_row{
+        cursor:pointer;
+    }
     .article-detail .table_small.freq {
         display: none;
     }
     .article-detail .table_header.freq {
         display: none;
     }
-
+    .table_row.selected .table_small{
+        background-color: #e8e5a3;
+    }
 </style>

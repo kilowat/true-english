@@ -32,7 +32,9 @@
                 <div class="col s12 m6 l4">
                     <div class="card">
                         <div class="card-image">
-                            <img src="{{ $article->previewPicture }}" alt="{{ $article->name }}">
+                            <a href="{{ route("article.detail", $article->code) }}" title="{{ $article->name }}">
+                                <img src="{{ $article->previewPicture }}" alt="{{ $article->name }}">
+                            </a>
                             <span class="card-title">{{ $article->name }}</span>
                         </div>
                         <div class="card-content">
