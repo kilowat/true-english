@@ -245,6 +245,7 @@
             },
             selectRow(id){
                 this.selectedRow = id;
+                this.playAudioSelected()
             },
             playAudioSelected(){
                 let player = window.document.querySelector('#row-' + this.selectedRow + " audio");
