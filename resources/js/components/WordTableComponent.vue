@@ -266,36 +266,37 @@
 
                     if(code == "ArrowDown" && this.tableData.length > this.selectedRow + 1){
                         this.selectedRow+=1
-                        handled = true;
                         $([document.documentElement, document.body]).animate({
                             scrollTop: $("#row-" + this.selectedRow).offset().top - 200
                         }, 50);
                         this.playAudioSelected()
+                        handled = true;
                     }
 
                     if(code == "ArrowUp" && this.selectedRow > 0){
                         this.selectedRow-=1
-                        handled = true;
                         $([document.documentElement, document.body]).animate({
                             scrollTop: $("#row-" + this.selectedRow).offset().top - 200
                         }, 50);
                         this.playAudioSelected()
+                        handled = true;
                     }
 
                     if(code == "ArrowRight"){
                         this.selectedRow-=1
-                        handled = true;
                         this.changePage(this.currentPage + 1)
+                        handled = true;
                     }
 
                     if(code == "ArrowLeft"){
                         this.selectedRow-=1
-                        handled = true;
                         this.changePage(this.currentPage - 1)
+                        handled = true;
                     }
                     if(code == "ControlLeft"){
                         let word = $("#row-" + this.selectedRow + " .name .value_cell").text();
                         this.openYouglishBox(word);
+                        handled = true;
                     }
 
                     if(handled){
