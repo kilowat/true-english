@@ -116,17 +116,12 @@ window.runYouglish = function (word){
     window.onVideoChange = function(event){
         curTrack = event.trackNumber;
         views = 0;
-        if(autoChangeTimer!=undefined){
-            clearTimeout(autoChangeTimer);
-        }
     }
 
     // 7. The API will call this method when a caption is consumed.
     window.onCaptionConsumed = function(event){
         if (curTrack < totalTracks){
-            autoChangeTimer = setTimeout(function(){
-                widget.next();
-            }, 1000)
+            widget.next();
         }
 
     }
