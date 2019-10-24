@@ -103,9 +103,7 @@ window.runYouglish = function (word){
     // 5. The API will call this method when the search is done
     window.onSearchDone = function(event){
         if (event.totalResult === 0){
-            alert("Видео по этому слову не найдено");
-            clearTimeout(autoChangeTimer);
-            window.$.fancybox.close();
+
         }
         else {
             totalTracks = event.totalResult;
