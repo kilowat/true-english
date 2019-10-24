@@ -255,6 +255,11 @@
                     let handled = false;
 
                     if(code == "Space"){
+
+                        if ($('video').is(":focus")) {
+                            $('video').focusout();
+                        }
+
                         this.playAudioSelected()
                         handled = true;
                     }
@@ -292,7 +297,7 @@
                         let word = $("#row-" + this.selectedRow + " .name .value_cell").text();
                         this.openYouglishBox(word);
                     }
-                    console.log(code);
+
                     if(handled){
                         event.preventDefault();
                     }
