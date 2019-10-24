@@ -249,7 +249,7 @@
                 }
             },
             setHandlerKeyPressed(){
-                document.querySelector('html').addEventListener('keydown', (e) => {
+                document.querySelector('body').addEventListener('keydown', (e) => {
                     const code = e.code;
                     let handled = false;
 
