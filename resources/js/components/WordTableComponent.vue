@@ -8,7 +8,8 @@
                 <li>Навигация по страницам: <b>&larr; &rarr;</b></li>
                 <li>Навигация по строкам: <b>&uarr; &darr;</b></li>
                 <li>Проиграть audio: <b>Пробел</b></li>
-                <li>Открыть youglish: <b>Левый контрол</b></li>
+                <li>Открыть youglish: <b>Левый или Правый shift</b></li>
+                <li>Закрыть youglish: <b>Левый или Правый контрол</b></li>
                 <li>Выбрать строку: <b>Клик мышкой по строке</b></li>
             </ul>
         </div>
@@ -292,17 +293,17 @@
                         this.changePage(this.currentPage - 1)
                         handled = true;
                     }
-                    if(code == "ControlLeft"){
+                    if(code == "ShiftLeft" || code == "ShiftRight"){
                         let word = $("#row-" + this.selectedRow + " .name .value_cell").text();
                         this.openYouglishBox(word);
                         handled = true;
                     }
 
-                    if(code == "Escape"){
+                    if(code == "ControlRight" || code == "ControlLeft"){
                         window.$.fancybox.close();
                         handled = true;
                     }
-
+                    console.log(code);
                     if(handled){
                         event.preventDefault();
                     }
