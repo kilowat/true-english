@@ -299,6 +299,11 @@
                         handled = true;
                     }
 
+                    if(code == "Escape"){
+                        window.$.fancybox.close();
+                        handled = true;
+                    }
+
                     if(handled){
                         event.preventDefault();
                     }
