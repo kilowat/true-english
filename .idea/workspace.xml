@@ -22,8 +22,8 @@
       <file leaf-file-name="WordTableComponent.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="302" column="50" selection-start-line="302" selection-start-column="50" selection-end-line="302" selection-end-column="50" />
+            <state relative-caret-position="220">
+              <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
               <folding>
                 <element signature="e#237#243#0" expanded="true" />
                 <element signature="e#244#250#0" expanded="true" />
@@ -333,7 +333,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="152" />
     <option name="y" value="52" />
     <option name="width" value="1400" />
@@ -688,7 +688,7 @@
       <workItem from="1571725042131" duration="4459000" />
       <workItem from="1571741192109" duration="1975000" />
       <workItem from="1571760733765" duration="3201000" />
-      <workItem from="1571813923125" duration="23038000" />
+      <workItem from="1571813923125" duration="23645000" />
     </task>
     <servers />
   </component>
@@ -704,7 +704,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="812042000" />
+    <option name="totallyTimeSpent" value="812649000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1054,8 +1054,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="302" column="50" selection-start-line="302" selection-start-column="50" selection-end-line="302" selection-end-column="50" />
+        <state relative-caret-position="220">
+          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
           <folding>
             <element signature="e#237#243#0" expanded="true" />
             <element signature="e#244#250#0" expanded="true" />
