@@ -116,7 +116,7 @@ window.runYouglish = function (word){
     window.onVideoChange = function(event){
         curTrack = event.trackNumber;
         views = 0;
-        if(autoChangeTimer){
+        if(autoChangeTimer!=undefined){
             clearTimeout(autoChangeTimer);
         }
     }
@@ -126,7 +126,7 @@ window.runYouglish = function (word){
         if (curTrack < totalTracks){
             autoChangeTimer = setTimeout(function(){
                 widget.next();
-            }, 2000)
+            }, 1000)
         }
 
     }

@@ -8,8 +8,8 @@
                 <li>Навигация по страницам: <b>&larr; &rarr;</b></li>
                 <li>Навигация по строкам: <b>&uarr; &darr;</b></li>
                 <li>Проиграть audio: <b>Пробел</b></li>
-                <li>Открыть youglish: <b>Левый или Правый shift</b></li>
-                <li>Закрыть youglish: <b>Левый или Правый контрол</b></li>
+                <li>Открыть youglish: <b>Правый shift</b></li>
+                <li>Закрыть youglish: <b>Правый Контрол</b></li>
                 <li>Выбрать строку: <b>Клик мышкой по строке</b></li>
             </ul>
         </div>
@@ -106,13 +106,13 @@
         },
         mounted() {
             this.audioLoad();
-            window.keyPressHandler = this.keyPress;
             this.setHandlerKeyPressed();
         },
         data() {
             return {
                 selectedRow: 0,
                 isShowHotKey: false,
+                isOpenedYougish: false,
                 columns:{
                     "freq" : "Частота",
                     "name" : "Слово",
@@ -233,8 +233,10 @@
                 this.fetchData()
             },
             openYouglishBox(word){
-                window.openYouglishBox(word);
-                this.setHandlerKeyPressed();
+                window.openYouglishBox(word, {
+                    beforeOpen: () => {this.isOpenedYougish = true},
+                    beforeClose: () => {this.isOpenedYougish = false}
+                });
             },
             audioLoad(){
                 $("audio").each(function(key, value){
@@ -251,66 +253,65 @@
                 }
             },
             setHandlerKeyPressed(){
-                document.querySelector('body').removeEventListener('keydown', keyPressHandler, true);
-                document.querySelector('body').addEventListener('keydown', keyPressHandler);
-            },
-            keyPress(e){
-                const code = e.code;
-                let handled = false;
+                document.querySelector('html').addEventListener('keydown', (e) => {
+                    const code = e.code;
+                    let handled = false;
 
-                if(code == "Space"){
+                    if(code == "Space"){
 
-                    if ($('video').is(":focus")) {
-                        $('video').focusout();
+                        if ($('video').is(":focus")) {
+                            $('video').focusout();
+                        }
+
+                        this.playAudioSelected()
+                        handled = true;
                     }
 
-                    this.playAudioSelected()
-                    handled = true;
-                }
+                    if(code == "ArrowDown" && this.tableData.length > this.selectedRow + 1){
+                        this.selectedRow+=1
+                        $([document.documentElement, document.body]).animate({
+                            scrollTop: $("#row-" + this.selectedRow).offset().top - 200
+                        }, 50);
+                        this.playAudioSelected()
+                        handled = true;
+                    }
 
-                if(code == "ArrowDown" && this.tableData.length > this.selectedRow + 1){
-                    this.selectedRow+=1
-                    $([document.documentElement, document.body]).animate({
-                        scrollTop: $("#row-" + this.selectedRow).offset().top - 200
-                    }, 50);
-                    this.playAudioSelected()
-                    handled = true;
-                }
+                    if(code == "ArrowUp" && this.selectedRow > 0){
+                        this.selectedRow-=1
+                        $([document.documentElement, document.body]).animate({
+                            scrollTop: $("#row-" + this.selectedRow).offset().top - 200
+                        }, 50);
+                        this.playAudioSelected()
+                        handled = true;
+                    }
 
-                if(code == "ArrowUp" && this.selectedRow > 0){
-                    this.selectedRow-=1
-                    $([document.documentElement, document.body]).animate({
-                        scrollTop: $("#row-" + this.selectedRow).offset().top - 200
-                    }, 50);
-                    this.playAudioSelected()
-                    handled = true;
-                }
+                    if(code == "ArrowRight"){
+                        this.selectedRow-=1
+                        this.changePage(this.currentPage + 1)
+                        handled = true;
+                    }
 
-                if(code == "ArrowRight"){
-                    this.selectedRow-=1
-                    this.changePage(this.currentPage + 1)
-                    handled = true;
-                }
+                    if(code == "ArrowLeft"){
+                        this.selectedRow-=1
+                        this.changePage(this.currentPage - 1)
+                        handled = true;
+                    }
 
-                if(code == "ArrowLeft"){
-                    this.selectedRow-=1
-                    this.changePage(this.currentPage - 1)
-                    handled = true;
-                }
-                if(code == "ShiftLeft" || code == "ShiftRight"){
-                    let word = $("#row-" + this.selectedRow + " .name .value_cell").text();
-                    this.openYouglishBox(word);
-                    handled = true;
-                }
+                    if((code == "ShiftRight" && !this.isOpenedYougish)){
+                        let word = $("#row-" + this.selectedRow + " .name .value_cell").text();
+                        this.openYouglishBox(word);
+                        handled = true;
+                    }
 
-                if(code == "ControlRight" || code == "ControlLeft"){
-                    window.$.fancybox.close();
-                    handled = true;
-                }
-                console.log(code);
-                if(handled){
-                    event.preventDefault();
-                }
+                    if(code == "ControlRight"){
+                        window.$.fancybox.close();
+                        handled = true;
+                    }
+
+                    if(handled){
+                        event.preventDefault();
+                    }
+                });
             }
         },
         filters: {
