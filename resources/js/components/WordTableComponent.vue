@@ -106,6 +106,7 @@
         },
         mounted() {
             this.audioLoad();
+            this.setHandlerKeyPressed();
         },
         data() {
             return {
@@ -148,8 +149,6 @@
             if(this.sortOrder){
                 this.order = this.sortOrder;
             }
-
-            this.setHandlerKeyPressed();
 
             return this.fetchData()
         },
