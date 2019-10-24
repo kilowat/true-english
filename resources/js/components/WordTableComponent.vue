@@ -123,7 +123,7 @@
                 working: true,
                 tableData: [],
                 fetchUrl: "",
-                url: '/api/words-table/id/'+this.cardId,
+                url: '/api/words-table/id/'+ this.cardId,
                 pagination: {
                     meta: { to: 1, from: 1 }
                 },

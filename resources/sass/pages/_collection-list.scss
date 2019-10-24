@@ -2,6 +2,9 @@
   .row{
     display: flex;
     flex-wrap: wrap;
+    .col{
+      margin-left: 0!important;
+    }
     .card{
       height: calc(100% - 20px);
       .card-image{
@@ -10,3 +13,4 @@
     }
   }
 }
+
