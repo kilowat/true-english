@@ -60,17 +60,37 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 
 
 window.openYouglishBox = function(word){
-    let widget = `<div class="youglish-box"><div id="widget-youglish"></div></div>`;
+    let widget = `<div class="youglish-box">
+                    <div id="widget-youglish"></div>
+                    <div class="settings">
+                        <div class="setting-cell">
+                            <label for="auto-next">Авто переход роликов:</label>
+                            <input type="checkbox" onchange="window._app.setYouglishAutoPlay(this)" id="auto-next">
+                        </div>
+                    </div>
+                  </div>`;
     let self = this;
     $.fancybox.open(widget, {
         beforeShow(){
             runYouglish(word)
+
+            let autoPlay = true;
+
+            if(localStorage.youglish_autoNext && localStorage.youglish_autoNext == "no")
+                autoPlay = false;
+
+            $("#auto-next").attr('checked', autoPlay);
         },
         beforeClose(){
+            if(window._widget_youglish_youglish != undefined){
+                window._widget_youglish_youglish.close();
+            }
+
             window.youglish_tag.remove();
         }
     });
 }
+
 window.runYouglish = function (word){
     // 2. This code loads the widget API code asynchronously.
     window.youglish_tag = document.createElement('script');
@@ -80,10 +100,10 @@ window.runYouglish = function (word){
     firstScriptTag.parentNode.insertBefore(window.youglish_tag, firstScriptTag);
 
     // 3. This function creates a widget after the API code downloads.
-    window.widget;
+    window._widget_youglish_youglish;
 
     window.onYouglishAPIReady = function(){
-        widget = new YG.Widget("widget-youglish", {
+        window._widget_youglish = new YG.Widget("widget-youglish", {
             width: 480,
             components:8 + 16 + 64, //search box & caption
             events: {
@@ -93,12 +113,15 @@ window.runYouglish = function (word){
             }
         });
         // 4. process the query
-        widget.search(word,"US");
+        window._widget_youglish.search(word,"US");
     }
 
     var autoChangeTimer;
 
-    var views = 0, curTrack = 0, totalTracks = 0;
+    var views = 0;
+
+    window.curTrack = 0;
+    window.totalTracks = 0;
 
     // 5. The API will call this method when the search is done
     window.onSearchDone = function(event){
@@ -112,18 +135,30 @@ window.runYouglish = function (word){
 
     // 6. The API will call this method when switching to a new video.
     window.onVideoChange = function(event){
-        curTrack = event.trackNumber;
+        window.curTrack = event.trackNumber;
         views = 0;
     }
 
     // 7. The API will call this method when a caption is consumed.
     window.onCaptionConsumed = function(event){
-        if (curTrack < totalTracks){
-            widget.next();
+        if (curTrack < totalTracks && localStorage.youglish_autoNext != 'no'){
+            window._widget_youglish.next();
         }
-
     }
 }
+
+window._app = (() => {
+    let setYouglishAutoPlay = (e)=>{
+        if(e.checked)
+            localStorage.youglish_autoNext = 'yes';
+        else
+            localStorage.youglish_autoNext = 'no';
+    };
+
+    return {
+        setYouglishAutoPlay : setYouglishAutoPlay
+    }
+})();
 
 const app = new Vue({
     el: '#app',

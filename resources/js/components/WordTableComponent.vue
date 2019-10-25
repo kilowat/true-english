@@ -9,8 +9,9 @@
                 <li>Навигация по строкам: <b>&uarr; &darr;</b></li>
                 <li>Проиграть audio: <b>Пробел</b></li>
                 <li>Открыть youglish: <b>Правый shift</b></li>
-                <li>Закрыть youglish: <b>Правый Контрол</b></li>
+                <li>Закрыть youglish: <b>DEL</b></li>
                 <li>Выбрать строку: <b>Клик мышкой по строке</b></li>
+                <li>Навигация в окне youglish: <b>&larr; &rarr;</b></li>
             </ul>
         </div>
         <div v-if="pagination && tableData.length > 0" class="nav-table">
@@ -112,7 +113,7 @@
             return {
                 selectedRow: 0,
                 isShowHotKey: false,
-                isOpenedYougish: false,
+                autoNext: true,
                 columns:{
                     "freq" : "Частота",
                     "name" : "Слово",
@@ -141,7 +142,7 @@
                     this.url+= fetchUrl
                 },
                 immediate: true
-            }
+            },
         },
         created() {
             if(this.sortField){
@@ -233,10 +234,8 @@
                 this.fetchData()
             },
             openYouglishBox(word){
-                window.openYouglishBox(word, {
-                    beforeOpen: () => {this.isOpenedYougish = true},
-                    beforeClose: () => {this.isOpenedYougish = false}
-                });
+                this.openYouglishClicked = true;
+                window.openYouglishBox(word);
             },
             audioLoad(){
                 $("audio").each(function(key, value){
@@ -253,12 +252,26 @@
                     player.play();
                 }
             },
+            isOpenedYougish(){
+                return window.$('#widget-youglish').length > 0;
+            },
             setHandlerKeyPressed(){
-                document.querySelector('html').addEventListener('keydown', (e) => {
-                    const code = e.code;
+                $(document).keydown((event) => {
+                    console.log(this.isOpenedYougish());
+
+                    const code = event.which;
+                    console.log(code);
+                    const KEY_SPACE = 32;
+                    const ARROW_UP = 38;
+                    const ARROW_DOWN = 40;
+                    const ARROW_LEFT = 37;
+                    const ARROW_RIGHT = 39;
+                    const DELL = 46;
+                    const RIGHT_SHIFT = 16;
+
                     let handled = false;
 
-                    if(code == "Space"){
+                    if(code === KEY_SPACE && !this.isOpenedYougish()){
 
                         if ($('video').is(":focus")) {
                             $('video').focusout();
@@ -268,7 +281,7 @@
                         handled = true;
                     }
 
-                    if(code == "ArrowDown" && this.tableData.length > this.selectedRow + 1){
+                    if(code == ARROW_DOWN && this.tableData.length > this.selectedRow + 1 && !this.isOpenedYougish()){
                         this.selectedRow+=1
                         $([document.documentElement, document.body]).animate({
                             scrollTop: $("#row-" + this.selectedRow).offset().top - 200
@@ -277,7 +290,7 @@
                         handled = true;
                     }
 
-                    if(code == "ArrowUp" && this.selectedRow > 0){
+                    if(code == ARROW_UP && this.selectedRow > 0 && !this.isOpenedYougish()){
                         this.selectedRow-=1
                         $([document.documentElement, document.body]).animate({
                             scrollTop: $("#row-" + this.selectedRow).offset().top - 200
@@ -286,25 +299,38 @@
                         handled = true;
                     }
 
-                    if(code == "ArrowRight"){
+                    if(code == ARROW_RIGHT && !this.isOpenedYougish()){
                         this.selectedRow-=1
                         this.changePage(this.currentPage + 1)
                         handled = true;
                     }
 
-                    if(code == "ArrowLeft"){
+                    if(code == ARROW_LEFT && !this.isOpenedYougish()){
                         this.selectedRow-=1
                         this.changePage(this.currentPage - 1)
                         handled = true;
                     }
 
-                    if((code == "ShiftRight" && !this.isOpenedYougish)){
+                    if(code == ARROW_RIGHT && this.isOpenedYougish()){
+                        if (window.curTrack < window.totalTracks && window._widget_youglish != undefined){
+                            window._widget_youglish.next();
+                        }
+                    }
+
+                    if(code == ARROW_LEFT && this.isOpenedYougish()){
+                        if (window.curTrack > 0 && window._widget_youglish != undefined){
+                            window._widget_youglish.previous();
+                        }
+                    }
+
+                    if(code == RIGHT_SHIFT && !this.isOpenedYougish()){
                         let word = $("#row-" + this.selectedRow + " .name .value_cell").text();
                         this.openYouglishBox(word);
                         handled = true;
                     }
 
-                    if(code == "ControlRight"){
+                    if(code == DELL && this.isOpenedYougish()){
+                        window._widget_youglish.close();
                         window.$.fancybox.close();
                         handled = true;
                     }

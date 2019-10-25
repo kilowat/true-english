@@ -397,6 +397,7 @@ this.mmooc.youtube = function() {
     //Called when user clicks somewhere in the transcript.
     $(function() {
         var open_on_played = false;
+        var is_busy_popup = false;
 
         $(document).on('click', '#subtitles', function(e) {
             if($(e.target).hasClass('s-line')){
@@ -415,15 +416,25 @@ this.mmooc.youtube = function() {
         });
         //hover on word
         $(document).on('click', '.s-link', function() {
+            if(is_busy_popup) return false;
+
             var transcript = mmooc.youtube.getTranscriptFromTranscriptId($(this).parents('.mmocVideoTranscript').attr("id"));
+
             if(mmooc.youtube.getCurrentState() == 1){
                 transcript.player.pauseVideo();
                 open_on_played = true;
             }
 
+            is_busy_popup = true;
+
+            $("body").append('<div class="ajax-load"></div>');
+
             $.ajax({
                 url: "/word/"+$(this).text()
             }).done(function(res){
+                is_busy_popup = false;
+                $('.ajax-load').remove();
+
                 $.fancybox.open(res,{
                     afterClose:function(){
                         if(open_on_played){
