@@ -116,7 +116,7 @@
                 isShowHotKey: false,
                 autoNext: true,
                 columns:{
-                    "freq" : "Частота",
+                    "freq" : "Индекс",
                     "name" : "Слово",
                     "transcription" : "Тран-ция",
                     "translate" : "Перевод",
@@ -461,12 +461,6 @@
     }
     .table_row{
         cursor:pointer;
-    }
-    .article-detail .table_small.freq {
-        display: none;
-    }
-    .article-detail .table_header.freq {
-        display: none;
     }
     .table_row.selected .table_small{
         background-color: #e8e5a3;
