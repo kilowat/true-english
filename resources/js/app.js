@@ -48,6 +48,34 @@ $(document).ready(function(){
             });
         })
     })
+
+    let isOpenedYougish = ()=> {return window.$('#widget-youglish').length > 0}
+
+    $(document).keydown((event) => {
+        const code = event.which;
+        const ARROW_LEFT = 37;
+        const ARROW_RIGHT = 39;
+        const DELL = 46;
+
+        if(code == ARROW_RIGHT && isOpenedYougish()){
+            if (window.curTrack < window.totalTracks && window._widget_youglish != undefined){
+                window._widget_youglish.next();
+            }
+        }
+
+        if(code == ARROW_LEFT && isOpenedYougish()){
+            if (window.curTrack > 0 && window._widget_youglish != undefined){
+                window._widget_youglish.previous();
+            }
+        }
+
+        if(code == DELL && isOpenedYougish()){
+            window._widget_youglish.close();
+            window.$.fancybox.close();
+            handled = true;
+        }
+    });
+
 });
 
 $(document).on('click', 'a[href^="#"]', function (event) {
@@ -65,7 +93,7 @@ window.openYouglishBox = function(word){
                     <div class="settings">
                         <div class="setting-cell">
                             <label for="auto-next">Авто переход роликов:</label>
-                            <input type="checkbox" onchange="window._app.setYouglishAutoPlay(this)" id="auto-next">
+                            <input type="checkbox" onchange="window._app.setYouglishAutoPlay(this)" checked="checked" id="auto-next">
                         </div>
                     </div>
                   </div>`;
@@ -73,13 +101,16 @@ window.openYouglishBox = function(word){
     $.fancybox.open(widget, {
         beforeShow(){
             runYouglish(word)
-
+        },
+        afterShow(){
             let autoPlay = true;
 
             if(localStorage.youglish_autoNext && localStorage.youglish_autoNext == "no")
                 autoPlay = false;
 
-            $("#auto-next").attr('checked', autoPlay);
+            console.log("!!!" +autoPlay);
+
+            $("#auto-next").prop('checked', autoPlay);
         },
         beforeClose(){
             if(window._widget_youglish_youglish != undefined){
@@ -137,11 +168,17 @@ window.runYouglish = function (word){
     window.onVideoChange = function(event){
         window.curTrack = event.trackNumber;
         views = 0;
+
+        $("#auto-next").focus();//Retrun focus to our doc from youglish
+
     }
 
     // 7. The API will call this method when a caption is consumed.
     window.onCaptionConsumed = function(event){
-        if (curTrack < totalTracks && localStorage.youglish_autoNext != 'no'){
+        console.log(localStorage.youglish_autoNext);
+        let play_setting = !localStorage.youglish_autoNext || localStorage.youglish_autoNext != 'no';
+        console.log(play_setting);
+        if (curTrack < totalTracks && play_setting){
             window._widget_youglish.next();
         }
     }

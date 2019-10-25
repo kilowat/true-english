@@ -257,10 +257,7 @@
             },
             setHandlerKeyPressed(){
                 $(document).keydown((event) => {
-                    console.log(this.isOpenedYougish());
-
                     const code = event.which;
-                    console.log(code);
                     const KEY_SPACE = 32;
                     const ARROW_UP = 38;
                     const ARROW_DOWN = 40;
@@ -311,27 +308,9 @@
                         handled = true;
                     }
 
-                    if(code == ARROW_RIGHT && this.isOpenedYougish()){
-                        if (window.curTrack < window.totalTracks && window._widget_youglish != undefined){
-                            window._widget_youglish.next();
-                        }
-                    }
-
-                    if(code == ARROW_LEFT && this.isOpenedYougish()){
-                        if (window.curTrack > 0 && window._widget_youglish != undefined){
-                            window._widget_youglish.previous();
-                        }
-                    }
-
                     if(code == RIGHT_SHIFT && !this.isOpenedYougish()){
                         let word = $("#row-" + this.selectedRow + " .name .value_cell").text();
                         this.openYouglishBox(word);
-                        handled = true;
-                    }
-
-                    if(code == DELL && this.isOpenedYougish()){
-                        window._widget_youglish.close();
-                        window.$.fancybox.close();
                         handled = true;
                     }
 
