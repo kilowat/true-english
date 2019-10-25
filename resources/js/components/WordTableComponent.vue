@@ -111,6 +111,7 @@
         },
         data() {
             return {
+                dataBase: false,
                 selectedRow: 0,
                 isShowHotKey: false,
                 autoNext: true,
@@ -130,7 +131,7 @@
                 },
                 offset: 4,
                 currentPage: 1,
-                perPage: 50,
+                perPage: 25,
                 sortFields:{"name":true, "freq": true},
                 sortedColumn: "name",
                 order: 'asc',
@@ -143,6 +144,17 @@
                 },
                 immediate: true
             },
+            selectedRow(value){
+                if(this.dataBase){
+                    this.dataBase.table_history.update({
+                        card_id: this.cardId,
+                        page: this.currentPage,
+                        row: value,
+                    }).then(function (item) {
+                        // item added or updated
+                    });
+                }
+            }
         },
         created() {
             if(this.sortField){
@@ -151,8 +163,39 @@
             if(this.sortOrder){
                 this.order = this.sortOrder;
             }
-
-            return this.fetchData()
+            /*
+            window.db.delete('true_english').then(function (ev) {
+                // Should have been a successful database deletion
+            }, function (err) {
+                // Error during database deletion
+            })
+            */
+            db.open({
+                server: 'true_english',
+                version: 1,
+                schema: {
+                    table_history: {
+                        key: {keyPath: 'card_id', autoIncrement: false},
+                        card_id:{},
+                        page: {},
+                        row: {}
+                    }
+                }
+            }).then(d => {
+                this.dataBase = d;
+                d.table_history.query()
+                    .filter('card_id', this.cardId)
+                    .execute()
+                    .then((results)=> {
+                        if(results[0]){
+                            this.currentPage = results[0].page ? results[0].page : 1;
+                            this.selectedRow = results[0].row ? results[0].row : 0;
+                        }
+                        this.fetchData()
+                    })
+            }).catch(d => {
+                this.fetchData()
+            });
         },
         computed: {
             /**
@@ -263,7 +306,7 @@
                     const ARROW_DOWN = 40;
                     const ARROW_LEFT = 37;
                     const ARROW_RIGHT = 39;
-                    const DELL = 46;
+                    const RIGHT_CONTROL = 17;
                     const RIGHT_SHIFT = 16;
 
                     let handled = false;
@@ -326,7 +369,7 @@
                         }
                     }
 
-                    if(code == DELL && this.isOpenedYougish()){
+                    if(code == RIGHT_CONTROL && this.isOpenedYougish()){
                         window._widget_youglish.close();
                         window.$.fancybox.close();
                         handled = true;

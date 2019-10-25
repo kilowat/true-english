@@ -15,6 +15,8 @@ window.mmooc = youtube.mmooc;
 
 window.Vue = require('vue');
 
+window.db = require('./db.min');
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -55,7 +57,7 @@ $(document).ready(function(){
         const code = event.which;
         const ARROW_LEFT = 37;
         const ARROW_RIGHT = 39;
-        const DELL = 46;
+        const RIGHT_CONTROL = 17;
 
         if(code == ARROW_RIGHT && isOpenedYougish()){
             if (window.curTrack < window.totalTracks && window._widget_youglish != undefined){
@@ -69,7 +71,7 @@ $(document).ready(function(){
             }
         }
 
-        if(code == DELL && isOpenedYougish()){
+        if(code == RIGHT_CONTROL && isOpenedYougish()){
             window._widget_youglish.close();
             window.$.fancybox.close();
             handled = true;
