@@ -150,6 +150,8 @@
                         card_id: this.cardId,
                         page: this.currentPage,
                         row: value,
+                        sort: this.sortedColumn,
+                        order: this.order,
                     }).then(function (item) {
                         // item added or updated
                     });
@@ -165,9 +167,9 @@
             }
             /*
             window.db.delete('true_english').then(function (ev) {
-                // Should have been a successful database deletion
+
             }, function (err) {
-                // Error during database deletion
+
             })
             */
             db.open({
@@ -178,7 +180,9 @@
                         key: {keyPath: 'card_id', autoIncrement: false},
                         card_id:{},
                         page: {},
-                        row: {}
+                        row: {},
+                        sort:{},
+                        order:{},
                     }
                 }
             }).then(d => {
@@ -190,6 +194,8 @@
                         if(results[0]){
                             this.currentPage = results[0].page ? results[0].page : 1;
                             this.selectedRow = results[0].row ? results[0].row : 0;
+                            this.sortedColumn = results[0].sort ? results[0].sort : this.sortedColumn;
+                            this.order = results[0].order ? results[0].order : this.order;
                         }
                         this.fetchData()
                     })
@@ -274,6 +280,16 @@
                     this.sortedColumn = column
                     this.order = 'asc'
                 }
+                this.dataBase.table_history.update({
+                    card_id: this.cardId,
+                    page: this.currentPage,
+                    row: this.selectedRow,
+                    sort: this.sortedColumn,
+                    order: this.order,
+                }).then(function (item) {
+                    // item added or updated
+                });
+
                 this.fetchData()
             },
             openYouglishBox(word){
