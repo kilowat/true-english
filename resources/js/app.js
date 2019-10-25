@@ -108,8 +108,6 @@ window.openYouglishBox = function(word){
             if(localStorage.youglish_autoNext && localStorage.youglish_autoNext == "no")
                 autoPlay = false;
 
-            console.log("!!!" +autoPlay);
-
             $("#auto-next").prop('checked', autoPlay);
         },
         beforeClose(){
@@ -175,9 +173,7 @@ window.runYouglish = function (word){
 
     // 7. The API will call this method when a caption is consumed.
     window.onCaptionConsumed = function(event){
-        console.log(localStorage.youglish_autoNext);
         let play_setting = !localStorage.youglish_autoNext || localStorage.youglish_autoNext != 'no';
-        console.log(play_setting);
         if (curTrack < totalTracks && play_setting){
             window._widget_youglish.next();
         }

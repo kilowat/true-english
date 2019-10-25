@@ -314,6 +314,24 @@
                         handled = true;
                     }
 
+                    if(code == ARROW_RIGHT && this.isOpenedYougish()){
+                        if (window.curTrack < window.totalTracks && window._widget_youglish != undefined){
+                            window._widget_youglish.next();
+                        }
+                    }
+
+                    if(code == ARROW_LEFT && this.isOpenedYougish()){
+                        if (window.curTrack > 0 && window._widget_youglish != undefined){
+                            window._widget_youglish.previous();
+                        }
+                    }
+
+                    if(code == DELL && this.isOpenedYougish()){
+                        window._widget_youglish.close();
+                        window.$.fancybox.close();
+                        handled = true;
+                    }
+
                     if(handled){
                         event.preventDefault();
                     }
