@@ -59,7 +59,7 @@
                 <div class='table_small' v-bind:class="key" v-for="(value, key) in data" v-if="columns[key] !== undefined">
                     <div class='table_cell'>{{ columns[key] }}:</div>
                     <div class='table_cell' v-if="key === 'audio'">
-                        <audio v-on:load="audioLoad" controls v-if="value!== null"><source :src="value.url" :type="value.mime" /></audio>
+                        <audio v-on:load="audioLoad" v-on:play="selectRow(key1)" controls v-if="value!== null"><source :src="value.url" :type="value.mime" /></audio>
                         <span v-else>Фаил не найден</span>
                     </div>
                     <div v-else class='table_cell value_cell'>{{ value }}</div>
@@ -268,7 +268,7 @@
                     scrollTop: $("#table-words").offset().top - 150
                 }, 500);
 
-                this.selectedRow = 0;
+                this.selectRow(0);
             },
             /**
              * Sort the data by column.
