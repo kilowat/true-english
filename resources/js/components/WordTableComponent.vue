@@ -241,6 +241,17 @@
                         this.pagination = data
                         this.tableData = data.data
                         this.working = false;
+
+                        this.dataBase.table_history.update({
+                            card_id: this.cardId,
+                            page: this.currentPage,
+                            row: this.selectedRow,
+                            sort: this.sortedColumn,
+                            order: this.order,
+                        }).then(function (item) {
+                            // item added or updated
+                        });
+
                         this.$nextTick(() => {
                             this.audioLoad();
                         });
@@ -268,7 +279,6 @@
                     scrollTop: $("#table-words").offset().top - 150
                 }, 500);
 
-                this.selectRow(0);
             },
             /**
              * Sort the data by column.
@@ -280,15 +290,6 @@
                     this.sortedColumn = column
                     this.order = 'asc'
                 }
-                this.dataBase.table_history.update({
-                    card_id: this.cardId,
-                    page: this.currentPage,
-                    row: this.selectedRow,
-                    sort: this.sortedColumn,
-                    order: this.order,
-                }).then(function (item) {
-                    // item added or updated
-                });
 
                 this.fetchData()
             },
