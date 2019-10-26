@@ -279,6 +279,8 @@
                     scrollTop: $("#table-words").offset().top - 150
                 }, 500);
 
+                this.selectRow = 0;
+
             },
             /**
              * Sort the data by column.
