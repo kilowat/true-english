@@ -279,7 +279,7 @@
                     scrollTop: $("#table-words").offset().top - 150
                 }, 500);
 
-                this.selectRow = 0;
+                this.selectedRow = 0;
 
             },
             /**
