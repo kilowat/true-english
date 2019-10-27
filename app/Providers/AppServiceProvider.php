@@ -8,6 +8,7 @@ use App\Models\WordSection;
 use App\Observers\ArticleObserver;
 use App\Observers\WordCardObserver;
 use App\Observers\WordSectionObserver;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,6 +31,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (App::environment('remote')) {
+            URL::forceSchema('https');
+        }
+
         Schema::defaultStringLength(191);
 
         WordCard::observe(WordCardObserver::class);
