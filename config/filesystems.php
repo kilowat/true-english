@@ -97,6 +97,12 @@ return [
             'refreshToken' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
             'folderId' => env('GOOGLE_DRIVE_FOLDER_ID'),
         ],
+        'db_backup' => [
+            'driver' => 'local',
+            'root' => storage_path('app/db_backup'),
+            'url' => env('APP_URL').'/storage/db_backup',
+            'visibility' => 'private',
+        ],
     ],
 
 ];
