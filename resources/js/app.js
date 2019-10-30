@@ -92,6 +92,9 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 window.openYouglishBox = function(word){
     let widget = `<div class="youglish-box">
                     <div id="widget-youglish"></div>
+                    <div class="row-link">
+                        <a href="https://youglish.com/pronounce/`+word+`/english/us" title="Перейти" target="_blank">Перейти на Youglish</a>
+                    </div>
                     <div class="settings">
                         <div class="setting-cell">
                             <label for="auto-next">Авто переход роликов:</label>
@@ -148,7 +151,7 @@ window.runYouglish = function (word){
     }
 
     var autoChangeTimer;
-
+    var autoChangeDelay = 2000;
     var views = 0;
 
     window.curTrack = 0;
@@ -168,16 +171,20 @@ window.runYouglish = function (word){
     window.onVideoChange = function(event){
         window.curTrack = event.trackNumber;
         views = 0;
-
         $("#auto-next").focus();//Retrun focus to our doc from youglish
 
+        if(autoChangeTimer !=undefined)
+            clearTimeout(autoChangeTimer);
     }
 
     // 7. The API will call this method when a caption is consumed.
     window.onCaptionConsumed = function(event){
         let play_setting = !localStorage.youglish_autoNext || localStorage.youglish_autoNext != 'no';
+
         if (curTrack < totalTracks && play_setting){
-            window._widget_youglish.next();
+            autoChangeTimer = setTimeout(()=>{
+                window._widget_youglish.next();
+            }, autoChangeDelay);
         }
     }
 }
