@@ -305,6 +305,7 @@
                 });
             },
             selectRow(id){
+                window.document.activeElement.blur();
                 this.selectedRow = id;
                 this.playAudioSelected()
             },
