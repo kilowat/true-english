@@ -62,7 +62,7 @@ class WordCollectionController extends Controller
     public function index(Request $request)
     {
         $page = Page::where("code", "=", $request->getRequestUri())->first();
-        
+
         $elements = WordCard::where('active', '=', 1)
             ->orderBy('sort', 'asc')
             ->paginate($this->elementPaginateCount);
