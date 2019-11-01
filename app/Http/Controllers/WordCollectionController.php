@@ -62,13 +62,12 @@ class WordCollectionController extends Controller
     public function index(Request $request)
     {
         $page = Page::where("code", "=", $request->getRequestUri())->first();
-
-        $sections = WordSection::where('parent_id', '>', 0)
+        
+        $elements = WordCard::where('active', '=', 1)
             ->orderBy('sort', 'asc')
-            ->where('active', '=', 1)
-            ->paginate(12);
+            ->paginate($this->elementPaginateCount);
 
-        return view("pages.word_collection_index", ['sections' => $sections, 'page' => $page]);
+        return view('pages.word_collection_index', compact('elements', 'page'));
     }
 
     public function section($section_code)
