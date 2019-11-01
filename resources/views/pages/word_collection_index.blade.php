@@ -24,27 +24,25 @@
 @section('breadcrumbs', Breadcrumbs::render('word_collections'))
 
 @section('content')
-
     <section class="card-cmp section-list">
         @if($page)
             <h1 class="section-header">{{ $page->name }}</h1>
             {!! $page->text !!}
         @endif
-        <div class="row">
-            @foreach($sections as $section)
-                <div class="col s12 m4 l3">
-                    <a class="card" href="{{ $section->link }}" title="">
-                        <div class="card-image">
-                            <img src="{{ $section->previewPicture }}">
-                            <span class="card-title">{{ $section->name }}</span>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
-        </div>
-        <div class="nav-pagen">
-            {{ $sections->links() }}
-        </div>
+            <div class="row">
+                @foreach($elements as $element)
+                    <div class="col s12 m6 l3">
+                        <a class="card" href="{{ $element->link}}" title="{{ $element->name }}">
+                            <div class="card-image">
+                                <img src="{{ $element->previewPicture }}">
+                                <span class="card-title">{{ $element->name }}</span>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            <div class="nav-pagen">
+                {{ $elements->links() }}
+            </div>
     </section>
-
 @endsection
