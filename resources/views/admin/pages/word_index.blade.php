@@ -56,5 +56,42 @@
                 ]
             });
         });
+
+        function setWordChecked(id, e)
+        {
+            let $label = $(e).prev();
+            let worn_class = 'label-warning';
+            let success_class = 'label-success';
+            let unchecked_str = 'Не проверенно';
+            let checked_str = 'Проверено';
+            let checked = e.checked ? 1 : 0;
+            let data = {
+                "_token": "{{ csrf_token() }}",
+                "id": id,
+                checked: checked
+            };
+
+            axios.post('/admin/words/checkUpdate/'+id, {
+                data
+            })
+            .then(function (response) {
+                if(response.data.result){
+                    let text_str = checked ? checked_str : unchecked_str;
+                    $label.text(text_str);
+
+                    if(checked) {
+                        $label.removeClass(worn_class);
+                        $label.addClass(success_class);
+                    }else{
+                        $label.removeClass(success_class);
+                        $label.addClass(worn_class);
+                    }
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+            console.log(data);
+        }
     </script>
 @stop

@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Eloquent\ModelCI;
 use Illuminate\Database\Eloquent\Model;
 
-class Word extends Model
+class Word extends ModelCI
 {
     protected $guarded = [];
 
@@ -51,7 +52,7 @@ class Word extends Model
 
     public function audio()
     {
-        return $this->hasOne(
+        return $this->hasOneCI(
             '\App\Models\Audio',
             'word_code',
             'name'

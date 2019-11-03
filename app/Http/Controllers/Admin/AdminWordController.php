@@ -58,7 +58,9 @@ class AdminWordController extends AdminController
                 return $btn_str;
             })
             ->editColumn('checked', function($words) {
-                return '<span class="label label-'. ($words->checked ? 'success' : 'warning').'">'. ($words->checked ? 'Проверено' : 'Не проверенно').'</span>';
+                $control = '<span class="label label-'. ($words->checked ? 'success' : 'warning').'">'. ($words->checked ? 'Проверено' : 'Не проверенно').'</span>';
+                $control .= '<input type="checkbox" class="checked-word-input" onclick="setWordChecked('.$words->id.',this)"'.($words->checked ? 'checked=""' : '').'>';
+                return $control;
             })
             ->removeColumn('created_at')
             ->rawColumns(['audio','checked' ,'action'])
@@ -76,6 +78,18 @@ class AdminWordController extends AdminController
         Word::find($id)->update($request->all());
 
         return redirect()->back()->with('message',  trans('messages.update_success'));
+    }
+
+    public function checkUpdate($id, Request $request)
+    {
+        $word = Word::find($id);
+        $checked = $request->data['checked'];
+        $word->checked = $checked == 1 ? true : false;
+        $result = $word->save();
+
+        return response()->json([
+            "result" => $result
+        ]);
     }
 
     public function delete($id)

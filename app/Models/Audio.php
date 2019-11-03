@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Eloquent\ModelCI;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 
-class Audio extends Model
+class Audio extends ModelCI
 {
     public $timestamps = true;
     protected $guarded = [];
@@ -18,6 +19,6 @@ class Audio extends Model
 
     public function word()
     {
-        return $this->belongsTo(Word::class, 'name', "word_code");
+        return $this->belongsToCI(Word::class, 'name', "word_code");
     }
 }

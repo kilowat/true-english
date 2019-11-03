@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pictureInputFile">Аудио</label>
-                            <audio controls=""><source src="/storage/audio/aberdeen.mp3" type="audio/mpeg"></audio>
+                            <audio controls=""><source src="{{ $word->audio->url }}" type="audio/mpeg"></audio>
                         </div>
 
                         <div class="form-group">

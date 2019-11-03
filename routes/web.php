@@ -79,6 +79,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('words/data-list', 'AdminWordController@dataList')->name('admin.word.data-list');
     Route::get('words/edit/{id}', 'AdminWordController@edit')->name('admin.word.edit');
     Route::post('words/update/{id}', 'AdminWordController@update')->name('admin.word.update');
+    Route::post('words/checkUpdate/{id}', 'AdminWordController@checkUpdate')->name('admin.word.check-update');
     Route::get('words/delete/{id}', 'AdminWordController@delete')->name('admin.word.delete');
     Route::post('words/export', 'AdminWordController@export')->name('admin.word.export');
     Route::post('words/import', 'AdminWordController@import')->name('admin.word.import');
