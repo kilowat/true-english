@@ -50,8 +50,8 @@ class AdminAudioController extends AdminController
         $file = Input::file('file');
         $file_name_origin = $file->getClientOriginalName();
         $word_name = explode('.', $file_name_origin)[0];
-        $word_name = str_replace("_", " ", $word_name);
-        $word_name = str_replace("-", " ", $word_name);
+        //$word_name = str_replace("_", " ", $word_name);
+        //$word_name = str_replace("-", " ", $word_name);
 
         $file_name = str_replace(" ", "_", $word_name);
 
