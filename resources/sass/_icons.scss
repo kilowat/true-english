@@ -1,6 +1,36 @@
 .icon{
   display: inline-block;
 }
+i.close-drawer {
+  display: block;
+  top: 6px;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  right: 4px;
+  &:after{
+    display:block;
+    height: 4px;
+    width: 100%;
+    transform:rotate(45deg);
+    content: "";
+    position: absolute;
+    left:0;
+    top:50%;
+    background-color: #1976D2;
+  }
+  &:before{
+    display:block;
+    height: 4px;
+    width: 100%;
+    transform:rotate(-45deg);
+    content: "";
+    position: absolute;
+    left:0;
+    top:50%;
+    background-color: #1976D2;
+  }
+}
 .ic-mark {
   font-size: 28px;
   font-style: normal;

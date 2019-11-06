@@ -33,6 +33,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('word-table-component', require('./components/WordTableComponent.vue').default);
 Vue.component('sound-table', require('./components/SoundTableComponent.vue').default);
 Vue.component('grammar-level-1', require('./components/GrammarLevel_1.vue').default);
+Vue.component('phrase-training', require('./components/PhraseTraining.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -40,7 +41,11 @@ Vue.component('grammar-level-1', require('./components/GrammarLevel_1.vue').defa
  */
 
 $(document).ready(function(){
-    $('.sidenav').sidenav();
+    let drawer = M.Sidenav.init(document.querySelectorAll('.sidenav'));
+
+    $('.close-drawer').click(()=>{
+        drawer[0].close();
+    })
 
     $(".word-popup").click(function(){
         $.ajax({

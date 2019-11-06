@@ -54,6 +54,7 @@
             </header>
             <!--drower-->
             <div id="slide-out" class="sidenav">
+                <i class="close-drawer"></i>
                 {!! $MainMenu->asUl() !!}
                 <div class="dop-section">
                     @yield("drower_dop_section")

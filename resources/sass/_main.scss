@@ -73,6 +73,32 @@ html, body {
   }
 }
 .sidenav{
+  padding-top: 24px;
+  top: 0px;
+  z-index:10001;
+}
+@include breakpoint(max-width $medium-screen){
+  header.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+    nav{
+      height: 48px;
+      .sidenav-trigger{
+        height: 48px;
+      }
+    }
+    nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i{
+      height: 48px;
+      line-height: 50px;
+    }
+  }
+  .content{
+    margin-top:12px;
+  }
+}
+.sidenav{
   .dop-section {
     border-top: 1px solid #ccc;
     padding-left: 14px;
