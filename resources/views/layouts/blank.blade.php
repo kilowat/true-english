@@ -12,8 +12,16 @@
     <link href="/css/app.css" rel="stylesheet">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 </head>
-<body>
+<body class="bg-grey">
 <div id="app">
+    <header class="header">
+        <nav class="nav-block main-menu" role="navigation">
+            <a href="javascript:void(0)" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <div class="container">
+                {!! $MainMenu->asUl() !!}
+            </div>
+        </nav>
+    </header>
     <div id="slide-out" class="sidenav">
         <i class="close-drawer"></i>
         {!! $MainMenu->asUl() !!}
@@ -22,7 +30,7 @@
         </div>
     </div>
     <main>
-        <div class="container main-container">
+        <div class="container main-container phrase-template">
             <div class="content">
                 @yield("content")
             </div>

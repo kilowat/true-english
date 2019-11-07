@@ -172,36 +172,44 @@
 
             })
             */
-            db.open({
-                server: 'true_english',
-                version: 1,
-                schema: {
-                    table_history: {
-                        key: {keyPath: 'card_id', autoIncrement: false},
-                        card_id:{},
-                        page: {},
-                        row: {},
-                        sort:{},
-                        order:{},
-                    }
-                }
-            }).then(d => {
-                this.dataBase = d;
-                d.table_history.query()
-                    .filter('card_id', this.cardId)
-                    .execute()
-                    .then((results)=> {
-                        if(results[0]){
-                            this.currentPage = results[0].page ? results[0].page : 1;
-                            this.selectedRow = results[0].row ? results[0].row : 0;
-                            this.sortedColumn = results[0].sort ? results[0].sort : this.sortedColumn;
-                            this.order = results[0].order ? results[0].order : this.order;
+
+            let indexDbCheck = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+
+            if ( indexDbCheck ) {
+                db.open({
+                    server: 'true_english',
+                    version: 1,
+                    schema: {
+                        table_history: {
+                            key: {keyPath: 'card_id', autoIncrement: false},
+                            card_id:{},
+                            page: {},
+                            row: {},
+                            sort:{},
+                            order:{},
                         }
-                        this.fetchData()
-                    })
-            }).catch(d => {
+                    }
+                }).then(d => {
+                    this.dataBase = d;
+                    d.table_history.query()
+                        .filter('card_id', this.cardId)
+                        .execute()
+                        .then((results)=> {
+                            if(results[0]){
+                                this.currentPage = results[0].page ? results[0].page : 1;
+                                this.selectedRow = results[0].row ? results[0].row : 0;
+                                this.sortedColumn = results[0].sort ? results[0].sort : this.sortedColumn;
+                                this.order = results[0].order ? results[0].order : this.order;
+                            }
+                            this.fetchData()
+                        })
+                }).catch(d => {
+                    this.fetchData()
+                });
+            }else{
                 this.fetchData()
-            });
+            }
+
         },
         computed: {
             /**
@@ -241,17 +249,17 @@
                         this.pagination = data
                         this.tableData = data.data
                         this.working = false;
-
-                        this.dataBase.table_history.update({
-                            card_id: this.cardId,
-                            page: this.currentPage,
-                            row: this.selectedRow,
-                            sort: this.sortedColumn,
-                            order: this.order,
-                        }).then(function (item) {
-                            // item added or updated
-                        });
-
+                        if(this.dataBase) {
+                            this.dataBase.table_history.update({
+                                card_id: this.cardId,
+                                page: this.currentPage,
+                                row: this.selectedRow,
+                                sort: this.sortedColumn,
+                                order: this.order,
+                            }).then(function (item) {
+                                // item added or updated
+                            });
+                        }
                         this.$nextTick(() => {
                             this.audioLoad();
                         });

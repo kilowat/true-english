@@ -116,7 +116,7 @@ html, body {
 }
 .top-block {
   height: 136px;
-  background-color: #dde8fde6;
+  background-color: rgba(221,232,253,.9);
   @include breakpoint(max-width $medium-screen){
     display:none;
   }

@@ -1,0 +1,53 @@
+.center-container{
+  display: block;
+  max-width: 520px;
+  margin: 32px auto auto;
+}
+.card-content{
+  background-color: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  padding: 32px;
+  text-align: center;
+  min-height: 280px;
+  .question-text{
+    font-size: 1.8em;
+  }
+  .en-text{
+
+  }
+  .ipa-text {
+    color: red;
+    font-size: 1.4em;
+  }
+  .ru-text{
+    color: green;
+  }
+  .answer-text{
+    font-size: 1.6em;
+  }
+}
+.bg-grey{
+  background-color: #f4f2f2;
+}
+.enter-solve {
+  margin-top: 32px;
+  textarea{
+    width: 100%;
+    padding: 12px;
+    font-size: 1.4em;
+  }
+}
+.answer-button-row{
+  text-align: center;
+  margin-top: 12px;
+}
+.nav-row{
+  text-align: center;
+  margin-top: 16px;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
