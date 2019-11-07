@@ -7,6 +7,9 @@
 require('./bootstrap');
 require('./materialize.min');
 require('./jqueryfancyboxmin');
+
+window.diff_text = require('diff');
+window.stringSimilarity = require('string-similarity');
 window.autoComplete = require('./autoComplete');
 
 let youtube = require('./youtube');

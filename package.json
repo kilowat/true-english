@@ -26,7 +26,9 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "diff": "^4.0.1",
         "laravel-vue-datatable": "^0.3.7",
+        "string-similarity": "^3.0.0",
         "vuejs-datatable": "^1.7.0"
     }
 }

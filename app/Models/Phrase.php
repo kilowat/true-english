@@ -10,6 +10,7 @@ namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Phrase extends Model
 {
@@ -17,4 +18,9 @@ class Phrase extends Model
     {
         return explode("|", $this->attributes["ru_text"]);
     }
+    public function getUrlAttribute()
+    {
+        return  Storage::disk('phrases')->url($this->file_name);
+    }
+
 }

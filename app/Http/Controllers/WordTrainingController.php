@@ -9,7 +9,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Resources\PhraseResource;
 use App\Models\Phrase;
+use Illuminate\Support\Facades\Storage;
 
 class WordTrainingController extends Controller
 {
@@ -20,29 +22,15 @@ class WordTrainingController extends Controller
         return view('component.word_training', compact('word'));
     }
 
-    public function ajaxGetPhrase($word, $page = 0)
+    public function ajaxGetPhrase($word)
     {
-        $count = Phrase::where("word", $word)
+
+        $phrase = Phrase::where("word", $word)
             ->where(function($query){
                 $query->havingRaw('COUNT(*) > '.$this->minPhrases);
             })
-            ->where('ru_text', '!=', '')
-            ->count();
+            ->where('ru_text', '!=', '')->get();
 
-        $ph = Phrase::where("word", $word)
-            ->where(function($query){
-                $query->havingRaw('COUNT(*) > '.$this->minPhrases);
-            })
-            ->where('ru_text', '!=', '')
-            ->offset($page)
-            ->limit(1)
-            ->first()
-            ->toArray();
-        $ph["pagen"] = [
-            "current" => $page,
-            "total" => $count,
-        ];
-
-        return response()->json($ph);
+        return PhraseResource::collection($phrase);
     }
 }
