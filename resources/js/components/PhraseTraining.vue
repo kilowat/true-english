@@ -1,35 +1,96 @@
 <template>
-    <div class="phrase-container">
-        <div class="en-ru center-container" v-if="phrases.length > 0">
-            <div class="card-content">
-                <div class="question-text en-text" v-html="enText"></div>
-                <div class="ipa-text">{{ phrases[page_current].ipa_text}}</div>
-                <div class="audio-row" v-if="phrases[page_current].audio_url != ''">
-                    <audio :src="phrases[page_current].audio_url" controls="controls"></audio>
+    <div class="component-container">
+        <div class="phrase-container" v-if="phrases.length > 0">
+            <div class="word-row"><span class="s-link">{{ current_word }}</span></div>
+            <div class="setting-row">
+                <div class="lang-setting">
+                    <div class="switch switch-blue">
+                        <input type="radio" v-model="lang" value="en_ru" class="switch-input" name="view"  id="en-ru">
+                        <label for="en-ru" class="switch-label switch-label-off">EN - RU</label>
+                        <input type="radio"  v-model="lang" value="ru_en"  class="switch-input" name="view"  id="ru-en">
+                        <label for="ru-en" class="switch-label switch-label-on">RU - EN</label>
+                        <span class="switch-selection"></span>
+                    </div>
                 </div>
-                <div class="answer-text" v-if="show_answer">
-                    <div class="ru-text" v-bind:class="[score.bestMatchIndex == index && score.bestMatch.rating > 0 ? 'active-text' : '']" v-for="(ru_text, index) in phrases[page_current].ru_text">
-                        {{ ru_text }}
+                <div class="training-setting">
+                    <div class="switch switch-blue">
+                        <input type="radio" v-model="mode" value="training" class="switch-input" name="mode"  id="training">
+                        <label for="training" class="switch-label switch-label-off">Тренировка</label>
+                        <input type="radio"  v-model="mode" value="view"  class="switch-input" name="mode"  id="view">
+                        <label for="view" class="switch-label switch-label-on">Просмотр</label>
+                        <span class="switch-selection"></span>
                     </div>
                 </div>
             </div>
-            <div class="score-row">
-                <span class="value-score">Совпадение: {{ scorePrecent }} %</span>
-                <div class="len-score" :style="{ width: scorePrecent+'%' }"></div>
+            <div class="en-ru center-container" v-if="phrases.length > 0 && lang == 'en_ru'">
+                <div class="card-content">
+                    <div class="question-text en-text" v-html="enText"></div>
+                    <div class="ipa-text">{{ phrases[page_current].ipa_text}}</div>
+                    <div class="audio-row" v-if="phrases[page_current].audio_url != ''">
+                        <audio :src="phrases[page_current].audio_url"  controls="controls"></audio>
+                    </div>
+                    <div class="answer-text" v-if="show_answer">
+                        <div class="ru-text" v-bind:class="[strMatch.bestMatchIndex == index && strMatch.bestMatch.rating > 0 ? 'active-text' : '']" v-for="(ru_text, index) in phrases[page_current].ru_text">
+                            {{ ru_text }}
+                        </div>
+                    </div>
+                </div>
+                <div class="score-row">
+                    <span class="value-score">Совпадение: {{ scorePrecent }} %</span>
+                    <div class="len-score" :style="{ width: scorePrecent+'%' }"></div>
+                </div>
+                <div class="enter-solve">
+                    <textarea v-model="answer_text" name="" class="answer-area" rows="3" placeholder="Напишите Ваш вариант перевода"></textarea>
+                </div>
+                <div class="answer-button-row">
+                    <button @click="showAnswer">Показать ответ</button>
+                </div>
+                <div class="nav-row">
+                    <button :disabled="!canGoPrev" @click="prevPage">Назад</button>
+                    <button :disabled="!canGoNext" @click="nextPage">Вперед</button>
+                </div>
+                <div class="nav-info-row">
+                    Показано: {{ page_current }} из {{ totalPage }}
+                </div>
+                <div class="text-tip">Обратите внимание на то что, процент совпадения - это всего лишь <b>подсказка</b>, не 100 % совпадение <b>не означает</b> что ваш перевод не верен.</div>
             </div>
-            <div class="enter-solve">
-                <textarea v-model="answer_text" name="" class="answer-area" rows="4" placeholder="Напишите Ваш вариант перевода"></textarea>
+            <div class="ru-en center-container" v-if="phrases.length > 0 && lang == 'ru_en'">
+                <div class="card-content">
+                    <div class="question-text">
+                        <div class="ru-text"  v-for="(ru_text, index) in phrases[page_current].ru_text">
+                            {{ ru_text }}
+                        </div>
+                    </div>
+                    <div class="answer-text" v-if="show_answer">
+                        <div class="en-text active-text" v-html="enText"></div>
+                        <div class="ipa-text">{{ phrases[page_current].ipa_text}}</div>
+                        <div class="audio-row" v-if="phrases[page_current].audio_url != ''">
+                            <audio :src="phrases[page_current].audio_url"  controls="controls"></audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="score-row">
+                    <span class="value-score">Совпадение: {{ scorePrecent }} %</span>
+                    <div class="len-score" :style="{ width: scorePrecent+'%' }"></div>
+                </div>
+                <div class="enter-solve">
+                    <textarea v-model="answer_text" name="" class="answer-area" rows="3" placeholder="Переведите одной фразой"></textarea>
+                </div>
+                <div class="answer-button-row">
+                    <button @click="showAnswer">Показать ответ</button>
+                </div>
+                <div class="nav-row">
+                    <button :disabled="!canGoPrev" @click="prevPage">Назад</button>
+                    <button :disabled="!canGoNext" @click="nextPage">Вперед</button>
+                </div>
+                <div class="nav-info-row">
+                    Показано: {{ page_current }} из {{ totalPage }}
+                </div>
+                <div class="text-tip">Обратите внимание на то что, процент совпадения - это всего лишь <b>подсказка</b>, не 100 % совпадение <b>не означает</b> что ваш перевод не верен.</div>
             </div>
-            <div class="answer-button-row">
-                <button @click="showAnswer">Показать ответ</button>
-            </div>
-            <div class="nav-row">
-                <button :disabled="!canGoPrev" @click="prevPage" >Назад</button>
-                <button :disabled="!canGoNext" @click="nextPage">Вперед</button>
-            </div>
-            <div class="text-tip">Обратите внимание на то что, процент совпадения - это всего лишь <b>подсказка</b>, не 100 % совпадение <b>не означает</b> что ваш перевод не верен.</div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -40,10 +101,13 @@
         name: "PhraseTraining",
         data(){
           return{
+              lang: "ru_en", // en_ru || ru_en
+              mode: "training", // training || view
               show_answer: false,
               answer_text: "",
               phrases:[],
               page_current: 0,
+              current_word: ""
           }
         },
         methods: {
@@ -52,7 +116,21 @@
                 axios.get("/word-training/phrase/"+this.word)
                     .then((result)=>{
                         this.phrases = result.data.data
-                        this.setPageByHash();
+
+                        if(this.phrases.length > 0){
+                            this.setPageByHash();
+                            this.current_word = this.phrases[0].word;
+                            if(localStorage.phrase_traning_mode)
+                                this.mode = localStorage.phrase_traning_mode;
+
+                            if(localStorage.phrase_lang)
+                                this.lang = localStorage.phrase_lang;
+                        }
+                        if(this.mode == "view" && this.phrases.length > 0){
+                            this.$nextTick(()=>{
+                                this.showAnswer()
+                            })
+                        }
                     })
             },
             nextPage(){
@@ -62,6 +140,15 @@
                     this.page_current = next_page;
                     this.setHashTag();
                     $(".answer-area").focus();
+
+                    if(this.lang == "en_ru"){
+                        this.$nextTick(()=>{
+                            this.playAudio();
+                        })
+                    }
+                    if(this.mode == "view"){
+                        this.showAnswer()
+                    }
                 }
             },
             prevPage(){
@@ -71,7 +158,17 @@
                     this.page_current = prev_page;
                     this.setHashTag();
                     $(".answer-area").focus();
+
+                    if(this.lang == "en_ru"){
+                        this.$nextTick(()=>{
+                            this.playAudio();
+                        })
+                    }
                 }
+                if(this.mode == "view"){
+                    this.showAnswer()
+                }
+
             },
             setHashTag(){
                 window.location.hash = 'page_' + this.page_current;
@@ -92,16 +189,41 @@
             },
             showAnswer(){
                 this.show_answer = true;
+                this.$nextTick(()=>{
+                    this.playAudio();
+                    this.hintText();
+                })
             },
+            playAudio(){
+                let p = document.querySelector(".audio-row audio")
+                if(p != undefined){
+                    p.play();
+                }
+            },
+            hintText(){
+                let s = this.answer_text.split(' ');
+
+                _app.highlight(document.querySelector('.active-text'), s)
+            }
         },
         created(){
             this.fetchData()
         },
         watch:{
             scorePrecent(value){
-              if(value == 100)
-                  this.showAnswer();
+                if(value == 100)
+                    this.showAnswer();
             },
+            mode(value){
+                if(value == "view"){
+                    this.showAnswer()
+                }
+
+                localStorage.phrase_traning_mode = value;
+            },
+            lang(value){
+                localStorage.phrase_lang = value;
+            }
         },
         computed:{
             canGoNext(){
@@ -115,21 +237,36 @@
             },
             enText(){
               let text = this.phrases[this.page_current].en_text;
-              text = text.replace(/[a-zA-Z’'<//>]+/g, "<span class='s-link'>$&</span>");
+              //text = text.replace(/[a-zA-Z’'<//>]+/g, "<span class='s-link'>$&</span>");
               return text;
+            },
+            question(){
+                let question;
+
+                if(this.lang == "en_ru"){
+                    question = this.phrases[this.page_current].ru_text;
+                }else if(this.lang == "ru_en"){
+                    question = [this.phrases[this.page_current].en_text];
+                }
+                return question;
+            },
+            strMatch(){
+                if(this.phrases[this.page_current] == undefined)
+                    return false;
+
+                return stringSimilarity.findBestMatch(this.answer_text, this.question);
+
             },
             score(){
                 if(this.phrases[this.page_current] == undefined)
                     return false;
-
-                let score = stringSimilarity.findBestMatch(this.answer_text, this.phrases[this.page_current].ru_text);
-
-                return score;
+                let res = new difflib.SequenceMatcher(null, this.answer_text, this.question[this.strMatch.bestMatchIndex]).ratio()
+                return res;
             },
             scorePrecent(){
                 if(!this.score) return 0;
 
-                let value = this.score.bestMatch.rating * 100;
+                let value = this.score * 100;
                 value = Math.floor(value);
 
                 return value;

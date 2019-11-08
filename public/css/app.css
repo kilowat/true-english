@@ -8244,6 +8244,72 @@ html, body {
   border: none;
 }
 
+.switch {
+  position: relative;
+  margin: 8px auto;
+  height: 32px;
+  width: 120px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.switch-label {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 58px;
+  line-height: 32px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  cursor: pointer;
+}
+
+.switch-label:active {
+  font-weight: bold;
+}
+
+.switch-input {
+  display: none;
+}
+
+.switch-input:checked + .switch-label {
+  color: #fff;
+  transition: 0.15s ease-out;
+}
+
+.switch-input:checked + .switch-label-on ~ .switch-selection {
+  /* Note: left: 50% doesn't transition in WebKit */
+  left: 60px;
+}
+
+.switch-selection {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  left: 2px;
+  width: 58px;
+  height: 28px;
+  background: #1976D2;
+  border-radius: 3px;
+  background-image: linear-gradient(to bottom, #1976D2, #2e497e);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  transition: left 0.15s ease-out;
+}
+
+.switch-blue .switch-selection {
+  background: #1976D2;
+  background-image: linear-gradient(to bottom, #1976D2, #2e497e);
+  color: #fff;
+}
+
+.switch-yellow .switch-selection {
+  background: #c4bb61;
+  background-image: linear-gradient(to bottom, #e0dd94, #c4bb61);
+}
+
 .icon {
   display: inline-block;
 }
@@ -8996,28 +9062,71 @@ span.tip-text {
 .center-container {
   display: block;
   max-width: 520px;
-  margin: 32px auto auto;
+  margin: 16px auto auto;
 }
 
 .card-content {
   background-color: #fff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  padding: 32px;
+  padding: 16px;
   text-align: center;
-  min-height: 280px;
+  min-height: 260px;
 }
-.card-content .question-text {
-  font-size: 1.8em;
+.card-content .ru-text, .card-content .en-text, .card-content .ipa-text {
+  font-size: 1.3em;
 }
 .card-content .ipa-text {
   color: red;
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 .card-content .ru-text {
   color: green;
 }
-.card-content .answer-text {
-  font-size: 1.6em;
+.card-content .ru-text.active-text {
+  color: green;
+}
+.card-content .ru-text.active-text .highlight {
+  color: #4482d0;
+}
+.card-content .en-text.active-text {
+  color: black;
+}
+.card-content .en-text.active-text .highlight {
+  color: #4482d0;
+}
+
+.word-row {
+  text-align: center;
+  margin-top: 6px;
+}
+.word-row span {
+  font-size: 1.4rem;
+  text-decoration: underline;
+}
+
+.lang-setting {
+  display: inline-block;
+}
+
+.setting-row {
+  text-align: center;
+}
+
+.training-setting {
+  display: inline-block;
+}
+.training-setting .switch {
+  width: 160px;
+  padding-left: 5px;
+}
+.training-setting .switch-label {
+  width: 74px;
+}
+.training-setting .switch-selection {
+  width: 78px;
+}
+.training-setting .switch-input:checked + .switch-label-on ~ .switch-selection {
+  left: 78px;
 }
 
 .active-text {
@@ -9056,12 +9165,17 @@ span.tip-text {
 }
 
 .enter-solve {
-  margin-top: 32px;
+  margin-top: 16px;
 }
 .enter-solve textarea {
   width: 100%;
   padding: 12px;
   font-size: 1.4em;
+}
+
+.nav-info-row {
+  text-align: center;
+  margin-top: 6px;
 }
 
 .text-tip {

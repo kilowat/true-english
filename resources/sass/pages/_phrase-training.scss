@@ -1,29 +1,70 @@
 .center-container{
   display: block;
   max-width: 520px;
-  margin: 32px auto auto;
+  margin: 16px auto auto;
 }
 .card-content{
   background-color: #fff;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  padding: 32px;
+  padding: 16px;
   text-align: center;
-  min-height: 280px;
+  min-height: 260px;
   .question-text{
-    font-size: 1.8em;
   }
-  .en-text{
-
+  .ru-text, .en-text, .ipa-text{
+    font-size: 1.3em;
   }
   .ipa-text {
     color: red;
-    font-size: 1.4em;
+    font-size: 1.3em;
   }
   .ru-text{
     color: green;
   }
+  .ru-text.active-text{
+    color: green;
+    .highlight{
+      color: #4482d0;
+    }
+  }
   .answer-text{
-    font-size: 1.6em;
+
+  }
+  .en-text.active-text{
+    color: black;
+    .highlight{
+      color: #4482d0;
+    }
+  }
+}
+.word-row{
+  text-align: center;
+  margin-top: 6px;
+  span{
+    font-size: 1.4rem;
+    text-decoration: underline;
+  }
+}
+.lang-setting{
+  display: inline-block;
+}
+.setting-row{
+  text-align: center;
+}
+.training-setting{
+  display: inline-block;
+  .switch{
+    width: 160px;
+    padding-left: 5px;
+  }
+  .switch-label{
+    width: 74px;
+  }
+  .switch-selection{
+    width: 78px;
+  }
+  .switch-input:checked + .switch-label-on ~ .switch-selection{
+    left: 78px;
   }
 }
 .active-text {
@@ -59,12 +100,16 @@
   }
 }
 .enter-solve {
-  margin-top: 32px;
+  margin-top: 16px;
   textarea{
     width: 100%;
     padding: 12px;
     font-size: 1.4em;
   }
+}
+.nav-info-row{
+  text-align: center;
+  margin-top: 6px;
 }
 .text-tip {
   font-style: italic;
