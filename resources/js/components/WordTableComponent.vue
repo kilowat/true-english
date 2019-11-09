@@ -43,7 +43,7 @@
                         </span>
                       </div>
                 </div>
-                <div class='table_header'>Видео</div>
+                <div class='table_header'>Тренинг</div>
                 <div class='table_header'>Ссылки</div>
             </div>
             <div class='table_row' v-if="tableData.length === 0">
@@ -65,9 +65,12 @@
                     <div v-else class='table_cell value_cell'>{{ value }}</div>
                 </div>
                 <div class='table_small'>
-                    <div class='table_cell'>Видео:</div>
+                    <div class='table_cell'>Тренинг:</div>
                     <div class='table_cell'>
-                        <a href="javascript:void(0)" @click="openYouglishBox(tableData[key1].name)"><i class="icon ic-youglish"></i></a>
+                        <div><a href="javascript:void(0)" @click="openYouglishBox(tableData[key1].name)"><i class="icon ic-youglish"></i></a></div>
+                        <div v-if="tableData[key1].phraseTraining > 0">
+                            <a v-bind:href="'/word-training/'+tableData[key1].name">Фразы: {{ tableData[key1].phraseTraining }}</a>
+                        </div>
                     </div>
                 </div>
                 <div class='table_small'>

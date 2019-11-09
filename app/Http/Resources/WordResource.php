@@ -24,6 +24,7 @@ class WordResource extends JsonResource
             "wordHuntLink" => $this->wordHuntLink,
             "meriamlLink" => $this->meriamlLink,
             "yandexLink" => $this->yandexLink,
+            "phraseTraining" => $this->phrase_training
         ];
     }
 }

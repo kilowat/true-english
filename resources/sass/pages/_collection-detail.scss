@@ -319,13 +319,13 @@ span.tip-text {
   }
 }
 
-.table-component.loading {
+.loading {
   position: relative;
   >*{
     opacity: 0.4;
   }
 }
-.table-component.loading::after {
+.loading::after {
   content: "";
   background-image: url('/images/spin-ajax.svg');
   height: 64px;

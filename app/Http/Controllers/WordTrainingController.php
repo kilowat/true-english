@@ -11,7 +11,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\PhraseResource;
 use App\Models\Phrase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+
 
 class WordTrainingController extends Controller
 {
@@ -19,6 +21,12 @@ class WordTrainingController extends Controller
 
     public function index($word)
     {
+        Phrase::where("word", $word)
+            ->where(function($query){
+                $query->havingRaw('COUNT(*) > '.$this->minPhrases);
+            })
+            ->where('ru_text', '!=', '')->firstOrFail();
+
         return view('component.word_training', compact('word'));
     }
 

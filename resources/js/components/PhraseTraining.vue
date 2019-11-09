@@ -1,5 +1,8 @@
 <template>
-    <div class="component-container">
+    <div class="component-container"  v-bind:class="{loading: working}">
+        <div class="error-block" v-if="error">
+            <div class="error-text">Произошла ошибка, попробуйте зайти позже.</div>
+        </div>
         <div class="phrase-container" v-if="phrases.length > 0">
             <div class="word-row"><span class="s-link">{{ current_word }}</span></div>
             <div class="setting-row">
@@ -26,13 +29,13 @@
                 <div class="card-content">
                     <div class="question-text en-text" v-html="enText"></div>
                     <div class="ipa-text">{{ phrases[page_current].ipa_text}}</div>
-                    <div class="audio-row" v-if="phrases[page_current].audio_url != ''">
-                        <audio :src="phrases[page_current].audio_url"  controls="controls"></audio>
-                    </div>
                     <div class="answer-text" v-if="show_answer">
                         <div class="ru-text" v-bind:class="[strMatch.bestMatchIndex == index && strMatch.bestMatch.rating > 0 ? 'active-text' : '']" v-for="(ru_text, index) in phrases[page_current].ru_text">
                             {{ ru_text }}
                         </div>
+                    </div>
+                    <div class="audio-row" v-if="phrases[page_current].audio_url != ''">
+                        <audio :src="phrases[page_current].audio_url"  controls="controls"></audio>
                     </div>
                 </div>
                 <div class="score-row">
@@ -50,7 +53,7 @@
                     <button :disabled="!canGoNext" @click="nextPage">Вперед</button>
                 </div>
                 <div class="nav-info-row">
-                    Показано: {{ page_current }} из {{ totalPage }}
+                    Показано: {{ page_current * 1 + 1 }} из {{ totalPage }}
                 </div>
                 <div class="text-tip">Обратите внимание на то что, процент совпадения - это всего лишь <b>подсказка</b>, не 100 % совпадение <b>не означает</b> что ваш перевод не верен.</div>
             </div>
@@ -84,7 +87,7 @@
                     <button :disabled="!canGoNext" @click="nextPage">Вперед</button>
                 </div>
                 <div class="nav-info-row">
-                    Показано: {{ page_current }} из {{ totalPage }}
+                    Показано: {{ page_current * 1 + 1}} из {{ totalPage }}
                 </div>
                 <div class="text-tip">Обратите внимание на то что, процент совпадения - это всего лишь <b>подсказка</b>, не 100 % совпадение <b>не означает</b> что ваш перевод не верен.</div>
             </div>
@@ -107,12 +110,16 @@
               answer_text: "",
               phrases:[],
               page_current: 0,
-              current_word: ""
+              current_word: "",
+              error: false,
+              working: false,
           }
         },
         methods: {
             fetchData(page){
+                this.working = true;
                 page = page || 0
+
                 axios.get("/word-training/phrase/"+this.word)
                     .then((result)=>{
                         this.phrases = result.data.data
@@ -131,7 +138,14 @@
                                 this.showAnswer()
                             })
                         }
+                        this.error = false;
                     })
+                    .catch((error)=>{
+                        this.error = true;
+                    })
+                    .finally(()=>{
+                       this.working = false;
+                    });
             },
             nextPage(){
                 if(parseInt(this.page_current) < parseInt(this.totalPage) - 1){

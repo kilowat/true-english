@@ -2431,6 +2431,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     word: {
@@ -2449,13 +2452,16 @@ __webpack_require__.r(__webpack_exports__);
       answer_text: "",
       phrases: [],
       page_current: 0,
-      current_word: ""
+      current_word: "",
+      error: false,
+      working: false
     };
   },
   methods: {
     fetchData: function fetchData(page) {
       var _this = this;
 
+      this.working = true;
       page = page || 0;
       axios.get("/word-training/phrase/" + this.word).then(function (result) {
         _this.phrases = result.data.data;
@@ -2473,6 +2479,12 @@ __webpack_require__.r(__webpack_exports__);
             _this.showAnswer();
           });
         }
+
+        _this.error = false;
+      })["catch"](function (error) {
+        _this.error = true;
+      })["finally"](function () {
+        _this.working = false;
       });
     },
     nextPage: function nextPage() {
@@ -2940,6 +2952,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -42475,423 +42490,438 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "component-container" }, [
-    _vm.phrases.length > 0
-      ? _c("div", { staticClass: "phrase-container" }, [
-          _c("div", { staticClass: "word-row" }, [
-            _c("span", { staticClass: "s-link" }, [
-              _vm._v(_vm._s(_vm.current_word))
+  return _c(
+    "div",
+    { staticClass: "component-container", class: { loading: _vm.working } },
+    [
+      _vm.error
+        ? _c("div", { staticClass: "error-block" }, [
+            _c("div", { staticClass: "error-text" }, [
+              _vm._v("Произошла ошибка, попробуйте зайти позже.")
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "setting-row" }, [
-            _c("div", { staticClass: "lang-setting" }, [
-              _c("div", { staticClass: "switch switch-blue" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.lang,
-                      expression: "lang"
-                    }
-                  ],
-                  staticClass: "switch-input",
-                  attrs: {
-                    type: "radio",
-                    value: "en_ru",
-                    name: "view",
-                    id: "en-ru"
-                  },
-                  domProps: { checked: _vm._q(_vm.lang, "en_ru") },
-                  on: {
-                    change: function($event) {
-                      _vm.lang = "en_ru"
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "switch-label switch-label-off",
-                    attrs: { for: "en-ru" }
-                  },
-                  [_vm._v("EN - RU")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.lang,
-                      expression: "lang"
-                    }
-                  ],
-                  staticClass: "switch-input",
-                  attrs: {
-                    type: "radio",
-                    value: "ru_en",
-                    name: "view",
-                    id: "ru-en"
-                  },
-                  domProps: { checked: _vm._q(_vm.lang, "ru_en") },
-                  on: {
-                    change: function($event) {
-                      _vm.lang = "ru_en"
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "switch-label switch-label-on",
-                    attrs: { for: "ru-en" }
-                  },
-                  [_vm._v("RU - EN")]
-                ),
-                _vm._v(" "),
-                _c("span", { staticClass: "switch-selection" })
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.phrases.length > 0
+        ? _c("div", { staticClass: "phrase-container" }, [
+            _c("div", { staticClass: "word-row" }, [
+              _c("span", { staticClass: "s-link" }, [
+                _vm._v(_vm._s(_vm.current_word))
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "training-setting" }, [
-              _c("div", { staticClass: "switch switch-blue" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.mode,
-                      expression: "mode"
+            _c("div", { staticClass: "setting-row" }, [
+              _c("div", { staticClass: "lang-setting" }, [
+                _c("div", { staticClass: "switch switch-blue" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.lang,
+                        expression: "lang"
+                      }
+                    ],
+                    staticClass: "switch-input",
+                    attrs: {
+                      type: "radio",
+                      value: "en_ru",
+                      name: "view",
+                      id: "en-ru"
+                    },
+                    domProps: { checked: _vm._q(_vm.lang, "en_ru") },
+                    on: {
+                      change: function($event) {
+                        _vm.lang = "en_ru"
+                      }
                     }
-                  ],
-                  staticClass: "switch-input",
-                  attrs: {
-                    type: "radio",
-                    value: "training",
-                    name: "mode",
-                    id: "training"
-                  },
-                  domProps: { checked: _vm._q(_vm.mode, "training") },
-                  on: {
-                    change: function($event) {
-                      _vm.mode = "training"
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "switch-label switch-label-off",
-                    attrs: { for: "training" }
-                  },
-                  [_vm._v("Тренировка")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.mode,
-                      expression: "mode"
-                    }
-                  ],
-                  staticClass: "switch-input",
-                  attrs: {
-                    type: "radio",
-                    value: "view",
-                    name: "mode",
-                    id: "view"
-                  },
-                  domProps: { checked: _vm._q(_vm.mode, "view") },
-                  on: {
-                    change: function($event) {
-                      _vm.mode = "view"
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "switch-label switch-label-on",
-                    attrs: { for: "view" }
-                  },
-                  [_vm._v("Просмотр")]
-                ),
-                _vm._v(" "),
-                _c("span", { staticClass: "switch-selection" })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _vm.phrases.length > 0 && _vm.lang == "en_ru"
-            ? _c("div", { staticClass: "en-ru center-container" }, [
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", {
-                    staticClass: "question-text en-text",
-                    domProps: { innerHTML: _vm._s(_vm.enText) }
                   }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "ipa-text" }, [
-                    _vm._v(_vm._s(_vm.phrases[_vm.page_current].ipa_text))
-                  ]),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "switch-label switch-label-off",
+                      attrs: { for: "en-ru" }
+                    },
+                    [_vm._v("EN - RU")]
+                  ),
                   _vm._v(" "),
-                  _vm.phrases[_vm.page_current].audio_url != ""
-                    ? _c("div", { staticClass: "audio-row" }, [
-                        _c("audio", {
-                          attrs: {
-                            src: _vm.phrases[_vm.page_current].audio_url,
-                            controls: "controls"
-                          }
-                        })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.show_answer
-                    ? _c(
-                        "div",
-                        { staticClass: "answer-text" },
-                        _vm._l(_vm.phrases[_vm.page_current].ru_text, function(
-                          ru_text,
-                          index
-                        ) {
-                          return _c(
-                            "div",
-                            {
-                              staticClass: "ru-text",
-                              class: [
-                                _vm.strMatch.bestMatchIndex == index &&
-                                _vm.strMatch.bestMatch.rating > 0
-                                  ? "active-text"
-                                  : ""
-                              ]
-                            },
-                            [
-                              _vm._v(
-                                "\n                        " +
-                                  _vm._s(ru_text) +
-                                  "\n                    "
-                              )
-                            ]
-                          )
-                        }),
-                        0
-                      )
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "score-row" }, [
-                  _c("span", { staticClass: "value-score" }, [
-                    _vm._v("Совпадение: " + _vm._s(_vm.scorePrecent) + " %")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", {
-                    staticClass: "len-score",
-                    style: { width: _vm.scorePrecent + "%" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "enter-solve" }, [
-                  _c("textarea", {
+                  _c("input", {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.answer_text,
-                        expression: "answer_text"
+                        value: _vm.lang,
+                        expression: "lang"
                       }
                     ],
-                    staticClass: "answer-area",
+                    staticClass: "switch-input",
                     attrs: {
-                      name: "",
-                      rows: "3",
-                      placeholder: "Напишите Ваш вариант перевода"
+                      type: "radio",
+                      value: "ru_en",
+                      name: "view",
+                      id: "ru-en"
                     },
-                    domProps: { value: _vm.answer_text },
+                    domProps: { checked: _vm._q(_vm.lang, "ru_en") },
                     on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.answer_text = $event.target.value
+                      change: function($event) {
+                        _vm.lang = "ru_en"
                       }
                     }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "answer-button-row" }, [
-                  _c("button", { on: { click: _vm.showAnswer } }, [
-                    _vm._v("Показать ответ")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "nav-row" }, [
-                  _c(
-                    "button",
-                    {
-                      attrs: { disabled: !_vm.canGoPrev },
-                      on: { click: _vm.prevPage }
-                    },
-                    [_vm._v("Назад")]
-                  ),
+                  }),
                   _vm._v(" "),
                   _c(
-                    "button",
+                    "label",
                     {
-                      attrs: { disabled: !_vm.canGoNext },
-                      on: { click: _vm.nextPage }
+                      staticClass: "switch-label switch-label-on",
+                      attrs: { for: "ru-en" }
                     },
-                    [_vm._v("Вперед")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "nav-info-row" }, [
-                  _vm._v(
-                    "\n                Показано: " +
-                      _vm._s(_vm.page_current) +
-                      " из " +
-                      _vm._s(_vm.totalPage) +
-                      "\n            "
-                  )
-                ]),
-                _vm._v(" "),
-                _vm._m(0)
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.phrases.length > 0 && _vm.lang == "ru_en"
-            ? _c("div", { staticClass: "ru-en center-container" }, [
-                _c("div", { staticClass: "card-content" }, [
+                    [_vm._v("RU - EN")]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "switch-selection" })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "training-setting" }, [
+                _c("div", { staticClass: "switch switch-blue" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.mode,
+                        expression: "mode"
+                      }
+                    ],
+                    staticClass: "switch-input",
+                    attrs: {
+                      type: "radio",
+                      value: "training",
+                      name: "mode",
+                      id: "training"
+                    },
+                    domProps: { checked: _vm._q(_vm.mode, "training") },
+                    on: {
+                      change: function($event) {
+                        _vm.mode = "training"
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
                   _c(
-                    "div",
-                    { staticClass: "question-text" },
-                    _vm._l(_vm.phrases[_vm.page_current].ru_text, function(
-                      ru_text,
-                      index
-                    ) {
-                      return _c("div", { staticClass: "ru-text" }, [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(ru_text) +
-                            "\n                    "
-                        )
-                      ])
+                    "label",
+                    {
+                      staticClass: "switch-label switch-label-off",
+                      attrs: { for: "training" }
+                    },
+                    [_vm._v("Тренировка")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.mode,
+                        expression: "mode"
+                      }
+                    ],
+                    staticClass: "switch-input",
+                    attrs: {
+                      type: "radio",
+                      value: "view",
+                      name: "mode",
+                      id: "view"
+                    },
+                    domProps: { checked: _vm._q(_vm.mode, "view") },
+                    on: {
+                      change: function($event) {
+                        _vm.mode = "view"
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "switch-label switch-label-on",
+                      attrs: { for: "view" }
+                    },
+                    [_vm._v("Просмотр")]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "switch-selection" })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.phrases.length > 0 && _vm.lang == "en_ru"
+              ? _c("div", { staticClass: "en-ru center-container" }, [
+                  _c("div", { staticClass: "card-content" }, [
+                    _c("div", {
+                      staticClass: "question-text en-text",
+                      domProps: { innerHTML: _vm._s(_vm.enText) }
                     }),
-                    0
-                  ),
-                  _vm._v(" "),
-                  _vm.show_answer
-                    ? _c("div", { staticClass: "answer-text" }, [
-                        _c("div", {
-                          staticClass: "en-text active-text",
-                          domProps: { innerHTML: _vm._s(_vm.enText) }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "ipa-text" }, [
-                          _vm._v(_vm._s(_vm.phrases[_vm.page_current].ipa_text))
-                        ]),
-                        _vm._v(" "),
-                        _vm.phrases[_vm.page_current].audio_url != ""
-                          ? _c("div", { staticClass: "audio-row" }, [
-                              _c("audio", {
-                                attrs: {
-                                  src: _vm.phrases[_vm.page_current].audio_url,
-                                  controls: "controls"
-                                }
-                              })
-                            ])
-                          : _vm._e()
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "score-row" }, [
-                  _c("span", { staticClass: "value-score" }, [
-                    _vm._v("Совпадение: " + _vm._s(_vm.scorePrecent) + " %")
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ipa-text" }, [
+                      _vm._v(_vm._s(_vm.phrases[_vm.page_current].ipa_text))
+                    ]),
+                    _vm._v(" "),
+                    _vm.show_answer
+                      ? _c(
+                          "div",
+                          { staticClass: "answer-text" },
+                          _vm._l(
+                            _vm.phrases[_vm.page_current].ru_text,
+                            function(ru_text, index) {
+                              return _c(
+                                "div",
+                                {
+                                  staticClass: "ru-text",
+                                  class: [
+                                    _vm.strMatch.bestMatchIndex == index &&
+                                    _vm.strMatch.bestMatch.rating > 0
+                                      ? "active-text"
+                                      : ""
+                                  ]
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(ru_text) +
+                                      "\n                    "
+                                  )
+                                ]
+                              )
+                            }
+                          ),
+                          0
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.phrases[_vm.page_current].audio_url != ""
+                      ? _c("div", { staticClass: "audio-row" }, [
+                          _c("audio", {
+                            attrs: {
+                              src: _vm.phrases[_vm.page_current].audio_url,
+                              controls: "controls"
+                            }
+                          })
+                        ])
+                      : _vm._e()
                   ]),
                   _vm._v(" "),
-                  _c("div", {
-                    staticClass: "len-score",
-                    style: { width: _vm.scorePrecent + "%" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "enter-solve" }, [
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.answer_text,
-                        expression: "answer_text"
-                      }
-                    ],
-                    staticClass: "answer-area",
-                    attrs: {
-                      name: "",
-                      rows: "3",
-                      placeholder: "Переведите одной фразой"
-                    },
-                    domProps: { value: _vm.answer_text },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.answer_text = $event.target.value
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "answer-button-row" }, [
-                  _c("button", { on: { click: _vm.showAnswer } }, [
-                    _vm._v("Показать ответ")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "nav-row" }, [
-                  _c(
-                    "button",
-                    {
-                      attrs: { disabled: !_vm.canGoPrev },
-                      on: { click: _vm.prevPage }
-                    },
-                    [_vm._v("Назад")]
-                  ),
+                  _c("div", { staticClass: "score-row" }, [
+                    _c("span", { staticClass: "value-score" }, [
+                      _vm._v("Совпадение: " + _vm._s(_vm.scorePrecent) + " %")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "len-score",
+                      style: { width: _vm.scorePrecent + "%" }
+                    })
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      attrs: { disabled: !_vm.canGoNext },
-                      on: { click: _vm.nextPage }
-                    },
-                    [_vm._v("Вперед")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "nav-info-row" }, [
-                  _vm._v(
-                    "\n                Показано: " +
-                      _vm._s(_vm.page_current) +
-                      " из " +
-                      _vm._s(_vm.totalPage) +
-                      "\n            "
-                  )
-                ]),
-                _vm._v(" "),
-                _vm._m(1)
-              ])
-            : _vm._e()
-        ])
-      : _vm._e()
-  ])
+                  _c("div", { staticClass: "enter-solve" }, [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.answer_text,
+                          expression: "answer_text"
+                        }
+                      ],
+                      staticClass: "answer-area",
+                      attrs: {
+                        name: "",
+                        rows: "3",
+                        placeholder: "Напишите Ваш вариант перевода"
+                      },
+                      domProps: { value: _vm.answer_text },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.answer_text = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "answer-button-row" }, [
+                    _c("button", { on: { click: _vm.showAnswer } }, [
+                      _vm._v("Показать ответ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "nav-row" }, [
+                    _c(
+                      "button",
+                      {
+                        attrs: { disabled: !_vm.canGoPrev },
+                        on: { click: _vm.prevPage }
+                      },
+                      [_vm._v("Назад")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        attrs: { disabled: !_vm.canGoNext },
+                        on: { click: _vm.nextPage }
+                      },
+                      [_vm._v("Вперед")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "nav-info-row" }, [
+                    _vm._v(
+                      "\n                Показано: " +
+                        _vm._s(_vm.page_current * 1 + 1) +
+                        " из " +
+                        _vm._s(_vm.totalPage) +
+                        "\n            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.phrases.length > 0 && _vm.lang == "ru_en"
+              ? _c("div", { staticClass: "ru-en center-container" }, [
+                  _c("div", { staticClass: "card-content" }, [
+                    _c(
+                      "div",
+                      { staticClass: "question-text" },
+                      _vm._l(_vm.phrases[_vm.page_current].ru_text, function(
+                        ru_text,
+                        index
+                      ) {
+                        return _c("div", { staticClass: "ru-text" }, [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(ru_text) +
+                              "\n                    "
+                          )
+                        ])
+                      }),
+                      0
+                    ),
+                    _vm._v(" "),
+                    _vm.show_answer
+                      ? _c("div", { staticClass: "answer-text" }, [
+                          _c("div", {
+                            staticClass: "en-text active-text",
+                            domProps: { innerHTML: _vm._s(_vm.enText) }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "ipa-text" }, [
+                            _vm._v(
+                              _vm._s(_vm.phrases[_vm.page_current].ipa_text)
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _vm.phrases[_vm.page_current].audio_url != ""
+                            ? _c("div", { staticClass: "audio-row" }, [
+                                _c("audio", {
+                                  attrs: {
+                                    src:
+                                      _vm.phrases[_vm.page_current].audio_url,
+                                    controls: "controls"
+                                  }
+                                })
+                              ])
+                            : _vm._e()
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "score-row" }, [
+                    _c("span", { staticClass: "value-score" }, [
+                      _vm._v("Совпадение: " + _vm._s(_vm.scorePrecent) + " %")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "len-score",
+                      style: { width: _vm.scorePrecent + "%" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "enter-solve" }, [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.answer_text,
+                          expression: "answer_text"
+                        }
+                      ],
+                      staticClass: "answer-area",
+                      attrs: {
+                        name: "",
+                        rows: "3",
+                        placeholder: "Переведите одной фразой"
+                      },
+                      domProps: { value: _vm.answer_text },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.answer_text = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "answer-button-row" }, [
+                    _c("button", { on: { click: _vm.showAnswer } }, [
+                      _vm._v("Показать ответ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "nav-row" }, [
+                    _c(
+                      "button",
+                      {
+                        attrs: { disabled: !_vm.canGoPrev },
+                        on: { click: _vm.prevPage }
+                      },
+                      [_vm._v("Назад")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        attrs: { disabled: !_vm.canGoNext },
+                        on: { click: _vm.nextPage }
+                      },
+                      [_vm._v("Вперед")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "nav-info-row" }, [
+                    _vm._v(
+                      "\n                Показано: " +
+                        _vm._s(_vm.page_current * 1 + 1) +
+                        " из " +
+                        _vm._s(_vm.totalPage) +
+                        "\n            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ])
+              : _vm._e()
+          ])
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -44218,7 +44248,7 @@ var render = function() {
                 )
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "table_header" }, [_vm._v("Видео")]),
+              _c("div", { staticClass: "table_header" }, [_vm._v("Тренинг")]),
               _vm._v(" "),
               _c("div", { staticClass: "table_header" }, [_vm._v("Ссылки")])
             ],
@@ -44308,24 +44338,47 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "table_small" }, [
                       _c("div", { staticClass: "table_cell" }, [
-                        _vm._v("Видео:")
+                        _vm._v("Тренинг:")
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "table_cell" }, [
-                        _c(
-                          "a",
-                          {
-                            attrs: { href: "javascript:void(0)" },
-                            on: {
-                              click: function($event) {
-                                return _vm.openYouglishBox(
-                                  _vm.tableData[key1].name
-                                )
+                        _c("div", [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "javascript:void(0)" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.openYouglishBox(
+                                    _vm.tableData[key1].name
+                                  )
+                                }
                               }
-                            }
-                          },
-                          [_c("i", { staticClass: "icon ic-youglish" })]
-                        )
+                            },
+                            [_c("i", { staticClass: "icon ic-youglish" })]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm.tableData[key1].phraseTraining > 0
+                          ? _c("div", [
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href:
+                                      "/word-training/" +
+                                      _vm.tableData[key1].name
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "Фразы: " +
+                                      _vm._s(_vm.tableData[key1].phraseTraining)
+                                  )
+                                ]
+                              )
+                            ])
+                          : _vm._e()
                       ])
                     ]),
                     _vm._v(" "),

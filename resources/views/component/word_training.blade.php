@@ -7,5 +7,6 @@
 
 
 @section('content')
+    <div class="back-row"><a href="" title=""><i class="material-icons dp48">navigate_before</i> Вернуться назад</a></div>
     <phrase-training word="{{ $word }}"></phrase-training>
 @endsection
