@@ -2,8 +2,8 @@
 @extends('layouts.blank')
 
 
-@section('title', "Заголовок")
-@section('description', "Описание")
+@section('title', "Фразы со словом ".$word)
+@section('description', "Карточки с фразами в которых встречается слово ".$word)
 
 
 @section('content')
