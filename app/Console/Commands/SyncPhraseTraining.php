@@ -49,9 +49,17 @@ class SyncPhraseTraining extends Command
             ->whereNotNull('phrases.word')
             ->whereRaw('length(words.name) > 2')
             ->where('phrases.file_name','>', '')
+            ->where('phrases.ru_text', '!=', '')
             ->groupBy('word')
             ->having('count', '>', 1)
             ->get();
+
+        $wordsReset = Word::all();
+
+        foreach ($wordsReset as $word2){
+            Word::where('name', '=', $word2->name)
+                ->update(['phrase_training' => 0]);
+        }
 
         foreach ($words as $word){
             Word::where('name', '=', $word->name)

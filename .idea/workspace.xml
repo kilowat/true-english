@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/js/components/PhraseTraining.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/PhraseTraining.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/SyncPhraseTraining.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/SyncPhraseTraining.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -83,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SyncPhraseTraining.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SyncPhraseTraining.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SyncPhraseTraining.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="968">
-              <caret line="50" column="45" lean-forward="true" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
+            <state relative-caret-position="594">
+              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
               <folding>
                 <element signature="e#40#60#0#PHP" expanded="true" />
               </folding>
@@ -95,7 +95,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhraseTraining.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PhraseTraining.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/PhraseTraining.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="660">
@@ -207,13 +207,13 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/WordResource.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_11_09_101531_update_traning_filed_word_table.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/SyncPhraseTraining.php" />
         <option value="$PROJECT_DIR$/resources/views/component/word_training.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" />
         <option value="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WordTrainingController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/PhraseTraining.vue" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/SyncPhraseTraining.php" />
       </list>
     </option>
   </component>
@@ -640,7 +640,7 @@
       <workItem from="1572686177406" duration="7760000" />
       <workItem from="1572945779719" duration="701000" />
       <workItem from="1573021126987" duration="16722000" />
-      <workItem from="1573107225029" duration="68652000" />
+      <workItem from="1573107225029" duration="69645000" />
     </task>
     <servers />
   </component>
@@ -656,7 +656,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="953859000" />
+    <option name="totallyTimeSpent" value="954852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1001,26 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SyncPhraseTraining.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="968">
-          <caret line="50" column="45" lean-forward="true" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
-          <folding>
-            <element signature="e#40#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WordTrainingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
-          <folding>
-            <element signature="e#125#163#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-251" />
@@ -1044,6 +1024,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="177" column="24" selection-start-line="177" selection-start-column="24" selection-end-line="177" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WordTrainingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+          <folding>
+            <element signature="e#125#163#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SyncPhraseTraining.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="e#40#60#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
