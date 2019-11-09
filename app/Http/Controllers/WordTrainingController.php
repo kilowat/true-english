@@ -22,9 +22,6 @@ class WordTrainingController extends Controller
     public function index($word)
     {
         Phrase::where("word", $word)
-            ->where(function($query){
-                $query->havingRaw('COUNT(*) > '.$this->minPhrases);
-            })
             ->where('ru_text', '!=', '')->firstOrFail();
 
         return view('component.word_training', compact('word'));
@@ -34,9 +31,6 @@ class WordTrainingController extends Controller
     {
 
         $phrase = Phrase::where("word", $word)
-            ->where(function($query){
-                $query->havingRaw('COUNT(*) > '.$this->minPhrases);
-            })
             ->where('ru_text', '!=', '')->get();
 
         return PhraseResource::collection($phrase);
