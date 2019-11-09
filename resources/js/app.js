@@ -238,9 +238,16 @@ window._app = (() => {
             }
         });
     }
+
+    let goBack = function(){
+         if(localStorage.go_back){
+             location.href = localStorage.go_back + "#table-words";
+         }
+    };
     return {
         setYouglishAutoPlay : setYouglishAutoPlay,
-        highlight: highlight
+        highlight: highlight,
+        goBack: goBack,
     }
 })();
 

@@ -59,17 +59,19 @@
                 <div class='table_small' v-bind:class="key" v-for="(value, key) in data" v-if="columns[key] !== undefined">
                     <div class='table_cell'>{{ columns[key] }}:</div>
                     <div class='table_cell' v-if="key === 'audio'">
-                        <audio v-on:load="audioLoad" v-on:play="selectRow(key1)" controls v-if="value!== null"><source :src="value.url" :type="value.mime" /></audio>
-                        <span v-else>Фаил не найден</span>
+                        <span v-if="value!== null"><i class="material-icons dp48">volume_up</i></span>
+                        <audio v-on:load="audioLoad" v-on:play="selectRow(key1)" v-if="value!== null">
+                            <source :src="value.url" :type="value.mime" /></audio>
+                        <span v-else><i class="material-icons dp48">volume_up</i></span>
                     </div>
                     <div v-else class='table_cell value_cell'>{{ value }}</div>
                 </div>
                 <div class='table_small'>
                     <div class='table_cell'>Тренинг:</div>
-                    <div class='table_cell'>
+                    <div class='table_cell training-cell'>
                         <div><a href="javascript:void(0)" @click="openYouglishBox(tableData[key1].name)"><i class="icon ic-youglish"></i></a></div>
                         <div v-if="tableData[key1].phraseTraining > 0">
-                            <a v-bind:href="'/word-training/'+tableData[key1].name">Фразы: {{ tableData[key1].phraseTraining }}</a>
+                            <a @click="saveUrl" v-bind:target="_blank" v-bind:href="'/word-training/'+tableData[key1].name">Фразы: {{ tableData[key1].phraseTraining }}</a>
                         </div>
                     </div>
                 </div>
@@ -329,6 +331,9 @@
             isOpenedYougish(){
                 return window.$('#widget-youglish').length > 0;
             },
+            saveUrl(){
+              localStorage.go_back = location.href;
+            },
             setHandlerKeyPressed(){
                 $(document).keydown((event) => {
                     const code = event.which;
@@ -460,12 +465,7 @@
     .table-component .link-cell {
         width: 70px;
     }
-    .table_small.audio {
-        width: 140px;
-    }
-    .table-component audio {
-        width: 140px;
-    }
+
     .h-wrapper {
         display: -webkit-box;
         display: -ms-flexbox;

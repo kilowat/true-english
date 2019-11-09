@@ -178,14 +178,8 @@ span.tip-text {
   padding-top: 60px;
 }
 .table-component{
-  audio{
-    width: 130px;
-  }
   .table-header.name{
 
-  }
-  .table-header.audio{
-    width: 130px;
   }
   .table {
     max-width: 1400px;
@@ -243,7 +237,9 @@ span.tip-text {
       font-size: 16px;
     }
   }
-
+  .table_cell.training-cell {
+    width: 100px;
+  }
   .table_small {
     display: table-cell;
     padding: 8px;
@@ -366,13 +362,6 @@ span.tip-text {
   .translate-cell{
     color: green;
     font-size: 16px;
-  }
-  audio{
-    @include breakpoint(max-width 480px){
-      padding-bottom: 4px;
-      padding-top: 4px;
-      width: 140px;
-    }
   }
 }
 .word-sort-panel{
