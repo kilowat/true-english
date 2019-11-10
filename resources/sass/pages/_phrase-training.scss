@@ -15,9 +15,9 @@
 @include breakpoint(max-width $medium-screen) {
   .back-row {
     z-index: 10000;
-    position: relative;
-    margin-left: 30px;
-    top: -4px;
+    position: fixed;
+    left: 45px;
+    top: 7px;
     a, i {
       color: #fff;
       opacity:1;

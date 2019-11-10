@@ -153,9 +153,7 @@
                     let next_page = parseInt(this.page_current) + 1;
                     this.page_current = next_page;
                     this.setHashTag();
-
-                    if(this.mode == "training")
-                        $(".answer-area").focus();
+                    
 
                     if(this.lang == "en_ru"){
                         this.$nextTick(()=>{
@@ -173,9 +171,6 @@
                     let prev_page = parseInt(this.page_current) - 1;
                     this.page_current = prev_page;
                     this.setHashTag();
-
-                    if(this.mode == "training")
-                        $(".answer-area").focus();
 
                     if(this.lang == "en_ru"){
                         this.$nextTick(()=>{
