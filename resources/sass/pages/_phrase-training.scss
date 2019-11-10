@@ -1,6 +1,6 @@
 .phrase-container{
   @include breakpoint(max-width $medium-screen){
-    margin-top: 26px;
+    margin-top: 56px;
   }
 }
 .back-row {
@@ -22,6 +22,9 @@
       color: #fff;
       opacity:1;
     }
+  }
+  .hot-key-tip{
+    display: none;
   }
 }
 .center-container{

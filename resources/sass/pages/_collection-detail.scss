@@ -304,14 +304,13 @@ span.tip-text {
     .table_cell {
       display: table-cell;
       width: 70%;
-      padding-left: 8px;
+      padding: 4px;
       text-align: left;
       vertical-align: middle;
     }
     .table_row {
       display: table;
       border-collapse: separate;
-      padding: 2%;
       width: 100%;
     }
     .table_row:nth-child(odd) {
@@ -320,6 +319,13 @@ span.tip-text {
     .table_small {
       display: table-row;
     }
+  }
+}
+
+@include breakpoint(max-width $small-screen){
+  .nav-table .pagination .page-item:first-child, .nav-table .pagination .page-item:last-child{
+    display: block;
+    text-align: center;
   }
 }
 
@@ -376,7 +382,7 @@ span.tip-text {
   position: fixed;
   width: 100%;
   height: 50px;
-  background-color: #fff;
+  background-color: #1976D2;
   left: 0;
   z-index: 100;
   top: 0;
@@ -429,6 +435,7 @@ span.tip-text {
       width: 20px;
       position: relative;
       left: -14px;
+      color: #fff;
     }
   }
   .sort-arrow{
