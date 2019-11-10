@@ -322,7 +322,8 @@ span.tip-text {
   }
 }
 
-@include breakpoint(max-width $small-screen){
+
+@include breakpoint(max-width 480px){
   .nav-table .pagination .page-item:first-child, .nav-table .pagination .page-item:last-child{
     display: block;
     text-align: center;

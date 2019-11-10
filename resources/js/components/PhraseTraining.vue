@@ -58,8 +58,8 @@
                 </div>
                 <div class="text-tip">Обратите внимание на то что, процент совпадения - это всего лишь <b>подсказка</b>, не 100 % совпадение <b>не означает</b> что ваш перевод не верен.</div>
                 <div class="text-tip hot-key-tip">
-                    <b>Управление:</b> &larr; назад, &rarr; вперед (ответ), &uarr; проиграть аудио, &darr; в начало.
-                    <br><b>Если кнопка &uarr; не проигрывает, нужно кликнут в любом месте сайта.</b>
+                    <b>Управление:</b> Ctr + &larr; назад, Ctr + &rarr; вперед (ответ), Ctr + &uarr; проиграть аудио, Ctr + &darr; в начало.
+                    <br><br><b>Если кнопка &uarr; не проигрывает аудио, нужно кликнут в любом месте сайта.</b>
                 </div>
             </div>
             <div class="ru-en center-container" v-if="phrases.length > 0 && lang == 'ru_en'">
@@ -98,8 +98,8 @@
                 <div class="text-tip">Обратите внимание на то что, процент совпадения - это всего лишь <b>подсказка</b>, не 100 % совпадение <b>не означает</b> что ваш перевод не верен.</div>
 
                 <div class="text-tip hot-key-tip">
-                    <b>Управление:</b> &larr; назад, &rarr; вперед (ответ), &uarr; проиграть аудио, &darr; в начало.
-                    <br><b>Если кнопка &uarr; не проигрывает, нужно кликнут в любом месте сайта.</b>
+                    <b>Управление:</b> Ctr + &larr; назад, Ctr + &rarr; вперед (ответ), Ctr + &uarr; проиграть аудио, Ctr + &darr; в начало.
+                    <br><br><b>Если кнопка &uarr; не проигрывает аудио, нужно кликнут в любом месте сайта.</b>
                 </div>
             </div>
         </div>
@@ -263,7 +263,7 @@
                     let handled = false;
 
 
-                    if(code == ARROW_RIGHT){
+                    if(code == ARROW_RIGHT && event.ctrlKey){
                         handled = true;
 
                         if(!this.show_answer){
@@ -273,19 +273,19 @@
                         }
                     }
 
-                    if(code == ARROW_LEFT){
+                    if(code == ARROW_LEFT && event.ctrlKey){
                         handled = true;
                         this.prevPage()
                     }
 
-                    if(code == ARROW_UP){
+                    if(code == ARROW_UP && event.ctrlKey){
                         handled = true;
                         this.$nextTick(()=>{
                             this.playAudio();
                         });
                     }
 
-                    if(code == ARROW_DOWN){
+                    if(code == ARROW_DOWN && event.ctrlKey){
                         handled = true;
                         this.setPage(0);
                     }
