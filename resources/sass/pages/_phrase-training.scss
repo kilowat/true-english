@@ -69,6 +69,12 @@
       color: #4482d0;
     }
   }
+  @include breakpoint(max-width $medium-screen){
+    min-height: auto;
+    .ru-text, .en-text, .ipa-text{
+      font-size: 1.1em;
+    }
+  }
 }
 .word-row{
   text-align: center;
@@ -97,7 +103,7 @@
     width: 78px;
   }
   .switch-input:checked + .switch-label-on ~ .switch-selection{
-    left: 78px;
+    left: 80px;
   }
 }
 .active-text {
@@ -119,6 +125,10 @@
   rgba(0, 0, 0, 0.19), 0 1px 3px rgba(0, 0, 0, 0.23);
   font-size: 1.4rem;
   position: relative;
+  @include breakpoint(max-width $medium-screen){
+    font-size: 1.1rem;
+    padding: 4px;
+  }
   .len-score{
     position: absolute;
     left: 0;
@@ -138,6 +148,10 @@
     width: 100%;
     padding: 12px;
     font-size: 1.4em;
+    @include breakpoint(max-width $medium-screen){
+      font-size: 1.1em;
+      padding: 6px;
+    }
   }
 }
 .nav-info-row{
@@ -157,6 +171,78 @@
   text-align: center;
   margin-top: 16px;
 }
+
+.answer-button {
+  box-shadow:inset 0px 1px 0px 0px #54a3f7;
+  background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+  background-color:#007dc1;
+  border-radius:3px;
+  border:1px solid #124d77;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-size:18px;
+  padding:12px 11px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #154682;
+}
+.answer-button:hover {
+  background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+  background-color:#0061a7;
+}
+.answer-button:active {
+  position:relative;
+  top:1px;
+}
+.page-button {
+  box-shadow:inset 0px 1px 0px 0px #54a3f7;
+  background:linear-gradient(to bottom, #0ac6ff 5%, #1379bd 100%);
+  background-color:#0ac6ff;
+  border-radius:3px;
+  border:1px solid #2682bf;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Verdana;
+  font-size:16px;
+  padding:7px 11px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #154682;
+}
+.page-button:hover {
+  background:linear-gradient(to bottom, #1379bd 5%, #0ac6ff 100%);
+  background-color:#1379bd;
+}
+.page-button:active {
+  position:relative;
+  top:1px;
+}
+
+.page-button-back {
+  box-shadow:inset 0px 1px 0px 0px #f55656;
+  background:linear-gradient(to bottom, #ff580a 5%, #bd1515 100%);
+  background-color:#ff580a;
+  border-radius:3px;
+  border:1px solid #bd2626;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Verdana;
+  font-size:16px;
+  padding:7px 11px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #bd1515;
+}
+.page-button-back:hover {
+  background:linear-gradient(to bottom, #bd1515 5%, #ff580a 100%);
+  background-color:#bd1515;
+}
+.page-button-back:active {
+  position:relative;
+  top:1px;
+}
+
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }

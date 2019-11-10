@@ -7,6 +7,6 @@
 
 
 @section('content')
-    <div class="back-row"><a href="javascript:void(0)" onclick="_app.goBack()" title=""><i class="material-icons dp48">navigate_before</i> Вернуться назад</a></div>
+    <div class="back-row"><a href="javascript:void(0)" onclick="_app.goBack()" title=""><i class="material-icons dp48">navigate_before</i>Назад</a></div>
     <phrase-training word="{{ $word }}"></phrase-training>
 @endsection

@@ -46,16 +46,20 @@
                     <textarea v-model="answer_text" name="" class="answer-area" rows="3" placeholder="Напишите Ваш вариант перевода"></textarea>
                 </div>
                 <div class="answer-button-row">
-                    <button @click="showAnswer">Показать ответ</button>
+                    <button @click="showAnswer" class="button answer-button">Показать ответ</button>
                 </div>
                 <div class="nav-row">
-                    <button :disabled="!canGoPrev" @click="prevPage">Назад</button>
-                    <button :disabled="!canGoNext" @click="nextPage">Вперед</button>
+                    <button class="button page-button" :disabled="!canGoPrev" @click="prevPage">Назад</button>
+                    <button class="button page-button-back" @click="setPage(0)">В начало</button>
+                    <button class="button page-button" :disabled="!canGoNext" @click="nextPage">Вперед</button>
                 </div>
                 <div class="nav-info-row">
                     Показано: {{ page_current * 1 + 1 }} из {{ totalPage }}
                 </div>
                 <div class="text-tip">Обратите внимание на то что, процент совпадения - это всего лишь <b>подсказка</b>, не 100 % совпадение <b>не означает</b> что ваш перевод не верен.</div>
+                <div class="text-tip hot-key-tip">
+                    <b>Управление:</b> &larr; назад, &rarr; вперед (ответ), &uarr; проиграть аудио, &darr; в начало.
+                </div>
             </div>
             <div class="ru-en center-container" v-if="phrases.length > 0 && lang == 'ru_en'">
                 <div class="card-content">
@@ -80,16 +84,21 @@
                     <textarea v-model="answer_text" name="" class="answer-area" rows="3" placeholder="Переведите одной фразой"></textarea>
                 </div>
                 <div class="answer-button-row">
-                    <button @click="showAnswer">Показать ответ</button>
+                    <button class="button answer-button" @click="showAnswer">Показать ответ</button>
                 </div>
                 <div class="nav-row">
-                    <button :disabled="!canGoPrev" @click="prevPage">Назад</button>
-                    <button :disabled="!canGoNext" @click="nextPage">Вперед</button>
+                    <button class="button page-button" :disabled="!canGoPrev" @click="prevPage">Назад</button>
+                    <button class="button page-button-back" @click="setPage(0)">В начало</button>
+                    <button class="button page-button" :disabled="!canGoNext" @click="nextPage">Вперед</button>
                 </div>
                 <div class="nav-info-row">
                     Показано: {{ page_current * 1 + 1}} из {{ totalPage }}
                 </div>
                 <div class="text-tip">Обратите внимание на то что, процент совпадения - это всего лишь <b>подсказка</b>, не 100 % совпадение <b>не означает</b> что ваш перевод не верен.</div>
+
+                <div class="text-tip hot-key-tip">
+                    <b>Управление:</b> &larr; назад, &rarr; вперед (ответ), &uarr; проиграть аудио, &darr; в начало.
+                </div>
             </div>
         </div>
     </div>
@@ -114,6 +123,9 @@
               error: false,
               working: false,
           }
+        },
+        mounted(){
+            this.setHandlerKeyPressed();
         },
         methods: {
             fetchData(page){
@@ -183,6 +195,22 @@
                 }
 
             },
+            setPage(page){
+                if(this.page_current > page &&  page >= 0){
+                    this.reset();
+                    this.page_current = page
+                    this.setHashTag();
+
+                    if(this.lang == "en_ru"){
+                        this.$nextTick(()=>{
+                            this.playAudio();
+                        })
+                    }
+                }
+                if(this.mode == "view"){
+                    this.showAnswer()
+                }
+            },
             setHashTag(){
                 window.location.hash = 'page_' + this.page_current;
             },
@@ -215,8 +243,51 @@
             },
             hintText(){
                 let s = this.answer_text.split(' ');
+                let selected_text = document.querySelector('.active-text');
 
-                _app.highlight(document.querySelector('.active-text'), s)
+                if(selected_text)
+                    _app.highlight(selected_text, s)
+            },
+            setHandlerKeyPressed(){
+                $(document).keydown((event) => {
+                    const code = event.which;
+                    const KEY_SPACE = 32;
+                    const ARROW_UP = 38;
+                    const ARROW_DOWN = 40;
+                    const ARROW_LEFT = 37;
+                    const ARROW_RIGHT = 39;
+                    const RIGHT_CONTROL = 17;
+                    const RIGHT_SHIFT = 16;
+
+                    let handled = false;
+
+
+                    if(code == ARROW_RIGHT){
+                        if(!this.show_answer){
+                            this.showAnswer()
+                        }else{
+                            this.nextPage()
+                        }
+                    }
+
+                    if(code == ARROW_LEFT){
+                        this.prevPage()
+                    }
+
+                    if(code == ARROW_UP){
+                        this.$nextTick(()=>{
+                            this.playAudio();
+                        });
+                    }
+
+                    if(code == ARROW_DOWN){
+                        this.setPage(0);
+                    }
+
+                    if(handled){
+                        event.preventDefault();
+                    }
+                });
             }
         },
         created(){
