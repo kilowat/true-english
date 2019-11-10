@@ -153,7 +153,7 @@
                     let next_page = parseInt(this.page_current) + 1;
                     this.page_current = next_page;
                     this.setHashTag();
-                    
+
 
                     if(this.lang == "en_ru"){
                         this.$nextTick(()=>{

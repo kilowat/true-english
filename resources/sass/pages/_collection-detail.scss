@@ -237,8 +237,16 @@ span.tip-text {
       font-size: 16px;
     }
   }
+  .table_small.audio{
+    span{
+      cursor: pointer;
+    }
+  }
   .table_cell.training-cell {
     width: 100px;
+    a:hover{
+      text-decoration: underline;
+    }
   }
   .table_small {
     display: table-cell;

@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/PhraseTraining.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/PhraseTraining.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/pages/_phrase-training.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/pages/_phrase-training.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,15 +44,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article_index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/pages/article_index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="WordTrainingController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WordTrainingController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -74,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_collection-detail.scss" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_collection-detail.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4532">
-              <caret line="206" column="17" selection-start-line="206" selection-start-column="17" selection-end-line="206" selection-end-column="17" />
+            <state relative-caret-position="442">
+              <caret line="240" column="8" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -104,11 +100,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhraseTraining.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PhraseTraining.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/PhraseTraining.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="155" column="20" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="20" />
+            <state relative-caret-position="-2289">
+              <caret line="155" selection-start-line="155" selection-end-line="155" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WordTableComponent.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1319">
+              <caret line="475" column="5" selection-start-line="475" selection-start-column="5" selection-end-line="475" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -125,7 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>highlightCaptionAndPrepareForNext</find>
       <find>email</find>
       <find>active</find>
       <find>app</find>
@@ -155,6 +159,7 @@
       <find>buildDictionary</find>
       <find>dataBase</find>
       <find>cons</find>
+      <find>cur</find>
     </findStrings>
     <replaceStrings>
       <replace>r</replace>
@@ -215,14 +220,14 @@
         <option value="$PROJECT_DIR$/app/Http/Resources/WordResource.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_11_09_101531_update_traning_filed_word_table.php" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
-        <option value="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" />
-        <option value="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WordTrainingController.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/SyncPhraseTraining.php" />
         <option value="$PROJECT_DIR$/public/robots.txt" />
         <option value="$PROJECT_DIR$/resources/views/component/word_training.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/pages/_phrase-training.scss" />
         <option value="$PROJECT_DIR$/resources/js/components/PhraseTraining.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss" />
       </list>
     </option>
   </component>
@@ -655,7 +660,7 @@
       <workItem from="1572945779719" duration="701000" />
       <workItem from="1573021126987" duration="16722000" />
       <workItem from="1573107225029" duration="70502000" />
-      <workItem from="1573363856562" duration="119000" />
+      <workItem from="1573363856562" duration="981000" />
     </task>
     <servers />
   </component>
@@ -671,7 +676,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="955828000" />
+    <option name="totallyTimeSpent" value="956690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -972,13 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4532">
-          <caret line="206" column="17" selection-start-line="206" selection-start-column="17" selection-end-line="206" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -988,13 +986,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1319">
-          <caret line="73" column="69" selection-start-line="73" selection-start-column="69" selection-end-line="73" selection-end-column="69" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1046,8 +1037,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/PhraseTraining.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="155" column="20" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="20" />
+        <state relative-caret-position="-2289">
+          <caret line="155" selection-start-line="155" selection-end-line="155" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1319">
+          <caret line="475" column="5" selection-start-line="475" selection-start-column="5" selection-end-line="475" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/pages/_collection-detail.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="240" column="8" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="8" />
         </state>
       </provider>
     </entry>

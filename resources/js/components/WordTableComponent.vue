@@ -474,9 +474,6 @@
         -ms-flex-align: center;
         align-items: center;
     }
-    .table_row{
-        cursor:pointer;
-    }
     .table_row.selected .table_small{
         background-color: #e8e5a3;
     }
