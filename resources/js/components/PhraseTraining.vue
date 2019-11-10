@@ -59,6 +59,7 @@
                 <div class="text-tip">Обратите внимание на то что, процент совпадения - это всего лишь <b>подсказка</b>, не 100 % совпадение <b>не означает</b> что ваш перевод не верен.</div>
                 <div class="text-tip hot-key-tip">
                     <b>Управление:</b> &larr; назад, &rarr; вперед (ответ), &uarr; проиграть аудио, &darr; в начало.
+                    <br><b>Если кнопка &uarr; не проигрывает, нужно кликнут в любом месте сайта.</b>
                 </div>
             </div>
             <div class="ru-en center-container" v-if="phrases.length > 0 && lang == 'ru_en'">
@@ -98,6 +99,7 @@
 
                 <div class="text-tip hot-key-tip">
                     <b>Управление:</b> &larr; назад, &rarr; вперед (ответ), &uarr; проиграть аудио, &darr; в начало.
+                    <br><b>Если кнопка &uarr; не проигрывает, нужно кликнут в любом месте сайта.</b>
                 </div>
             </div>
         </div>
@@ -193,7 +195,6 @@
                 if(this.mode == "view"){
                     this.showAnswer()
                 }
-
             },
             setPage(page){
                 if(this.page_current > page &&  page >= 0){
@@ -249,7 +250,7 @@
                     _app.highlight(selected_text, s)
             },
             setHandlerKeyPressed(){
-                $(document).keydown((event) => {
+                $(window).keydown((event) => {
                     const code = event.which;
                     const KEY_SPACE = 32;
                     const ARROW_UP = 38;
@@ -263,6 +264,8 @@
 
 
                     if(code == ARROW_RIGHT){
+                        handled = true;
+
                         if(!this.show_answer){
                             this.showAnswer()
                         }else{
@@ -271,16 +274,19 @@
                     }
 
                     if(code == ARROW_LEFT){
+                        handled = true;
                         this.prevPage()
                     }
 
                     if(code == ARROW_UP){
+                        handled = true;
                         this.$nextTick(()=>{
                             this.playAudio();
                         });
                     }
 
                     if(code == ARROW_DOWN){
+                        handled = true;
                         this.setPage(0);
                     }
 
@@ -288,6 +294,7 @@
                         event.preventDefault();
                     }
                 });
+
             }
         },
         created(){
