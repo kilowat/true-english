@@ -3,7 +3,10 @@
          v-bind:class="{loading: working}"
          id="table-words">
         <div class="hot-keys">
-            <div><a href="javascript:void(0)" v-on:click="isShowHotKey = !isShowHotKey" class="hot-key-link">Показать клавишы навигации</a></div>
+            <div>
+                <div>Колонка индекс - это то сколько раз это слово повторилось в тексте</div>
+                <a href="javascript:void(0)" v-on:click="isShowHotKey = !isShowHotKey" class="hot-key-link">Показать клавишы навигации</a>
+            </div>
             <ul v-show="isShowHotKey">
                 <li>Навигация по страницам: <b>&larr; &rarr;</b></li>
                 <li>Навигация по строкам: <b>&uarr; &darr;</b></li>
