@@ -76,6 +76,9 @@
                         <div v-if="tableData[key1].phraseTraining > 0">
                             <a @click="saveUrl" v-bind:target="_blank" v-bind:href="'/word-training/'+tableData[key1].name">Фразы: {{ tableData[key1].phraseTraining }}</a>
                         </div>
+                        <div v-if="tableData[key1].listenTraining > 0">
+                            <a @click="saveUrl" v-bind:target="_blank" v-bind:href="'/word-training-sentence/'+tableData[key1].name">Слух: {{ tableData[key1].listenTraining }}</a>
+                        </div>
                     </div>
                 </div>
                 <div class='table_small'>

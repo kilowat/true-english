@@ -21,10 +21,11 @@
                     <div class="answer-text" v-if="show_answer">
                         <div class="en-text" v-html="enText"></div>
                         <div class="ipa-text">{{ phrases[page_current].ipa_text}}</div>
-                        <div class="ru-text">
+                        <div class="ru-text" v-if="phrases[page_current].ru_text !=''">
                             {{ phrases[page_current].ru_text }}
                         </div>
-                        <div class="yandex-link">
+                        <div v-else class="no-translate">Перевода пока еще нет</div>
+                        <div class="yandex-link" v-if="phrases[page_current].ru_text !=''">
                             <a href="http://translate.yandex.ru" title="Yandex">«Переведено сервисом «Яндекс.Переводчик» </a>
                         </div>
                     </div>

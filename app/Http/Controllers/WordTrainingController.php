@@ -47,14 +47,18 @@ class WordTrainingController extends Controller
 
     public function ajaxGetSentence($word)
     {
-        $sentence = SentenceForvo::where("word", $word)->get();
+        $sentence = SentenceForvo::where('sentence_word.word', '=', $word)
+            ->leftJoin('sentence_word', 'sentence_word.file_name', '=','sentence_forvo.file_name')
+            ->get();
 
         return SentenceForvoResource::collection($sentence);
     }
 
     public function sentence($word)
     {
-        SentenceForvo::where("word", $word)->firstOrFail();
+        $sentence = SentenceForvo::where('sentence_word.word', '=', $word)
+            ->leftJoin('sentence_word', 'sentence_word.file_name', '=','sentence_forvo.file_name')
+            ->firstOrFail();
 
         return view('component.word_sentence', compact('word'));
     }
