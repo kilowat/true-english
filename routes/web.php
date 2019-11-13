@@ -41,6 +41,8 @@ Route::get('articles/{code}.html', 'ArticleController@detail')->name('article.de
 
 Route::get('word-training/{word}', 'WordTrainingController@index')->name('word-training.card');
 Route::get('word-training/phrase/{word}', 'WordTrainingController@ajaxGetPhrase')->name('word-training.phrase');
+Route::get('word-training-sentence/{word}', 'WordTrainingController@sentence')->name('word-training-sentence.card');
+Route::get('word-training/sentence/{word}', 'WordTrainingController@ajaxGetSentence')->name('word-training.sentence');
 Route::get('/api/subtitle/id/{id}', 'ApiController@subtitle')->name('api.subtitle');
 Route::get('/api/words/id/{id}', 'ApiController@words')->name('api.words');
 Route::get('/api/words-table/id/{id}', 'ApiController@wordTableResource')->name('api.table-words');

@@ -88,6 +88,12 @@ return [
             'url' => env('APP_URL').'/storage/phrases',
             'visibility' => 'public',
         ],
+        'phrases' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/forvo'),
+            'url' => env('APP_URL').'/storage/forvo',
+            'visibility' => 'public',
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

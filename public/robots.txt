@@ -4,3 +4,4 @@ Disallow: /word-collections/word-table/
 Disallow: /phpMyAdmin/
 Disallow: /api/
 Disallow: /word-training/
+Disallow: /word-training-sentence/

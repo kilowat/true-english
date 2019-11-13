@@ -6,15 +6,6 @@
         <div class="phrase-container" v-if="phrases.length > 0">
             <div class="word-row"><span class="s-link">{{ current_word }}</span></div>
             <div class="setting-row">
-                <div class="lang-setting">
-                    <div class="switch switch-blue">
-                        <input type="radio" v-model="lang" value="en_ru" class="switch-input" name="view"  id="en-ru">
-                        <label for="en-ru" class="switch-label switch-label-off">EN - RU</label>
-                        <input type="radio"  v-model="lang" value="ru_en"  class="switch-input" name="view"  id="ru-en">
-                        <label for="ru-en" class="switch-label switch-label-on">RU - EN</label>
-                        <span class="switch-selection"></span>
-                    </div>
-                </div>
                 <div class="training-setting">
                     <div class="switch switch-blue">
                         <input type="radio" v-model="mode" value="training" class="switch-input" name="mode"  id="training">
@@ -25,13 +16,16 @@
                     </div>
                 </div>
             </div>
-            <div class="en-ru center-container" v-if="phrases.length > 0 && lang == 'en_ru'">
+            <div class="en-ru center-container" v-if="phrases.length > 0">
                 <div class="card-content">
-                    <div class="question-text en-text" v-html="enText"></div>
-                    <div class="ipa-text">{{ phrases[page_current].ipa_text}}</div>
                     <div class="answer-text" v-if="show_answer">
-                        <div class="ru-text" v-bind:class="[strMatch.bestMatchIndex == index && strMatch.bestMatch.rating > 0 ? 'active-text' : '']" v-for="(ru_text, index) in phrases[page_current].ru_text">
-                            {{ ru_text }}
+                        <div class="en-text" v-html="enText"></div>
+                        <div class="ipa-text">{{ phrases[page_current].ipa_text}}</div>
+                        <div class="ru-text">
+                            {{ phrases[page_current].ru_text }}
+                        </div>
+                        <div class="yandex-link">
+                            <a href="http://translate.yandex.ru" title="Yandex">«Переведено сервисом «Яндекс.Переводчик» </a>
                         </div>
                     </div>
                     <div class="audio-row" v-if="phrases[page_current].audio_url != ''">
@@ -43,7 +37,7 @@
                     <div class="len-score" :style="{ width: scorePrecent+'%' }"></div>
                 </div>
                 <div class="enter-solve">
-                    <textarea v-model="answer_text" name="" class="answer-area" rows="3" placeholder="Напишите Ваш вариант перевода"></textarea>
+                    <textarea v-model="answer_text" name="" class="answer-area" rows="3" placeholder="Введите на английском языке что вы услышали"></textarea>
                 </div>
                 <div class="answer-button-row">
                     <button @click="showAnswer" class="button answer-button">Показать ответ</button>
@@ -62,46 +56,6 @@
                     <br><br><b>Если кнопка Ctr + &uarr; не проигрывает аудио, нужно кликнут в любом месте сайта.</b>
                 </div>
             </div>
-            <div class="ru-en center-container" v-if="phrases.length > 0 && lang == 'ru_en'">
-                <div class="card-content">
-                    <div class="question-text">
-                        <div class="ru-text"  v-for="(ru_text, index) in phrases[page_current].ru_text">
-                            {{ ru_text }}
-                        </div>
-                    </div>
-                    <div class="answer-text" v-if="show_answer">
-                        <div class="en-text active-text" v-html="enText"></div>
-                        <div class="ipa-text">{{ phrases[page_current].ipa_text}}</div>
-                        <div class="audio-row" v-if="phrases[page_current].audio_url != ''">
-                            <audio :src="phrases[page_current].audio_url"  controls="controls"></audio>
-                        </div>
-                    </div>
-                </div>
-                <div class="score-row">
-                    <span class="value-score">Совпадение: {{ scorePrecent }} %</span>
-                    <div class="len-score" :style="{ width: scorePrecent+'%' }"></div>
-                </div>
-                <div class="enter-solve">
-                    <textarea v-model="answer_text" name="" class="answer-area" rows="3" placeholder="Переведите одной фразой"></textarea>
-                </div>
-                <div class="answer-button-row">
-                    <button class="button answer-button" @click="showAnswer">Показать ответ</button>
-                </div>
-                <div class="nav-row">
-                    <button class="button page-button" :disabled="!canGoPrev" @click="prevPage">Назад</button>
-                    <button class="button page-button-back" @click="setPage(0)">В начало</button>
-                    <button class="button page-button" :disabled="!canGoNext" @click="nextPage">Вперед</button>
-                </div>
-                <div class="nav-info-row">
-                    Показано: {{ page_current * 1 + 1}} из {{ totalPage }}
-                </div>
-                <div class="text-tip">Обратите внимание на то что, процент совпадения - это всего лишь <b>подсказка</b>, не 100 % совпадение <b>не означает</b> что ваш перевод не верен.</div>
-
-                <div class="text-tip hot-key-tip">
-                    <b>Управление:</b> Ctr + &larr; назад, Ctr + &rarr; вперед (ответ), Ctr + &uarr; проиграть аудио, Ctr + &darr; в начало.
-                    <br><br><b>Если кнопка Ctr+ &uarr; не проигрывает аудио, нужно кликнут в любом месте сайта.</b>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -112,19 +66,18 @@
         props: {
             word: { type: String, required: true },
         },
-        name: "PhraseTraining",
+        name: "SentenceTraining",
         data(){
-          return{
-              lang: "ru_en", // en_ru || ru_en
-              mode: "training", // training || view
-              show_answer: false,
-              answer_text: "",
-              phrases:[],
-              page_current: 0,
-              current_word: "",
-              error: false,
-              working: false,
-          }
+            return{
+                mode: "training", // training || view
+                show_answer: false,
+                answer_text: "",
+                phrases:[],
+                page_current: 0,
+                current_word: "",
+                error: false,
+                working: false,
+            }
         },
         mounted(){
             this.setHandlerKeyPressed();
@@ -134,7 +87,7 @@
                 this.working = true;
                 page = page || 0
 
-                axios.get("/word-training/phrase/"+this.word)
+                axios.get("/word-training/sentence/"+this.word)
                     .then((result)=>{
                         this.phrases = result.data.data
 
@@ -144,8 +97,6 @@
                             if(localStorage.phrase_traning_mode)
                                 this.mode = localStorage.phrase_traning_mode;
 
-                            if(localStorage.phrase_lang)
-                                this.lang = localStorage.phrase_lang;
                         }
                         if(this.mode == "view" && this.phrases.length > 0){
                             this.$nextTick(()=>{
@@ -158,7 +109,7 @@
                         this.error = true;
                     })
                     .finally(()=>{
-                       this.working = false;
+                        this.working = false;
                     });
             },
             nextPage(){
@@ -169,11 +120,11 @@
                     this.setHashTag();
 
 
-                    if(this.lang == "en_ru"){
-                        this.$nextTick(()=>{
-                            this.playAudio();
-                        })
-                    }
+
+                    this.$nextTick(()=>{
+                        this.playAudio();
+                    })
+
                     if(this.mode == "view"){
                         this.showAnswer()
                     }
@@ -186,11 +137,10 @@
                     this.page_current = prev_page;
                     this.setHashTag();
 
-                    if(this.lang == "en_ru"){
-                        this.$nextTick(()=>{
-                            this.playAudio();
-                        })
-                    }
+                    this.$nextTick(()=>{
+                        this.playAudio();
+                    })
+
                 }
                 if(this.mode == "view"){
                     this.showAnswer()
@@ -202,11 +152,10 @@
                     this.page_current = page
                     this.setHashTag();
 
-                    if(this.lang == "en_ru"){
-                        this.$nextTick(()=>{
-                            this.playAudio();
-                        })
-                    }
+                    this.$nextTick(()=>{
+                        this.playAudio();
+                    })
+
                 }
                 if(this.mode == "view"){
                     this.showAnswer()
@@ -246,6 +195,7 @@
                 let s = this.answer_text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
                 s = s.split(' ');
                 let selected_text = document.querySelector('.active-text');
+
                 if(selected_text)
                     _app.highlight(selected_text, s)
             },
@@ -327,18 +277,13 @@
                 return this.phrases.length;
             },
             enText(){
-              let text = this.phrases[this.page_current].en_text;
-              text = text.replace(/[a-zA-Z’'<//>]+/g, "<span class='s-link'>$&</span>");
-              return text;
+                let text = this.phrases[this.page_current].en_text;
+                text = text.replace(/[a-zA-Z’'<//>]+/g, "<span class='s-link'>$&</span>");
+                return text;
             },
             question(){
-                let question;
+                let question = [this.phrases[this.page_current].en_text];
 
-                if(this.lang == "en_ru"){
-                    question = this.phrases[this.page_current].ru_text;
-                }else if(this.lang == "ru_en"){
-                    question = [this.phrases[this.page_current].en_text];
-                }
                 return question;
             },
             strMatch(){
@@ -351,7 +296,7 @@
             score(){
                 if(this.phrases[this.page_current] == undefined)
                     return false;
-                let res = new difflib.SequenceMatcher(null, this.answer_text, this.question[this.strMatch.bestMatchIndex]).ratio()
+                let res = new difflib.SequenceMatcher(null, this.answer_text, this.question[0]).ratio()
                 return res;
             },
             scorePrecent(){
