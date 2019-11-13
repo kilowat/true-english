@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WordTrainingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WordTrainingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/WordResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/WordResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/SentenceTraining.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SentenceTraining.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/backup.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/backup.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,11 +49,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WordTableComponent.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WordTableComponent.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
+            <state relative-caret-position="1078">
               <caret line="79" column="137" selection-start-line="79" selection-start-column="137" selection-end-line="79" selection-end-column="137" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="backup.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/backup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="638">
+              <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -94,18 +95,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="498">
               <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SyncPhraseTraining.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Console/Commands/SyncPhraseTraining.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="48" column="33" selection-end-line="73" />
-              <folding>
-                <element signature="e#40#60#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -196,7 +185,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/WordTraningController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/_icons.scss" />
-        <option value="$PROJECT_DIR$/config/backup.php" />
         <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/app/Http/Resources/PhraseResource.php" />
         <option value="$PROJECT_DIR$/resources/sass/_main.scss" />
@@ -232,6 +220,7 @@
         <option value="$PROJECT_DIR$/resources/js/components/SentenceTraining.vue" />
         <option value="$PROJECT_DIR$/app/Http/Resources/WordResource.php" />
         <option value="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" />
+        <option value="$PROJECT_DIR$/config/backup.php" />
       </list>
     </option>
   </component>
@@ -533,6 +522,24 @@
               <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -642,7 +649,7 @@
       <workItem from="1572945779719" duration="701000" />
       <workItem from="1573021126987" duration="16722000" />
       <workItem from="1573107225029" duration="70502000" />
-      <workItem from="1573363856562" duration="34974000" />
+      <workItem from="1573363856562" duration="35224000" />
     </task>
     <servers />
   </component>
@@ -658,7 +665,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="990683000" />
+    <option name="totallyTimeSpent" value="990933000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -699,13 +706,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-419">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-end-line="53" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1060,8 +1060,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
+        <state relative-caret-position="1078">
           <caret line="79" column="137" selection-start-line="79" selection-start-column="137" selection-end-line="79" selection-end-column="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/backup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
         </state>
       </provider>
     </entry>
