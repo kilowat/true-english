@@ -2,14 +2,14 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Phrase;
+use App\Models\SentenceForvo;
 use App\Models\Word;
 use App\Services\TextAnalyze\WordParser;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
-class SearchWordInPhrases extends Command
+class SearchWordInSentence extends Command
 {
     private $bar;
     private $wordModel;
@@ -19,7 +19,7 @@ class SearchWordInPhrases extends Command
      *
      * @var string
      */
-    protected $signature = 'word:search_phrase';
+    protected $signature = 'word:search_sentence';
 
     /**
      * The console command description.
@@ -33,7 +33,7 @@ class SearchWordInPhrases extends Command
      *
      * @return void
      */
-    public function __construct(Word $wordModel, Phrase $phraseModel)
+    public function __construct(Word $wordModel, SentenceForvo $phraseModel)
     {
         parent::__construct();
 
@@ -65,7 +65,7 @@ class SearchWordInPhrases extends Command
 
     private function getCount()
     {
-        return Phrase::where("checked", "=", 0)->count();
+        return SentenceForvo::where("checked", "=", 0)->count();
     }
 
     private function step()

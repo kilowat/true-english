@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Storage;
 
 class SentenceForvo extends Model
 {
-    protected $table = "forvo";
+    protected $table = "sentence_forvo";
+    protected $primaryKey = 'file_name';
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     public function getUrlAttribute()
     {
         return  Storage::disk('forvo')->url($this->file_name);
     }
-
 }

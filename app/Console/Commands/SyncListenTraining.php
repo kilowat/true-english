@@ -6,14 +6,14 @@ use App\Models\Word;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
-class SyncPhraseTraining extends Command
+class SyncListenTraining extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'phrase:sync';
+    protected $signature = 'listen:sync';
 
     /**
      * The console command description.
@@ -40,19 +40,18 @@ class SyncPhraseTraining extends Command
     public function handle()
     {
         $words = DB::table('words')
-            ->where('phrase_training', '=', 0)
+            ->where('listen_training', '=', 0)
             ->selectRaw('DISTINCT(word) as name')
             ->selectRaw('COUNT(word) as count')
-            ->leftJoin('phrases_word', function($join){
-                $join->on('phrases_word.word', '=', 'words.name');
+            ->leftJoin('sentence_word', function($join){
+                $join->on('sentence_word.word', '=', 'words.name');
             })
-            ->leftJoin('phrases', function($join){
-                $join->on('phrases_word.file_name', '=', 'phrases.file_name');
+            ->leftJoin('sentence_forvo', function($join){
+                $join->on('sentence_word.file_name', '=', 'sentence_forvo.file_name');
             })
-            ->whereNotNull('phrases_word.word')
+            ->whereNotNull('sentence_word.word')
             ->whereRaw('length(words.name) > 2')
-            ->where('phrases_word.file_name','>', '')
-            ->where('phrases.ru_text', '!=', '')
+            ->where('sentence_word.file_name','>', '')
             ->groupBy('word')
             ->having('count', '>', 1)
             ->get();
@@ -65,9 +64,10 @@ class SyncPhraseTraining extends Command
                 ->update(['phrase_training' => 0]);
         }
         */
+
         foreach ($words as $word){
             Word::where('name', '=', $word->name)
-                ->update(['phrase_training' => $word->count]);
+                ->update(['listen_training' => $word->count]);
         }
     }
 }
