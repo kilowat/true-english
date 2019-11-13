@@ -29,10 +29,10 @@ class Kernel extends ConsoleKernel
 
         // Backups (to Google Drive)
         //$schedule->command('backup:clean')->dailyAt('01:30');
-        $schedule->command('db:backup')->dailyAt('06:00');
-        $schedule->command('backup:run --only-files')->dailyAt('06:35');
-        $schedule->command('word:search')->dailyAt('23:30');
-        $schedule->command('phrase:sync')->dailyAt('02:00');
+        $schedule->command('db:backup')->dailyAt('23:00');
+        $schedule->command('backup:run --only-files')->dailyAt('23:35');
+        $schedule->command('word:search')->dailyAt('5:30');
+        $schedule->command('phrase:sync')->dailyAt('06:00');
     }
 
     /**
