@@ -40,7 +40,7 @@ class SyncPhraseTraining extends Command
     public function handle()
     {
         $words = DB::table('words')
-            ->where('phrase_training', '=', 0)
+            //->where('phrase_training', '=', 0)
             ->selectRaw('DISTINCT(word) as name')
             ->selectRaw('COUNT(word) as count')
             ->leftJoin('phrases_word', function($join){
@@ -57,14 +57,14 @@ class SyncPhraseTraining extends Command
             ->having('count', '>', 1)
             ->get();
 
-        /*
+
         $wordsReset = Word::all();
 
         foreach ($wordsReset as $word2){
             Word::where('name', '=', $word2->name)
                 ->update(['phrase_training' => 0]);
         }
-        */
+        
         foreach ($words as $word){
             Word::where('name', '=', $word->name)
                 ->update(['phrase_training' => $word->count]);
