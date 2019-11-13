@@ -75,7 +75,7 @@ class SearchWordInPhrases extends Command
             $phraseRowscode = [];
 
             foreach ($phrases as $phrase) {
-                $phraseRowscode[] = $phrase->word;
+                $phraseRowscode[] = $phrase->file_name;
                 $str.= " ".$phrase->en_text;
             }
 
@@ -85,7 +85,7 @@ class SearchWordInPhrases extends Command
                 DB::table($this->wordModel->getTable())->insertOrIgnore($words);
 
                 foreach ($phraseRowscode as $code){
-                    DB::table($this->phraseModel->getTable())->where('word', '=', $code)->update(['checked'=>1]);
+                    DB::table($this->phraseModel->getTable())->where('file_name', '=', $code)->update(['checked'=>1]);
                 }
             });
         });

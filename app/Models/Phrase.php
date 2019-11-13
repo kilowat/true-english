@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Phrase extends Model
 {
-
-    protected $primaryKey = 'word';
+    protected $primaryKey = 'file_name';
     public $incrementing = false;
     protected $keyType = 'string';
 
