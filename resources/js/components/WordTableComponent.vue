@@ -65,7 +65,7 @@
                         <span v-if="value!== null"><i class="material-icons dp48">volume_up</i></span>
                         <audio v-on:load="audioLoad" v-on:play="selectRow(key1)" v-if="value!== null">
                             <source :src="value.url" :type="value.mime" /></audio>
-                        <span v-else><i class="material-icons dp48">volume_up</i></span>
+                        <span v-else><i class="material-icons dp48">volume_off</i></span>
                     </div>
                     <div v-else class='table_cell value_cell'>{{ value }}</div>
                 </div>
