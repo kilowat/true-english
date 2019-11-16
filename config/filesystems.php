@@ -88,7 +88,7 @@ return [
             'url' => env('APP_URL').'/storage/phrases',
             'visibility' => 'public',
         ],
-        'phrases' => [
+        'forvo' => [
             'driver' => 'local',
             'root' => storage_path('app/public/forvo'),
             'url' => env('APP_URL').'/storage/forvo',

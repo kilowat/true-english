@@ -13,6 +13,7 @@
         "benlipp/srt-parser": "^1.1",
         "davejamesmiller/laravel-breadcrumbs": "5.3",
         "fideloper/proxy": "^4.0",
+        "google/apiclient": "^2.0",
         "jeroennoten/laravel-adminlte": "^1.27",
         "kalnoy/nestedset": "^5.0",
         "laravel/framework": "5.8.*",
