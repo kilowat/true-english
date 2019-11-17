@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 
         // Backups (to Google Drive)
-        //$schedule->command('backup:clean')->dailyAt('01:30');
+        $schedule->command('backup:clean')->dailyAt('01:30');
         $schedule->command('db:backup')->dailyAt('23:00');
         $schedule->command('backup:run --only-files')->dailyAt('23:35');
         $schedule->command('word:search_phrase')->dailyAt('5:30');
