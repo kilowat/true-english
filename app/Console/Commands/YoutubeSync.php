@@ -6,8 +6,11 @@ use App\Models\WordCard;
 use App\Models\YoutubeParsered;
 use App\Services\Subtitles\SubtitleCreator;
 use Illuminate\Console\Command;
+use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\FileBag;
 
 class YoutubeSync extends Command
 {
@@ -61,11 +64,25 @@ class YoutubeSync extends Command
             ->where('ru_text', "!=", "")
             ->get();
 
-        $item = $youtubeItems[0];
-        $fields = $this->makeFields($item);
-        $created_card = $this->wordCard->create($fields);
+        foreach ($youtubeItems as $item) {
+            $fields = $this->makeFields($item);
+            if($updateCard = $this->wordCardModel->where("code", "=", $fields["code"])->first()){
+                $updateCard->update($fields);
+                $card = $updateCard;
+            }else{
+                $card = $this->wordCardModel->create($fields);
+            }
 
-        $this->wordCard->insertWords($item->en_text, $created_card->id, true);
+            if ($item->picture) {
+                $pic = $this->getPicture($item);
+                $card->uploadImage($pic, 'picture');
+            }
+
+            $this->wordCardModel->insertWords($item->en_text, $card->id, true);
+
+            $this->youtubeModel->where("code", "=", $item->code)->update(['status'=>2]);
+
+        }
     }
 
     private function makeFields($item)
@@ -79,18 +96,20 @@ class YoutubeSync extends Command
         $fields["ensubtitle"] = $item->en_text;
         $fields["rusubtitle"] = $item->ru_text;
         $fields["trsubtitle"] = $item->ipa_text;
-        $fields["picture"] = "";
         $fields["youtube"] = $item->code;
         $fields["title"] = $item->title;
         $fields["section_id"] = $item->section_id;
         $fields["active"] = 1;
-        /*
-            $info = pathinfo($url);
-            $contents = file_get_contents($url);
-            $file = '/tmp/' . $info['basename'];
-            file_put_contents($file, $contents);
-            $uploaded_file = new UploadedFile($file, $info['basename']);
-            */
+
         return $fields;
+    }
+
+    private function getPicture($item)
+    {
+        $contents = file_get_contents($item->picture);
+        $file = "storage\\app\\tmp\\" . $item->code . ".jpg";
+        file_put_contents($file, $contents);
+        $uploaded_file = new File($file);
+        return $uploaded_file;
     }
 }

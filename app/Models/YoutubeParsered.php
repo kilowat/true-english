@@ -15,4 +15,5 @@ class YoutubeParsered extends Model
 {
     protected $table = "youtube";
     protected $primaryKey = "code";
+    protected $keyType = "string";
 }

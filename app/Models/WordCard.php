@@ -14,6 +14,7 @@ class WordCard extends Model
 {
     use HasImageUploads;
 
+
     public $timestamps = true;
 
     protected $guarded = ['update_content', 'create_excel', 'create_transcript', 'parse_content'];
