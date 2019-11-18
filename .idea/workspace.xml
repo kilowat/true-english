@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/YoutubeSync.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/YoutubeSync.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/WordCard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/WordCard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/YoutubeParsered.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/YoutubeParsered.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/backup.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/backup.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,8 +80,8 @@
       <file leaf-file-name="backup.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/backup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+            <state relative-caret-position="572">
+              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -540,7 +538,7 @@
       <workItem from="1573021126987" duration="16722000" />
       <workItem from="1573107225029" duration="70502000" />
       <workItem from="1573363856562" duration="35224000" />
-      <workItem from="1573722447316" duration="33142000" />
+      <workItem from="1573722447316" duration="33283000" />
     </task>
     <servers />
   </component>
@@ -556,7 +554,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1024075000" />
+    <option name="totallyTimeSpent" value="1024216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -937,8 +935,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/backup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+        <state relative-caret-position="572">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
         </state>
       </provider>
     </entry>
