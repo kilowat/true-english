@@ -156,6 +156,22 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('pronons/delete/{id}', 'AdminPrononsController@delete')->name('admin.pronons.delete');
     /****************************/
 
+    /*****************youtube video*************************/
+    Route::get('youtube-videos', 'AdminYoutubeVideoController@index')->name('admin.youtube-video.index');
+    Route::get('youtube-videos/data-list', 'AdminYoutubeVideoController@dataList')->name('admin.youtube-video.data-list');
+    Route::get('youtube-videos/add', 'AdminYoutubeVideoController@add')->name('admin.youtube-video.add');
+    Route::post('youtube-videos/add', 'AdminYoutubeVideoController@store')->name('admin.youtube-video.store');
+    Route::get('youtube-videos/edit/{id}', 'AdminYoutubeVideoController@edit')->name('admin.youtube-video.edit');
+    Route::post('youtube-videos/update/{id}', 'AdminYoutubeVideoController@update')->name('admin.youtube-video.update');
+    Route::get('youtube-videos/delete/{id}', 'AdminYoutubeVideoController@delete')->name('admin.youtube-video.delete');
+
+    Route::get('youtube-channels', 'AdminYoutubeChannelController@index')->name('admin.youtube-channel.index');
+    Route::get('youtube-channels/data-list', 'AdminYoutubeChannelController@dataList')->name('admin.youtube-channel.data-list');
+    Route::get('youtube-channels/add', 'AdminYoutubeChannelController@add')->name('admin.youtube-channel.add');
+    Route::post('youtube-channels/add', 'AdminYoutubeChannelController@store')->name('admin.youtube-channel.store');
+    Route::get('youtube-channels/edit/{id}', 'AdminYoutubeChannelController@edit')->name('admin.youtube-channel.edit');
+    Route::post('youtube-channels/update/{id}', 'AdminYoutubeChannelController@update')->name('admin.youtube-channel.update');
+    Route::get('youtube-channels/delete/{id}', 'AdminYoutubeChannelController@delete')->name('admin.youtube-channel.delete');
     /***************pages*****************************/
     Route::get('page', 'AdminPageController@index')->name('admin.page.index');
     Route::get('page/add', 'AdminPageController@add')->name('admin.page.add');

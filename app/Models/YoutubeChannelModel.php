@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: kilowat
- * Date: 17.11.2019
- * Time: 19:34
+ * Date: 19.11.2019
+ * Time: 12:23
  */
 
 namespace App\Models;
@@ -11,16 +11,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class YoutubeParsered extends Model
+class YoutubeChannelModel extends Model
 {
-    protected $guarded = [];
-    protected $table = "youtube";
+    protected $table = "youtube_channels";
 
+    protected $guarded = [];
     public $statuses = [
         0 => "Wait parsing",
         1 => "Done parsing",
-        2 => "Done sync",
-        3 => "Error"
     ];
 
     public function section()

@@ -14,10 +14,12 @@ use Symfony\Component\HttpFoundation\FileBag;
 
 class YoutubeSync extends Command
 {
+    const STATUS_ERROR = 3;
+    const STATUS_SYNCED = 2;
+    const STATUS_PARSED = 1;
 
     private $youtubeModel;
     private $wordCardModel;
-
     /**
      * The name and signature of the console command.
      *
@@ -59,16 +61,22 @@ class YoutubeSync extends Command
     private function exec()
     {
         $youtubeItems = $this->youtubeModel
-            ->where("status", "=", 1)
+            ->where("status", "=", self::STATUS_PARSED)
             ->where("en_text", "!=", "")
             ->where('ru_text', "!=", "")
             ->get();
 
         foreach ($youtubeItems as $item) {
+            echo "read: ".$item->id. "\n";
+
             $fields = $this->makeFields($item);
+
+            if(empty($fields["subtitles"])) continue;
+
             if($updateCard = $this->wordCardModel->where("code", "=", $fields["code"])->first()){
-                $updateCard->update($fields);
-                $card = $updateCard;
+                continue;
+                //$updateCard->update($fields);
+                //$card = $updateCard;
             }else{
                 $card = $this->wordCardModel->create($fields);
             }
@@ -79,18 +87,28 @@ class YoutubeSync extends Command
             }
 
             $this->wordCardModel->insertWords($item->en_text, $card->id, true);
-
-            $this->youtubeModel->where("code", "=", $item->code)->update(['status'=>2]);
-
+            //!!!!!!!!!!!!
+            $this->youtubeModel->where("code", "=", $item->code)->update(['status'=>self::STATUS_SYNCED]);
         }
     }
 
-    private function makeFields($item)
+    private function makeFields(YoutubeParsered $item)
     {
         $fields = [];
-        $creator = new SubtitleCreator($item->en_text, $item->ru_text, $item->ipa_text);
         $fields['code'] = $title = Str::slug($item->title."-".$item->code, "-");
-        $fields["subtitles"] = $creator->merge();
+        $fields["subtitles"] = "";
+
+        try {
+            $subtitles = $this->prepareSubtitles($item);
+
+            //$creator = new SubtitleCreator($item->en_text, $item->ru_text, $item->ipa_text);
+            $creator = new SubtitleCreator($subtitles["en_text"], $subtitles['ru_text'], $subtitles["ipa_text"]);
+            $fields["subtitles"] = $creator->merge();
+        }catch (\Exception $e){
+            echo "SubtitlesCreator error: ".$e->getMessage() . " element_id:".$item->id."\n";
+            $this->youtubeModel->where("id", "=", $item->id)->update(['status'=>self::STATUS_ERROR]);
+        }
+
         $fields["name"] = $item->title;
         $fields["content_text"] = $item->en_text;
         $fields["ensubtitle"] = $item->en_text;
@@ -99,17 +117,84 @@ class YoutubeSync extends Command
         $fields["youtube"] = $item->code;
         $fields["title"] = $item->title;
         $fields["section_id"] = $item->section_id;
-        $fields["active"] = 1;
-
+        $fields['active'] = "on";
         return $fields;
     }
 
-    private function getPicture($item)
+    private function getPicture(YoutubeParsered $item)
     {
         $contents = file_get_contents($item->picture);
         $file = "storage\\app\\tmp\\" . $item->code . ".jpg";
         file_put_contents($file, $contents);
         $uploaded_file = new File($file);
         return $uploaded_file;
+    }
+
+    private function prepareSubtitles(YoutubeParsered $item)
+    {
+        $en = $this->clearSubtitles($item->en_text);
+        $ru = $this->clearSubtitles($item->ru_text);
+        $ipa = $this->clearSubtitles($item->ipa_text);
+
+        $result = [
+            "en_text" => $en['text'],
+            "ru_text" => $ru['text'],
+            "ipa_text" => $ipa['text'],
+        ];
+
+        if($en['count'] != $ru['count'])
+        {
+            $field = [
+                "en_after_check" => $result['en_text'],
+                "ru_after_check" => $result['ru_text'],
+            ];
+            $this->youtubeModel->where("code", "=", $item->code)->update($field);
+
+            throw new \Exception('diff length');
+        }
+
+        return $result;
+    }
+
+    private function clearSubtitles($text)
+    {
+        $text_lines = explode("\n\n", $text);
+        $new_lines = [];
+        $count = 1;
+        foreach($text_lines as $key => $line){
+            $sub_line = explode("\n", $line);
+            //clear wrong \n
+            if(empty($sub_line[0]))
+                array_shift($sub_line);
+            $sub_line[0] = $count;
+            ////////////////////
+            $new_line = implode("\n", $sub_line);
+            //Перевел, перевела, переводчик
+
+            if($key == 0 && preg_match('/ерев/', $new_line)){
+                continue;
+            }
+
+            $new_lines[] = $new_line;
+            $count++;
+            /*
+            if (!preg_match('/[♪(]/', $new_line)
+                && !preg_match('/playing]/', $new_line)
+                && !preg_match('/music]/', $new_line)
+                && !preg_match('/играет]/', $new_line)
+                && !preg_match('/музыка]/', $new_line)) {
+
+                $new_lines[] = $new_line;
+                $count++;
+            }
+            */
+
+        }
+
+        $result = [
+            "text" =>implode("\n\n", $new_lines),
+            "count" => $count
+        ] ;
+        return $result;
     }
 }

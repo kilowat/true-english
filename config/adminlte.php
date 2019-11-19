@@ -192,6 +192,17 @@ return [
             'url'  => 'admin/pronons',
             'icon' => 'fas fa-fw fa-th-list',
         ],
+        ['header' => 'Веб пауки'],
+        [
+            'text' => 'Youtube каналы',
+            'url'  => 'admin/youtube-channels',
+            'icon' => 'fas fa-fw fa-th-list',
+        ],
+        [
+            'text' => 'Youtube видео',
+            'url'  => 'admin/youtube-videos',
+            'icon' => 'fas fa-fw fa-th-list',
+        ],
         ['header' => 'Настройки'],
         [
             'text' => 'Очистить кэш',

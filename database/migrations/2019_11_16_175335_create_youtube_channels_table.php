@@ -14,9 +14,13 @@ class CreateYoutubeChannelsTable extends Migration
     public function up()
     {
         Schema::create('youtube_channels', function (Blueprint $table) {
-            $table->string('code')->primary();
+            $table->bigIncrements('id');
+            $table->string('code')->unique();
             $table->bigInteger('section_id')->unsigned();
-            $table->foreign('section_id')->references('id')->on('word_sections');
+            $table->foreign('section_id')->references('id')
+                ->on('word_sections')
+                ->onUpdate('NO ACTION')
+                ->onDelete('cascade');
             $table->tinyInteger('status');
             $table->integer('video_count')->default(0);
             $table->timestamps();

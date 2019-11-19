@@ -50,7 +50,6 @@ class AdminGrammarElementController extends AdminController
         return redirect()->back()->with('message',  trans('messages.update_success'));
     }
 
-
     public function delete($id)
     {
         Grammar::destroy($id);

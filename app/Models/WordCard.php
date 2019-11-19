@@ -65,6 +65,7 @@ class WordCard extends Model
     public function setActiveAttribute($value)
     {
         $value = $value == "on" ? 1 : 0;
+
         $this->attributes['active'] = $value;
     }
 

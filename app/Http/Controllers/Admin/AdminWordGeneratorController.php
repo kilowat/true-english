@@ -13,7 +13,6 @@ class AdminWordGeneratorController extends AdminController
 {
     public function index()
     {
-
         return view('admin.pages.word_generator_index');
     }
 }
