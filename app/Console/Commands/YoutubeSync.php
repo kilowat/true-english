@@ -61,7 +61,7 @@ class YoutubeSync extends Command
     private function exec()
     {
         $youtubeItems = $this->youtubeModel
-            //->where("status", "=", self::STATUS_PARSED)
+            ->where("status", "=", self::STATUS_PARSED)
             ->where("en_text", "!=", "")
             ->where('ru_text', "!=", "")
             ->get();
@@ -73,12 +73,17 @@ class YoutubeSync extends Command
 
             if(empty($fields["subtitles"])) continue;
 
-            if($updateCard = $this->wordCardModel->where("code", "=", $fields["code"])->first()){
+            if($updateCard = $this->wordCardModel->where("youtube", "=", $fields["code"])->first()){
                 continue;
                 //$updateCard->update($fields);
                 //$card = $updateCard;
             }else{
-                $card = $this->wordCardModel->create($fields);
+                try {
+                    $card = $this->wordCardModel->create($fields);
+                }catch(\Exception $e){
+                    echo "Create card error: ".$e->getMessage() . " element_id:".$item->id."\n";
+                    continue;
+                }
             }
 
             if ($item->picture) {
@@ -124,7 +129,7 @@ class YoutubeSync extends Command
     private function getPicture(YoutubeParsered $item)
     {
         $contents = file_get_contents($item->picture);
-        $file = "storage\\app\\tmp\\" . $item->code . ".jpg";
+        $file = "storage".DIRECTORY_SEPARATOR."app".DIRECTORY_SEPARATOR."tmp". DIRECTORY_SEPARATOR . $item->code . ".jpg";
         file_put_contents($file, $contents);
         $uploaded_file = new File($file);
         return $uploaded_file;
