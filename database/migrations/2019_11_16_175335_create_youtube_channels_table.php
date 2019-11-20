@@ -21,7 +21,7 @@ class CreateYoutubeChannelsTable extends Migration
                 ->on('word_sections')
                 ->onUpdate('NO ACTION')
                 ->onDelete('cascade');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->index('status_idx');
             $table->integer('video_count')->default(0);
             $table->timestamps();
         });

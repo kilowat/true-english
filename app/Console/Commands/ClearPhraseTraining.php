@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Word;
 use Illuminate\Console\Command;
 
-class ClearPharseTraining extends Command
+class ClearPhraseTraining extends Command
 {
     /**
      * The name and signature of the console command.
