@@ -73,7 +73,7 @@ class YoutubeSync extends Command
 
             if(empty($fields["subtitles"])) continue;
 
-            if($updateCard = $this->wordCardModel->where("youtube", "=", $fields["code"])->first()){
+            if($updateCard = $this->wordCardModel->where("youtube", "=", $fields["youtube"])->first()){
                 continue;
                 //$updateCard->update($fields);
                 //$card = $updateCard;
