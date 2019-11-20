@@ -28,13 +28,15 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 
         // Backups (to Google Drive)
-        $schedule->command('backup:clean')->weeklyOn(7, '22:00');
-        $schedule->command('db:backup')->weeklyOn(7, '23:00');
-        $schedule->command('backup:run --only-files')->weeklyOn(7, '23:30');
-        $schedule->command('word:search_phrase')->dailyAt('5:30');
-        $schedule->command('word:search_sentence')->dailyAt('7:30');
-        $schedule->command('phrase:sync')->dailyAt('08:00');
-        $schedule->command('listen:sync')->dailyAt('08:30');
+        $schedule->command('backup:clean')->weeklyOn(7, '22:00');//Отчистка бэкопов
+        $schedule->command('db:backup')->weeklyOn(7, '23:00'); // Создание бэкапа базы
+        $schedule->command('excel:update')->weeklyOn(4, '23:00');// Обновление excel таблиц
+        $schedule->command('backup:run --only-files')->weeklyOn(7, '23:30');// Бэкап файлов
+        $schedule->command('word:search_phrase')->dailyAt('5:30');// Поиск новых слов в фразах
+        $schedule->command('word:search_sentence')->dailyAt('6:30');// Поиск новых слов в предложениях
+        $schedule->command('phrase:sync')->dailyAt('07:00');// Обновление фраз
+        $schedule->command('listen:sync')->dailyAt('07:30');// Обновление предложений
+        $schedule->command('youtube:sync')->dailyAt('08:00');// Создание карточек к видео
     }
 
     /**

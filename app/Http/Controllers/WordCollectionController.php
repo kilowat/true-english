@@ -66,6 +66,7 @@ class WordCollectionController extends Controller
         $elements = WordCard::where('active', '=', 1)
             ->orderBy('created_at', 'desc')
             ->orderBy('sort', 'asc')
+            ->orderBy('id', 'desc')
             ->paginate($this->elementPaginateCount);
 
         return view('pages.word_collection_index', compact('elements', 'page'));
