@@ -61,7 +61,7 @@ class YoutubeSync extends Command
     private function exec()
     {
         $youtubeItems = $this->youtubeModel
-            ->where("status", "=", self::STATUS_PARSED)
+            //->where("status", "=", self::STATUS_PARSED)
             ->where("en_text", "!=", "")
             ->where('ru_text', "!=", "")
             ->get();
@@ -166,6 +166,8 @@ class YoutubeSync extends Command
             //clear wrong \n
             if(empty($sub_line[0]))
                 array_shift($sub_line);
+
+
             $sub_line[0] = $count;
             ////////////////////
             $new_line = implode("\n", $sub_line);

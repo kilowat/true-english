@@ -57,14 +57,6 @@ class SyncPhraseTraining extends Command
             ->having('count', '>', 1)
             ->get();
 
-        /*
-        $wordsReset = Word::all();
-
-        foreach ($wordsReset as $word2){
-            Word::where('name', '=', $word2->name)
-                ->update(['phrase_training' => 0]);
-        }
-        */
         foreach ($words as $word){
             Word::where('name', '=', $word->name)
                 ->update(['phrase_training' => $word->count]);

@@ -57,13 +57,33 @@
                         </div>
                     </form>
                 </div>
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Обработанные субтитры</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Английские субтитры</label>
+                            <textarea class="form-control" name="en_text" rows="15" placeholder="Enter ...">{{ $element->en_after_check }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Русские субтитры</label>
+                            <textarea class="form-control" name="ru_text" rows="15" placeholder="Enter ...">{{ $element->ru_after_check }}</textarea>
+                        </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Сохранить</button>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
                 <!-- /.box-body -->
             </div>
         </div>
         <div class="col-xs-6">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Youtube</h3>
+                    <h3 class="box-title">Скаченные субтитры</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
