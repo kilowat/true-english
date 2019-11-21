@@ -100,7 +100,7 @@ class YoutubeSync extends Command
     private function makeFields(YoutubeParsered $item)
     {
         $fields = [];
-        $fields['code'] = $title = Str::slug($item->title."-".$item->code, "-");
+        $fields['code'] = $title = Str::slug(Str::limit($item->title, 30, '')."-".$item->code, "-");
         $fields["subtitles"] = "";
 
         try {
