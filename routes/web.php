@@ -164,6 +164,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('youtube-videos/edit/{id}', 'AdminYoutubeVideoController@edit')->name('admin.youtube-video.edit');
     Route::post('youtube-videos/update/{id}', 'AdminYoutubeVideoController@update')->name('admin.youtube-video.update');
     Route::get('youtube-videos/delete/{id}', 'AdminYoutubeVideoController@delete')->name('admin.youtube-video.delete');
+    Route::get('youtube-videos/delete-all', 'AdminYoutubeVideoController@deleteAllDone')->name('admin.youtube-video.delete-all');
 
     Route::get('youtube-channels', 'AdminYoutubeChannelController@index')->name('admin.youtube-channel.index');
     Route::get('youtube-channels/data-list', 'AdminYoutubeChannelController@dataList')->name('admin.youtube-channel.data-list');

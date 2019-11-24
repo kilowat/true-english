@@ -18,8 +18,6 @@ class CreateYoutubeTable extends Migration
             $table->string('code')->unique();
             $table->mediumText('en_text')->nullable();
             $table->mediumText('ru_text')->nullable();
-            $table->mediumText('en_after_check')->nullable();
-            $table->mediumText('ru_after_check')->nullable();
             $table->mediumText('ipa_text');
             $table->string('picture', 64)->nullable();
             $table->string("title")->nullable();

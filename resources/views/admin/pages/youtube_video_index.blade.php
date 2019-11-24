@@ -13,7 +13,7 @@
                 <div class="box-header">
                     <div class="button-row">
                         <a href="{{ route('admin.youtube-video.add') }}" title="Добавить" class="btn btn-primary">Добавить</a>
-                        <a href="{{ route('admin.grammar-element.add') }}" title="Очистить" class="btn btn-danger">Очистить</a>
+                        <a href="javascript:void(0)" onclick="if (window.confirm('Отчистить историю?')) location.href='{{ route('admin.youtube-video.delete-all') }}';" title="Очистить" class="btn btn-danger">Очистить</a>
                     </div>
                 </div>
                 <!-- /.box-header -->

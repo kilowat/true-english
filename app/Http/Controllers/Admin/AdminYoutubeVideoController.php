@@ -45,6 +45,13 @@ class AdminYoutubeVideoController extends AdminController
     }
 
 
+    public function deleteAllDone()
+    {
+        $res = YoutubeParsered::where('status', '>', '0')->delete();
+
+        return redirect()->back();
+    }
+
     public function delete($id)
     {
         YoutubeParsered::destroy($id);

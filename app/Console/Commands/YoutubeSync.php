@@ -149,12 +149,6 @@ class YoutubeSync extends Command
 
         if($en['count'] != $ru['count'])
         {
-            $field = [
-                "en_after_check" => $result['en_text'],
-                "ru_after_check" => $result['ru_text'],
-            ];
-            $this->youtubeModel->where("code", "=", $item->code)->update($field);
-
             throw new \Exception('diff length');
         }
 
