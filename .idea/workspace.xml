@@ -4,7 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/resources/views/widgets/tags.blade.php" line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="" />
+    <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/word_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/word_info.blade.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClearEmptyWordCardTable.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClearEmptyWordCardTable.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/ClearEmptyWordCardTable.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="277">
@@ -56,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2019_11_16_175335_create_youtube_channels_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_11_16_175335_create_youtube_channels_table.php">
+      <file leaf-file-name="word_info.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/word_info.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="63" />
+            <state relative-caret-position="483">
+              <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -209,7 +211,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_11_16_175335_create_youtube_channels_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/word_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/_main.scss" />
         <option value="$PROJECT_DIR$/app/Console/Commands/YoutubeSync.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_11_16_110837_create_youtube_table.php" />
@@ -219,6 +220,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminYoutubeVideoController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_09_12_130451_create_word_card_words_table.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/ClearEmptyWordCardTable.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/word_info.blade.php" />
       </list>
     </option>
   </component>
@@ -509,6 +511,13 @@
               <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="component" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -635,7 +644,7 @@
       <workItem from="1573021126987" duration="16722000" />
       <workItem from="1573107225029" duration="70502000" />
       <workItem from="1573363856562" duration="35224000" />
-      <workItem from="1573722447316" duration="75793000" />
+      <workItem from="1573722447316" duration="76294000" />
     </task>
     <servers />
   </component>
@@ -651,7 +660,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1066726000" />
+    <option name="totallyTimeSpent" value="1067227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -952,13 +961,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/word_info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="34" column="60" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/_main.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1052,6 +1054,13 @@
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/word_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
         </state>
       </provider>
     </entry>
