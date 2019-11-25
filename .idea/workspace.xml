@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/YoutubeSync.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/YoutubeSync.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/word_collection_elements.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/word_collection_elements.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,14 +28,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="YoutubeSync.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="YoutubeSync.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/YoutubeSync.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="712">
-              <caret line="185" column="13" selection-start-line="185" selection-start-column="13" selection-end-line="185" selection-end-column="13" />
+            <state relative-caret-position="277">
+              <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="e#40#64#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="word_collection_elements.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/pages/word_collection_elements.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -56,11 +65,6 @@
               <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PageController.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="Kernel.php" pinned="false" current-in-tab="false">
@@ -161,7 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/SentenceForvo.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/SearchWordInPhrases.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/SearchWordInSentence.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/SyncSentenceTraining.php" />
@@ -212,6 +215,7 @@
         <option value="$PROJECT_DIR$/resources/views/pages/word_table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/word_info.blade.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/YoutubeSync.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/word_collection_elements.blade.php" />
       </list>
     </option>
   </component>
@@ -625,7 +629,7 @@
       <workItem from="1573021126987" duration="16722000" />
       <workItem from="1573107225029" duration="70502000" />
       <workItem from="1573363856562" duration="35224000" />
-      <workItem from="1573722447316" duration="79395000" />
+      <workItem from="1573722447316" duration="80605000" />
     </task>
     <servers />
   </component>
@@ -641,7 +645,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1070328000" />
+    <option name="totallyTimeSpent" value="1071538000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -682,13 +686,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/adminlte.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="197" column="45" selection-start-line="197" selection-start-column="45" selection-end-line="197" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/grammar_element_add.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -1019,11 +1016,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/YoutubeSync.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="185" column="13" selection-start-line="185" selection-start-column="13" selection-end-line="185" selection-end-column="13" />
+        <state relative-caret-position="277">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
           <folding>
             <element signature="e#40#64#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/word_collection_elements.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
         </state>
       </provider>
     </entry>

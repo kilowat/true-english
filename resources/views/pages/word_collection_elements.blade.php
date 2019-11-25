@@ -22,7 +22,7 @@
 @section('breadcrumbs', Breadcrumbs::render('word_section', $section))
 
 @section('content')
-    <section>
+    <section class="section-list">
         <h1 class="section-header">{{ $section->name }}</h1>
         <div class="row">
             @foreach($elements as $element)
