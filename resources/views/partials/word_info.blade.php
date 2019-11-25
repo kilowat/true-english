@@ -29,12 +29,12 @@
                         <div class="link-list">
                             @if($word->phrase_training > 0)
                                 <div class="link-row">
-                                    <a href="{{ route('word-training.phrase', $word->name) }}" title="Фразы">Фразы ({{ $word->phrase_training }})</a>
+                                    <a href="{{ route('word-training.card', $word->name) }}" title="Фразы">Фразы ({{ $word->phrase_training }})</a>
                                 </div>
                             @endif
                             @if($word->listen_training > 0)
                                 <div class="link-row">
-                                    <a href="{{ route('word-training.sentence', $word->name) }}" title="Фразы">Слух ({{ $word->listen_training }})</a>
+                                    <a href="{{ route('word-training-sentence.card', $word->name) }}" title="Фразы">Слух ({{ $word->listen_training }})</a>
                                 </div>
                             @endif
                         </div>
