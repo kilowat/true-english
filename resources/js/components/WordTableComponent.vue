@@ -144,7 +144,7 @@
                 currentPage: 1,
                 perPage: 25,
                 sortFields:{"name":true, "freq": true},
-                sortedColumn: "name",
+                sortedColumn: "freq",
                 order: 'asc',
             }
         },

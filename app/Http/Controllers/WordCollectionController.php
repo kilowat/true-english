@@ -64,7 +64,7 @@ class WordCollectionController extends Controller
         $page = Page::where("code", "=", $request->getRequestUri())->first();
 
         $elements = WordCard::where('active', '=', 1)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'asc')
             ->orderBy('sort', 'asc')
             ->orderBy('id', 'desc')
             ->paginate($this->elementPaginateCount);
@@ -147,7 +147,7 @@ class WordCollectionController extends Controller
         $card = WordCard::where('id','=',$card_id)->where('active', '=', 1);
 
         $sort = $request->column ? $request->column : "freq";
-        $order = $request->order ? $request->order : "desc";
+        $order = $request->order ? $request->order : "asc";
 
         $this->checkNeedShow404($card);
 

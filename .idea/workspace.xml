@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7246b47-9430-46ed-93b8-3978eb32a467" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/word_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/word_info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,6 +48,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="WordTableComponent.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="147" column="27" selection-start-line="147" selection-start-column="27" selection-end-line="147" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ClearEmptyWordCardTable.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/ClearEmptyWordCardTable.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -58,7 +69,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="word_info.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="word_info.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/partials/word_info.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="483">
@@ -67,9 +78,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="WordCollectionController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="149" column="57" selection-start-line="149" selection-start-column="57" selection-end-line="149" selection-end-column="57" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="AdminYoutubeVideoController.php" pinned="false" current-in-tab="false">
@@ -89,15 +104,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="484">
               <caret line="166" column="38" selection-start-line="166" selection-start-column="38" selection-end-line="166" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="youtube_video_index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/pages/youtube_video_index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -179,7 +185,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/WordTrainingController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/SentenceTraining.vue" />
         <option value="$PROJECT_DIR$/app/Http/Resources/WordResource.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PageController.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/YoutubeParse.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -209,7 +214,6 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/ClearPharseTraining.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/ClearPhraseTraining.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_11_16_175335_create_youtube_channels_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
         <option value="$PROJECT_DIR$/resources/sass/_main.scss" />
         <option value="$PROJECT_DIR$/app/Console/Commands/YoutubeSync.php" />
@@ -221,6 +225,8 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_09_12_130451_create_word_card_words_table.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/ClearEmptyWordCardTable.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/word_info.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/WordTableComponent.vue" />
       </list>
     </option>
   </component>
@@ -442,14 +448,6 @@
               <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Requests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -478,6 +476,19 @@
               <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
               <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="true-english.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="true-english.ru" type="b2602c69:ProjectViewProjectNode" />
@@ -644,7 +655,7 @@
       <workItem from="1573021126987" duration="16722000" />
       <workItem from="1573107225029" duration="70502000" />
       <workItem from="1573363856562" duration="35224000" />
-      <workItem from="1573722447316" duration="76294000" />
+      <workItem from="1573722447316" duration="77038000" />
     </task>
     <servers />
   </component>
@@ -660,7 +671,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1067227000" />
+    <option name="totallyTimeSpent" value="1067971000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -701,13 +712,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/qcod/laravel-imageup/src/HasImageUploads.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="170" column="32" selection-start-line="170" selection-start-column="27" selection-end-line="170" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -932,13 +936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="168" column="26" selection-start-line="168" selection-start-column="26" selection-end-line="168" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/SyncPhraseTraining.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="946">
@@ -1061,6 +1058,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WordCollectionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="149" column="57" selection-start-line="149" selection-start-column="57" selection-end-line="149" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/WordTableComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="147" column="27" selection-start-line="147" selection-start-column="27" selection-end-line="147" selection-end-column="27" />
         </state>
       </provider>
     </entry>
