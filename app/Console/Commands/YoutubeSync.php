@@ -171,7 +171,7 @@ class YoutubeSync extends Command
             ////////////////////
             $new_line = implode("\n", $sub_line);
             //Перевел, перевела, переводчик
-
+            /*
             if($key == 0 && preg_match('/ерев/', $new_line)){
                 continue;
             }
@@ -183,7 +183,7 @@ class YoutubeSync extends Command
             if($key == 0 && preg_match('/eviewer/', $new_line)){
                 continue;
             }
-
+            */
             $new_lines[] = $new_line;
             $count++;
             /*
