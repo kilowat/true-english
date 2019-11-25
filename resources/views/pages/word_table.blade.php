@@ -24,7 +24,7 @@
     </div>
     <div class="table-page table-component">
         <h1 class="section-header">{{ $card->name }}</h1>
-        <word-table-component card-id="{{ $card->id }}" sort-field="freq" sort-order="desc"></word-table-component>
+        <word-table-component card-id="{{ $card->id }}" sort-field="freq" sort-order="asc"></word-table-component>
     </div>
 </div>
 
