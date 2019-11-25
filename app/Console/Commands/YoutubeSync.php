@@ -175,6 +175,10 @@ class YoutubeSync extends Command
             if($key == 0 && preg_match('/ерев/', $new_line)){
                 continue;
             }
+            
+            if($key == 0 && preg_match('/ranslat/', $new_line)){
+                continue;
+            }
 
             $new_lines[] = $new_line;
             $count++;
