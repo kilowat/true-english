@@ -38,7 +38,7 @@
                                 </div>
                             @endif
                             <div class="link-row">
-                                <span class="example-link" data-url="{{ route('word.example', 'normal') }}" onclick="_app.showExamples(this)" title="Примеры">Примеры</span>
+                                <span class="example-link" data-url="{{ route('word.example', $word->name) }}" onclick="_app.showExamples(this)" title="Примеры">Примеры</span>
                             </div>
                         </div>
                     </div>
