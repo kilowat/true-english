@@ -73,14 +73,8 @@
                             <div class="config-cell delay-player">
                                 <label>Пауза</label>
                                 <select name="video-delay" class="browser-default" id="video-delay">
-                                    <option value="0" selected="selected">0</option>
+                                    <option value="0" selected="selected">Нет</option>
                                     <option value="-1">На фразе</option>
-                                    <option value="1000">1 сек</option>
-                                    <option value="2000">2 сек</option>
-                                    <option value="3000">3 сек</option>
-                                    <option value="5000">5 сек</option>
-                                    <option value="8000">8 сек</option>
-                                    <option value="10000">10 сек</option>
                                 </select>
                             </div>
                             <div class="config-cell font-size">

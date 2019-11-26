@@ -199,6 +199,27 @@ window.runYouglish = function (word){
 }
 
 window._app = (() => {
+    let workExample = false
+
+    let showExamples = (e)=>{
+        if(workExample) return false;
+
+        $(".word-info").append('<div class="ajax-load"></div>');
+
+        workExample = true;
+
+        $.ajax({
+            url: $(e).data('url')
+        }).done(function(res){
+            workExample = false;
+            $('.ajax-load').remove();
+
+            $.fancybox.open(res,{
+
+            });
+        })
+    }
+
     let setYouglishAutoPlay = (e)=>{
         if(e.checked)
             localStorage.youglish_autoNext = 'yes';
@@ -249,6 +270,7 @@ window._app = (() => {
         setYouglishAutoPlay : setYouglishAutoPlay,
         highlight: highlight,
         goBack: goBack,
+        showExamples: showExamples,
     }
 })();
 

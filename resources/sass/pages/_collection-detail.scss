@@ -169,6 +169,28 @@ span.tip-text {
     }
   }
 }
+.example-link{
+  color:red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.examples{
+  .example-row{
+    margin-bottom: 8px;
+  }
+  >div{
+    line-height: 1.1;
+  }
+  .en-text{
+
+  }
+  .ru-text{
+    color:green;
+  }
+  .ipa-text{
+    color:red;
+  }
+}
 
 /////table page
 .table-page{
