@@ -84,7 +84,7 @@
                 <div class='table_small'>
                     <div class='table_cell'>Ссылки:</div>
                     <div class='table_cell link-cell'>
-                        <a v-bind:href="tableData[key1].contextReversoLink" target="_blank" title="reverso"><i class="icon ic-reverso"></i></a>
+                        <a v-bind:href="tableData[key1].forvoLink" target="_blank"><i class="icon ic-forvo"></i></a>
                         <a v-bind:href="tableData[key1].meriamlLink" target="_blank"><i class="icon ic-meriam"></i></a>
                         <a v-bind:href="tableData[key1].wordHuntLink" target="_blank"><i class="icon ic-word-hunt"></i></a>
                         <a v-bind:href="tableData[key1].yandexLink" target="_blank"><i class="icon ic-yandex"></i></a>

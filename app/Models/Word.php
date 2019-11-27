@@ -50,6 +50,11 @@ class Word extends ModelCI
         return "https://youglish.com/search/".$this->name."/all";
     }
 
+    public function getForvoLinkAttribute()
+    {
+        return "https://forvo.com/word/".$this->name."/#en";
+    }
+
     public function audio()
     {
         return $this->hasOneCI(

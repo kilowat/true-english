@@ -48,6 +48,7 @@
                     <div class="table-cell">
                         <div class="link-list">
                             <a href="javascript:void(0)" onclick="window.openYouglishBox('{{ $word->name }}')"><i class="icon ic-youglish"></i></a>
+                            <a href="{{ $word->forvoLink }}" target="_blank" title="forvo"><i class="icon ic-forvo"></i></a>
                             <a href="{{ $word->contextReversoLink }}" target="_blank" title="reverso"><i class="icon ic-reverso"></i></a>
                             <a href="{{ $word->meriamlLink }}" target="_blank"><i class="icon ic-meriam"></i></a>
                             <a href="{{ $word->wordHuntLink }}" target="_blank"><i class="icon ic-word-hunt"></i></a>

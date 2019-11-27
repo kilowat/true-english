@@ -21,6 +21,7 @@ class WordResource extends JsonResource
             "translate" => $this->translate,
             "audio" => new AudioResource($this->whenLoaded('audio')),
             "contextReversoLink" => $this->contextReversoLink,
+            "forvoLink" => $this->forvoLink,
             "wordHuntLink" => $this->wordHuntLink,
             "meriamlLink" => $this->meriamlLink,
             "yandexLink" => $this->yandexLink,
