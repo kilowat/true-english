@@ -19,6 +19,11 @@ class WordController extends Controller
     {
         $examples = Example::where('word', '=', $code)->first();
 
-        return view("partials.word_example", ['examples' => $examples->items]);
+        if($examples)
+            $items = $examples->items;
+        else
+            $items = [];
+
+        return view("partials.word_example", ['examples' => $items]);
     }
 }

@@ -210,13 +210,17 @@ window._app = (() => {
 
         $.ajax({
             url: $(e).data('url')
-        }).done(function(res){
+        }).success(function(res){
             workExample = false;
             $('.ajax-load').remove();
 
             $.fancybox.open(res,{
 
             });
+        }).error(function(){
+            workExample = false;
+            $('.ajax-load').remove();
+            alert("Произошла ошибка")
         })
     }
 
