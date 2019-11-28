@@ -48,6 +48,9 @@ Route::get('/api/words/id/{id}', 'ApiController@words')->name('api.words');
 Route::get('/api/words-table/id/{id}', 'ApiController@wordTableResource')->name('api.table-words');
 Route::get('/api/text-words/id/{id}', 'ApiController@textWords')->name('api.text-words');
 
+Route::get('phrases', 'PhrasesController@phrasesIndex')->name('phrases.index');
+Route::get('phrases/list', 'PhrasesController@phraseTableData')->name('phrases.list');
+
 Route::get('misc', 'PageController@misc')->name('page.misc');
 
 Route::get('/', 'PageController@home')->name('page.home');

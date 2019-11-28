@@ -53,6 +53,10 @@ Breadcrumbs::for('prononciation_detail', function ($trail, $pronons) {
     $trail->push('Произношение', route('prononciation.index'));
     $trail->push($pronons->name);
 });
+Breadcrumbs::for('phrases_index', function ($trail) {
+    $trail->push('Главная', route('page.home'));
+    $trail->push('Фразы');
+});
 Breadcrumbs::for('misc_index', function ($trail) {
     $trail->push('Главная', route('page.home'));
     $trail->push('Полезно');

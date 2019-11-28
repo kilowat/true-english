@@ -16,10 +16,10 @@ class PhraseResource extends JsonResource
     {
         return [
             "word" => $this->word,
-            "audio_url" => $this->url,
             "en_text" => $this->en_text,
             "ru_text" => $this->ru_text,
-            "ipa_text" => $this->ipa_text
+            "ipa_text" => $this->ipa_text,
+            "audio" => $this->url,
         ];
     }
 }

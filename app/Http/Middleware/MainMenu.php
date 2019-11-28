@@ -22,6 +22,7 @@ class MainMenu
             $menu->add("Грамматика", ['route' => 'grammar.index']);
             $menu->add("Произношение", ['route' => 'prononciation.index']);
             $menu->add("Статьи", ['route' => 'article.index']);
+            $menu->add("Фразы", ['route' => 'phrases.index']);
             $menu->add("Полезное", ['route' => 'page.misc']);
 
             foreach($menu->items as $item){
