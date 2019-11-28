@@ -202,18 +202,26 @@
                     }
                 }).then(d => {
                     this.dataBase = d;
-                    d.table_phrase_history.query()
-                        .filter('id', this.id)
-                        .execute()
-                        .then((results)=> {
-                            if(results[0]){
-                                this.currentPage = results[0].page ? results[0].page : 1;
-                                this.selectedRow = results[0].row ? results[0].row : 0;
-                                this.sortedColumn = results[0].sort ? results[0].sort : this.sortedColumn;
-                                this.order = results[0].order ? results[0].order : this.order;
-                            }
-                            this.fetchData()
+                    try {
+                        d.table_phrase_history.query()
+                            .filter('id', this.id)
+                            .execute()
+                            .then((results) => {
+                                if (results[0]) {
+                                    this.currentPage = results[0].page ? results[0].page : 1;
+                                    this.selectedRow = results[0].row ? results[0].row : 0;
+                                    this.sortedColumn = results[0].sort ? results[0].sort : this.sortedColumn;
+                                    this.order = results[0].order ? results[0].order : this.order;
+                                }
+                                this.fetchData()
+                            })
+                    }catch(e){
+                        window.db.delete('true_english').then(function (ev) {
+
+                        }, function (err) {
+
                         })
+                    }
                 }).catch(d => {
                     this.fetchData()
                 });
@@ -437,11 +445,16 @@
     .search-row{
         margin-top: 20px;
         display: flex;
-        width:200px;
+        width:300px;
     }
     .action-block{
         display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         justify-content: space-between;
+        margin-bottom: 15px;
     }
     .nav-table{
         text-align: center;
@@ -453,7 +466,7 @@
     }
     .hot-keys{
         max-width: 1400px;
-        width: calc(100% - 350px);
+        width: calc(100% - 400px);
         text-align: right;
         margin-top: 8px;
     }
