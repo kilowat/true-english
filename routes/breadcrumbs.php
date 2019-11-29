@@ -57,6 +57,10 @@ Breadcrumbs::for('phrases_index', function ($trail) {
     $trail->push('Главная', route('page.home'));
     $trail->push('Фразы');
 });
+Breadcrumbs::for('sentence_index', function ($trail) {
+    $trail->push('Главная', route('page.home'));
+    $trail->push('Предложения');
+});
 Breadcrumbs::for('misc_index', function ($trail) {
     $trail->push('Главная', route('page.home'));
     $trail->push('Полезно');

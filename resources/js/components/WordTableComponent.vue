@@ -74,10 +74,10 @@
                     <div class='table_cell training-cell'>
                         <div><a href="javascript:void(0)" @click="openYouglishBox(tableData[key1].name)"><i class="icon ic-youglish"></i></a></div>
                         <div v-if="tableData[key1].phraseTraining > 0">
-                            <a @click="saveUrl" v-bind:target="_blank" v-bind:href="'/word-training/'+tableData[key1].name">Фразы: {{ tableData[key1].phraseTraining }}</a>
+                            <a @click="saveUrl" target="_blank" v-bind:href="'/word-training/'+tableData[key1].name">Фразы: {{ tableData[key1].phraseTraining }}</a>
                         </div>
                         <div v-if="tableData[key1].listenTraining > 0">
-                            <a @click="saveUrl" v-bind:target="_blank" v-bind:href="'/word-training-sentence/'+tableData[key1].name">Слух: {{ tableData[key1].listenTraining }}</a>
+                            <a @click="saveUrl" target="_blank" v-bind:href="'/word-training-sentence/'+tableData[key1].name">Слух: {{ tableData[key1].listenTraining }}</a>
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,8 @@
                 immediate: true
             },
             selectedRow(value){
-                if(this.dataBase){
+                console.log(this.dataBase.table_history);
+                if(this.dataBase.table_history != undefined){
                     this.dataBase.table_history.update({
                         card_id: this.cardId,
                         page: this.currentPage,
@@ -188,7 +189,7 @@
 
             if ( indexDbCheck ) {
                 db.open({
-                    server: 'true_english',
+                    server: 'true_english_words',
                     version: 1,
                     schema: {
                         table_history: {
@@ -202,29 +203,21 @@
                     }
                 }).then(d => {
                     this.dataBase = d;
-                    try {
-                        d.table_history.query()
-                            .filter('card_id', this.cardId)
-                            .execute()
-                            .then((results) => {
-                                if (results[0]) {
-                                    this.currentPage = results[0].page ? results[0].page : 1;
-                                    this.selectedRow = results[0].row ? results[0].row : 0;
-                                    this.sortedColumn = results[0].sort ? results[0].sort : this.sortedColumn;
-                                    this.order = results[0].order ? results[0].order : this.order;
-                                }
-                                this.fetchData()
-                            })
-                    }catch(e){
-                        window.db.delete('true_english').then(function (ev) {
-
-                        }, function (err) {
-
+                    d.table_history.query()
+                        .filter('card_id', this.cardId)
+                        .execute()
+                        .then((results) => {
+                            if (results[0]) {
+                                this.currentPage = results[0].page ? results[0].page : 1;
+                                this.selectedRow = results[0].row ? results[0].row : 0;
+                                this.sortedColumn = results[0].sort ? results[0].sort : this.sortedColumn;
+                                this.order = results[0].order ? results[0].order : this.order;
+                            }
+                            this.fetchData()
                         })
 
-                        this.fetchData()
-                    }
                 }).catch(d => {
+                    console.log(d);
                     this.fetchData()
                 });
             }else{
@@ -270,7 +263,7 @@
                         this.pagination = data
                         this.tableData = data.data
                         this.working = false;
-                        if(this.dataBase) {
+                        if(this.dataBase.table_history) {
                             this.dataBase.table_history.update({
                                 card_id: this.cardId,
                                 page: this.currentPage,

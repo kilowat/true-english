@@ -78,7 +78,9 @@
                     <div v-if="key=='en_text'" class='table_cell value_cell'>
                         <div class="en-text" v-html="enText(tableData[key1].en_text)"></div>
                         <div class="ipa-text">{{ tableData[key1].ipa_text}}</div>
-                        <div class="ru-text">{{ tableData[key1].ru_text[0]}}</div>
+                        <div class="ru-text" v-if="sentence!='Y'">{{ tableData[key1].ru_text[0]}}</div>
+                        <div class="ru-text" v-else-if="tableData[key1].ru_text!=''">{{ tableData[key1].ru_text}}</div>
+                        <div class="ru-text" v-else>(Ещё нет)</div>
                     </div>
                 </div>
             </div>
@@ -111,6 +113,7 @@
             sortOrder:{type:String, required:false},
             sortField: {type:String, required:false},
             url: { type: String, required: true },
+            sentence: { type: String, required: false },
         },
         mounted() {
             this.audioLoad();
@@ -152,7 +155,7 @@
                 immediate: true
             },
             selectedRow(value){
-                if(this.dataBase){
+                if(this.dataBase.table_phrase_history != undefined){
                     this.dataBase.table_phrase_history.update({
                         id: this.id,
                         page: this.currentPage,
@@ -176,6 +179,9 @@
             if(this.sortOrder){
                 this.order = this.sortOrder;
             }
+            if(this.sentence == "Y"){
+                this.id = 2;
+            }
             /*
             window.db.delete('true_english').then(function (ev) {
 
@@ -188,7 +194,7 @@
 
             if ( indexDbCheck ) {
                 db.open({
-                    server: 'true_english',
+                    server: 'true_english_phrase',
                     version: 1,
                     schema: {
                         table_phrase_history: {
@@ -216,21 +222,23 @@
                                 this.fetchData()
                             })
                     }catch(e){
-                        window.db.delete('true_english').then(function (ev) {
-
-                        }, function (err) {
-
-                        })
-
+                        console.log(e);
                         this.fetchData()
+                        if(window.db){
+                            window.db.delete('true_english').then(function (ev) {
+
+                            }, function (err) {
+
+                            })
+                        }
                     }
                 }).catch(d => {
+                    console.log(d);
                     this.fetchData()
                 });
             }else{
                 this.fetchData()
             }
-
         },
         computed: {
             /**
@@ -270,7 +278,7 @@
                         this.pagination = data
                         this.tableData = data.data
                         this.working = false;
-                        if(this.dataBase) {
+                        if(this.dataBase.table_phrase_history != undefined) {
                             this.dataBase.table_phrase_history.update({
                                 id: this.id,
                                 page: this.currentPage,

@@ -120,8 +120,6 @@
                     this.page_current = next_page;
                     this.setHashTag();
 
-
-
                     this.$nextTick(()=>{
                         this.playAudio();
                     })
