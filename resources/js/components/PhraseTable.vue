@@ -73,10 +73,10 @@
                         <span v-else><i class="material-icons dp48">volume_off</i></span>
                     </div>
                     <div v-if="key=='word'" class='table_cell value_cell'>
-                        <div class="word">{{ value}}</div>
+                        <div class="word" v-html="enText(tableData[key1].word)"></div>
                     </div>
                     <div v-if="key=='en_text'" class='table_cell value_cell'>
-                        <div class="en-text">{{ tableData[key1].en_text}}</div>
+                        <div class="en-text" v-html="enText(tableData[key1].en_text)"></div>
                         <div class="ipa-text">{{ tableData[key1].ipa_text}}</div>
                         <div class="ru-text">{{ tableData[key1].ru_text[0]}}</div>
                     </div>
@@ -351,6 +351,10 @@
             search() {
                 this.currentPage = 1;
                 this.fetchData()
+            },
+            enText(text){
+                text = text.replace(/[a-zA-Z’'<//>]+/g, "<span class='s-link'>$&</span>");
+                return text;
             },
             setHandlerKeyPressed(){
                 $(document).keydown((event) => {
