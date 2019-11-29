@@ -4,7 +4,7 @@
          id="table-words">
         <div class="action-block">
             <div class="search-row">
-                <input @keyup.enter="search" type="text" class="text-input" placeholder="Поиск.." v-model="like">
+                <input @keyup.enter="search" type="text" class="text-input" placeholder="Поиск по слову" v-model="like">
                 <button type="button" @click="search" class="search-btn btn">Искать</button>
             </div>
             <div class="hot-keys">
@@ -23,7 +23,7 @@
             <div class="select-page">
                 <label for="page-number-top">Перейти к странице:</label>
                 <input type="number" class="select-page-input text-input" id="page-number-top" v-model="inputPage" @change.prevent="changePage(inputPage)">
-                из {{ pagination.meta.total }}
+                из {{ pagination.meta.last_page }}
             </div>
             <ul class="pagination">
                 <li class="page-item" :class="{'disabled' : currentPage === 1}">
@@ -87,7 +87,7 @@
             <div class="select-page">
                 <label for="page-number-bottom">Перейти к странице:</label>
                 <input type="number" class="select-page-input text-input" id="page-number-bottom" v-model="inputPage" @change.prevent="changePage(inputPage)">
-                из {{ pagination.meta.total }}
+                из {{ pagination.meta.last_page }}
             </div>
             <ul class="pagination">
                 <li class="page-item" :class="{'disabled' : currentPage === 1}">
