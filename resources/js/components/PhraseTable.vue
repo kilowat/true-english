@@ -221,6 +221,8 @@
                         }, function (err) {
 
                         })
+
+                        this.fetchData()
                     }
                 }).catch(d => {
                     this.fetchData()

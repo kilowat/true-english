@@ -202,18 +202,28 @@
                     }
                 }).then(d => {
                     this.dataBase = d;
-                    d.table_history.query()
-                        .filter('card_id', this.cardId)
-                        .execute()
-                        .then((results)=> {
-                            if(results[0]){
-                                this.currentPage = results[0].page ? results[0].page : 1;
-                                this.selectedRow = results[0].row ? results[0].row : 0;
-                                this.sortedColumn = results[0].sort ? results[0].sort : this.sortedColumn;
-                                this.order = results[0].order ? results[0].order : this.order;
-                            }
-                            this.fetchData()
+                    try {
+                        d.table_history.query()
+                            .filter('card_id', this.cardId)
+                            .execute()
+                            .then((results) => {
+                                if (results[0]) {
+                                    this.currentPage = results[0].page ? results[0].page : 1;
+                                    this.selectedRow = results[0].row ? results[0].row : 0;
+                                    this.sortedColumn = results[0].sort ? results[0].sort : this.sortedColumn;
+                                    this.order = results[0].order ? results[0].order : this.order;
+                                }
+                                this.fetchData()
+                            })
+                    }catch(e){
+                        window.db.delete('true_english').then(function (ev) {
+
+                        }, function (err) {
+
                         })
+
+                        this.fetchData()
+                    }
                 }).catch(d => {
                     this.fetchData()
                 });
