@@ -238,7 +238,18 @@ html, body {
   display: table-cell;
   padding: 8px;
 }
-
+.support-block{
+  text-align: center;
+}
+.support-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  b{
+    margin-right: 15px;
+    font-size: 20px;
+  }
+}
 .nav-pagen{
   text-align: center;
   .pagination{
