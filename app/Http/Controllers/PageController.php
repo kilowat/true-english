@@ -21,4 +21,9 @@ class PageController extends Controller
 
         return view('pages.misc_index', compact('page'));
     }
+
+    public function test()
+    {
+        return view('pages.test');
+    }
 }

@@ -373,9 +373,12 @@ span.tip-text {
   left: 50%;
 }
 .word-info.fancybox-content {
-  padding: 24px;
+  padding: 2px;
 }
 .word-info{
+  audio{
+    width: 160px;
+  }
   margin: 12px;
   max-width: 520px;
   .link-list{

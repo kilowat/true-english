@@ -9,8 +9,10 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Resources\IngWordTrainingResource;
 use App\Models\Grammar;
 use App\Models\GrammarSection;
+use App\Models\IngWordTrainingModel;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
@@ -63,5 +65,19 @@ class GrammarController extends Controller
         $grammar = Grammar::where("code", "=", $code)->where('active', '=', 1)->firstOrFail();
 
         return view("pages.grammar_detail", compact('grammar', 'section'));
+    }
+
+    public function getIngFormTraining(Request $request)
+    {
+        $limit = $request->limit ? $request->limit : 100;
+        $words = IngWordTrainingModel::query()
+            ->leftJoin('words','word','=','name')
+            ->limit($limit)
+            ->inRandomOrder()
+            ->get();
+
+        $resource = IngWordTrainingResource::collection($words);
+
+        return $resource;
     }
 }
