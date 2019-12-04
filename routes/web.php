@@ -29,7 +29,7 @@ Route::get('word-example/{code}', 'WordController@example')->name('word.example'
 Route::get('grammar', 'GrammarController@index')->name('grammar.index');
 Route::get('grammar/{section}', 'GrammarController@section')->name('grammar.section');
 Route::get('grammar/{section_code}/{code}.html', 'GrammarController@detail')->name('grammar.detail');
-Route::get('/grammar/ing-form-training/list', 'GrammarController@getIngFormTraining')->name('grammar.ing-form-training');
+Route::get('grammar/ing-form-training/list', 'GrammarController@getIngFormTraining')->name('grammar.ing-form-training');
 
 
 Route::get('prononciation', 'PrononsController@index')->name('prononciation.index');

@@ -49,7 +49,7 @@
         methods: {
             fetch(){
                 this.working = true;
-                let dataFetchUrl = "grammar/ing-form-training/list";
+                let dataFetchUrl = "/grammar/ing-form-training/list";
                 axios.get(dataFetchUrl)
                     .then((response)=>{
                         this.show = false;
