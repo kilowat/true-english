@@ -9,8 +9,13 @@
             </div>
         </div>
         <div class="answer">
-            <input type="text" @keyup.enter="showAnswer" v-model="input"  class="input-text" placeholder="Напиши слово с ing формой" value="">
-
+            <input type="text" @keyup.enter="showAnswer" v-model="input"  class="input-text" v-bind:placeholder="'Напиши ' + currentWord.answer + ' в ing формe'" value="">
+            <div class="answer-result">
+                <span v-if="show">
+                    <span v-if="isSuccess" class="answer-ok">Верно</span>
+                    <span v-else class="answer-error">Не верно</span>
+                </span>
+            </div>
         </div>
         <div class="btn-row">
             <button @click="showAnswer" class="btn">Ответ/Ещё</button>
@@ -70,10 +75,16 @@
                     this.show = true;
                     this.$nextTick(() => {
                         let selected_text = document.querySelector('.answer-row');
-                        if(selected_text)
+                        if(selected_text) {
                             _app.highlight(selected_text, [this.input])
+                        }
                     });
                 }
+            }
+        },
+        computed:{
+            isSuccess(){
+                return this.input == this.currentWord.answer
             }
         }
 
@@ -107,5 +118,14 @@
     }
     .answer-row{
         color: black;
+    }
+    .answer-result{
+        height: 40px;
+    }
+    .answer-ok{
+        color:green;
+    }
+    .answer-error{
+        color:red;
     }
 </style>

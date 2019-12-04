@@ -373,7 +373,10 @@ span.tip-text {
   left: 50%;
 }
 .word-info.fancybox-content {
-  padding: 2px;
+  padding: 24px;
+  @include breakpoint(max-width 420px){
+    padding: 2px;
+  }
 }
 .word-info{
   audio{
