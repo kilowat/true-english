@@ -21,6 +21,8 @@ class GrammarController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('doNotCacheResponse', ['only' => ['getIngFormTraining']]);
+
         $this->initMenu();
     }
 
