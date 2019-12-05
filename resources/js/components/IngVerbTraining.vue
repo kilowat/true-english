@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="answer">
-            <input type="text" @keyup.enter="showAnswer" v-model="input"  class="input-text" v-bind:placeholder="'Напиши ' + currentWord.answer + ' в ing формe'" value="">
+            <input type="text" @keyup.enter="showAnswer" v-model="input"  class="input-text" v-bind:placeholder="'Напиши ' + currentWord.word + ' в ing формe'" value="">
             <div class="answer-result">
                 <span v-if="show">
                     <span v-if="isSuccess" class="answer-ok">Верно</span>
