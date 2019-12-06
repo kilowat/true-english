@@ -34,8 +34,8 @@
                             {{ ru_text }}
                         </div>
                     </div>
-                    <div class="audio-row" v-if="phrases[page_current].audio_url != ''">
-                        <audio :src="phrases[page_current].audio_url"  controls="controls"></audio>
+                    <div class="audio-row" v-if="phrases[page_current].audio != ''">
+                        <audio :src="phrases[page_current].audio"  controls="controls"></audio>
                     </div>
                 </div>
                 <div class="score-row">
@@ -72,8 +72,8 @@
                     <div class="answer-text" v-if="show_answer">
                         <div class="en-text active-text" v-html="enText"></div>
                         <div class="ipa-text">{{ phrases[page_current].ipa_text}}</div>
-                        <div class="audio-row" v-if="phrases[page_current].audio_url != ''">
-                            <audio :src="phrases[page_current].audio_url"  controls="controls"></audio>
+                        <div class="audio-row" v-if="phrases[page_current].audio != ''">
+                            <audio :src="phrases[page_current].audio"  controls="controls"></audio>
                         </div>
                     </div>
                 </div>
