@@ -4,7 +4,7 @@
     <div class="examples">
         @foreach($synonyms as $item)
         <div class="example-row">
-            <div class="en-text">{{ $item->wordRel->name }}</div>
+            <div class="en-text"><span class="s-link">{{ $item->wordRel->name }}</span></div>
             <div class="ipa-text">{{ $item->wordRel->transcription}}</div>
             <div class="ru-text">{{ $item->wordRel->translate }}</div>
         </div>
