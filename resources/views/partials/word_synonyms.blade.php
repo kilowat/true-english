@@ -1,6 +1,6 @@
 
 <div class="word-info">
-    @if($synonyms)
+    @if(!empty($synonyms))
     <div class="examples">
         @foreach($synonyms as $item)
         <div class="example-row">
