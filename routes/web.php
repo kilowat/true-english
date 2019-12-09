@@ -25,6 +25,7 @@ Route::get('word-collections/{section_code}', 'WordCollectionController@section'
 Route::get('word-collections', 'WordCollectionController@index')->name('word-collection.index');
 Route::get('word/{code}', 'WordController@show')->name('word.show');
 Route::get('word-example/{code}', 'WordController@example')->name('word.example');
+Route::get('word-synonyms/{code}', 'WordController@synonyms')->name('word.synonyms');
 
 Route::get('grammar', 'GrammarController@index')->name('grammar.index');
 Route::get('grammar/{section}', 'GrammarController@section')->name('grammar.section');

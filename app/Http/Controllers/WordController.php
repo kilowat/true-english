@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Example;
+use App\Models\Synonym;
 use App\Models\Word;
 use Illuminate\Http\Request;
 
@@ -25,5 +26,12 @@ class WordController extends Controller
             $items = [];
 
         return view("partials.word_example", ['examples' => $items]);
+    }
+
+    public function synonyms($code)
+    {
+        $synonyms = Synonym::where('word', '=', $code)->where("synonym","!=", "")->get();
+
+        return view("partials.word_synonyms", compact('synonyms'));
     }
 }

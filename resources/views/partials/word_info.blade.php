@@ -40,6 +40,9 @@
                             <div class="link-row">
                                 <a href="#" class="example-link" data-url="{{ route('word.example', $word->name) }}" onclick="_app.showExamples(this)" title="Примеры">Примеры</a>
                             </div>
+                            <div class="link-row">
+                                <a href="#" class="synonym-link" data-url="{{ route('word.synonyms', $word->name) }}" onclick="_app.showExamples(this)" title="Синонимы">Синонимы</a>
+                            </div>
                         </div>
                     </div>
                 </div>
