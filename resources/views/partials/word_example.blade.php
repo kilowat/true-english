@@ -4,7 +4,7 @@
         <div class="examples">
             @foreach($examples as $example)
                 <div class="example-row">
-                    <div class="en-text"><span class="s-link">{{$example->en_text}}</span></div>
+                    <div class="en-text">{{$example->en_text}}</div>
                     <div class="ipa-text">{{ $example->ipa_text }}</div>
                     <div class="ru-text">{{ $example->ru_text }}</div>
                 </div>

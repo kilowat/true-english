@@ -59,6 +59,8 @@ Route::get('phrases/list', 'PhrasesController@phraseTableData')->name('phrases.l
 Route::get('sentence', 'PhrasesController@sentenceIndex')->name('sentence.index');
 Route::get('sentence/list', 'PhrasesController@sentenceTableData')->name('sentence.list');
 
+Route::get('dict', 'DictController@dictIndex')->name('dict.index');
+Route::get('dict/list', 'DictController@dictTableData')->name('dict.list');
 
 Route::get('misc', 'PageController@misc')->name('page.misc');
 

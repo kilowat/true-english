@@ -40,6 +40,7 @@ Vue.component('phrase-training', require('./components/PhraseTraining.vue').defa
 Vue.component('sentence-training', require('./components/SentenceTraining.vue').default);
 Vue.component('phrase-table', require('./components/PhraseTable.vue').default);
 Vue.component('ing-verb-training', require('./components/IngVerbTraining.vue').default);
+Vue.component('dict-component', require('./components/DictComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

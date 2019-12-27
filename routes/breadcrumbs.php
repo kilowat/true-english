@@ -65,3 +65,7 @@ Breadcrumbs::for('misc_index', function ($trail) {
     $trail->push('Главная', route('page.home'));
     $trail->push('Полезно');
 });
+Breadcrumbs::for('dict_index', function ($trail) {
+    $trail->push('Главная', route('page.home'));
+    $trail->push('Словарь');
+});

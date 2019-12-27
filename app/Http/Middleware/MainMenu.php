@@ -24,8 +24,8 @@ class MainMenu
             $menu->add("Статьи", ['route' => 'article.index']);
             $menu->add("Фразы", ['route' => 'phrases.index']);
             $menu->add("Предложения", ['route' => 'sentence.index']);
-            $menu->add("Полезное", ['route' => 'page.misc']);
-
+            //$menu->add("Полезное", ['route' => 'page.misc']);
+            $menu->add("Словарь", ['route' => 'dict.index']);
             foreach($menu->items as $item){
                 if($request->segment(1) && array_key_exists("route", $item->link->path)){
                     if(strpos(route($item->link->path["route"]), $request->segment(1))){

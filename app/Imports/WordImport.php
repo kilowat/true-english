@@ -8,6 +8,7 @@ use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Row;
 use Throwable;
 
@@ -54,11 +55,11 @@ class WordImport implements OnEachRow, SkipsOnError
             'transcription' => $row[2],
             'translate' => $row[3],
         ];
-
-        if($wordModel = Word::where("name", "=", $row[1])){
-            $wordModel->update($fields);
+        if($wordModel = Word::where("name", "=", $row[1])->count()){
+            //$wordModel->update($fields);
         }else{
             Word::create($fields);
         }
     }
+
 }
