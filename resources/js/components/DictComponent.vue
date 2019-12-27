@@ -151,7 +151,6 @@
                 autoNext: true,
                 inputPage: 1,
                 columns:{
-                    "freq" : "Индекс",
                     "name" : "Слово",
                     "transcription" : "Тран-ция",
                     "translate" : "Перевод",
