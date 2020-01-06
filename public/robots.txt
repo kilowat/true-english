@@ -1,7 +1,6 @@
 User-agent: *
 Disallow: /admin/
-Disallow: /word-collections/*
-Disallow: /word-collections/word-table/
+Disallow: /word-collections/
 Disallow: /phpMyAdmin/
 Disallow: /api/
 Disallow: /word-training/
