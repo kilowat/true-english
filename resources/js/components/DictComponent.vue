@@ -93,9 +93,6 @@
                         <div class="link-row">
                             <a href="#" class="example-link" v-bind:data-url="'/word-example/'+tableData[key1].name" onclick="_app.showExamples(this)" title="Примеры">Примеры</a>
                         </div>
-                        <div class="link-row">
-                            <a href="#" class="synonym-link" v-bind:data-url="'/word-synonyms/'+tableData[key1].name" onclick="_app.showExamples(this)" title="Синонимы">Синонимы</a>
-                        </div>
                     </div>
                 </div>
                 <div class='table_small'>
